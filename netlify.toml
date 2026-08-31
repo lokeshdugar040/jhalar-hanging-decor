@@ -1,17 +1,7 @@
 [build]
-  publish = "/"
-  command = "echo 'No build step - static site'"
-
-[[redirects]]
-  from = "/admin"
-  to = "/admin/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/:splat"
-  status = 200
+  publish = "."
+  command = "echo 'Static site - no build step required'"
 
 [dev]
   port = 8888
-  publish = "/"
+  publish = "."

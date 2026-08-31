@@ -1,0 +1,103 @@
+media:
+  input: static/images/products
+  output: /static/images/products
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: products
+    label: Products
+    path: content/products
+    type: collection
+    filename: '{primary}.md'
+    view:
+      fields: [name, category, status, featured]
+      primary: name
+      sort: [created_at, name]
+      default_sort: created_at
+    fields:
+      - name: name
+        label: Product Name
+        type: string
+        required: true
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - Pom Pom Hangings
+            - Bead Hangings
+            - Bell Hangings
+            - Floral Jhalars
+            - Torans
+            - Tassel Hangings
+            - Decorative Strings
+            - Custom Designs
+      - name: tags
+        label: Tags
+        type: list
+        required: false
+        item:
+          type: string
+      - name: description_short
+        label: Short Description
+        type: text
+        required: true
+      - name: description_full
+        label: Full Description
+        type: rich-text
+        required: false
+      - name: image_main
+        label: Main Product Image
+        type: image
+        required: true
+      - name: images_gallery
+        label: Gallery Images
+        type: list
+        required: false
+        item:
+          type: image
+      - name: moq
+        label: Minimum Order Quantity (MOQ)
+        type: number
+        required: false
+        default: 50
+      - name: price
+        label: Price per Unit (INR)
+        type: number
+        required: false
+      - name: specs
+        label: Specifications
+        type: object
+        required: false
+        fields:
+          - name: material
+            label: Material
+            type: string
+          - name: size
+            label: Size / Length
+            type: string
+          - name: colours
+            label: Colour Options
+            type: string
+      - name: featured
+        label: Featured Product
+        type: boolean
+        default: false
+      - name: status
+        label: Status
+        type: select
+        required: true
+        default: published
+        options:
+          values: [published, draft, out_of_stock]
+      - name: seo_title
+        label: SEO Title
+        type: string
+      - name: seo_description
+        label: SEO Description
+        type: text
+      - name: created_at
+        label: Created Date
+        type: date
+        required: false
