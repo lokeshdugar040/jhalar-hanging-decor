@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images/products"
+public_folder: "/static/images/products"
+
+collections:
+  - name: "products"
+    label: "Products"
+    label_singular: "Product"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string", required: true }
+      - { label: "Category", name: "category", widget: "select", required: true, options: ["Pom Pom Hangings", "Bead Hangings", "Bell Hangings", "Floral Jhalars", "Torans", "Tassel Hangings", "Decorative Strings", "Custom Designs"] }
+      - { label: "Tags", name: "tags", widget: "list", required: false, field: { label: "Tag", name: "tag", widget: "string" } }
+      - { label: "Short Description", name: "description_short", widget: "text", required: true }
+      - { label: "Full Description", name: "description_full", widget: "markdown", required: true }
+      - { label: "Main Image", name: "image_main", widget: "image", required: true }
+      - { label: "Gallery Images", name: "images_gallery", widget: "image", required: false, multiple: true }
+      - { label: "MOQ", name: "moq", widget: "number", required: true, default: 50 }
+      - { label: "Price (₹)", name: "price", widget: "number", required: false }
+      - { label: "Featured", name: "featured", widget: "boolean", required: false, default: false }
+      - { label: "Status", name: "status", widget: "select", required: true, default: "published", options: ["published", "draft", "out_of_stock"] }
+      - { label: "SEO Title", name: "seo_title", widget: "string", required: false }
+      - { label: "SEO Description", name: "seo_description", widget: "text", required: false }
