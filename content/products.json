@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Premium Pom Pom Hanging",
+      "category": "Pom Pom Hangings",
+      "description": "Handcrafted decorative pom pom hangings perfect for events, weddings and festive celebrations. Available in multiple colors.",
+      "image": "/assets/images/products/pom-pom-hanging.jpg",
+      "b2bTag": "Bulk-ready"
+    },
+    {
+      "id": 2,
+      "title": "Elegant Bead Hanging",
+      "category": "Bead Hangings",
+      "description": "Beautiful bead hangings with intricate patterns. Ideal for home decor, events and retail displays.",
+      "image": "/assets/images/products/bead-hanging.jpg",
+      "b2bTag": "Bestseller"
+    },
+    {
+      "id": 3,
+      "title": "Traditional Bell Hanging",
+      "category": "Bell Hangings",
+      "description": "Traditional bell hangings with authentic craftsmanship. Perfect for festive occasions and cultural events.",
+      "image": "/assets/images/products/bell-hanging.jpg",
+      "b2bTag": "Traditional"
+    },
+    {
+      "id": 4,
+      "title": "Floral Jhalar Decor",
+      "category": "Floral Jhalars",
+      "description": "Stunning floral jhalars handcrafted with premium materials. Excellent for weddings and special occasions.",
+      "image": "/assets/images/products/floral-jhalar.jpg",
+      "b2bTag": "Premium"
+    },
+    {
+      "id": 5,
+      "title": "Designer Toran",
+      "category": "Torans",
+      "description": "Decorative torans with modern designs. Traditional appeal with contemporary styling for door decorations.",
+      "image": "/assets/images/products/toran.jpg",
+      "b2bTag": "New Arrival"
+    },
+    {
+      "id": 6,
+      "title": "Luxury Tassel Hanging",
+      "category": "Tassel Hangings",
+      "description": "Premium tassel hangings with rich colors and textures. Perfect for upscale events and home decor.",
+      "image": "/assets/images/products/tassel-hanging.jpg",
+      "b2bTag": "Luxury"
+    },
+    {
+      "id": 7,
+      "title": "Decorative String Lights",
+      "category": "Decorative Strings",
+      "description": "Illuminated decorative strings for ambient lighting. Creates beautiful atmosphere for any occasion.",
+      "image": "/assets/images/products/string-lights.jpg",
+      "b2bTag": "Trending"
+    },
+    {
+      "id": 8,
+      "title": "Custom Design Hanging",
+      "category": "Custom Designs",
+      "description": "Fully customizable hanging decor made to your specifications. Discuss your unique requirements with us.",
+      "image": "/assets/images/products/custom-design.jpg",
+      "b2bTag": "Customizable"
+    }
+  ]
+}
