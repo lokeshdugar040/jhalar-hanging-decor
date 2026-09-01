@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# JHALAR Hanging Decor - Auto Deploy Script
+# This script helps you deploy to GitHub Pages
+
+echo "🚀 JHALAR Hanging Decor - Deployment Helper"
+echo "=========================================="
+echo ""
+echo "This script will help you enable GitHub Pages"
+echo ""
+echo "⚠️  IMPORTANT: GitHub Pages must be enabled manually"
+echo ""
+echo "📋 Follow these steps:"
+echo ""
+echo "1. Open this link in your browser:"
+echo "   https://github.com/lokeshdugar040/jhalar-hanging-decor/settings/pages"
+echo ""
+echo "2. Click 'Deploy from a branch'"
+echo ""
+echo "3. Select branch: main"
+echo ""
+echo "4. Click Save"
+echo ""
+echo "5. Wait 1-2 minutes"
+echo ""
+echo "✅ Your website will be live at:"
+echo "   https://lokeshdugar040.github.io/jhalar-hanging-decor/"
+echo ""
+echo "🎉 Done!"
+echo ""
+echo "Need help? Check DEPLOY_INSTRUCTIONS.md in your repository"
+echo ""
