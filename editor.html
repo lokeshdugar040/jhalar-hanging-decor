@@ -125,6 +125,14 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 .preview-toolbar .vp-btn{padding:3px 8px;border-radius:var(--r-sm);border:1px solid rgba(128,128,128,0.15);background:var(--bg);font-family:var(--font);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;color:var(--text3);display:inline-flex;align-items:center;gap:3px}
 .preview-toolbar .vp-btn:hover{background:var(--bg3);color:var(--text)}
 .preview-toolbar .vp-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.live-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:var(--text3);padding:3px 8px;background:var(--bg2);border:1px solid rgba(128,128,128,0.15);border-radius:var(--r-sm);white-space:nowrap}
+.live-badge i{color:#999}
+.live-badge.live{color:#2e7d32;border-color:rgba(46,125,50,0.3);background:rgba(46,125,50,0.06)}
+.live-badge.live i{color:#2e7d32;animation:livePulse 2s infinite}
+.live-badge.err{color:var(--red);border-color:rgba(200,32,57,0.3)}
+.live-badge.err i{color:var(--red)}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.4}}
 .preview-toolbar .preview-url{font-size:10px;color:var(--text3);margin-left:auto;padding:3px 6px;background:var(--bg2);border-radius:var(--r-sm);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .preview-container{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;background:#e8e8e8;overflow:auto}
 .preview-container iframe{background:#fff;border:none;border-radius:4px;box-shadow:0 2px 20px rgba(0,0,0,0.15);transition:all .3s}
@@ -151,7 +159,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
     <span class="save-indicator" id="save-indicator"><i class="fas fa-check-circle" style="color:#2e7d32"></i> Saved</span>
     <button class="btn btn-icon" onclick="undo()" title="Undo (Ctrl+Z)"><i class="fas fa-undo"></i></button>
     <button class="btn btn-icon" onclick="redo()" title="Redo (Ctrl+Shift+Z)"><i class="fas fa-redo"></i></button>
-    <button class="btn" onclick="resetToPublished()" title="Reset to published state"><i class="fas fa-undo"></i> Reset</button>
+    <button class="btn" onclick="resetToPublished()" title="Reset to published state"><i class="fas fa-history"></i> Reset</button>
     <button class="btn btn-icon" id="dark-mode-btn" onclick="toggleDarkMode()" title="Dark Mode"><i class="fas fa-moon"></i></button>
     <button class="btn" onclick="previewChanges()"><i class="fas fa-eye"></i> Preview</button>
     <button class="btn btn-primary" onclick="openPublishTab()"><i class="fas fa-rocket"></i> Publish</button>
@@ -173,27 +181,63 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
       <!-- CONTENT -->
       <div class="tab-panel active" id="panel-content">
         <h3><i class="fas fa-pencil-alt"></i> Content</h3>
-        <p class="hint">Edit contact info, hero text, image, and navigation.</p>
-        <div class="form-group"><label>WhatsApp Number</label><input type="text" id="ed-whatsapp" placeholder="918100656258"><span class="help">Digits only, no + or spaces</span></div>
-        <div class="form-group"><label>Display Phone</label><input type="text" id="ed-phone" placeholder="+91 81006 56258"></div>
-        <div class="form-group"><label>Email Address</label><input type="email" id="ed-email" placeholder="lokeshdugar040@gmail.com"></div>
-        <div class="form-row"><div class="form-group"><label>Location</label><input type="text" id="ed-location" placeholder="Howrah, West Bengal, India"></div><div class="form-group"><label>GST Info</label><input type="text" id="ed-gst" placeholder="Available on request"></div></div>
-        <hr class="divider">
-        <div class="form-group"><label>Hero Headline</label><input type="text" id="ed-hero-headline" placeholder="Decorative Hanging Solutions..."></div>
-        <div class="form-group"><label>Hero Intro</label><textarea id="ed-hero-intro" rows="2" placeholder="JHALAR manufactures..."></textarea></div>
-        <div class="form-group"><label>Hero Image</label><select id="ed-hero-image"></select></div>
-        <hr class="divider">
+        <p class="hint">Edit contact info, hero, navigation, social links, trust bar, highlights and FAQ. All changes preview live.</p>
+
         <div class="panel-section">
-          <h4><i class="fas fa-bars"></i> Navigation</h4>
-          <p>Edit header nav links. Drag to reorder.</p>
+          <h4><i class="fas fa-id-card"></i> Contact Info</h4>
+          <div class="form-group"><label>WhatsApp Number</label><input type="text" id="ed-whatsapp" placeholder="918100656258"><span class="help">Digits only, no + or spaces</span></div>
+          <div class="form-group"><label>Display Phone</label><input type="text" id="ed-phone" placeholder="+91 81006 56258"></div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="ed-email" placeholder="lokeshdugar040@gmail.com"></div>
+          <div class="form-row"><div class="form-group"><label>Location</label><input type="text" id="ed-location" placeholder="Howrah, West Bengal, India"></div><div class="form-group"><label>GST Info</label><input type="text" id="ed-gst" placeholder="Available on request"></div></div>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-star"></i> Hero Section</h4>
+          <div class="form-group"><label>Hero Headline</label><input type="text" id="ed-hero-headline" placeholder="Decorative Hanging Solutions..."></div>
+          <div class="form-group"><label>Hero Intro</label><textarea id="ed-hero-intro" rows="2" placeholder="JHALAR manufactures..."></textarea></div>
+          <div class="form-group"><label>Hero Image</label><select id="ed-hero-image"></select></div>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-list-check"></i> Hero Highlights</h4>
+          <p>Small bullet points under the hero intro (icon + text).</p>
+          <div id="highlight-editor"></div>
+          <button class="btn-sm" onclick="addHighlight()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Highlight</button>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-bars"></i> Header Navigation</h4>
+          <p>Top menu links.</p>
           <div id="nav-editor"></div>
           <button class="btn-sm" onclick="addNavItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Link</button>
         </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-sitemap"></i> Footer Navigation</h4>
+          <p>Links shown in the footer column.</p>
+          <div id="footer-nav-editor"></div>
+          <button class="btn-sm" onclick="addFooterNavItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Footer Link</button>
+        </div>
+
         <div class="panel-section">
           <h4><i class="fas fa-link"></i> Social Links</h4>
           <div class="form-group"><label>Instagram URL</label><input type="text" id="ed-social-instagram" placeholder="#"></div>
           <div class="form-group"><label>Facebook URL</label><input type="text" id="ed-social-facebook" placeholder="#"></div>
           <div class="form-group"><label>WhatsApp Link</label><input type="text" id="ed-social-whatsapp" placeholder="https://wa.me/918100656258"></div>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-award"></i> Trust Bar</h4>
+          <p>The strip below the hero: icon + short label.</p>
+          <div id="trust-editor"></div>
+          <button class="btn-sm" onclick="addTrustItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Trust Item</button>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-circle-question"></i> FAQ</h4>
+          <p>Question / answer pairs shown in the FAQ section.</p>
+          <div id="faq-editor"></div>
+          <button class="btn-sm" onclick="addFaqItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Question</button>
         </div>
       </div>
 
@@ -207,25 +251,25 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
       <!-- THEME -->
       <div class="tab-panel" id="panel-theme">
         <h3><i class="fas fa-palette"></i> Theme</h3>
-        <p class="hint">Customize brand colors, fonts, and add custom CSS.</p>
-        <div class="form-row-3">
-          <div class="form-group"><label>Brand Red</label><input type="color" id="ed-color-red" value="#C82039"></div>
-          <div class="form-group"><label>Red Dark</label><input type="color" id="ed-color-red-dark" value="#A3182E"></div>
-          <div class="form-group"><label>Red Light</label><input type="color" id="ed-color-red-light" value="#E8485F"></div>
-        </div>
-        <div class="form-row-3">
-          <div class="form-group"><label>Accent Gold</label><input type="color" id="ed-color-gold" value="#C9A84C"></div>
-          <div class="form-group"><label>Deep Navy</label><input type="color" id="ed-color-navy" value="#141942"></div>
-          <div class="form-group"><label>Warm Cream</label><input type="color" id="ed-color-cream" value="#FFFAF1"></div>
-        </div>
-        <hr class="divider">
+        <p class="hint">Brand colors, typography, layout spacing and custom CSS. Every change previews live.</p>
+
         <div class="panel-section">
-          <h4><i class="fas fa-code"></i> Custom CSS</h4>
-          <p>Write custom CSS rules. They apply to the live site instantly.</p>
-          <textarea class="css-editor" id="ed-custom-css" placeholder="/* Your custom CSS here */"></textarea>
+          <h4><i class="fas fa-fill-drip"></i> Brand Colors</h4>
+          <p>The official JHALAR palette used across the site.</p>
+          <div class="form-row-3">
+            <div class="form-group"><label>Brand Red</label><input type="color" id="ed-color-red" value="#C82039"></div>
+            <div class="form-group"><label>Red Dark</label><input type="color" id="ed-color-red-dark" value="#A3182E"></div>
+            <div class="form-group"><label>Red Light</label><input type="color" id="ed-color-red-light" value="#E8485F"></div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group"><label>Accent Gold</label><input type="color" id="ed-color-gold" value="#C9A84C"></div>
+            <div class="form-group"><label>Deep Navy</label><input type="color" id="ed-color-navy" value="#141942"></div>
+            <div class="form-group"><label>Warm Cream</label><input type="color" id="ed-color-cream" value="#FFFAF1"></div>
+          </div>
         </div>
+
         <div class="panel-section">
-          <h4><i class="fas fa-font"></i> Fonts</h4>
+          <h4><i class="fas fa-font"></i> Typography</h4>
           <p>Fonts are <strong>self-hosted</strong> in <code>assets/fonts/</code> (offline-ready, fast). Upload your own <strong>.ttf / .otf / .woff / .woff2</strong> files in the <strong>Media</strong> tab — they appear here automatically and render fully. Other choices fall back to system fonts.</p>
           <div class="form-row">
             <div class="form-group"><label>Heading Font</label>
@@ -245,6 +289,38 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
               </select>
             </div>
           </div>
+          <div class="form-group"><label>Base Font Size</label>
+            <select id="ed-layout-fs-base">
+              <option value="15px">15px — compact</option>
+              <option value="16px" selected>16px — default</option>
+              <option value="17px">17px — relaxed</option>
+              <option value="18px">18px — large</option>
+            </select>
+            <span class="help">Scales all text sizes up/down proportionally.</span>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-arrows-alt"></i> Layout &amp; Spacing</h4>
+          <p>Tune section rhythm and container width.</p>
+          <div class="form-group"><label>Section Spacing (vertical padding)</label>
+            <input type="range" id="ed-layout-section-y" min="32" max="120" step="4" value="64">
+            <span class="help" id="help-section-y">64px</span>
+          </div>
+          <div class="form-group"><label>Card Corner Radius</label>
+            <input type="range" id="ed-layout-radius" min="0" max="40" step="2" value="20">
+            <span class="help" id="help-radius">20px</span>
+          </div>
+          <div class="form-group"><label>Container Max Width</label>
+            <input type="range" id="ed-layout-container" min="960" max="1440" step="20" value="1140">
+            <span class="help" id="help-container">1140px</span>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-code"></i> Custom CSS</h4>
+          <p>Write custom CSS rules. They apply to the live site instantly.</p>
+          <textarea class="css-editor" id="ed-custom-css" placeholder="/* Your custom CSS here */"></textarea>
         </div>
       </div>
 
@@ -255,8 +331,8 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <div class="toolbar">
           <button class="btn-sm primary" onclick="addProduct()"><i class="fas fa-plus"></i> Add</button>
           <button class="btn-sm" onclick="duplicateProduct()"><i class="fas fa-copy"></i> Duplicate</button>
-          <button class="btn-sm" onclick="exportProducts()"><i class="fas fa-download"></i> Export</button>
-          <button class="btn-sm" onclick="document.getElementById('import-json').click()"><i class="fas fa-upload"></i> Import</button>
+          <button class="btn-sm" onclick="exportProducts()"><i class="fas fa-file-export"></i> Export</button>
+          <button class="btn-sm" onclick="document.getElementById('import-json').click()"><i class="fas fa-file-import"></i> Import</button>
           <input type="file" id="import-json" accept=".json" style="display:none" onchange="importProducts(event)">
         </div>
         <div class="product-list" id="product-list"></div>
@@ -304,8 +380,8 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <div class="panel-section">
           <h4><i class="fas fa-sitemap"></i> Export / Import All Data</h4>
           <p>Download all site data as a single JSON file for backup, or restore from a previous backup.</p>
-          <button class="btn-sm" onclick="exportAllData()"><i class="fas fa-download"></i> Export All Data</button>
-          <button class="btn-sm" onclick="document.getElementById('import-all-input').click()" style="margin-left:4px"><i class="fas fa-upload"></i> Import All Data</button>
+          <button class="btn-sm" onclick="exportAllData()"><i class="fas fa-file-archive"></i> Export All Data</button>
+          <button class="btn-sm" onclick="document.getElementById('import-all-input').click()" style="margin-left:4px"><i class="fas fa-file-import"></i> Import All Data</button>
           <input type="file" id="import-all-input" accept=".json" style="display:none" onchange="importAllData(event)">
         </div>
       </div>
@@ -323,7 +399,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <div class="panel-section">
           <h4><i class="fas fa-cloud-upload-alt"></i> Publish to GitHub</h4>
           <p>Commits <code>site-settings.json</code>, <code>theme.json</code>, <code>products.json</code>, <code>sections.json</code>, <code>custom-css.json</code> to <code>main</code>.</p>
-          <button class="btn-sm success" id="btn-publish" onclick="publishToGitHub()" style="width:100%;justify-content:center"><i class="fas fa-rocket"></i> Publish to GitHub</button>
+          <button class="btn-sm success" id="btn-publish" onclick="publishToGitHub()" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Publish to GitHub</button>
           <div class="publish-progress" id="publish-progress">
             <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
             <div class="progress-status" id="progress-status">Starting...</div>
@@ -334,11 +410,11 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <h4><i class="fas fa-download"></i> Download Files</h4>
           <p>Download individual JSON files to commit manually.</p>
           <div style="display:flex;flex-wrap:wrap;gap:4px">
-            <button class="btn-sm" onclick="downloadSettings()"><i class="fas fa-download"></i> site-settings.json</button>
-            <button class="btn-sm" onclick="downloadTheme()"><i class="fas fa-download"></i> theme.json</button>
-            <button class="btn-sm" onclick="downloadProducts()"><i class="fas fa-download"></i> products.json</button>
-            <button class="btn-sm" onclick="downloadSections()"><i class="fas fa-download"></i> sections.json</button>
-            <button class="btn-sm" onclick="downloadCustomCSS()"><i class="fas fa-download"></i> custom-css.json</button>
+            <button class="btn-sm" onclick="downloadSettings()"><i class="fas fa-cog"></i> site-settings.json</button>
+            <button class="btn-sm" onclick="downloadTheme()"><i class="fas fa-palette"></i> theme.json</button>
+            <button class="btn-sm" onclick="downloadProducts()"><i class="fas fa-box"></i> products.json</button>
+            <button class="btn-sm" onclick="downloadSections()"><i class="fas fa-layer-group"></i> sections.json</button>
+            <button class="btn-sm" onclick="downloadCustomCSS()"><i class="fas fa-code"></i> custom-css.json</button>
           </div>
         </div>
       </div>
@@ -350,6 +426,8 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
       <button class="vp-btn active" data-vp="desktop" onclick="setViewport('desktop')"><i class="fas fa-desktop"></i> Desktop</button>
       <button class="vp-btn" data-vp="mobile" onclick="setViewport('mobile')"><i class="fas fa-mobile-alt"></i> Mobile</button>
       <button class="vp-btn" data-vp="tablet" onclick="setViewport('tablet')"><i class="fas fa-tablet-alt"></i> Tablet</button>
+      <span class="live-badge" id="live-badge" title="Live preview sync status"><i class="fas fa-circle" style="font-size:8px"></i> <span id="live-badge-text">Syncing</span></span>
+      <button class="vp-btn" onclick="previewChanges()" title="Reload preview (Ctrl+P)" style="margin-left:auto"><i class="fas fa-sync-alt"></i> Reload</button>
       <span class="preview-url" id="preview-url"></span>
     </div>
     <div class="preview-container">

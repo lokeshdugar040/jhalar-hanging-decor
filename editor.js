@@ -8,7 +8,8 @@ let state = {
   settings: null, theme: null, products: [], sections: {}, sectionOrder: [],
   customCSS: '', navItems: [], footerNavItems: [], socialLinks: {},
   imageManifest: [], fontManifest: [], selectedProductId: null, viewport: 'desktop',
-  changed: false, githubToken: null, darkMode: false
+  changed: false, githubToken: null, darkMode: false,
+  heroHighlights: [], trustItems: [], faqItems: []
 };
 let history = { stack: [], index: -1 };
 
@@ -97,6 +98,14 @@ async function loadPublishedData() {
     state.navItems = state.settings.navItems||[];
     state.footerNavItems = state.settings.footerNavItems||[];
     state.socialLinks = state.settings.socialLinks||{};
+    state.heroHighlights = state.settings.heroHighlights||[{text:'Bulk-ready supply',icon:'icon-check'},{text:'Custom colours',icon:'icon-palette'},{text:'Fast quotations',icon:'icon-clock'}];
+    state.trustItems = state.settings.trustItems||[{label:'Direct Manufacturer',icon:'icon-mfr'},{label:'Custom Designs',icon:'icon-design'},{label:'Bulk & Wholesale',icon:'icon-bulk'}];
+    state.faqItems = state.settings.faqItems||[
+      {q:'Do you supply decorative hangings in bulk?',a:'Yes, we focus on bulk supply requirements for event decorators, wholesalers, retailers, and organisations.'},
+      {q:'Can I discuss custom colours and designs?',a:'Custom colour and design discussions are available for suitable order quantities. Share your project requirements with us.'},
+      {q:'How can I enquire about a product collection?',a:'You can use the B2B enquiry form or contact us directly on WhatsApp.'},
+      {q:'Do you work with wholesalers and distributors?',a:'Yes, we supply wholesalers and distributors. Please provide your business details and expected quantity requirements.'}
+    ];
 
     ensureProductIds();
     if (ds||dt||dp||dsec||dcss) { state.changed = true; updateSaveIndicator(); }
@@ -194,7 +203,19 @@ function populateAllForms() {
   setVal('ed-seo-desc', state.settings.siteDescription||'');
   setVal('ed-seo-ogimage', state.settings.ogImage||'assets/images/og-cover.jpg');
   setVal('ed-custom-css', state.customCSS||'');
+  setVal('ed-layout-fs-base', state.theme?.layout?.baseFontSize || '16px');
+  setVal('ed-layout-section-y', parseInt(state.theme?.layout?.sectionY || '64px', 10) || 64);
+  setVal('ed-layout-radius', parseInt(state.theme?.layout?.cardRadius || '20px', 10) || 20);
+  setVal('ed-layout-container', parseInt(state.theme?.layout?.containerWidth || '1140px', 10) || 1140);
+  const sy = getVal('ed-layout-section-y'), rl = getVal('ed-layout-radius'), ct = getVal('ed-layout-container');
+  const h1 = document.getElementById('help-section-y'); if (h1) h1.textContent = sy;
+  const h2 = document.getElementById('help-radius'); if (h2) h2.textContent = rl;
+  const h3 = document.getElementById('help-container'); if (h3) h3.textContent = ct;
   renderNavEditor();
+  renderFooterNavEditor();
+  renderHighlightEditor();
+  renderTrustEditor();
+  renderFaqEditor();
   if (state.theme) {
     if (state.theme.colors) {
       setVal('ed-color-red', state.theme.colors['--colour-jhalar-red']||'#C82039');
@@ -227,6 +248,76 @@ function renderNavEditor() {
 }
 function addNavItem() { state.navItems.push({label:'New Link',href:'#'}); renderNavEditor(); markChanged(); saveDrafts(); applyPreview(); }
 function removeNavItem(i) { state.navItems.splice(i,1); renderNavEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+// ===== FOOTER NAV EDITOR =====
+function renderFooterNavEditor() {
+  const c = document.getElementById('footer-nav-editor'); if (!c) return;
+  c.innerHTML = state.footerNavItems.map((n,i) => `
+    <div class="nav-item-row" data-index="${i}">
+      <span style="cursor:grab;color:var(--text3);font-size:12px"><i class="fas fa-grip-vertical"></i></span>
+      <input type="text" class="fnav-label" value="${escapeHtml(n.label)}" placeholder="Label">
+      <input type="text" class="fnav-href" value="${escapeHtml(n.href)}" placeholder="#section">
+      <button class="del" onclick="removeFooterNavItem(${i})"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.fnav-label').forEach((inp,i) => inp.addEventListener('input', () => { state.footerNavItems[i].label = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.fnav-href').forEach((inp,i) => inp.addEventListener('input', () => { state.footerNavItems[i].href = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addFooterNavItem() { state.footerNavItems.push({label:'New Link',href:'#'}); renderFooterNavEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeFooterNavItem(i) { state.footerNavItems.splice(i,1); renderFooterNavEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+// ===== HIGHLIGHT EDITOR =====
+const ICON_OPTIONS = ['icon-mfr','icon-palette','icon-bulk','icon-check','icon-clock','icon-design','icon-ruler','icon-chart','icon-route','icon-phone','icon-email','icon-location','icon-invoice'];
+function renderHighlightEditor() {
+  const c = document.getElementById('highlight-editor'); if (!c) return;
+  c.innerHTML = state.heroHighlights.map((h,i) => `
+    <div class="nav-item-row" data-index="${i}">
+      <select class="hl-icon" style="width:110px;flex:none">
+        ${ICON_OPTIONS.map(ic => `<option value="${ic}" ${h.icon===ic?'selected':''}>${ic.replace('icon-','')}</option>`).join('')}
+      </select>
+      <input type="text" class="hl-text" value="${escapeHtml(h.text)}" placeholder="Highlight text">
+      <button class="del" onclick="removeHighlight(${i})"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.hl-icon').forEach((sel,i) => sel.addEventListener('change', () => { state.heroHighlights[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.hl-text').forEach((inp,i) => inp.addEventListener('input', () => { state.heroHighlights[i].text = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addHighlight() { state.heroHighlights.push({text:'New highlight',icon:'icon-check'}); renderHighlightEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeHighlight(i) { state.heroHighlights.splice(i,1); renderHighlightEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+// ===== TRUST EDITOR =====
+function renderTrustEditor() {
+  const c = document.getElementById('trust-editor'); if (!c) return;
+  c.innerHTML = state.trustItems.map((t,i) => `
+    <div class="nav-item-row" data-index="${i}">
+      <select class="tr-icon" style="width:110px;flex:none">
+        ${ICON_OPTIONS.map(ic => `<option value="${ic}" ${t.icon===ic?'selected':''}>${ic.replace('icon-','')}</option>`).join('')}
+      </select>
+      <input type="text" class="tr-label" value="${escapeHtml(t.label)}" placeholder="Label">
+      <button class="del" onclick="removeTrustItem(${i})"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.tr-icon').forEach((sel,i) => sel.addEventListener('change', () => { state.trustItems[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.tr-label').forEach((inp,i) => inp.addEventListener('input', () => { state.trustItems[i].label = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addTrustItem() { state.trustItems.push({label:'New item',icon:'icon-check'}); renderTrustEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeTrustItem(i) { state.trustItems.splice(i,1); renderTrustEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+// ===== FAQ EDITOR =====
+function renderFaqEditor() {
+  const c = document.getElementById('faq-editor'); if (!c) return;
+  c.innerHTML = state.faqItems.map((f,i) => `
+    <div class="faq-row" style="border:1px solid rgba(128,128,128,0.15);border-radius:var(--r-sm);padding:8px;margin-bottom:6px">
+      <div class="form-group" style="margin-bottom:4px"><label>Question</label><input type="text" class="faq-q" value="${escapeHtml(f.q)}"></div>
+      <div class="form-group" style="margin-bottom:4px"><label>Answer</label><textarea class="faq-a" rows="2">${escapeHtml(f.a)}</textarea></div>
+      <button class="btn-sm danger" onclick="removeFaqItem(${i})" style="width:100%;justify-content:center"><i class="fas fa-trash"></i> Remove</button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.faq-q').forEach((inp,i) => inp.addEventListener('input', () => { state.faqItems[i].q = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.faq-a').forEach((inp,i) => inp.addEventListener('input', () => { state.faqItems[i].a = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addFaqItem() { state.faqItems.push({q:'New question?',a:'Answer text.'}); renderFaqEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeFaqItem(i) { state.faqItems.splice(i,1); renderFaqEditor(); markChanged(); saveDrafts(); applyPreview(); }
 
 // ===== SECTION LIST =====
 function renderSectionList() {
@@ -393,6 +484,53 @@ function setupUploadZone() {
   zone.addEventListener('drop', e => { e.preventDefault(); zone.style.borderColor = ''; handleFiles(e.dataTransfer.files); });
 }
 async function handleUpload(e) { handleFiles(e.target.files); e.target.value = ''; }
+// ===== GITHUB COMMIT HELPER (retries non-fast-forward races) =====
+async function createCommitWithRetry(token, entries, message, onLog) {
+  const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
+  const baseUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
+  let lastErr = null;
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    try {
+      if (onLog && attempt > 1) onLog(`Retry ${attempt}/5 — branch moved, rebuilding...`, 'act');
+      const br = await fetch(`${baseUrl}/git/ref/heads/${GITHUB_BRANCH}`, {headers});
+      if (!br.ok) throw new Error(`Failed to get branch: ${br.status}`);
+      const bd = await br.json();
+      const currentSha = bd.object.sha;
+      if (onLog && attempt === 1) onLog(`Branch: ${currentSha.substring(0,7)}`, 'done');
+      const commitResp = await fetch(`${baseUrl}/git/commits/${currentSha}`, {headers});
+      if (!commitResp.ok) throw new Error(`Commit error: ${commitResp.status}`);
+      const cd = await commitResp.json();
+      if (onLog && attempt === 1) onLog(`Tree: ${cd.tree.sha.substring(0,7)}`, 'done');
+      const blobs = [];
+      for (const e of entries) {
+        if (onLog) onLog(`Blob: ${e.path}...`, 'act');
+        const body = e.base64 ? {content:e.base64, encoding:'base64'} : {content:e.content, encoding:'utf-8'};
+        const blobResp = await fetch(`${baseUrl}/git/blobs`, { method:'POST', headers, body: JSON.stringify(body) });
+        if (!blobResp.ok) throw new Error(`Blob error for ${e.path}: ${blobResp.status}`);
+        const blob = await blobResp.json();
+        blobs.push({path:e.path, mode:'100644', type:'blob', sha:blob.sha});
+        if (onLog) onLog(`  ${e.path} ✓`, 'done');
+      }
+      const treeResp = await fetch(`${baseUrl}/git/trees`, { method:'POST', headers, body: JSON.stringify({base_tree:cd.tree.sha, tree:blobs}) });
+      if (!treeResp.ok) throw new Error(`Tree error: ${treeResp.status}`);
+      const td = await treeResp.json();
+      const ncResp = await fetch(`${baseUrl}/git/commits`, { method:'POST', headers, body: JSON.stringify({message, tree:td.sha, parents:[currentSha]}) });
+      if (!ncResp.ok) throw new Error(`Commit error: ${ncResp.status}`);
+      const ncd = await ncResp.json();
+      if (onLog) onLog(`Commit: ${ncd.sha.substring(0,7)}`, 'done');
+      const ur = await fetch(`${baseUrl}/git/refs/heads/${GITHUB_BRANCH}`, { method:'PATCH', headers, body: JSON.stringify({sha:ncd.sha, force:false}) });
+      if (ur.ok) return ncd.sha;
+      if (ur.status === 422) { lastErr = new Error('Branch update error: 422 (branch moved)'); continue; }
+      throw new Error(`Branch update error: ${ur.status}`);
+    } catch(e) {
+      lastErr = e;
+      if (String(e.message).includes('422')) continue;
+      throw e;
+    }
+  }
+  throw lastErr || new Error('Failed after 5 attempts');
+}
+
 async function handleFiles(files) {
   if (!files.length) return;
   const token = getVal('ed-github-token').trim();
@@ -405,29 +543,8 @@ async function handleFiles(files) {
     try {
       const base64 = await fileToBase64(file);
       const path = isFont ? `assets/fonts/${file.name}` : `assets/images/${file.name}`;
-      const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
-      const baseUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
-      // Get current commit SHA
-      const br = await fetch(`${baseUrl}/git/ref/heads/${GITHUB_BRANCH}`, {headers});
-      if (!br.ok) throw new Error('Failed to get branch');
-      const bd = await br.json();
-      // Create blob
-      const blobResp = await fetch(`${baseUrl}/git/blobs`, { method:'POST', headers, body: JSON.stringify({content:base64.split(',')[1],encoding:'base64'}) });
-      if (!blobResp.ok) throw new Error('Failed to create blob');
-      const blob = await blobResp.json();
-      // Get tree
-      const commitResp = await fetch(`${baseUrl}/git/commits/${bd.object.sha}`, {headers});
-      const cd = await commitResp.json();
-      // Create tree
-      const treeResp = await fetch(`${baseUrl}/git/trees`, { method:'POST', headers, body: JSON.stringify({base_tree:cd.tree.sha, tree:[{path, mode:'100644', type:'blob', sha:blob.sha}]}) });
-      if (!treeResp.ok) throw new Error('Failed to create tree');
-      const td = await treeResp.json();
-      // Create commit
-      const ncResp = await fetch(`${baseUrl}/git/commits`, { method:'POST', headers, body: JSON.stringify({message:`Upload ${file.name} via editor`, tree:td.sha, parents:[bd.object.sha]}) });
-      if (!ncResp.ok) throw new Error('Failed to create commit');
-      const ncd = await ncResp.json();
-      // Update ref
-      await fetch(`${baseUrl}/git/refs/heads/${GITHUB_BRANCH}`, { method:'PATCH', headers, body: JSON.stringify({sha:ncd.sha, force:false}) });
+      // Uploads only count when the branch update actually succeeds (retries on 422)
+      await createCommitWithRetry(token, [{path, base64: base64.split(',')[1]}], `Upload ${file.name} via editor`);
       if (isFont) {
         const ext = (file.name.split('.').pop()||'').toLowerCase();
         const family = familyFromFilename(file.name);
@@ -459,34 +576,10 @@ async function handleFiles(files) {
 }
 
 async function updateFontManifest(token) {
-  const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
-  const baseUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
-  const br = await fetch(`${baseUrl}/git/ref/heads/${GITHUB_BRANCH}`, {headers});
-  const bd = await br.json();
-  const commitResp = await fetch(`${baseUrl}/git/commits/${bd.object.sha}`, {headers});
-  const cd = await commitResp.json();
-  const blobResp = await fetch(`${baseUrl}/git/blobs`, { method:'POST', headers, body: JSON.stringify({content:JSON.stringify({fonts:state.fontManifest},null,2),encoding:'utf-8'}) });
-  const blob = await blobResp.json();
-  const treeResp = await fetch(`${baseUrl}/git/trees`, { method:'POST', headers, body: JSON.stringify({base_tree:cd.tree.sha, tree:[{path:'assets/fonts/manifest.json', mode:'100644', type:'blob', sha:blob.sha}]}) });
-  const td = await treeResp.json();
-  const ncResp = await fetch(`${baseUrl}/git/commits`, { method:'POST', headers, body: JSON.stringify({message:'Update font manifest via editor', tree:td.sha, parents:[bd.object.sha]}) });
-  const ncd = await ncResp.json();
-  await fetch(`${baseUrl}/git/refs/heads/${GITHUB_BRANCH}`, { method:'PATCH', headers, body: JSON.stringify({sha:ncd.sha, force:false}) });
+  await createCommitWithRetry(token, [{ path:'assets/fonts/manifest.json', content: JSON.stringify({fonts:state.fontManifest},null,2) }], 'Update font manifest via editor');
 }
 async function updateManifest(token) {
-  const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
-  const baseUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
-  const br = await fetch(`${baseUrl}/git/ref/heads/${GITHUB_BRANCH}`, {headers});
-  const bd = await br.json();
-  const commitResp = await fetch(`${baseUrl}/git/commits/${bd.object.sha}`, {headers});
-  const cd = await commitResp.json();
-  const blobResp = await fetch(`${baseUrl}/git/blobs`, { method:'POST', headers, body: JSON.stringify({content:JSON.stringify({images:state.imageManifest},null,2),encoding:'utf-8'}) });
-  const blob = await blobResp.json();
-  const treeResp = await fetch(`${baseUrl}/git/trees`, { method:'POST', headers, body: JSON.stringify({base_tree:cd.tree.sha, tree:[{path:'assets/images/manifest.json', mode:'100644', type:'blob', sha:blob.sha}]}) });
-  const td = await treeResp.json();
-  const ncResp = await fetch(`${baseUrl}/git/commits`, { method:'POST', headers, body: JSON.stringify({message:'Update image manifest via editor', tree:td.sha, parents:[bd.object.sha]}) });
-  const ncd = await ncResp.json();
-  await fetch(`${baseUrl}/git/refs/heads/${GITHUB_BRANCH}`, { method:'PATCH', headers, body: JSON.stringify({sha:ncd.sha, force:false}) });
+  await createCommitWithRetry(token, [{ path:'assets/images/manifest.json', content: JSON.stringify({images:state.imageManifest},null,2) }], 'Update image manifest via editor');
 }
 function deleteMedia(path) {
   if (!confirm(`Delete ${path.split('/').pop()}?`)) return;
@@ -519,6 +612,20 @@ function setupAutoSave() {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', onChange);
   });
+  // Layout fields
+  ['ed-layout-fs-base'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', onChange);
+  });
+  ['ed-layout-section-y','ed-layout-radius','ed-layout-container'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', () => {
+      const h = document.getElementById('help-'+id.replace('ed-layout-',''));
+      if (h) h.textContent = el.value + (id === 'ed-layout-section-y' || id === 'ed-layout-radius' ? 'px' : 'px');
+      onChange();
+    });
+  });
   // Custom CSS
   const cssEl = document.getElementById('ed-custom-css');
   if (cssEl) cssEl.addEventListener('input', onChange);
@@ -544,6 +651,9 @@ function collectAllData() {
   state.settings.ogImage = getVal('ed-seo-ogimage');
   state.settings.navItems = state.navItems;
   state.settings.footerNavItems = state.footerNavItems;
+  state.settings.heroHighlights = state.heroHighlights;
+  state.settings.trustItems = state.trustItems;
+  state.settings.faqItems = state.faqItems;
   state.socialLinks = {
     instagram: {url: getVal('ed-social-instagram'), label: 'Instagram'},
     facebook: {url: getVal('ed-social-facebook'), label: 'Facebook'},
@@ -562,6 +672,12 @@ function collectAllData() {
   state.theme.colors['--colour-warm-cream'] = getVal('ed-color-cream');
   state.theme.fonts.heading = getVal('ed-font-heading');
   state.theme.fonts.body = getVal('ed-font-body');
+  // Layout
+  if (!state.theme.layout) state.theme.layout = {};
+  state.theme.layout.baseFontSize = getVal('ed-layout-fs-base') || '16px';
+  state.theme.layout.sectionY = (getVal('ed-layout-section-y') || '64') + 'px';
+  state.theme.layout.cardRadius = (getVal('ed-layout-radius') || '20') + 'px';
+  state.theme.layout.containerWidth = (getVal('ed-layout-container') || '1140') + 'px';
   // Custom CSS
   state.customCSS = getVal('ed-custom-css');
 }
@@ -596,6 +712,10 @@ function restoreHistory() {
   if (state.settings) {
     state.settings.navItems = state.navItems;
     state.settings.socialLinks = state.socialLinks;
+    state.footerNavItems = state.settings.footerNavItems||[];
+    state.heroHighlights = state.settings.heroHighlights||[];
+    state.trustItems = state.settings.trustItems||[];
+    state.faqItems = state.settings.faqItems||[];
   }
   populateAllForms(); renderSectionList(); renderProductList();
   markChanged(); saveDrafts(); applyPreview();
@@ -603,12 +723,52 @@ function restoreHistory() {
 }
 
 // ===== PREVIEW =====
-function applyPreview() {
+// ===== LIVE PREVIEW =====
+let previewTimer = null, previewRetry = 0;
+function setLiveBadge(state, text) {
+  const b = document.getElementById('live-badge');
+  const t = document.getElementById('live-badge-text');
+  if (!b || !t) return;
+  b.className = 'live-badge' + (state ? ' ' + state : '');
+  t.textContent = text || (state === 'live' ? 'Live' : 'Syncing');
+}
+function applyPreview() { schedulePreview(); }
+function schedulePreview() {
+  clearTimeout(previewTimer);
+  setLiveBadge('', 'Syncing');
+  previewTimer = setTimeout(syncPreview, 250);
+}
+function syncPreview() {
   const frame = document.getElementById('preview-frame'); if (!frame) return;
-  const tryPush = () => { try { const w = frame.contentWindow; if (w && w.JHALAR) { pushToIframe(); return true; } } catch(e){} return false; };
-  try { const d = frame.contentDocument; if (d && d.readyState === 'complete') { if (tryPush()) return; } } catch(e) {}
-  if (tryPush()) return;
-  frame.addEventListener('load', () => { setTimeout(tryPush, 300); }, { once: true });
+  try {
+    const w = frame.contentWindow;
+    if (w && w.JHALAR && frame.contentDocument && frame.contentDocument.readyState === 'complete') {
+      pushToIframe();
+      previewRetry = 0;
+      setLiveBadge('live', 'Live');
+      return;
+    }
+  } catch(e) {}
+  // JHALAR not ready yet — retry a few times, then hard-reload the iframe
+  previewRetry++;
+  if (previewRetry > 8) {
+    previewRetry = 0;
+    reloadPreview();
+    return;
+  }
+  previewTimer = setTimeout(syncPreview, 300);
+}
+function reloadPreview() {
+  const frame = document.getElementById('preview-frame'); if (!frame) return;
+  const ld = document.getElementById('preview-loading');
+  if (ld) ld.style.display = 'block';
+  collectAllData();
+  frame.src = 'index.html?_t=' + Date.now();
+  frame.addEventListener('load', () => {
+    if (ld) ld.style.display = 'none';
+    previewRetry = 0;
+    schedulePreview();
+  }, { once: true });
 }
 function pushToIframe() {
   const frame = document.getElementById('preview-frame'); if (!frame) return;
@@ -616,6 +776,7 @@ function pushToIframe() {
   try {
     const s = JSON.parse(JSON.stringify(state.settings));
     s.navItems = state.navItems; s.footerNavItems = state.footerNavItems; s.socialLinks = state.socialLinks;
+    s.heroHighlights = state.heroHighlights; s.trustItems = state.trustItems; s.faqItems = state.faqItems;
     s.siteTitle = getVal('ed-seo-title'); s.siteDescription = getVal('ed-seo-desc'); s.ogImage = getVal('ed-seo-ogimage');
     if (s) w.JHALAR.setSettings(s);
     if (state.theme) w.JHALAR.setTheme(state.theme);
@@ -626,10 +787,11 @@ function pushToIframe() {
 }
 function previewChanges() {
   const frame = document.getElementById('preview-frame'); if (!frame) return;
-  document.getElementById('preview-loading').style.display = 'block';
+  const ld = document.getElementById('preview-loading');
+  if (ld) ld.style.display = 'block';
   collectAllData();
   frame.src = 'index.html?_t='+Date.now();
-  frame.addEventListener('load', () => { document.getElementById('preview-loading').style.display = 'none'; setTimeout(pushToIframe, 400); }, { once: true });
+  frame.addEventListener('load', () => { if (ld) ld.style.display = 'none'; previewRetry = 0; setTimeout(schedulePreview, 200); }, { once: true });
   showToast('Preview refreshed','success');
 }
 function updatePreviewUrl() {
@@ -799,6 +961,7 @@ function downloadFile(content, name, type) {
 
 // ===== EXPORT / IMPORT ALL =====
 function exportAllData() {
+  collectAllData();
   const data = {
     exportedAt: new Date().toISOString(),
     settings: state.settings, theme: state.theme, products: state.products,
@@ -819,6 +982,10 @@ function importAllData(e) {
       state.sections = d.sections||{}; state.sectionOrder = d.sectionOrder||[];
       state.customCSS = d.customCSS||''; state.navItems = d.navItems||state.settings.navItems||[];
       state.socialLinks = d.socialLinks||state.settings.socialLinks||{};
+      state.footerNavItems = state.settings.footerNavItems||[];
+      state.heroHighlights = state.settings.heroHighlights||[];
+      state.trustItems = state.settings.trustItems||[];
+      state.faqItems = state.settings.faqItems||[];
       ensureProductIds();
       populateAllForms(); renderSectionList(); renderProductList();
       markChanged(); saveDrafts(); applyPreview();

@@ -113,6 +113,19 @@ function applyTheme() {
     if (theme.fonts.heading) root.style.setProperty('--serif', theme.fonts.heading);
     if (theme.fonts.body) root.style.setProperty('--sans', theme.fonts.body);
   }
+  if (theme.layout) {
+    const l = theme.layout;
+    if (l.baseFontSize) root.style.setProperty('--fs-base', l.baseFontSize);
+    if (l.sectionY) root.style.setProperty('--section-y', l.sectionY);
+    if (l.cardRadius) root.style.setProperty('--radius-lg', l.cardRadius);
+    if (l.containerWidth) root.style.setProperty('--container', l.containerWidth);
+  }
+}
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
 function applySectionVisibility() {
@@ -275,6 +288,36 @@ function applySiteSettings() {
   if (settings.heroHeadline) { const t = document.querySelector('.hero-title'); if (t) t.textContent = settings.heroHeadline; }
   if (settings.heroIntro) { const t = document.querySelector('.hero-desc'); if (t) t.textContent = settings.heroIntro; }
   if (settings.heroImage) { const t = document.querySelector('.hero-img'); if (t) t.src = settings.heroImage; }
+  // Hero highlights
+  if (Array.isArray(settings.heroHighlights) && settings.heroHighlights.length) {
+    const ul = document.querySelector('.hero-highlights');
+    if (ul) {
+      ul.innerHTML = settings.heroHighlights.map(h => `<li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#${esc(h.icon||'icon-check')}"/></svg> ${esc(h.text)}</li>`).join('');
+    }
+  }
+  // Trust bar
+  if (Array.isArray(settings.trustItems) && settings.trustItems.length) {
+    const bar = document.querySelector('.trust-bar-inner');
+    if (bar) {
+      bar.innerHTML = settings.trustItems.map((t,i) => `
+        ${i ? '<div class="trust-bar-divider" aria-hidden="true"></div>' : ''}
+        <div class="trust-bar-item"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#${esc(t.icon||'icon-check')}"/></svg> ${esc(t.label)}</div>
+      `).join('');
+    }
+  }
+  // FAQ
+  if (Array.isArray(settings.faqItems) && settings.faqItems.length) {
+    const acc = document.querySelector('.accordion');
+    if (acc) {
+      acc.innerHTML = settings.faqItems.map((f,i) => `
+        <div class="accordion-item">
+          <button class="accordion-header" aria-expanded="false" aria-controls="faq-${i}">${esc(f.q)}</button>
+          <div class="accordion-content" id="faq-${i}" hidden><p>${esc(f.a)}</p></div>
+        </div>
+      `).join('');
+      setupAccordions();
+    }
+  }
 }
 
 function updateYear() { const e = document.getElementById('current-year'); if (e) e.textContent = String(new Date().getFullYear()); }
