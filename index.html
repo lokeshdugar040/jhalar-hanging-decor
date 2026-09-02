@@ -11,10 +11,10 @@
     <meta name="theme-color" content="#C82039">
     <link rel="canonical" href="https://lokeshdugar040.github.io/jhalar-hanging-decor/">
 
-    <!-- Content Security Policy (GitHub Pages supports meta-level CSP) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'">
+    <!-- CSP: fonts self-hosted, icons from cdnjs -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'">
 
-    <!-- Open Graph (WhatsApp / Facebook / LinkedIn previews) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="JHALAR Hanging Decor">
     <meta property="og:locale" content="en_IN">
@@ -24,15 +24,14 @@
     <meta property="og:image" content="https://lokeshdugar040.github.io/jhalar-hanging-decor/assets/images/og-cover.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Handcrafted pink floral jhalar garland by JHALAR Hanging Decor">
 
-    <!-- Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier">
-    <meta name="twitter:description" content="Handcrafted decorative hangings for events, retailers and wholesalers across India. Bulk supply and custom colours available.">
+    <meta name="twitter:description" content="Handcrafted decorative hangings for events, retailers and wholesalers across India.">
     <meta name="twitter:image" content="https://lokeshdugar040.github.io/jhalar-hanging-decor/assets/images/og-cover.jpg">
 
-    <!-- Structured data: Local Business -->
+    <!-- Structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -55,151 +54,122 @@
     }
     </script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- HEADER -->
     <header class="site-header" id="header">
         <div class="container header-container">
-            <!-- Logo -->
             <a href="#hero" class="logo" aria-label="JHALAR Hanging Decor — home">
-                <img class="brand-mark" src="assets/logo-jhalar-02.svg" alt="JHALAR Hanging Decor" width="150" height="45" fetchpriority="high" />
+                <img class="brand-mark" src="assets/logo-jhalar-02.svg" alt="JHALAR Hanging Decor" width="150" height="45" fetchpriority="high">
             </a>
 
-            <!-- Desktop Navigation -->
             <nav class="desktop-nav" aria-label="Main navigation">
                 <ul class="nav-list">
-                    <li><a href="#hero">Home</a></li>
                     <li><a href="#collection">Collection</a></li>
                     <li><a href="#custom-orders">Custom Orders</a></li>
-                    <li><a href="#applications">Applications</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
 
-            <!-- Header CTA & Mobile Toggle -->
             <div class="header-actions">
                 <a href="#contact" class="btn btn-primary b2b-btn">B2B Enquiry</a>
                 <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav">
-                    <span class="hamburger"></span>
+                    <svg class="icon open-icon" aria-hidden="true" width="20" height="20"><use href="assets/icons.svg#icon-menu"/></svg>
+                    <svg class="icon close-icon" aria-hidden="true" width="20" height="20"><use href="assets/icons.svg#icon-close"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Navigation -->
         <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
             <ul class="mobile-nav-list">
-                <li><a href="#hero" class="mobile-link">Home</a></li>
                 <li><a href="#collection" class="mobile-link">Collection</a></li>
                 <li><a href="#custom-orders" class="mobile-link">Custom Orders</a></li>
-                <li><a href="#applications" class="mobile-link">Applications</a></li>
                 <li><a href="#about" class="mobile-link">About</a></li>
+                <li><a href="#faq" class="mobile-link">FAQ</a></li>
                 <li><a href="#contact" class="mobile-link">Contact</a></li>
             </ul>
+            <a href="#contact" class="btn btn-primary mobile-nav-cta">B2B Enquiry</a>
         </nav>
     </header>
 
     <main>
         <!-- HERO -->
-        <section id="hero" class="hero-section reveal">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <span class="eyebrow">Direct Manufacturer · B2B Supply</span>
+        <section id="hero" class="hero" data-section="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="tag"><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-mfr"/></svg> Direct Manufacturer · B2B Supply</span>
                     <h1 class="hero-title">Decorative Hanging Solutions for Events &amp; Businesses</h1>
-                    <p class="hero-body">JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive décor, and custom projects across India.</p>
-
-                    <div class="hero-highlights" aria-label="Key business strengths">
-                        <span><i class="fas fa-check-circle" aria-hidden="true"></i> Bulk-ready supply</span>
-                        <span><i class="fas fa-palette" aria-hidden="true"></i> Custom colours</span>
-                        <span><i class="fas fa-clock" aria-hidden="true"></i> Fast quotations</span>
-                    </div>
-
-                    <div class="hero-buttons">
+                    <p class="hero-desc">JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive décor, and custom projects across India.</p>
+                    <ul class="hero-highlights">
+                        <li><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#icon-check"/></svg> Bulk-ready supply</li>
+                        <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-palette"/></svg> Custom colours</li>
+                        <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-clock"/></svg> Fast quotations</li>
+                    </ul>
+                    <div class="hero-actions">
                         <a href="#collection" class="btn btn-primary">Explore Product Collection</a>
-                        <a href="https://wa.me/918100656258?text=Hello%20JHALAR%2C%20I%20would%20like%20a%20B2B%20quotation." class="btn btn-outline whatsapp-enquiry-btn" data-wa-msg="Hello JHALAR, I would like a B2B quotation." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp for B2B Enquiry</a>
+                        <a href="https://wa.me/918100656258?text=Hello%20JHALAR%2C%20I%20would%20like%20a%20B2B%20quotation." class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp for B2B Enquiry</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img class="hero-photo" src="assets/images/hero-jhalar.jpg" alt="Handcrafted pink floral jhalar garland manufactured by JHALAR Hanging Decor" width="1080" height="1080" fetchpriority="high" decoding="async">
-                    <div class="hero-visual-card">
-                        <div class="card-pill">Wholesale-ready</div>
-                        <div class="card-metric">
-                            <strong>500+</strong>
-                            <span>decor installs</span>
-                        </div>
-                    </div>
+                    <img class="hero-img" src="assets/images/hero-jhalar.jpg" alt="Handcrafted pink floral jhalar garland" width="1080" height="1080" fetchpriority="high" decoding="async">
                 </div>
             </div>
         </section>
 
-        <!-- Trust Strip -->
-        <div class="trust-strip reveal">
-            <div class="container">
-                <ul class="trust-markers">
-                    <li><i class="fas fa-box" aria-hidden="true"></i> Bulk Supply</li>
-                    <li class="separator" aria-hidden="true">•</li>
-                    <li><i class="fas fa-paint-brush" aria-hidden="true"></i> Custom Designs</li>
-                    <li class="separator" aria-hidden="true">•</li>
-                    <li><i class="fas fa-industry" aria-hidden="true"></i> Direct Manufacturer</li>
-                </ul>
+        <!-- TRUST BAR -->
+        <div class="trust-bar">
+            <div class="container trust-bar-inner">
+                <div class="trust-bar-item"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#icon-mfr"/></svg> Direct Manufacturer</div>
+                <div class="trust-bar-divider" aria-hidden="true"></div>
+                <div class="trust-bar-item"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#icon-design"/></svg> Custom Designs</div>
+                <div class="trust-bar-divider" aria-hidden="true"></div>
+                <div class="trust-bar-item"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#icon-bulk"/></svg> Bulk &amp; Wholesale</div>
             </div>
         </div>
 
         <!-- WHY JHALAR -->
-        <section id="why-jhalar" class="section bg-light reveal">
+        <section id="why-jhalar" class="section reveal" data-section="whyJhalar">
             <div class="container">
-                <div class="section-header text-center">
+                <div class="section-header">
+                    <span class="eyebrow">Why JHALAR</span>
                     <h2 class="section-title">Built for Bulk Décor Requirements</h2>
                     <p class="section-subtitle">Designed for businesses and teams looking for distinctive hanging décor solutions at scale.</p>
                 </div>
-
-                <div class="features-grid">
+                <div class="feature-grid">
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-industry" aria-hidden="true"></i></div>
-                        <h3 class="feature-title">Direct Manufacturer</h3>
-                        <p class="feature-text">Work directly with the manufacturing source for your décor requirements — no middle layers, faster answers.</p>
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true" width="20" height="20"><use href="assets/icons.svg#icon-mfr"/></svg></div>
+                        <h3>Direct Manufacturer</h3>
+                        <p>Work directly with the source — no middle layers, faster answers, better pricing.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-boxes" aria-hidden="true"></i></div>
-                        <h3 class="feature-title">Bulk Order Capability</h3>
-                        <p class="feature-text">Suitable for event, wholesale, retail and organisational requirements, from dozens to thousands of pieces.</p>
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true" width="20" height="20"><use href="assets/icons.svg#icon-palette"/></svg></div>
+                        <h3>Custom Colours &amp; Designs</h3>
+                        <p>Colours, motifs and lengths made to your brief — from brand palettes to festive themes.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-palette" aria-hidden="true"></i></div>
-                        <h3 class="feature-title">Custom Colours &amp; Designs</h3>
-                        <p class="feature-text">Discuss colour, design, size and styling preferences for your project or brand palette.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
-                        <h3 class="feature-title">B2B-Focused Enquiry</h3>
-                        <p class="feature-text">Share your requirement and receive relevant supply and pricing details quickly.</p>
+                        <div class="feature-icon"><svg class="icon" aria-hidden="true" width="20" height="20"><use href="assets/icons.svg#icon-bulk"/></svg></div>
+                        <h3>Bulk &amp; Wholesale Ready</h3>
+                        <p>From dozens to thousands of pieces — suitable for event, wholesale, retail and organisational requirements.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- PRODUCT COLLECTION -->
-        <section id="collection" class="section reveal">
+        <section id="collection" class="section bg-alt reveal" data-section="collection">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Our Product Collection</h2>
-                    <p class="section-subtitle">Explore decorative hanging categories for bulk supply, event décor projects, wholesale requirements and custom orders.</p>
+                <div class="section-header">
+                    <span class="eyebrow">Our Collection</span>
+                    <h2 class="section-title">Product Collection</h2>
+                    <p class="section-subtitle">Explore decorative hanging categories for bulk supply, event décor and wholesale requirements.</p>
                 </div>
-
-                <!-- Category Filters -->
                 <div class="filters" id="product-filters" role="tablist" aria-label="Filter products by category">
                     <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Products</button>
                     <button class="filter-btn" data-filter="Pom Pom Hangings" role="tab" aria-selected="false">Pom Pom</button>
@@ -211,135 +181,81 @@
                     <button class="filter-btn" data-filter="Decorative Strings" role="tab" aria-selected="false">Strings</button>
                     <button class="filter-btn" data-filter="Custom Designs" role="tab" aria-selected="false">Custom</button>
                 </div>
-
-                <!-- Product Grid -->
                 <div class="product-grid" id="product-grid" role="tabpanel" aria-live="polite">
-                    <!-- Products rendered via JavaScript -->
+                    <!-- Rendered by JavaScript -->
                 </div>
+                <p class="collection-note">Need something specific? <a href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener">Message us on WhatsApp</a> for the latest catalogue and bulk pricing.</p>
             </div>
         </section>
 
         <!-- CUSTOM ORDERS -->
-        <section id="custom-orders" class="section bg-light reveal">
-            <div class="container split-layout">
-                <div class="split-content">
-                    <h2 class="section-title">Custom Hanging Décor for Your Requirement</h2>
-                    <p class="section-subtitle left-align">Share your preferred colours, sizes, quantity and design direction. JHALAR can discuss suitable hanging décor solutions for event projects, wholesale orders and organisational requirements.</p>
-
-                    <div class="requirement-chips">
-                        <span class="chip"><i class="fas fa-palette" aria-hidden="true"></i> Colour Options</span>
-                        <span class="chip"><i class="fas fa-ruler-combined" aria-hidden="true"></i> Size Requirements</span>
-                        <span class="chip"><i class="fas fa-pencil-ruler" aria-hidden="true"></i> Design References</span>
-                        <span class="chip"><i class="fas fa-chart-bar" aria-hidden="true"></i> Quantity Planning</span>
+        <section id="custom-orders" class="section reveal" data-section="customOrders">
+            <div class="container split-grid">
+                <div class="split-text">
+                    <span class="eyebrow">Made to Order</span>
+                    <h2>Custom Hanging Décor for Your Requirement</h2>
+                    <p>Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging décor solutions for event projects, wholesale orders and organisational requirements.</p>
+                    <div class="chips">
+                        <span class="chip"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#icon-palette"/></svg> Colour Options</span>
+                        <span class="chip"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#icon-ruler"/></svg> Size Requirements</span>
+                        <span class="chip"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#icon-chart"/></svg> Quantity Planning</span>
                     </div>
-
                     <a href="#contact" class="btn btn-primary">Discuss a Custom Requirement</a>
-                </div>
-                <div class="split-image">
-                    <img class="split-photo" src="assets/images/custom-orders.jpg" alt="Custom red and green floral garland jhalar made to order" width="1080" height="1080" loading="lazy" decoding="async">
-                </div>
-            </div>
-        </section>
-
-        <!-- APPLICATIONS -->
-        <section id="applications" class="section reveal">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Made for Events, Displays &amp; Bulk Décor Requirements</h2>
-                    <p class="section-subtitle">Created for professionals and organisations planning distinctive décor experiences.</p>
-                </div>
-
-                <div class="applications-grid">
-                    <div class="app-card">
-                        <div class="app-icon"><i class="fas fa-calendar-alt" aria-hidden="true"></i></div>
-                        <h3 class="app-title">Event Planners &amp; Decorators</h3>
-                    </div>
-                    <div class="app-card">
-                        <div class="app-icon"><i class="fas fa-heart" aria-hidden="true"></i></div>
-                        <h3 class="app-title">Wedding &amp; Celebration Décor</h3>
-                    </div>
-                    <div class="app-card">
-                        <div class="app-icon"><i class="fas fa-store" aria-hidden="true"></i></div>
-                        <h3 class="app-title">Wholesalers &amp; Distributors</h3>
-                    </div>
-                    <div class="app-card">
-                        <div class="app-icon"><i class="fas fa-shopping-bag" aria-hidden="true"></i></div>
-                        <h3 class="app-title">Retail &amp; Seasonal Displays</h3>
-                    </div>
-                    <div class="app-card">
-                        <div class="app-icon"><i class="fas fa-building" aria-hidden="true"></i></div>
-                        <h3 class="app-title">Committees &amp; Organisations</h3>
-                    </div>
-                    <div class="app-card">
-                        <div class="app-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
-                        <h3 class="app-title">Cultural &amp; Festive Events</h3>
+                    <div class="process">
+                        <p class="process-label"><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-route"/></svg> How it works</p>
+                        <div class="process-grid">
+                            <div class="step">
+                                <div class="step-num">01</div>
+                                <div>
+                                    <div class="step-title">Share Your Requirement</div>
+                                    <p class="step-desc">Tell us the product category, quantity and intended application.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">02</div>
+                                <div>
+                                    <div class="step-title">Discuss Design &amp; Quantity</div>
+                                    <p class="step-desc">Colour preferences, sizing, design references and bulk quantities.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">03</div>
+                                <div>
+                                    <div class="step-title">Receive Supply Details</div>
+                                    <p class="step-desc">Get all the details you need to proceed with your sourcing requirement.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- B2B ENQUIRY CTA -->
-        <section class="section cta-section reveal">
-            <div class="container text-center">
-                <h2 class="cta-title">Planning an Event or Looking for Bulk Supply?</h2>
-                <p class="cta-text">Share your requirement with us. We can discuss quantity, colours, sizes and custom designs.</p>
-                <a href="https://wa.me/918100656258?text=Hello%20JHALAR%2C%20I%20would%20like%20a%20B2B%20quotation." class="btn btn-primary whatsapp-enquiry-btn cta-btn" data-wa-msg="Hello JHALAR, I would like a B2B quotation." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp for B2B Enquiry</a>
-            </div>
-        </section>
-
-        <!-- HOW B2B ENQUIRIES WORK -->
-        <section id="how-it-works" class="section bg-light reveal">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Simple B2B Enquiry Process</h2>
-                </div>
-
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">01</div>
-                        <h3 class="step-title">Share Your Requirement</h3>
-                        <p class="step-desc">Tell us the product category, quantity and intended application.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">02</div>
-                        <h3 class="step-title">Discuss Design &amp; Quantity</h3>
-                        <p class="step-desc">Discuss colour preferences, sizing, design references and bulk requirements.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">03</div>
-                        <h3 class="step-title">Receive Supply Details</h3>
-                        <p class="step-desc">Receive relevant information to proceed with your sourcing requirement.</p>
-                    </div>
-                </div>
+                <img class="split-img" src="assets/images/custom-orders.jpg" alt="Custom red and green floral garland jhalar" width="1080" height="1080" loading="lazy" decoding="async">
             </div>
         </section>
 
         <!-- ABOUT -->
-        <section id="about" class="section reveal">
-            <div class="container split-layout reverse">
-                <div class="split-content">
-                    <h2 class="section-title">About JHALAR</h2>
-                    <p class="section-subtitle left-align">JHALAR focuses on handcrafted decorative hanging solutions for business buyers, events, wholesale requirements and organisational projects.</p>
-
-                    <ul class="values-list">
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Crafted for Decorative Impact</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Designed for B2B Requirements</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Made for Flexible Project Discussions</li>
+        <section id="about" class="section bg-alt reveal" data-section="about">
+            <div class="container split-grid reverse">
+                <div class="split-text">
+                    <span class="eyebrow">About JHALAR</span>
+                    <h2>Handcrafted, Made for Business Buyers</h2>
+                    <p>JHALAR focuses on handcrafted decorative hanging solutions for business buyers, events, wholesale requirements and organisational projects.</p>
+                    <ul class="values">
+                        <li><svg class="icon" aria-hidden="true" width="20" height="20"><use href="assets/icons.svg#icon-check"/></svg> Crafted for decorative impact</li>
+                        <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-check"/></svg> Designed for B2B requirements</li>
+                        <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-check"/></svg> Flexible project discussions</li>
                     </ul>
                 </div>
-                <div class="split-image">
-                    <img class="split-photo" src="assets/images/about-collage.jpg" alt="Collage of JHALAR handcrafted jhalars, garlands and bead hangings" width="1200" height="1200" loading="lazy" decoding="async">
-                </div>
+                <img class="split-img" src="assets/images/about-collage.jpg" alt="Collage of JHALAR handcrafted jhalars" width="1200" height="1200" loading="lazy" decoding="async">
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="section bg-light reveal">
+        <section id="faq" class="section reveal" data-section="faq">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="section-header">
+                    <span class="eyebrow">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
                 </div>
-
                 <div class="accordion">
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false" aria-controls="faq-1">Do you supply decorative hangings in bulk?</button>
@@ -356,7 +272,7 @@
                     <div class="accordion-item">
                         <button class="accordion-header" aria-expanded="false" aria-controls="faq-3">How can I enquire about a product collection?</button>
                         <div class="accordion-content" id="faq-3" hidden>
-                            <p>You can use the B2B enquiry form on this website or contact us directly on WhatsApp at <a href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener">+91 81006 56258</a>.</p>
+                            <p>You can use the B2B enquiry form or contact us directly on WhatsApp at <a href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener">+91 81006 56258</a>.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -369,29 +285,25 @@
             </div>
         </section>
 
-        <!-- CONTACT FORM -->
-        <section id="contact" class="section reveal">
-            <div class="container contact-container">
-                <div class="contact-header text-center">
-                    <h2 class="section-title">Start a B2B Enquiry</h2>
-                    <p class="section-subtitle">Share your requirement and our team can discuss suitable options with you.</p>
+        <!-- CONTACT -->
+        <section id="contact" class="section reveal" data-section="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Get in Touch</span>
+                    <h2>Start a B2B Enquiry</h2>
+                    <p>Share your requirement and our team can discuss suitable options with you.</p>
                 </div>
-
                 <div class="contact-grid">
-                    <div class="contact-form-wrapper">
+                    <div class="form-card">
                         <form name="b2b-enquiry" id="enquiry-form" novalidate>
-                            <!-- Works on GitHub Pages: submission opens WhatsApp with the enquiry pre-filled (script.js) -->
-
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
                                 <input type="text" id="name" name="name" required autocomplete="name">
                             </div>
-
                             <div class="form-group">
                                 <label for="company">Company / Organisation Name</label>
                                 <input type="text" id="company" name="company" autocomplete="organization">
                             </div>
-
                             <div class="form-group">
                                 <label for="buyer-type">Buyer Type *</label>
                                 <select id="buyer-type" name="buyer-type" required>
@@ -404,7 +316,6 @@
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group half">
                                     <label for="phone">Phone / WhatsApp Number *</label>
@@ -415,12 +326,10 @@
                                     <input type="email" id="email" name="email" autocomplete="email">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label for="location">City and State *</label>
                                 <input type="text" id="location" name="location" required autocomplete="address-level2">
                             </div>
-
                             <div class="form-group">
                                 <label for="category">Requirement Category *</label>
                                 <select id="category" name="category" required>
@@ -436,7 +345,6 @@
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group half">
                                     <label for="quantity">Estimated Quantity</label>
@@ -447,29 +355,24 @@
                                     <input type="date" id="date" name="date">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label for="details">Requirement Details</label>
                                 <textarea id="details" name="details" rows="4"></textarea>
                             </div>
-
                             <button type="submit" class="btn btn-primary submit-btn"><i class="fab fa-whatsapp" aria-hidden="true"></i> Send Enquiry via WhatsApp</button>
-                            <p class="form-note">Submitting opens WhatsApp with your enquiry pre-filled — just press send.</p>
+                            <p class="form-note">Submitting opens WhatsApp with your enquiry pre-filled.</p>
                             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
                         </form>
                     </div>
-
-                    <div class="contact-details-wrapper">
-                        <div class="contact-card">
-                            <h3>Direct Contact</h3>
-                            <ul class="contact-list">
-                                <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <strong>WhatsApp:</strong> <a class="contact-link" href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener"><span data-contact="phone">+91 81006 56258</span></a></li>
-                                <li><i class="fas fa-phone" aria-hidden="true"></i> <strong>Phone:</strong> <a class="contact-link" href="tel:+918100656258" data-tel><span data-contact="phone">+91 81006 56258</span></a></li>
-                                <li><i class="fas fa-envelope" aria-hidden="true"></i> <strong>Email:</strong> <a class="contact-link" href="mailto:lokeshdugar040@gmail.com" data-mailto><span data-contact="email">lokeshdugar040@gmail.com</span></a></li>
-                                <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <strong>Location:</strong> <span data-contact="location">Howrah, West Bengal, India</span></li>
-                                <li><i class="fas fa-file-invoice" aria-hidden="true"></i> <strong>GST:</strong> <span data-contact="gst">Available on request</span></li>
-                            </ul>
-                        </div>
+                    <div class="info-card">
+                        <h3>Direct Contact</h3>
+                        <ul class="contact-list">
+                            <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <strong>WhatsApp:</strong> <a class="contact-link" href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener"><span data-contact="phone">+91 81006 56258</span></a></li>
+                            <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-phone"/></svg> <strong>Phone:</strong> <a class="contact-link" href="tel:+918100656258" data-tel><span data-contact="phone">+91 81006 56258</span></a></li>
+                            <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-email"/></svg> <strong>Email:</strong> <a class="contact-link" href="mailto:lokeshdugar040@gmail.com" data-mailto><span data-contact="email">lokeshdugar040@gmail.com</span></a></li>
+                            <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-location"/></svg> <strong>Location:</strong> <span data-contact="location">Howrah, West Bengal, India</span></li>
+                            <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-invoice"/></svg> <strong>GST:</strong> <span data-contact="gst">Available on request</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -478,37 +381,38 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="container footer-container">
+        <div class="container footer-grid">
             <div class="footer-brand">
-                <a href="#hero" class="logo footer-logo" aria-label="JHALAR Hanging Decor">
-                    <img class="brand-mark brand-mark-footer" src="assets/logo-jhalar-02.svg" alt="JHALAR Hanging Decor" width="120" height="36" loading="lazy" />
-                </a>
+                <a href="#hero" class="logo" aria-label="JHALAR"><img class="brand-mark" src="assets/logo-jhalar-02.svg" alt="JHALAR" width="120" height="36" loading="lazy"></a>
+                <p class="footer-tagline">Handcrafted decorative hangings for events, retailers and wholesalers across India.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col footer-links">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#hero">Home</a></li>
                     <li><a href="#collection">Collection</a></li>
                     <li><a href="#custom-orders">Custom Orders</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
                 </ul>
             </div>
-            <div class="footer-contact">
+            <div class="footer-col footer-contact">
                 <h4>Contact</h4>
                 <ul>
                     <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener">WhatsApp: <span data-contact="phone">+91 81006 56258</span></a></li>
-                    <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:lokeshdugar040@gmail.com" data-mailto>Email: <span data-contact="email">lokeshdugar040@gmail.com</span></a></li>
-                    <li><a href="privacy.html"><i class="fas fa-shield-alt" aria-hidden="true"></i> Privacy Policy</a></li>
+                    <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-email"/></svg> <a href="mailto:lokeshdugar040@gmail.com" data-mailto>Email: <span data-contact="email">lokeshdugar040@gmail.com</span></a></li>
+                    <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-location"/></svg> <span data-contact="location">Howrah, West Bengal, India</span></li>
                 </ul>
             </div>
-            <div class="footer-social">
+            <div class="footer-col">
                 <h4>Connect</h4>
-                <ul>
-                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
-                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a></li>
-                    <li><a href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
-                </ul>
+                <div class="footer-social">
+                    <ul>
+                        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+                        <li><a href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -520,31 +424,34 @@
 
     <!-- PRODUCT MODAL -->
     <div class="modal-overlay" id="product-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-container">
+        <div class="modal-box">
             <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-content-grid">
-                <div class="modal-image-area">
-                    <img class="modal-photo" id="modal-photo" src="assets/images/products/pom-pom-pink-gota.jpg" alt="" width="1080" height="1080" decoding="async">
+            <div class="modal-grid">
+                <div class="modal-img-wrap">
+                    <img class="modal-img" id="modal-photo" src="assets/images/products/pom-pom-pink-gota.jpg" alt="" width="1080" height="1080" decoding="async">
                 </div>
-                <div class="modal-info-area">
-                    <span class="category-label" id="modal-category">Category</span>
+                <div class="modal-info">
+                    <span class="modal-tag" id="modal-category">Category</span>
                     <h3 class="modal-title" id="modal-title">Product Name</h3>
-                    <span class="b2b-tag" id="modal-tag">B2B Tag</span>
+                    <span class="modal-badge" id="modal-tag">B2B Tag</span>
                     <p class="modal-desc" id="modal-desc">Product description goes here.</p>
-
                     <ul class="modal-bullets">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Bulk supply enquiry</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Custom colour discussion</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Event and wholesale requirements</li>
+                        <li><svg class="icon" aria-hidden="true" width="20" height="20"><use href="assets/icons.svg#icon-check"/></svg> Bulk supply enquiry</li>
+                        <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-check"/></svg> Custom colour discussion</li>
+                        <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-check"/></svg> Event and wholesale requirements</li>
                     </ul>
-
-                    <a href="https://wa.me/918100656258?text=Hello%20JHALAR%2C%20I%27m%20interested%20in%20a%20product%20from%20your%20collection." class="btn btn-primary whatsapp-enquiry-btn modal-btn" id="modal-wa-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp</a>
+                    <a href="https://wa.me/918100656258?text=Hello%20JHALAR%2C%20I%27m%20interested%20in%20a%20product%20from%20your%20collection." class="btn btn-primary modal-btn" id="modal-wa-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/918100656258?text=Hello%20JHALAR%2C%20I%20would%20like%20a%20B2B%20quotation." class="wa-float" data-wa-msg="Hello JHALAR, I would like a B2B quotation." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <span class="pulse" aria-hidden="true"></span>
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
     <script src="script.js" defer></script>
 </body>
 </html>
