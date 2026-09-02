@@ -665,6 +665,78 @@
       "file": "assets/fonts/Mogranx-SemiBoldExtraExpanded.woff2",
       "format": "woff2",
       "weight": 400
+    },
+    {
+      "family": "Mogranx SemiBoldSemiCondensed",
+      "file": "assets/fonts/Mogranx-SemiBoldSemiCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiBoldSemiExpanded",
+      "file": "assets/fonts/Mogranx-SemiBoldSemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiBoldSlanted",
+      "file": "assets/fonts/Mogranx-SemiBoldSlanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiCondensed",
+      "file": "assets/fonts/Mogranx-SemiCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiExpanded",
+      "file": "assets/fonts/Mogranx-SemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx Slanted",
+      "file": "assets/fonts/Mogranx-Slanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SlantedCondensed",
+      "file": "assets/fonts/Mogranx-SlantedCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SlantedExpanded",
+      "file": "assets/fonts/Mogranx-SlantedExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SlantedExtraCondensed",
+      "file": "assets/fonts/Mogranx-SlantedExtraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SlantedExtraExpanded",
+      "file": "assets/fonts/Mogranx-SlantedExtraExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SlantedSemiCondensed",
+      "file": "assets/fonts/Mogranx-SlantedSemiCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SlantedSemiExpanded",
+      "file": "assets/fonts/Mogranx-SlantedSemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
     }
   ]
 }
