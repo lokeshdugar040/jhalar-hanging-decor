@@ -4,9 +4,13 @@
       "visible": true,
       "label": "Hero Banner"
     },
+    "trustStrip": {
+      "visible": true,
+      "label": "Trust Strip"
+    },
     "whyJhalar": {
       "visible": true,
-      "label": "Why JHALAR"
+      "label": "Why Jhalar (Features)"
     },
     "collection": {
       "visible": true,
@@ -14,7 +18,19 @@
     },
     "customOrders": {
       "visible": true,
-      "label": "Custom Orders + Process"
+      "label": "Custom Orders"
+    },
+    "applications": {
+      "visible": true,
+      "label": "Applications"
+    },
+    "cta": {
+      "visible": true,
+      "label": "Call to Action"
+    },
+    "howItWorks": {
+      "visible": true,
+      "label": "How It Works"
     },
     "about": {
       "visible": true,

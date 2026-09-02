@@ -8,7 +8,7 @@
     "--colour-warm-cream": "#fffaf1"
   },
   "fonts": {
-    "heading": "'Playfair Display', Georgia, 'Times New Roman', serif",
-    "body": "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    "heading": "'Mogranx Bold', Georgia, 'Times New Roman', serif",
+    "body": "'Arial', Helvetica, sans-serif"
   }
 }
