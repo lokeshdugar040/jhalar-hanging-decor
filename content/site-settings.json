@@ -3,5 +3,39 @@
   "phone": "+91 81006 56258",
   "email": "lokeshdugar040@gmail.com",
   "location": "Howrah, West Bengal, India",
-  "gst": "Available on request"
+  "gst": "Available on request",
+  "heroHeadline": "Decorative Hanging Solutions for Events &amp; Businesses",
+  "heroIntro": "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive décor, and custom projects across India.",
+  "heroImage": "assets/images/hero-jhalar.jpg",
+  "siteTitle": "",
+  "siteDescription": "",
+  "ogImage": "assets/images/og-cover.jpg",
+  "navItems": [
+    { "label": "Collection", "href": "#collection" },
+    { "label": "Custom Orders", "href": "#custom-orders" },
+    { "label": "About", "href": "#about" },
+    { "label": "FAQ", "href": "#faq" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "footerNavItems": [
+    { "label": "Collection", "href": "#collection" },
+    { "label": "Custom Orders", "href": "#custom-orders" },
+    { "label": "About", "href": "#about" },
+    { "label": "Contact", "href": "#contact" },
+    { "label": "Privacy Policy", "href": "privacy.html" }
+  ],
+  "socialLinks": {
+    "instagram": {
+      "url": "",
+      "label": "Instagram"
+    },
+    "facebook": {
+      "url": "",
+      "label": "Facebook"
+    },
+    "whatsapp": {
+      "url": "",
+      "label": "WhatsApp"
+    }
+  }
 }

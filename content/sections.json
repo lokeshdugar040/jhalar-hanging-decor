@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "hero": {
+      "visible": true,
+      "label": "Hero Banner"
+    },
+    "whyJhalar": {
+      "visible": true,
+      "label": "Why JHALAR"
+    },
+    "collection": {
+      "visible": true,
+      "label": "Product Collection"
+    },
+    "customOrders": {
+      "visible": true,
+      "label": "Custom Orders + Process"
+    },
+    "about": {
+      "visible": true,
+      "label": "About"
+    },
+    "faq": {
+      "visible": true,
+      "label": "FAQ"
+    },
+    "contact": {
+      "visible": true,
+      "label": "Contact"
+    }
+  },
+  "order": [
+    "hero",
+    "whyJhalar",
+    "collection",
+    "customOrders",
+    "about",
+    "faq",
+    "contact"
+  ]
+}

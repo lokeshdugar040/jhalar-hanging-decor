@@ -1,0 +1,14 @@
+{
+  "colors": {
+    "--colour-jhalar-red": "#c82039",
+    "--colour-jhalar-red-dark": "#a3182e",
+    "--colour-jhalar-red-light": "#e8485f",
+    "--colour-accent-gold": "#c9a84c",
+    "--colour-deep-navy": "#141942",
+    "--colour-warm-cream": "#fffaf1"
+  },
+  "fonts": {
+    "heading": "'Playfair Display', Georgia, 'Times New Roman', serif",
+    "body": "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  }
+}
