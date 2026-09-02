@@ -65,7 +65,7 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 
 /* ─── TAG (EYEBROW) ─── */
 .tag,.eyebrow{display:inline-flex;align-items:center;gap:6px;padding:.35rem 1rem;background:rgba(200,32,57,.07);border:1px solid rgba(200,32,57,.15);border-radius:var(--radius-full);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--red);margin-bottom:var(--space-3)}
-.tag i{font-size:.85em}.tag-gold{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.25);color:var(--gold-dark)}
+.tag i{font-size:.85em}.tag .icon{width:1em;height:1em;color:var(--red)}.tag-gold{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.25);color:var(--gold-dark)}
 
 /* ─── BUTTONS ─── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.75rem 1.75rem;font-family:var(--sans);font-size:var(--fs-sm);font-weight:600;line-height:1.4;border-radius:var(--radius-full);border:2px solid transparent;transition:all .25s var(--ease-out);white-space:nowrap}
@@ -114,7 +114,7 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .hero-desc{font-size:var(--fs-lg);line-height:1.8;color:var(--gray-700);margin-bottom:var(--space-5);max-width:54ch}
 .hero-highlights{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);margin-bottom:var(--space-5)}
 .hero-highlights li{display:flex;align-items:center;gap:10px;font-size:var(--fs-sm);font-weight:600;color:var(--gray-700)}
-.hero-highlights li i{color:var(--red);font-size:1.1rem}
+.hero-highlights li .icon{color:var(--red);width:1.15em;height:1.15em}
 .hero-actions{display:flex;flex-direction:column;gap:var(--space-3)}
 .hero-image{position:relative}
 .hero-img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);transition:transform .5s var(--ease-out)}
@@ -124,7 +124,7 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .trust-bar{position:relative;z-index:2;margin-top:calc(var(--space-5) * -1)}
 .trust-bar-inner{display:flex;flex-direction:column;align-items:center;gap:var(--space-3);background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:var(--space-4) var(--space-5)}
 .trust-bar-item{display:flex;align-items:center;justify-content:center;gap:10px;font-size:var(--fs-sm);font-weight:600;color:var(--gray-700)}
-.trust-bar-item i{color:var(--red);font-size:1.05rem;width:20px;text-align:center}
+.trust-bar-item .icon{color:var(--red);width:20px;height:20px}
 .trust-bar-divider{display:none;width:1px;height:1.5rem;background:var(--gray-200);align-self:center}
 
 /* ─── FEATURES (Why JHALAR) ─── */
@@ -164,10 +164,10 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .split-img:hover{transform:scale(1.01)}
 .chips{display:flex;flex-wrap:wrap;gap:var(--space-2);margin:var(--space-4) 0 var(--space-5)}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:.5rem .9rem;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-full);font-size:var(--fs-xs);font-weight:600;color:var(--gray-700);box-shadow:0 1px 2px rgba(20,25,66,.06)}
-.chip i{color:var(--red)}
+.chip i,.chip .icon{color:var(--red)}
 .process{margin-top:var(--space-7);padding-top:var(--space-7);border-top:1px solid var(--gray-100)}
 .process-label{font-family:var(--sans);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--gray-500);margin-bottom:var(--space-4)}
-.process-label i{color:var(--red)}
+.process-label .icon{color:var(--red)}
 .process-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4)}
 .step{display:flex;gap:var(--space-4);align-items:flex-start}
 .step-num{flex-shrink:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--white);background:linear-gradient(135deg,var(--red),var(--red-dark));border-radius:var(--radius-md)}
@@ -177,7 +177,7 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 /* ─── ABOUT VALUES ─── */
 .values{display:grid;gap:var(--space-2);margin-top:var(--space-6)}
 .values li{display:flex;align-items:center;gap:12px;padding:var(--space-2) 0;font-weight:500;color:var(--gray-700)}
-.values li i{color:var(--red);font-size:1.15rem;flex-shrink:0}
+.values li .icon{color:var(--red);flex-shrink:0}
 
 /* ─── FAQ ─── */
 .accordion{display:grid;gap:var(--space-2);max-width:740px;margin:0 auto}
@@ -208,7 +208,7 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .contact-list{display:grid;gap:var(--space-2)}
 .contact-list li{display:flex;align-items:center;gap:12px;padding:var(--space-2) 0;font-size:var(--fs-sm);color:var(--gray-700);border-bottom:1px dashed var(--gray-100)}
 .contact-list li:last-child{border-bottom:none}
-.contact-list li i{color:var(--red);width:20px;text-align:center;flex-shrink:0}
+.contact-list li i,.contact-list li .icon{color:var(--red);width:20px;text-align:center;flex-shrink:0}
 .contact-list strong{color:var(--navy);font-weight:600}
 .contact-link{color:var(--gray-700);font-weight:500}
 .contact-link:hover{color:var(--red)}
@@ -222,7 +222,7 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .footer-col li{margin-bottom:.35rem}
 .footer-col a{color:rgba(255,255,255,.65);font-size:var(--fs-sm);transition:color .2s}
 .footer-col a:hover{color:var(--gold);text-decoration:none}
-.footer-col li i{color:var(--gold);width:16px;text-align:center}
+.footer-col li i,.footer-col li .icon{color:var(--gold);width:16px;text-align:center}
 .footer-social{display:flex;gap:var(--space-4)}
 .footer-social a{color:rgba(255,255,255,.65);font-size:var(--fs-sm);font-weight:500;transition:color .2s;display:flex;align-items:center;gap:8px}
 .footer-social a:hover{color:var(--gold)}
@@ -245,7 +245,7 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .modal-desc{font-size:var(--fs-sm);line-height:1.7;margin-bottom:var(--space-4);color:var(--gray-700)}
 .modal-bullets{display:grid;gap:4px;margin-bottom:var(--space-5)}
 .modal-bullets li{display:flex;align-items:center;gap:8px;font-size:var(--fs-sm);color:var(--gray-700)}
-.modal-bullets li i{color:var(--red)}
+.modal-bullets li .icon{color:var(--red)}
 .modal-btn{width:100%}
 
 /* ─── WHATSAPP FLOAT ─── */
