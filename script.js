@@ -1,163 +1,158 @@
-// JHALAR Hanging Decor - Product & Interaction Script
+/* ============================================
+   JHALAR Hanging Decor — site script
+   - WhatsApp number is configured in ONE place (WA_NUMBER)
+   - Products load from content/products.json
+   ============================================ */
 
-// Product data will be loaded from content/products.json
+document.documentElement.classList.add('js');
+
+/* ---- CONFIG ------------------------------------------------- */
+// ⚠️ Replace with the real WhatsApp number (country code + number, digits only).
+const WA_NUMBER = '91XXXXXXXXXX';
+
+/* ---- PRODUCT DATA ------------------------------------------- */
 let products = [];
 
-// Initialize website
+async function loadProducts() {
+  const response = await fetch('content/products.json');
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const data = await response.json();
+  products = data.products || [];
+}
+
+// Used if the JSON is unreachable (offline preview, renamed file, etc.)
+const FALLBACK_PRODUCTS = [
+  { id: 901, title: 'Marigold Pom Pom Garland', category: 'Pom Pom Hangings', description: 'Our most versatile bulk decor line for festivals, weddings and retail displays.', image: '/assets/images/products/marigold-pom-pom-garland', b2bTag: 'Bestseller' },
+  { id: 902, title: 'Rani Pink Flower Jhalar Garland', category: 'Floral Jhalars', description: 'Vibrant hand-wound jhalar — a bestseller for wedding backdrops and festive entrances.', image: '/assets/images/products/rani-pink-flower-jhalar', b2bTag: 'Bestseller' },
+  { id: 903, title: 'Marigold Door Toran Hanging', category: 'Torans', description: 'The classic festive doorway piece, supplied in bulk for retail and event installs.', image: '/assets/images/products/marigold-door-toran', b2bTag: 'Bestseller' },
+  { id: 904, title: 'Pink Bead & Bell Hanging', category: 'Bead Hangings', description: 'Hand-strung bead hanging with decorative bells — a boutique favourite.', image: '/assets/images/products/pink-bead-bell-hanging', b2bTag: 'Bestseller' },
+  { id: 905, title: 'Green Leaf Flower Bell Hanging', category: 'Bell Hangings', description: 'Leaf-and-flower hanging with a brass-look bell drop for traditional entrances.', image: '/assets/images/products/leaf-flower-bell-hanging', b2bTag: 'Traditional' },
+  { id: 906, title: 'Orange Tassel Door Hanging', category: 'Tassel Hangings', description: 'Layered tassel door hanging — a bold traditional accent for entrances.', image: '/assets/images/products/orange-tassel-door-hanging', b2bTag: 'Bulk Ready' }
+];
+
+/* ---- UTILS --------------------------------------------------- */
+function escapeHtml(str) {
+  return String(str ?? '').replace(/[&<>"']/g, ch => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[ch]);
+}
+
+function waLink(text) {
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
+// Image fallback: try .jpg if .webp missing
+window.__imgFallback = function (img) {
+  img.onerror = null;
+  if (img.src.endsWith('.webp')) img.src = img.src.replace(/\.webp$/, '.jpg');
+};
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.hidden = false;
+  requestAnimationFrame(() => toast.classList.add('show'));
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => { toast.hidden = true; }, 300);
+  }, 3200);
+}
+
+/* ---- INIT ---------------------------------------------------- */
 async function init() {
   try {
     await loadProducts();
-    renderProducts(products);
-    setupFilterButtons();
-    setupMobileNav();
-    setupAccordions();
-    setupModal();
-    updateYear();
-    setupReveal();
-    setupFormValidation();
-  } catch (error) {
-    console.error('Error initializing website:', error);
-    showFallbackProducts();
+  } catch (err) {
+    console.warn('Product JSON unavailable, using fallback catalogue.', err);
+    products = FALLBACK_PRODUCTS;
   }
-}
-
-// Load products from JSON file
-async function loadProducts() {
-  try {
-    const response = await fetch('/content/products.json');
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    products = data.products || [];
-    console.log(`Loaded ${products.length} products`);
-  } catch (error) {
-    console.error('Failed to load products:', error);
-    showFallbackProducts();
-  }
-}
-
-// Show fallback products if JSON fails
-function showFallbackProducts() {
-  products = [
-    {
-      id: 1,
-      title: "Premium Pom Pom Hanging",
-      category: "Pom Pom Hangings",
-      description: "Handcrafted decorative pom pom hangings perfect for events.",
-      image: "/assets/images/products/pom-pom-hanging.jpg",
-      b2bTag: "Bulk-ready"
-    },
-    {
-      id: 2,
-      title: "Elegant Bead Hanging",
-      category: "Bead Hangings",
-      description: "Beautiful bead hangings with intricate patterns.",
-      image: "/assets/images/products/bead-hanging.jpg",
-      b2bTag: "Bestseller"
-    },
-    {
-      id: 3,
-      title: "Traditional Bell Hanging",
-      category: "Bell Hangings",
-      description: "Traditional bell hangings with authentic craftsmanship.",
-      image: "/assets/images/products/bell-hanging.jpg",
-      b2bTag: "Traditional"
-    },
-    {
-      id: 4,
-      title: "Floral Jhalar Decor",
-      category: "Floral Jhalars",
-      description: "Stunning floral jhalars handcrafted with premium materials.",
-      image: "/assets/images/products/floral-jhalar.jpg",
-      b2bTag: "Premium"
-    },
-    {
-      id: 5,
-      title: "Designer Toran",
-      category: "Torans",
-      description: "Decorative torans with modern designs.",
-      image: "/assets/images/products/toran.jpg",
-      b2bTag: "New Arrival"
-    },
-    {
-      id: 6,
-      title: "Luxury Tassel Hanging",
-      category: "Tassel Hangings",
-      description: "Premium tassel hangings with rich colors.",
-      image: "/assets/images/products/tassel-hanging.jpg",
-      b2bTag: "Luxury"
-    }
-  ];
   renderProducts(products);
+  setupFilterButtons();
+  setupWhatsAppLinks();
+  setupMobileNav();
+  setupAccordions();
+  setupModal();
+  setupScrollSpy();
+  setupReveal();
+  setupFormValidation();
+  updateYear();
 }
 
-// Render products to grid
+/* ---- RENDER PRODUCTS ---------------------------------------- */
 function renderProducts(productList) {
   const grid = document.getElementById('product-grid');
-  if (!grid) {
-    console.error('Product grid not found');
+  if (!grid) return;
+
+  if (!productList.length) {
+    grid.innerHTML = '<p class="noscript-note">No products available right now — please check back soon, or send us an enquiry.</p>';
     return;
   }
 
-  if (productList.length === 0) {
-    grid.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">No products available. Please check back soon!</p>';
-    return;
-  }
-
-  grid.innerHTML = productList.map(product => `
-    <div class="product-card" data-category="${product.category}">
-      <div class="product-image">
-        <div class="img-placeholder" style="min-height: 300px;">
-          <span>${product.title} Image</span>
-        </div>
-      </div>
+  grid.innerHTML = productList.map((product, i) => `
+    <article class="product-card reveal-card" data-category="${escapeHtml(product.category)}" style="transition-delay:${(i % 6) * 45}ms">
+      <figure class="product-image">
+        <img src="${escapeHtml(product.image)}.webp"
+             onerror="__imgFallback(this)"
+             alt="${escapeHtml(product.title)} — handcrafted by JHALAR"
+             loading="lazy" decoding="async" width="900" height="900">
+        <span class="product-tag">${escapeHtml(product.b2bTag)}</span>
+      </figure>
       <div class="product-info">
-        <span class="product-category">${product.category}</span>
-        <h3 class="product-title">${product.title}</h3>
-        <p class="product-desc">${product.description}</p>
-        <span class="product-meta">${product.b2bTag}</span>
-        <button class="btn btn-primary" onclick="openProductModal(${product.id})" style="margin-top: 1rem; width: 100%;">
-          View Details
+        <span class="product-category">${escapeHtml(product.category)}</span>
+        <h3 class="product-title">${escapeHtml(product.title)}</h3>
+        <p class="product-desc">${escapeHtml(product.description)}</p>
+        <button type="button" class="btn btn-secondary product-btn" data-product-id="${product.id}">
+          View Details &amp; MOQ
         </button>
       </div>
-    </div>
+    </article>
   `).join('');
+
+  grid.querySelectorAll('.product-btn').forEach(btn => {
+    btn.addEventListener('click', () => openProductModal(Number(btn.dataset.productId)));
+  });
+
+  // Staggered card entrance
+  requestAnimationFrame(() => {
+    grid.querySelectorAll('.reveal-card').forEach(card => card.classList.add('shown'));
+  });
 }
 
-// Setup category filter buttons
+/* ---- FILTERS -------------------------------------------------- */
 function setupFilterButtons() {
   const filterBtns = document.querySelectorAll('.filter-btn');
-  if (filterBtns.length === 0) return;
+  if (!filterBtns.length) return;
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => {
         b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
+        b.setAttribute('aria-pressed', 'false');
       });
       btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      
-      const filter = btn.dataset.filter;
-      filterProducts(filter);
+      btn.setAttribute('aria-pressed', 'true');
+      filterProducts(btn.dataset.filter);
     });
   });
 }
 
-// Filter products by category
 function filterProducts(category) {
-  const cards = document.querySelectorAll('.product-card');
-  if (cards.length === 0) return;
-
-  cards.forEach(card => {
-    const productCategory = card.dataset.category;
-    const shouldShow = category === 'all' || productCategory === category;
-    card.style.display = shouldShow ? 'block' : 'none';
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
   });
 }
 
-// Mobile navigation toggle
+/* ---- WHATSAPP LINKS (single source of truth) ------------------ */
+function setupWhatsAppLinks() {
+  document.querySelectorAll('.whatsapp-enquiry-btn').forEach(link => {
+    const text = link.dataset.waText || 'Hello JHALAR, I have a bulk decor requirement.';
+    link.href = waLink(text);
+  });
+}
+
+/* ---- MOBILE NAV ------------------------------------------------ */
 function setupMobileNav() {
   const toggle = document.querySelector('.mobile-toggle');
   const nav = document.getElementById('mobile-nav');
@@ -165,11 +160,11 @@ function setupMobileNav() {
 
   toggle.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', !expanded);
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    toggle.setAttribute('aria-label', expanded ? 'Open navigation menu' : 'Close navigation menu');
     nav.classList.toggle('active');
   });
 
-  // Close mobile nav when clicking a link
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('active');
@@ -178,166 +173,227 @@ function setupMobileNav() {
   });
 }
 
-// Accordion functionality
+/* ---- ACCORDIONS ------------------------------------------------ */
 function setupAccordions() {
   const headers = document.querySelectorAll('.accordion-header');
-  if (headers.length === 0) return;
-
   headers.forEach(header => {
     header.addEventListener('click', () => {
       const expanded = header.getAttribute('aria-expanded') === 'true';
-      const contentId = header.getAttribute('aria-controls');
-      const content = document.getElementById(contentId);
-      
-      if (!content) {
-        console.error('Accordion content not found:', contentId);
-        return;
-      }
-      
-      // Close all accordions
       headers.forEach(h => {
         h.setAttribute('aria-expanded', 'false');
-        const contentEl = document.getElementById(h.getAttribute('aria-controls'));
-        if (contentEl) contentEl.hidden = true;
+        const content = document.getElementById(h.getAttribute('aria-controls'));
+        if (content) content.hidden = true;
       });
-
-      // Toggle clicked accordion
       if (!expanded) {
         header.setAttribute('aria-expanded', 'true');
-        content.hidden = false;
+        const content = document.getElementById(header.getAttribute('aria-controls'));
+        if (content) content.hidden = false;
       }
     });
   });
 }
 
-// Modal functionality
+/* ---- MODAL ------------------------------------------------------ */
+let lastFocusedElement = null;
+
 function setupModal() {
   const modal = document.getElementById('product-modal');
   const closeBtn = document.getElementById('modal-close');
-  
   if (!modal || !closeBtn) return;
 
-  closeBtn.addEventListener('click', () => {
-    closeModal(modal);
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal(modal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (modal.getAttribute('aria-hidden') === 'false') {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Tab') trapFocus(e, modal);
     }
   });
 
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-      closeModal(modal);
-    }
-  });
+  const addBtn = document.getElementById('modal-add-enquiry');
+  if (addBtn) addBtn.addEventListener('click', addModalProductToEnquiry);
 }
 
-// Close modal helper
-function closeModal(modal) {
-  modal.setAttribute('aria-hidden', 'true');
-  modal.style.display = 'none';
-  document.body.style.overflow = '';
+function trapFocus(e, modal) {
+  const focusables = modal.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  if (!focusables.length) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault(); last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault(); first.focus();
+  }
 }
 
-// Open product modal
 function openProductModal(productId) {
   const product = products.find(p => p.id === productId);
-  if (!product) {
-    console.error('Product not found:', productId);
+  if (!product) return;
+
+  const modal = document.getElementById('product-modal');
+  const img = document.getElementById('modal-image');
+  if (!modal || !img) return;
+
+  lastFocusedElement = document.activeElement;
+
+  img.src = product.image + '.webp';
+  img.onerror = function () { this.onerror = null; this.src = product.image + '.jpg'; };
+  img.alt = product.title + ' — handcrafted by JHALAR';
+
+  document.getElementById('modal-category').textContent = product.category;
+  document.getElementById('modal-title').textContent = product.title;
+  document.getElementById('modal-tag').textContent = product.b2bTag;
+  document.getElementById('modal-desc').textContent = product.description;
+
+  const waBtn = document.getElementById('modal-whatsapp');
+  waBtn.href = waLink(`Hello JHALAR, I'm interested in "${product.title}" (${product.category}) seen on your website. Please share bulk pricing and MOQ.`);
+
+  modal.dataset.productId = String(product.id);
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal-close').focus();
+}
+
+function closeModal() {
+  const modal = document.getElementById('product-modal');
+  if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (lastFocusedElement) lastFocusedElement.focus();
+}
+
+function addModalProductToEnquiry() {
+  const modal = document.getElementById('product-modal');
+  const product = products.find(p => String(p.id) === modal.dataset.productId);
+  if (!product) return;
+
+  const categorySelect = document.getElementById('category');
+  if (categorySelect) {
+    const match = [...categorySelect.options].find(o => o.value === product.category || o.value === 'Multiple Categories');
+    if (match) { categorySelect.value = match.value; }
+  }
+  const details = document.getElementById('details');
+  if (details) {
+    details.value = details.value
+      ? details.value + `\n• ${product.title} (qty: )`
+      : `Interested in:\n• ${product.title} (qty: )`;
+  }
+  closeModal();
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  showToast(`"${product.title}" added to your enquiry.`);
+}
+
+/* ---- SCROLL SPY (active nav link) ------------------------------ */
+function setupScrollSpy() {
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const navLinks = [...document.querySelectorAll('.nav-list a')];
+  if (!('IntersectionObserver' in window) || !sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+}
+
+/* ---- REVEAL ON SCROLL ------------------------------------------- */
+function setupReveal() {
+  const revealEls = document.querySelectorAll('.reveal');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!('IntersectionObserver' in window) || reduced) {
+    revealEls.forEach(el => el.classList.add('active'));
     return;
   }
 
-  const modal = document.getElementById('product-modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalCategory = document.getElementById('modal-category');
-  const modalDesc = document.getElementById('modal-desc');
-  const modalTag = document.getElementById('modal-tag');
-
-  if (modalTitle) modalTitle.textContent = product.title;
-  if (modalCategory) modalCategory.textContent = product.category;
-  if (modalDesc) modalDesc.textContent = product.description;
-  if (modalTag) modalTag.textContent = product.b2bTag;
-
-  if (modal) {
-    modal.setAttribute('aria-hidden', 'false');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-// Update copyright year
-function updateYear() {
-  const yearEl = document.getElementById('current-year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-}
-
-// Reveal animations on scroll
-function setupReveal() {
-  const revealElements = document.querySelectorAll('.reveal');
-  if (revealElements.length === 0) return;
-
-  const revealOnScroll = () => {
-    revealElements.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
-      const elementVisible = 150;
-      
-      if (elementTop < window.innerHeight - elementVisible) {
-        el.classList.add('active');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
       }
     });
-  };
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  // Check on load and scroll
-  revealOnScroll();
-  window.addEventListener('scroll', revealOnScroll);
+  revealEls.forEach(el => observer.observe(el));
 }
 
-// Form validation
+/* ---- FORM --------------------------------------------------------- */
 function setupFormValidation() {
   const form = document.getElementById('enquiry-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-    }
+  // Real-time feedback
+  form.querySelectorAll('input[required], select[required]').forEach(input => {
+    input.addEventListener('blur', () => validateField(input));
+    input.addEventListener('input', () => {
+      if (input.getAttribute('aria-invalid') === 'true') validateField(input);
+    });
   });
 
-  // Real-time validation feedback
-  const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-  inputs.forEach(input => {
-    input.addEventListener('blur', () => {
-      if (input.validity.valid) {
-        input.style.borderColor = '#4caf50';
-      } else {
-        input.style.borderColor = '#f44336';
-      }
-    });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    // Honeypot: bots fill it, humans never see it
+    if (form.querySelector('[name="website"]').value) return;
+
+    const fields = [...form.querySelectorAll('input[required], select[required]')];
+    const allValid = fields.map(validateField).every(Boolean);
+    if (!allValid) {
+      fields.find(f => f.getAttribute('aria-invalid') === 'true')?.focus();
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const original = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const body = new URLSearchParams(new FormData(form)).toString();
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      form.hidden = true;
+      document.getElementById('form-success').hidden = false;
+      document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setupWhatsAppLinks(); // ensure fresh wa links
+    } catch (err) {
+      console.warn('Form submission failed:', err);
+      document.getElementById('form-error').hidden = false;
+      showToast('Could not send — please try WhatsApp instead.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = original;
+    }
   });
 }
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href !== '#' && href.length > 1) {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  });
-});
+function validateField(input) {
+  const valid = input.checkValidity();
+  input.setAttribute('aria-invalid', String(!valid));
+  const error = input.closest('.form-group')?.querySelector('.field-error');
+  if (error) error.hidden = valid;
+  input.classList.toggle('invalid', !valid);
+  return valid;
+}
 
-// Initialize on DOM ready
+/* ---- MISC ------------------------------------------------------ */
+function updateYear() {
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+}
+
+/* ---- BOOT -------------------------------------------------------- */
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {

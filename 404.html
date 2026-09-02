@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | JHALAR Hanging Decor</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="/style.css">
     <style>
         body {
@@ -14,40 +16,30 @@
             text-align: center;
             padding: 2rem;
         }
-        .error-container {
-            max-width: 600px;
+        .error-container { max-width: 560px; }
+        .error-code {
+            font-family: var(--font-primary);
+            font-size: clamp(4rem, 12vw, 6rem);
+            color: var(--colour-jhalar-red);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
-        h1 {
-            font-size: 4rem;
-            color: #c82039;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.25rem;
-            color: #4a4a4a;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #c82039;
-            color: white;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            background: #a3182e;
-            transform: translateY(-2px);
-        }
+        .error-container h1 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .error-container p { font-size: 1.02rem; margin-bottom: 1.75rem; }
+        .error-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .error-hint { margin-top: 1.5rem; font-size: 0.85rem; color: var(--colour-text-light); }
     </style>
 </head>
 <body>
     <div class="error-container">
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <a href="/" class="btn">Back to Home</a>
+        <div class="error-code">404</div>
+        <h1>This garland isn't in our catalogue</h1>
+        <p>The page you're looking for doesn't exist — but our collection of handcrafted jhalars and garlands does.</p>
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary">Back to Home</a>
+            <a href="/#collection" class="btn btn-outline">Browse the Collection</a>
+        </div>
+        <p class="error-hint">Looking for bulk pricing? WhatsApp us at +91 XXXXX XXXXX.</p>
     </div>
 </body>
 </html>

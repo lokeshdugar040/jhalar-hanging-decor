@@ -1,145 +1,72 @@
-# JHALAR Hanging Decor - B2B Website
+# JHALAR Hanging Decor — B2B Website
 
-Decorative hanging solutions for events, retailers, wholesalers, and custom projects across India.
+Decorative hanging solutions for events, retailers, wholesalers and custom projects across India.
+Static site — no build step — deployed on Netlify with Decap CMS at `/admin`.
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- GitHub account
-- Netlify account (for hosting, forms, and CMS)
-
-### Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/lokeshdugar040/jhalar-hanging-decor.git
-   cd jhalar-hanging-decor
-   ```
-
-2. **Deploy to Netlify**
-   - Go to [Netlify](https://netlify.com)
-   - Click "Add new site" → "Import an existing project"
-   - Connect your GitHub account
-   - Select this repository
-   - Deploy settings:
-     - Build command: (leave empty)
-     - Publish directory: `/`
-   - Click "Deploy site"
-
-3. **Enable Netlify Forms**
-   - Forms are already configured in `index.html`
-   - View submissions in Netlify dashboard → Forms
-
-4. **Access CMS (if using Netlify CMS)**
-   - After deployment, visit `yoursite.netlify.app/admin`
-   - Login with GitHub credentials
-   - Manage products from the CMS interface
+1. **Deploy to Netlify** — "Add new site" → import this repo. Build command: *(empty)*, Publish directory: `/`.
+2. **Enable CMS login** — Netlify dashboard → Site settings → Identity → *Enable* → Services → *Enable Git Gateway* → invite yourself under Identity → Invite users. Then visit `/admin`.
+3. **Set your contact details** — see `PROJECT_STATUS.md` → "Before you launch" (one WhatsApp constant in `script.js`, plus a search-replace for display details).
 
 ## 📁 Project Structure
 
 ```
 jhalar-hanging-decor/
-├─ admin/              # CMS configuration and logo
-├─ assets/             # Images and static assets
-├─ content/            # Product markdown files (CMS)
-├─ product/            # Product data (legacy structure)
-├─ index.html          # Main website
-├─ script.js           # Product rendering and interactions
-├─ style.css           # All styles
-├─ netlify.toml        # Netlify configuration
-└─ .gitignore          # Git ignore rules
+├─ index.html               # Main website (single page)
+├─ script.js                # Rendering + interactions (WA_NUMBER config at top)
+├─ style.css                # All styles (design tokens at top)
+├─ content/
+│  └─ products.json         # ← The product catalogue the site renders (CMS-edited)
+├─ assets/images/products/  # Optimised WebP + JPG product photos
+├─ admin/                   # Decap CMS — edits content/products.json directly
+├─ product/                 # Raw original photo exports (unreferenced; archival)
+├─ netlify.toml             # Headers, caching (no SPA redirect — 404.html works)
+├─ 404.html / privacy.html  # Error + policy pages
+├─ sitemap.xml / robots.txt # SEO plumbing
+├─ AUDIT.md                 # Sept 2026 audit findings
+└─ PROJECT_STATUS.md        # Current state + launch checklist
 ```
 
-## ✏️ Editing Content
+## ✏️ Managing Products
 
-### Adding Products
+**Option 1 — CMS (recommended):** visit `/admin` after enabling Identity/Git Gateway. The "Product Catalogue" screen edits `content/products.json` directly — publish and changes appear within ~5 minutes.
 
-**Option 1: Using CMS (Recommended)**
-1. Visit `/admin` after deployment
-2. Navigate to Products
-3. Click "New Product"
-4. Fill in details and upload images
-5. Save and publish
+**Option 2 — Manual:** edit `content/products.json`. Fields per product:
 
-**Option 2: Manual Editing**
-1. Create markdown file in `content/products/`
-2. Use this frontmatter format:
-   ```yaml
-   ---
-   title: "Product Name"
-   category: "Pom Pom Hangings"
-   description: "Product description"
-   image: "/assets/images/products/product.jpg"
-   b2bTag: "Bulk-ready"
-   ---
-   ```
-
-### Updating Contact Information
-
-Edit `index.html` and replace placeholders:
-- `+91 XXXXX XXXXX` → Your actual WhatsApp/phone
-- `hello@yourbusiness.com` → Your email
-- `Business location to be added` → Your location
-
-### Fixing WhatsApp Links
-
-Update all WhatsApp buttons with your number:
-```html
-<a href="https://wa.me/919876543210?text=Hello%20JHALAR...">
+```json
+{
+  "id": 1,
+  "title": "Rani Pink Flower Jhalar Garland",
+  "category": "Floral Jhalars",
+  "description": "1–2 sentences with buyer-relevant keywords.",
+  "image": "/assets/images/products/rani-pink-flower-jhalar",
+  "b2bTag": "Bestseller"
+}
 ```
 
-## 🎨 Brand Guidelines
+`image` has no extension on purpose: the site tries `.webp` first and falls back to `.jpg`. Provide both files (900×900 recommended). Categories must match the filter buttons in `index.html` (`data-filter` values).
 
-- **Primary Color**: `#C82039` (Jhalar Red)
-- **Accent Color**: `#C9A84C` (Accent Gold)
-- **Fonts**: Playfair Display (headings), DM Sans (body)
+## 📞 Contact Placeholders
 
-## 🔧 Configuration Files
+| Token | Set it in |
+|---|---|
+| `WA_NUMBER = '91XXXXXXXXXX'` | `script.js` (top of file) — powers every WhatsApp button |
+| `+91 XXXXX XXXXX`, `hello@your-domain.com` | `index.html`, `privacy.html`, `404.html` |
+| Domain `jhalarhangingdecor.com` | `index.html` head, `sitemap.xml`, `robots.txt` |
 
-### netlify.toml
-- CMS routing
-- Form handling
-- Build settings
+## 🎨 Brand
 
-### .pages.yml / admin/config.yml
-- CMS collection definitions
-- Field configurations
-- Widget settings
+- **Primary:** `#C82039` (Jhalar Red) · **Accent:** `#C9A84C` (Gold) · **Navy:** `#141942`
+- **Fonts:** Playfair Display (headings) · DM Sans (body)
+- **Product images:** square 900×900, WebP primary + JPG fallback
 
-## 📝 Checklist Before Launch
+## 🛠 Local Preview
 
-- [ ] Replace all placeholder contact information
-- [ ] Add real product images to `assets/images/products/`
-- [ ] Update WhatsApp links with actual number
-- [ ] Test form submissions
-- [ ] Add privacy policy page
-- [ ] Set up custom domain (optional)
-- [ ] Add Google Analytics (optional)
-- [ ] Test on mobile devices
-- [ ] Verify all navigation links work
-
-## 🚨 Common Issues
-
-### Products not showing
-- Check `script.js` is loading correctly
-- Verify product data exists in `content/products/`
-- Check browser console for errors
-
-### Forms not submitting
-- Ensure site is deployed on Netlify
-- Verify `data-netlify="true"` attribute exists
-- Check Netlify dashboard for form submissions
-
-### CMS not accessible
-- Ensure `admin/` folder is deployed
-- Check `admin/config.yml` path
-- Verify GitHub authentication
-
-## 📞 Support
-
-For questions or issues:
-- Email: lokeshdugar040@gmail.com
-- GitHub Issues: Create an issue in this repository
+```bash
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
 ## 📄 License
 

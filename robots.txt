@@ -1,11 +1,8 @@
-# Robots.txt for JHALAR Hanging Decor
-# https://jhalar-hanging-decor.netlify.app
+# JHALAR Hanging Decor
+# https://jhalarhangingdecor.com
 
 User-agent: *
 Allow: /
+Disallow: /admin/
 
-# Sitemap
-Sitemap: https://jhalar-hanging-decor.netlify.app/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
+Sitemap: https://jhalarhangingdecor.com/sitemap.xml

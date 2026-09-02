@@ -1,68 +1,285 @@
 {
+  "updated": "2026-09-02",
   "products": [
     {
       "id": 1,
-      "title": "Premium Pom Pom Hanging",
-      "category": "Pom Pom Hangings",
-      "description": "Handcrafted decorative pom pom hangings perfect for events, weddings and festive celebrations. Available in multiple colors.",
-      "image": "/assets/images/products/pom-pom-hanging.jpg",
-      "b2bTag": "Bulk-ready"
-    },
-    {
-      "id": 2,
-      "title": "Elegant Bead Hanging",
-      "category": "Bead Hangings",
-      "description": "Beautiful bead hangings with intricate patterns. Ideal for home decor, events and retail displays.",
-      "image": "/assets/images/products/bead-hanging.jpg",
+      "title": "Rani Pink Flower Jhalar Garland",
+      "category": "Floral Jhalars",
+      "description": "Vibrant rani-pink artificial flower jhalar garland, hand-wound on a braided cord. A bestseller for wedding backdrops, mandap decor and festive entrances. Custom lengths and colours available on bulk orders.",
+      "image": "/assets/images/products/rani-pink-flower-jhalar",
       "b2bTag": "Bestseller"
     },
     {
+      "id": 2,
+      "title": "Ruby Red Flower Jhalar Garland",
+      "category": "Floral Jhalars",
+      "description": "Rich ruby-red floral jhalar with dense handcrafted blooms and tassel finish. Ideal for event decorators, temples and festive retail displays. Bulk-ready with pan-India dispatch.",
+      "image": "/assets/images/products/ruby-red-flower-jhalar",
+      "b2bTag": "Bulk Ready"
+    },
+    {
       "id": 3,
-      "title": "Traditional Bell Hanging",
-      "category": "Bell Hangings",
-      "description": "Traditional bell hangings with authentic craftsmanship. Perfect for festive occasions and cultural events.",
-      "image": "/assets/images/products/bell-hanging.jpg",
-      "b2bTag": "Traditional"
+      "title": "Tri-Colour Flower Jhalar Garland",
+      "category": "Floral Jhalars",
+      "description": "Festive tri-colour jhalar in red, white and green with golden accents — a favourite for cultural events, society celebrations and seasonal displays. Wholesale quantities available.",
+      "image": "/assets/images/products/tricolor-flower-jhalar",
+      "b2bTag": "Event Favourite"
     },
     {
       "id": 4,
-      "title": "Floral Jhalar Decor",
+      "title": "Blue & Orange Marigold Jhalar",
       "category": "Floral Jhalars",
-      "description": "Stunning floral jhalars handcrafted with premium materials. Excellent for weddings and special occasions.",
-      "image": "/assets/images/products/floral-jhalar.jpg",
-      "b2bTag": "Premium"
+      "description": "Striking blue and orange marigold-style jhalar garland that pops against cream and gold themes. Popular with event planners for haldi, mehndi and themed stage decor.",
+      "image": "/assets/images/products/blue-marigold-flower-jhalar",
+      "b2bTag": "Custom Colours"
     },
     {
       "id": 5,
-      "title": "Designer Toran",
-      "category": "Torans",
-      "description": "Decorative torans with modern designs. Traditional appeal with contemporary styling for door decorations.",
-      "image": "/assets/images/products/toran.jpg",
-      "b2bTag": "New Arrival"
+      "title": "Pink Vertical Jhalar Door String",
+      "category": "Floral Jhalars",
+      "description": "Vertical hanging floral jhalar string in pink tones, made for door frames, pillars and backdrop edges. Lightweight, easy to install and supplied bulk-packed for installs.",
+      "image": "/assets/images/products/pink-hanging-jhalar-string",
+      "b2bTag": "Bulk Ready"
     },
     {
       "id": 6,
-      "title": "Luxury Tassel Hanging",
-      "category": "Tassel Hangings",
-      "description": "Premium tassel hangings with rich colors and textures. Perfect for upscale events and home decor.",
-      "image": "/assets/images/products/tassel-hanging.jpg",
-      "b2bTag": "Luxury"
+      "title": "Green & Gold Flower Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Green and gold floral jhalar with a classic mehndi-festive palette. Handcrafted blooms on a sturdy cord, suited to weddings, pooja decor and retail gifting ranges.",
+      "image": "/assets/images/products/green-gold-flower-jhalar",
+      "b2bTag": "Wholesale Popular"
     },
     {
       "id": 7,
-      "title": "Decorative String Lights",
-      "category": "Decorative Strings",
-      "description": "Illuminated decorative strings for ambient lighting. Creates beautiful atmosphere for any occasion.",
-      "image": "/assets/images/products/string-lights.jpg",
-      "b2bTag": "Trending"
+      "title": "Rani Pink Pom Pom Garland",
+      "category": "Pom Pom Hangings",
+      "description": "Dense rani-pink pom pom garland handcrafted from soft wool-style yarn. Adds rich texture to wedding backdrops and boutique windows. MOQ-friendly bulk supply.",
+      "image": "/assets/images/products/rani-pink-pom-pom-garland",
+      "b2bTag": "Bestseller"
     },
     {
       "id": 8,
-      "title": "Custom Design Hanging",
-      "category": "Custom Designs",
-      "description": "Fully customizable hanging decor made to your specifications. Discuss your unique requirements with us.",
-      "image": "/assets/images/products/custom-design.jpg",
-      "b2bTag": "Customizable"
+      "title": "Marigold Pom Pom Garland",
+      "category": "Pom Pom Hangings",
+      "description": "Golden marigold pom pom garland — our most versatile bulk decor line for festivals, weddings and retail displays. Consistent quality across large production runs.",
+      "image": "/assets/images/products/marigold-pom-pom-garland",
+      "b2bTag": "Bestseller"
+    },
+    {
+      "id": 9,
+      "title": "White Jasmine Flower Garland",
+      "category": "Floral Jhalars",
+      "description": "Ivory white jasmine-style flower garland with fresh green leaf accents. A premium pick for south-Indian weddings, pooja rooms and minimalist event themes.",
+      "image": "/assets/images/products/white-jasmine-flower-garland",
+      "b2bTag": "Premium"
+    },
+    {
+      "id": 10,
+      "title": "Red & White Flower Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Classic red-and-white floral jhalar with rose-bud detailing. Suits wedding gates, event stages and festive shopfronts. Available in custom colour ratios for bulk buyers.",
+      "image": "/assets/images/products/red-white-flower-jhalar",
+      "b2bTag": "Bulk Ready"
+    },
+    {
+      "id": 11,
+      "title": "Orange & White Flower Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Warm orange and white flower jhalar with a traditional genda-phool look. A steady wholesale line for festive season demand and temple decor suppliers.",
+      "image": "/assets/images/products/orange-white-flower-jhalar",
+      "b2bTag": "Wholesale Popular"
+    },
+    {
+      "id": 12,
+      "title": "Pink & White Blossom Garland",
+      "category": "Floral Jhalars",
+      "description": "Soft pink and white blossom garland with golden bindi accents. Popular for bridal entrances, baby showers and pastel-themed event decor packages.",
+      "image": "/assets/images/products/pink-white-blossom-garland",
+      "b2bTag": "Event Favourite"
+    },
+    {
+      "id": 13,
+      "title": "Red & Green Festive Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Red and green festive jhalar with white flower highlights — a traditional combination for pooja rooms, doorways and cultural celebrations. Bulk supply ready.",
+      "image": "/assets/images/products/red-green-festive-jhalar",
+      "b2bTag": "Bulk Ready"
+    },
+    {
+      "id": 14,
+      "title": "Multicolour Festival Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Joyful multicolour jhalar mixing red, white, green and gold blooms. One garland, many occasions — a fast-moving SKU for wholesalers during the festive season.",
+      "image": "/assets/images/products/multicolour-festival-jhalar",
+      "b2bTag": "Wholesale Popular"
+    },
+    {
+      "id": 15,
+      "title": "Blue Daisy Flower Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Cheerful blue daisy flower jhalar with yellow and white accents. A fresh look for themed events, garden parties and retail window displays. Custom colours on request.",
+      "image": "/assets/images/products/blue-daisy-flower-jhalar",
+      "b2bTag": "Custom Colours"
+    },
+    {
+      "id": 16,
+      "title": "Pink Bead & Bell Hanging",
+      "category": "Bead Hangings",
+      "description": "Hand-strung pink bead hanging with decorative bells and a golden pendant drop. A boutique favourite for jhula (swing) decor, backdrops and gifting ranges.",
+      "image": "/assets/images/products/pink-bead-bell-hanging",
+      "b2bTag": "Bestseller"
+    },
+    {
+      "id": 17,
+      "title": "Yellow Bead & Bell Hanging",
+      "category": "Bead Hangings",
+      "description": "Sunny yellow bead hanging with multi-colour pom accents and a bell pendant. Brings warm contrast to garland backdrops. Supplied bulk-packed with size options.",
+      "image": "/assets/images/products/sunny-bead-bell-hanging",
+      "b2bTag": "Bulk Ready"
+    },
+    {
+      "id": 18,
+      "title": "Green Leaf Flower Bell Hanging",
+      "category": "Bell Hangings",
+      "description": "Leaf-and-flower bell hanging with a handcrafted brass-look bell drop. Suits pooja rooms, jhula sets and traditional entrance decor. MOQ from 50 units.",
+      "image": "/assets/images/products/leaf-flower-bell-hanging",
+      "b2bTag": "Traditional"
+    },
+    {
+      "id": 19,
+      "title": "Rose Bud Bell Hanging",
+      "category": "Bell Hangings",
+      "description": "Delicate rose-bud bell hanging in soft pink and gold. A gentle, premium accent for bridal decor, nursery-style displays and festive gifting collections.",
+      "image": "/assets/images/products/rose-bud-bell-hanging",
+      "b2bTag": "Premium"
+    },
+    {
+      "id": 20,
+      "title": "Pearl White Bead String",
+      "category": "Decorative Strings",
+      "description": "Pearl-white bead string with frost-tipped buds — a clean, elegant stringing line for ceiling drops, canopy edges and winter-themed displays. Bulk lengths available.",
+      "image": "/assets/images/products/pearl-white-bead-string",
+      "b2bTag": "Bulk Ready"
+    },
+    {
+      "id": 21,
+      "title": "Cream Shell Bead Garland",
+      "category": "Bead Hangings",
+      "description": "Cream shell-bead garland with a golden bell tassel. Natural tones that pair beautifully with marigold and jasmine lines for layered entrance decor.",
+      "image": "/assets/images/products/cream-shell-bead-garland",
+      "b2bTag": "Premium"
+    },
+    {
+      "id": 22,
+      "title": "Red & Gold Pom Pom Bell Garland",
+      "category": "Pom Pom Hangings",
+      "description": "Festive red-and-gold pom pom garland finished with fan motifs and a brass-look bell. A statement piece for wedding stages and Diwali retail displays.",
+      "image": "/assets/images/products/red-gold-pom-pom-bell-garland",
+      "b2bTag": "Event Favourite"
+    },
+    {
+      "id": 23,
+      "title": "Festive Pom Pom Bell Garland",
+      "category": "Pom Pom Hangings",
+      "description": "Hand-felted pom pom bell garland in festive multi tones with red pom ends. Durable, lightweight and repeat-order friendly for wholesale buyers.",
+      "image": "/assets/images/products/festive-pom-pom-bell-garland",
+      "b2bTag": "Wholesale Popular"
+    },
+    {
+      "id": 24,
+      "title": "Marigold Door Toran Hanging",
+      "category": "Torans",
+      "description": "Traditional marigold door toran with pom pom clusters and tassels — the classic festive doorway piece. Supplied in bulk for festive-season retail and event installs.",
+      "image": "/assets/images/products/marigold-door-toran",
+      "b2bTag": "Bestseller"
+    },
+    {
+      "id": 25,
+      "title": "Yellow & Gold Pom Pom Bell Garland",
+      "category": "Pom Pom Hangings",
+      "description": "Bright yellow pom pom garland with golden fan discs and a bell drop. Pairs with the marigold line for coordinated backdrop packages. Custom sizes on bulk orders.",
+      "image": "/assets/images/products/yellow-gold-pom-pom-bell-garland",
+      "b2bTag": "Custom Colours"
+    },
+    {
+      "id": 26,
+      "title": "Orange Tassel Door Hanging",
+      "category": "Tassel Hangings",
+      "description": "Handcrafted orange tassel door hanging with layered pom pom drops. A bold traditional accent for entrances, pooja corners and festive shopfronts. Bulk supply ready.",
+      "image": "/assets/images/products/orange-tassel-door-hanging",
+      "b2bTag": "Bulk Ready"
+    },
+    {
+      "id": 27,
+      "title": "Gold Bead String Pair",
+      "category": "Decorative Strings",
+      "description": "Set of two slender gold bead strings for jhula sides, canopy edges and pillar wraps. A quiet, premium filler line that completes any garland order. Low MOQ.",
+      "image": "/assets/images/products/gold-bead-string-pair",
+      "b2bTag": "Low MOQ"
+    },
+    {
+      "id": 28,
+      "title": "Red & Yellow Flower Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Classic red-and-yellow genda-style flower jhalar with white accents. The everyday festive garland that stays in demand all year — a wholesale staple.",
+      "image": "/assets/images/products/red-yellow-flower-jhalar",
+      "b2bTag": "Wholesale Popular"
+    },
+    {
+      "id": 29,
+      "title": "Rani Pink Bell Garland",
+      "category": "Bell Hangings",
+      "description": "Rani-pink beaded bell garland with golden pendant drops. Rich colour and gentle movement make it a go-to for jhula decor and wedding backdrop edges.",
+      "image": "/assets/images/products/rani-pink-bell-garland",
+      "b2bTag": "Event Favourite"
+    },
+    {
+      "id": 30,
+      "title": "Rainbow Pom Pom Bell Garland",
+      "category": "Pom Pom Hangings",
+      "description": "Playful rainbow pom pom garland with fan medallions and a bell drop. Loved by event decorators for kids' events, celebrations and colourful retail themes.",
+      "image": "/assets/images/products/rainbow-pom-pom-bell-garland",
+      "b2bTag": "Event Favourite"
+    },
+    {
+      "id": 31,
+      "title": "Multicolour Bead & Bell Garland",
+      "category": "Bead Hangings",
+      "description": "Multi-colour bead garland with pompom accents and a bell pendant. A versatile hanging line that bridges floral and bead collections in bulk packages.",
+      "image": "/assets/images/products/multicolour-bead-bell-garland",
+      "b2bTag": "Bulk Ready"
+    },
+    {
+      "id": 32,
+      "title": "Ivory Bead & Bell Garland",
+      "category": "Bead Hangings",
+      "description": "Ivory pearl bead garland with pink pom accents and a bell drop. Elegant and photogenic — a premium pick for bridal backdrops and gifting boxes.",
+      "image": "/assets/images/products/ivory-bead-bell-garland",
+      "b2bTag": "Premium"
+    },
+    {
+      "id": 33,
+      "title": "Royal Bead Pendant Hanging",
+      "category": "Bead Hangings",
+      "description": "Royal bead hanging with an ornate golden pendant centrepiece and jewel-tone beads. A heritage-style piece for pooja rooms, jhulas and luxury event styling.",
+      "image": "/assets/images/products/royal-bead-pendant-hanging",
+      "b2bTag": "Premium"
+    },
+    {
+      "id": 34,
+      "title": "Pearl & Green Bead Garland",
+      "category": "Bead Hangings",
+      "description": "Pearl-white bead garland with green pom accents and golden fans. Fresh, festive and shelf-ready for retail packs. Custom colour mixes on bulk orders.",
+      "image": "/assets/images/products/pearl-green-bead-garland",
+      "b2bTag": "Custom Colours"
+    },
+    {
+      "id": 35,
+      "title": "Green & Gold Pom Pom Bell Garland",
+      "category": "Pom Pom Hangings",
+      "description": "Green and gold pom pom bell garland with woven texture and a brass-look bell drop. Completes the pom pom colour family for full-range wholesale buyers.",
+      "image": "/assets/images/products/green-gold-pom-pom-bell-garland",
+      "b2bTag": "Bulk Ready"
     }
   ]
 }
