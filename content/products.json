@@ -2,67 +2,131 @@
   "products": [
     {
       "id": 1,
-      "title": "Premium Pom Pom Hanging",
+      "title": "Pink Pom Pom Gota Hanging",
       "category": "Pom Pom Hangings",
-      "description": "Handcrafted decorative pom pom hangings perfect for events, weddings and festive celebrations. Available in multiple colors.",
-      "image": "/assets/images/products/pom-pom-hanging.jpg",
-      "b2bTag": "Bulk-ready"
-    },
-    {
-      "id": 2,
-      "title": "Elegant Bead Hanging",
-      "category": "Bead Hangings",
-      "description": "Beautiful bead hangings with intricate patterns. Ideal for home decor, events and retail displays.",
-      "image": "/assets/images/products/bead-hanging.jpg",
+      "description": "Vibrant pink pom pom garland with hand-finished gota fans and a decorative bell. A festive favourite for weddings, haldi-mehndi decor and retail displays.",
+      "image": "assets/images/products/pom-pom-pink-gota.jpg",
       "b2bTag": "Bestseller"
     },
     {
-      "id": 3,
-      "title": "Traditional Bell Hanging",
-      "category": "Bell Hangings",
-      "description": "Traditional bell hangings with authentic craftsmanship. Perfect for festive occasions and cultural events.",
-      "image": "/assets/images/products/bell-hanging.jpg",
-      "b2bTag": "Traditional"
+      "id": 2,
+      "title": "Green Pom Pom Gota Hanging",
+      "category": "Pom Pom Hangings",
+      "description": "Lush emerald pom pom jhalar with gota patti medallions and twin bells. Bulk-ready for event decorators and festive wholesalers.",
+      "image": "assets/images/products/pom-pom-green-gota.jpg",
+      "b2bTag": "Bulk-ready"
     },
     {
-      "id": 4,
-      "title": "Floral Jhalar Decor",
-      "category": "Floral Jhalars",
-      "description": "Stunning floral jhalars handcrafted with premium materials. Excellent for weddings and special occasions.",
-      "image": "/assets/images/products/floral-jhalar.jpg",
+      "id": 3,
+      "title": "Pearl Bead Garland",
+      "category": "Bead Hangings",
+      "description": "Elegant white pearl bead strings with a clean, premium finish. Ideal for mandap decor, stage backdrops and layered installations.",
+      "image": "assets/images/products/bead-pearl-white.jpg",
       "b2bTag": "Premium"
     },
     {
+      "id": 4,
+      "title": "Mogra Pearl Bead Hanging",
+      "category": "Bead Hangings",
+      "description": "Dense mogra-bud style pearl beading with a soft white sheen. Perfect for traditional ceremonies and upscale event styling.",
+      "image": "assets/images/products/bead-mogra-pearl.jpg",
+      "b2bTag": "Wholesale"
+    },
+    {
       "id": 5,
-      "title": "Designer Toran",
-      "category": "Torans",
-      "description": "Decorative torans with modern designs. Traditional appeal with contemporary styling for door decorations.",
-      "image": "/assets/images/products/toran.jpg",
-      "b2bTag": "New Arrival"
+      "title": "Pink Blossom Bell Hanging",
+      "category": "Bell Hangings",
+      "description": "Cheerful pink blossom garland finished with a large golden temple bell. A signature piece for entrances, pooja setups and photo backdrops.",
+      "image": "assets/images/products/bell-pink-blossom.jpg",
+      "b2bTag": "Bestseller"
     },
     {
       "id": 6,
-      "title": "Luxury Tassel Hanging",
-      "category": "Tassel Hangings",
-      "description": "Premium tassel hangings with rich colors and textures. Perfect for upscale events and home decor.",
-      "image": "/assets/images/products/tassel-hanging.jpg",
-      "b2bTag": "Luxury"
+      "title": "Rose Leaf Bell Hanging",
+      "category": "Bell Hangings",
+      "description": "Soft pink rose blooms with fresh green leaf accents and a golden bell drop. Popular for spring weddings and boutique retail.",
+      "image": "assets/images/products/bell-rose-leaf.jpg",
+      "b2bTag": "New Arrival"
     },
     {
       "id": 7,
-      "title": "Decorative String Lights",
-      "category": "Decorative Strings",
-      "description": "Illuminated decorative strings for ambient lighting. Creates beautiful atmosphere for any occasion.",
-      "image": "/assets/images/products/string-lights.jpg",
-      "b2bTag": "Trending"
+      "title": "Marigold Floral Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Classic orange marigold (genda) jhalar with rich, full petals. The go-to choice for Diwali, Durga Puja, weddings and festive installs.",
+      "image": "assets/images/products/floral-marigold-orange.jpg",
+      "b2bTag": "Bulk-ready"
     },
     {
       "id": 8,
-      "title": "Custom Design Hanging",
+      "title": "Red & White Floral Jhalar",
+      "category": "Floral Jhalars",
+      "description": "Striking red-and-white floral jhalar with green leaf detailing. Suited to Bengali celebrations, weddings and cultural events.",
+      "image": "assets/images/products/floral-red-white.jpg",
+      "b2bTag": "Traditional"
+    },
+    {
+      "id": 9,
+      "title": "Mogra Pearl Door Toran",
+      "category": "Torans",
+      "description": "White mogra-pearl toran with yellow corner accents and a golden bell centrepiece. Made for doorways, gates and stage frames.",
+      "image": "assets/images/products/toran-mogra.jpg",
+      "b2bTag": "Premium"
+    },
+    {
+      "id": 10,
+      "title": "Pearl Bandhanwar Toran",
+      "category": "Torans",
+      "description": "Pearl bandhanwar with red and yellow festive accents and a hanging bell. A graceful welcome toran for homes, venues and temples.",
+      "image": "assets/images/products/toran-bandhanwar.jpg",
+      "b2bTag": "Wholesale"
+    },
+    {
+      "id": 11,
+      "title": "Tri-Colour Tassel Latkan",
+      "category": "Tassel Hangings",
+      "description": "Layered tri-colour vertical hanging finished with red pom pom latkans. Adds movement and colour to aisles, pillars and stage edges.",
+      "image": "assets/images/products/tassel-tricolour.jpg",
+      "b2bTag": "Trending"
+    },
+    {
+      "id": 12,
+      "title": "Red Floral Tassel Hanging",
+      "category": "Tassel Hangings",
+      "description": "Rich red floral vertical hanging with delicate tassel drops. Ideal for wall accents, backdrop columns and retail window displays.",
+      "image": "assets/images/products/tassel-red-floral.jpg",
+      "b2bTag": "Bulk-ready"
+    },
+    {
+      "id": 13,
+      "title": "Golden Bead String Set",
+      "category": "Decorative Strings",
+      "description": "A set of fine golden bead strings in full, half and spiral lengths. Versatile draping for chandeliers, trees, tables and ceilings.",
+      "image": "assets/images/products/string-golden-bead.jpg",
+      "b2bTag": "Multi-pack"
+    },
+    {
+      "id": 14,
+      "title": "Temple Bell Decor String",
+      "category": "Decorative Strings",
+      "description": "Pearl string with pink and green accents, golden temple charms and a traditional centrepiece. A devotional favourite for festivals.",
+      "image": "assets/images/products/string-temple-bell.jpg",
+      "b2bTag": "Traditional"
+    },
+    {
+      "id": 15,
+      "title": "Custom Emerald Gota Hanging",
       "category": "Custom Designs",
-      "description": "Fully customizable hanging decor made to your specifications. Discuss your unique requirements with us.",
-      "image": "/assets/images/products/custom-design.jpg",
+      "description": "Green and orange custom hanging with gold diamond motifs and a statement bell. Colours, motifs and lengths made to your brief.",
+      "image": "assets/images/products/custom-emerald-gota.jpg",
       "b2bTag": "Customizable"
+    },
+    {
+      "id": 16,
+      "title": "Custom Sapphire Floral Jhalar",
+      "category": "Custom Designs",
+      "description": "Blue and yellow custom floral jhalar built to order. Share your palette and theme — we manufacture to your colourway at scale.",
+      "image": "assets/images/products/custom-sapphire.jpg",
+      "b2bTag": "Made-to-order"
     }
   ]
 }
