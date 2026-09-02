@@ -221,6 +221,156 @@
       "file": "assets/fonts/Mogranx-ExtBdSlantExtExp.woff2",
       "format": "woff2",
       "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSlantExtraCond",
+      "file": "assets/fonts/Mogranx-ExtBdSlantExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSlantSemExp",
+      "file": "assets/fonts/Mogranx-ExtBdSlantSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSlantSemiCond",
+      "file": "assets/fonts/Mogranx-ExtBdSlantSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSlantUltraCond",
+      "file": "assets/fonts/Mogranx-ExtBdSlantUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdUltraCond",
+      "file": "assets/fonts/Mogranx-ExtBdUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtExtExp",
+      "file": "assets/fonts/Mogranx-ExtLtExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtExtraCond",
+      "file": "assets/fonts/Mogranx-ExtLtExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSemExp",
+      "file": "assets/fonts/Mogranx-ExtLtSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSemiCond",
+      "file": "assets/fonts/Mogranx-ExtLtSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSlantCond",
+      "file": "assets/fonts/Mogranx-ExtLtSlantCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSlantExp",
+      "file": "assets/fonts/Mogranx-ExtLtSlantExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSlantExtExp",
+      "file": "assets/fonts/Mogranx-ExtLtSlantExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSlantExtraCond",
+      "file": "assets/fonts/Mogranx-ExtLtSlantExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSlantSemExp",
+      "file": "assets/fonts/Mogranx-ExtLtSlantSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSlantSemiCond",
+      "file": "assets/fonts/Mogranx-ExtLtSlantSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtSlantUltraCond",
+      "file": "assets/fonts/Mogranx-ExtLtSlantUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtLtUltraCond",
+      "file": "assets/fonts/Mogranx-ExtLtUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraBold",
+      "file": "assets/fonts/Mogranx-ExtraBold.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraBoldCondensed",
+      "file": "assets/fonts/Mogranx-ExtraBoldCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraBoldExpanded",
+      "file": "assets/fonts/Mogranx-ExtraBoldExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraBoldSemiExpanded",
+      "file": "assets/fonts/Mogranx-ExtraBoldSemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraBoldSlanted",
+      "file": "assets/fonts/Mogranx-ExtraBoldSlanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraCondensed",
+      "file": "assets/fonts/Mogranx-ExtraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraExpanded",
+      "file": "assets/fonts/Mogranx-ExtraExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraLight",
+      "file": "assets/fonts/Mogranx-ExtraLight.woff2",
+      "format": "woff2",
+      "weight": 400
     }
   ]
 }
