@@ -1,3 +1,82 @@
 {
-  "fonts": []
+  "fonts": [
+    {
+      "family": "Mogranx BlackExtraCondensed",
+      "file": "assets/fonts/Mogranx-BlackExtraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackExtraExpanded",
+      "file": "assets/fonts/Mogranx-BlackExtraExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSemiCondensed",
+      "file": "assets/fonts/Mogranx-BlackSemiCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSemiExpanded",
+      "file": "assets/fonts/Mogranx-BlackSemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlanted",
+      "file": "assets/fonts/Mogranx-BlackSlanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlantedCondensed",
+      "file": "assets/fonts/Mogranx-BlackSlantedCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlantedExpanded",
+      "file": "assets/fonts/Mogranx-BlackSlantedExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlantExtExp",
+      "file": "assets/fonts/Mogranx-BlackSlantExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlantExtraCond",
+      "file": "assets/fonts/Mogranx-BlackSlantExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlantSemExp",
+      "file": "assets/fonts/Mogranx-BlackSlantSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlantSemiCond",
+      "file": "assets/fonts/Mogranx-BlackSlantSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackSlantUltraCond",
+      "file": "assets/fonts/Mogranx-BlackSlantUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BlackUltraCondensed",
+      "file": "assets/fonts/Mogranx-BlackUltraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    }
+  ]
 }
