@@ -1,11 +1,7 @@
 # Robots.txt for JHALAR Hanging Decor
-# https://jhalar-hanging-decor.netlify.app
+# Hosted on GitHub Pages. Update the domain if a custom domain is added.
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://jhalar-hanging-decor.netlify.app/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
+Sitemap: https://lokeshdugar040.github.io/jhalar-hanging-decor/sitemap.xml

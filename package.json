@@ -1,15 +1,12 @@
 {
   "name": "jhalar-hanging-decor",
-  "version": "1.0.0",
-  "description": "JHALAR Hanging Decor - B2B Manufacturer",
+  "version": "2.0.0",
+  "description": "JHALAR Hanging Decor — B2B manufacturer & wholesale supplier website (static, no build step)",
+  "private": true,
   "scripts": {
-    "dev": "tinacms dev -c tina.config.ts",
-    "build": "tinacms build -c tina.config.ts"
+    "dev": "python3 -m http.server 8000"
   },
-  "devDependencies": {
-    "tinacms": "^2.0.0"
-  },
-  "keywords": ["cms", "tina", "jamstack"],
+  "keywords": ["jhalar", "decor", "b2b", "static-site", "netlify"],
   "author": "lokeshdugar040",
-  "license": "MIT"
+  "license": "UNLICENSED"
 }

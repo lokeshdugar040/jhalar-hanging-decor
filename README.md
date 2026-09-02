@@ -1,146 +1,85 @@
-# JHALAR Hanging Decor - B2B Website
+# JHALAR Hanging Decor — B2B Website
 
-Decorative hanging solutions for events, retailers, wholesalers, and custom projects across India.
+Marketing website for JHALAR Hanging Decor, a manufacturer and wholesale supplier of handcrafted decorative hangings (pom pom garlands, floral jhalars, bell hangings, torans, tassel hangings, decorative strings and custom designs) based in Howrah, West Bengal, India.
 
-## 🚀 Quick Start
+**Stack:** plain HTML + CSS + vanilla JS. No framework, no build step.
+**Hosting:** **GitHub Pages** → https://lokeshdugar040.github.io/jhalar-hanging-decor/
 
-### Prerequisites
-- GitHub account
-- Netlify account (for hosting, forms, and CMS)
+## Deploy on GitHub Pages
 
-### Setup Instructions
+1. Repo **Settings → Pages**.
+2. Source: **Deploy from a branch** → branch `main`, folder `/ (root)` → **Save**.
+3. Wait 1–2 minutes; the site goes live at the URL above.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/lokeshdugar040/jhalar-hanging-decor.git
-   cd jhalar-hanging-decor
-   ```
+All paths in the code are relative, so the site works correctly under the `/jhalar-hanging-decor/` subpath (and under a custom domain later).
 
-2. **Deploy to Netlify**
-   - Go to [Netlify](https://netlify.com)
-   - Click "Add new site" → "Import an existing project"
-   - Connect your GitHub account
-   - Select this repository
-   - Deploy settings:
-     - Build command: (leave empty)
-     - Publish directory: `/`
-   - Click "Deploy site"
+## How the enquiry form works
 
-3. **Enable Netlify Forms**
-   - Forms are already configured in `index.html`
-   - View submissions in Netlify dashboard → Forms
+GitHub Pages is static (no server to receive form POSTs), so the form **composes a WhatsApp message** with every field pre-filled and opens it — the visitor just presses send. The enquiry lands at **+91 81006 56258**.
 
-4. **Access CMS (if using Netlify CMS)**
-   - After deployment, visit `yoursite.netlify.app/admin`
-   - Login with GitHub credentials
-   - Manage products from the CMS interface
+## Contact (single source of truth)
 
-## 📁 Project Structure
+All contact details live in **`content/site-settings.json`** and are applied across the page by `script.js`:
+
+| Field | Value |
+|---|---|
+| WhatsApp | `918100656258` (wa.me links) |
+| Phone | `+91 81006 56258` |
+| Email | `lokeshdugar040@gmail.com` |
+| Location | Howrah, West Bengal, India |
+
+> The same values are also hardcoded in `index.html` as fallback, so links work even before JS runs.
+
+## Project structure
 
 ```
-jhalar-hanging-decor/
-├─ admin/              # CMS configuration and logo
-├─ assets/             # Images and static assets
-├─ content/            # Product markdown files (CMS)
-├─ product/            # Product data (legacy structure)
-├─ index.html          # Main website
-├─ script.js           # Product rendering and interactions
-├─ style.css           # All styles
-├─ netlify.toml        # Netlify configuration
-└─ .gitignore          # Git ignore rules
+├─ index.html            # The whole site (single page)
+├─ style.css             # Design system + all styles
+├─ script.js             # Product grid, filters, modal, WhatsApp form, settings
+├─ content/
+│  ├─ products.json      # Product catalog (rendered on the site)
+│  └─ site-settings.json # Contact info applied site-wide
+├─ assets/
+│  ├─ logo-jhalar-02.svg # Brand logo
+│  └─ images/            # Optimized imagery (hero, collage, og-cover)
+│     └─ products/       # Product photos used by products.json
+├─ privacy.html / 404.html / sitemap.xml / robots.txt / favicon.svg
+├─ .nojekyll             # Prevents Jekyll processing on GitHub Pages
+└─ AUDIT.md              # Repo audit + fix log
 ```
 
-## ✏️ Editing Content
+## Editing the catalog
 
-### Adding Products
+Edit `content/products.json` directly on GitHub (or in your editor). Each product:
 
-**Option 1: Using CMS (Recommended)**
-1. Visit `/admin` after deployment
-2. Navigate to Products
-3. Click "New Product"
-4. Fill in details and upload images
-5. Save and publish
-
-**Option 2: Manual Editing**
-1. Create markdown file in `content/products/`
-2. Use this frontmatter format:
-   ```yaml
-   ---
-   title: "Product Name"
-   category: "Pom Pom Hangings"
-   description: "Product description"
-   image: "/assets/images/products/product.jpg"
-   b2bTag: "Bulk-ready"
-   ---
-   ```
-
-### Updating Contact Information
-
-Edit `index.html` and replace placeholders:
-- `+91 XXXXX XXXXX` → Your actual WhatsApp/phone
-- `hello@yourbusiness.com` → Your email
-- `Business location to be added` → Your location
-
-### Fixing WhatsApp Links
-
-Update all WhatsApp buttons with your number:
-```html
-<a href="https://wa.me/919876543210?text=Hello%20JHALAR...">
+```json
+{
+  "id": 17,
+  "title": "New Product Name",
+  "category": "Floral Jhalars",
+  "description": "Short B2B-focused description.",
+  "image": "assets/images/products/new-product.jpg",
+  "b2bTag": "Bulk-ready"
+}
 ```
 
-## 🎨 Brand Guidelines
+Categories must match exactly: `Pom Pom Hangings`, `Bead Hangings`, `Bell Hangings`, `Floral Jhalars`, `Torans`, `Tassel Hangings`, `Decorative Strings`, `Custom Designs`.
 
-- **Primary Color**: `#C82039` (Jhalar Red)
-- **Accent Color**: `#C9A84C` (Accent Gold)
-- **Fonts**: Playfair Display (headings), DM Sans (body)
+> Note: the Decap/Netlify CMS was removed — it requires Netlify authentication and doesn't work on GitHub Pages. If you ever migrate to Netlify, a CMS can be re-added.
 
-## 🔧 Configuration Files
+## Brand
 
-### netlify.toml
-- CMS routing
-- Form handling
-- Build settings
+- Primary red `#C82039`, accent gold `#C9A84C`
+- Fonts: Playfair Display (headings), DM Sans (body)
+- Logo: `assets/logo-jhalar-02.svg`
 
-### .pages.yml / admin/config.yml
-- CMS collection definitions
-- Field configurations
-- Widget settings
+## Local preview
 
-## 📝 Checklist Before Launch
+```bash
+python3 -m http.server 8000   # or: npm run dev
+# open http://localhost:8000
+```
 
-- [ ] Replace all placeholder contact information
-- [ ] Add real product images to `assets/images/products/`
-- [ ] Update WhatsApp links with actual number
-- [ ] Test form submissions
-- [ ] Add privacy policy page
-- [ ] Set up custom domain (optional)
-- [ ] Add Google Analytics (optional)
-- [ ] Test on mobile devices
-- [ ] Verify all navigation links work
+## License
 
-## 🚨 Common Issues
-
-### Products not showing
-- Check `script.js` is loading correctly
-- Verify product data exists in `content/products/`
-- Check browser console for errors
-
-### Forms not submitting
-- Ensure site is deployed on Netlify
-- Verify `data-netlify="true"` attribute exists
-- Check Netlify dashboard for form submissions
-
-### CMS not accessible
-- Ensure `admin/` folder is deployed
-- Check `admin/config.yml` path
-- Verify GitHub authentication
-
-## 📞 Support
-
-For questions or issues:
-- Email: lokeshdugar040@gmail.com
-- GitHub Issues: Create an issue in this repository
-
-## 📄 License
-
-All rights reserved © JHALAR Hanging Decor
+© JHALAR Hanging Decor — All rights reserved.
