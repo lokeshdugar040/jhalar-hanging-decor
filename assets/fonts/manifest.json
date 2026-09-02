@@ -149,6 +149,78 @@
       "file": "assets/fonts/Mogranx-BoldSlantExtraCond.woff2",
       "format": "woff2",
       "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlantSemExp",
+      "file": "assets/fonts/Mogranx-BoldSlantSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlantSemiCond",
+      "file": "assets/fonts/Mogranx-BoldSlantSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlantUltraCond",
+      "file": "assets/fonts/Mogranx-BoldSlantUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldUltraCondensed",
+      "file": "assets/fonts/Mogranx-BoldUltraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx Condensed",
+      "file": "assets/fonts/Mogranx-Condensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx Expanded",
+      "file": "assets/fonts/Mogranx-Expanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdExtExp",
+      "file": "assets/fonts/Mogranx-ExtBdExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdExtraCond",
+      "file": "assets/fonts/Mogranx-ExtBdExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSemiCond",
+      "file": "assets/fonts/Mogranx-ExtBdSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSlantCond",
+      "file": "assets/fonts/Mogranx-ExtBdSlantCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSlantExp",
+      "file": "assets/fonts/Mogranx-ExtBdSlantExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtBdSlantExtExp",
+      "file": "assets/fonts/Mogranx-ExtBdSlantExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
     }
   ]
 }
