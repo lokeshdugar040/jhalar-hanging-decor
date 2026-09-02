@@ -1,345 +1,235 @@
-// JHALAR Hanging Decor - Product & Interaction Script
+/* JHALAR Hanging Decor — interaction layer (progressive enhancement only) */
+(function () {
+  'use strict';
 
-// Product data will be loaded from content/products.json
-let products = [];
+  var WHATSAPP_NUMBER = '919876543210'; // ← replace with the real business number (digits only, country code first)
 
-// Initialize website
-async function init() {
-  try {
-    await loadProducts();
-    renderProducts(products);
-    setupFilterButtons();
-    setupMobileNav();
-    setupAccordions();
-    setupModal();
-    updateYear();
-    setupReveal();
-    setupFormValidation();
-  } catch (error) {
-    console.error('Error initializing website:', error);
-    showFallbackProducts();
-  }
-}
+  document.documentElement.classList.remove('no-js');
 
-// Load products from JSON file
-async function loadProducts() {
-  try {
-    const response = await fetch('/content/products.json');
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    products = data.products || [];
-    console.log(`Loaded ${products.length} products`);
-  } catch (error) {
-    console.error('Failed to load products:', error);
-    showFallbackProducts();
-  }
-}
-
-// Show fallback products if JSON fails
-function showFallbackProducts() {
-  products = [
-    {
-      id: 1,
-      title: "Premium Pom Pom Hanging",
-      category: "Pom Pom Hangings",
-      description: "Handcrafted decorative pom pom hangings perfect for events.",
-      image: "/assets/images/products/pom-pom-hanging.jpg",
-      b2bTag: "Bulk-ready"
-    },
-    {
-      id: 2,
-      title: "Elegant Bead Hanging",
-      category: "Bead Hangings",
-      description: "Beautiful bead hangings with intricate patterns.",
-      image: "/assets/images/products/bead-hanging.jpg",
-      b2bTag: "Bestseller"
-    },
-    {
-      id: 3,
-      title: "Traditional Bell Hanging",
-      category: "Bell Hangings",
-      description: "Traditional bell hangings with authentic craftsmanship.",
-      image: "/assets/images/products/bell-hanging.jpg",
-      b2bTag: "Traditional"
-    },
-    {
-      id: 4,
-      title: "Floral Jhalar Decor",
-      category: "Floral Jhalars",
-      description: "Stunning floral jhalars handcrafted with premium materials.",
-      image: "/assets/images/products/floral-jhalar.jpg",
-      b2bTag: "Premium"
-    },
-    {
-      id: 5,
-      title: "Designer Toran",
-      category: "Torans",
-      description: "Decorative torans with modern designs.",
-      image: "/assets/images/products/toran.jpg",
-      b2bTag: "New Arrival"
-    },
-    {
-      id: 6,
-      title: "Luxury Tassel Hanging",
-      category: "Tassel Hangings",
-      description: "Premium tassel hangings with rich colors.",
-      image: "/assets/images/products/tassel-hanging.jpg",
-      b2bTag: "Luxury"
-    }
-  ];
-  renderProducts(products);
-}
-
-// Render products to grid
-function renderProducts(productList) {
-  const grid = document.getElementById('product-grid');
-  if (!grid) {
-    console.error('Product grid not found');
-    return;
+  /* ---------- Header scroll state ---------- */
+  function setupHeader() {
+    var header = document.getElementById('header');
+    if (!header) return;
+    var onScroll = function () {
+      header.classList.toggle('scrolled', window.scrollY > 24);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  if (productList.length === 0) {
-    grid.innerHTML = '<p style="text-align: center; color: #666; padding: 2rem;">No products available. Please check back soon!</p>';
-    return;
-  }
+  /* ---------- Mobile navigation ---------- */
+  function setupMobileNav() {
+    var toggle = document.querySelector('.mobile-toggle');
+    var nav = document.getElementById('mobile-nav');
+    if (!toggle || !nav) return;
 
-  grid.innerHTML = productList.map(product => `
-    <div class="product-card" data-category="${product.category}">
-      <div class="product-image">
-        <div class="img-placeholder" style="min-height: 300px;">
-          <span>${product.title} Image</span>
-        </div>
-      </div>
-      <div class="product-info">
-        <span class="product-category">${product.category}</span>
-        <h3 class="product-title">${product.title}</h3>
-        <p class="product-desc">${product.description}</p>
-        <span class="product-meta">${product.b2bTag}</span>
-        <button class="btn btn-primary" onclick="openProductModal(${product.id})" style="margin-top: 1rem; width: 100%;">
-          View Details
-        </button>
-      </div>
-    </div>
-  `).join('');
-}
+    toggle.addEventListener('click', function () {
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('active', !expanded);
+    });
 
-// Setup category filter buttons
-function setupFilterButtons() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  if (filterBtns.length === 0) return;
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
       });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      
-      const filter = btn.dataset.filter;
-      filterProducts(filter);
     });
-  });
-}
 
-// Filter products by category
-function filterProducts(category) {
-  const cards = document.querySelectorAll('.product-card');
-  if (cards.length === 0) return;
-
-  cards.forEach(card => {
-    const productCategory = card.dataset.category;
-    const shouldShow = category === 'all' || productCategory === category;
-    card.style.display = shouldShow ? 'block' : 'none';
-  });
-}
-
-// Mobile navigation toggle
-function setupMobileNav() {
-  const toggle = document.querySelector('.mobile-toggle');
-  const nav = document.getElementById('mobile-nav');
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', !expanded);
-    nav.classList.toggle('active');
-  });
-
-  // Close mobile nav when clicking a link
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('active') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
-  });
-}
+  }
 
-// Accordion functionality
-function setupAccordions() {
-  const headers = document.querySelectorAll('.accordion-header');
-  if (headers.length === 0) return;
+  /* ---------- Category filters ---------- */
+  function setupFilters() {
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.product-card');
+    if (!buttons.length || !cards.length) return;
 
-  headers.forEach(header => {
-    header.addEventListener('click', () => {
-      const expanded = header.getAttribute('aria-expanded') === 'true';
-      const contentId = header.getAttribute('aria-controls');
-      const content = document.getElementById(contentId);
-      
-      if (!content) {
-        console.error('Accordion content not found:', contentId);
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+        var filter = btn.dataset.filter;
+        cards.forEach(function (card) {
+          var show = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  }
+
+  /* ---------- Product modal ---------- */
+  var lastTrigger = null;
+
+  function openModal(card, trigger) {
+    var modal = document.getElementById('product-modal');
+    if (!modal || !card) return;
+
+    var img = card.querySelector('.product-media img');
+    var title = card.querySelector('.product-title');
+    var category = card.querySelector('.product-category');
+    var desc = card.querySelector('.product-desc');
+    var tag = card.querySelector('.product-tag');
+
+    var modalImg = document.getElementById('modal-image');
+    if (modalImg && img) {
+      modalImg.src = img.getAttribute('src');
+      modalImg.alt = img.getAttribute('alt') || '';
+    }
+    document.getElementById('modal-title').textContent = title ? title.textContent : '';
+    document.getElementById('modal-category').textContent = category ? category.textContent : '';
+    document.getElementById('modal-desc').textContent = desc ? desc.textContent : '';
+    document.getElementById('modal-tag').textContent = tag ? tag.textContent : '';
+
+    var wa = document.getElementById('modal-whatsapp');
+    if (wa && title) {
+      var msg = 'Hello JHALAR, I would like a bulk quotation for: ' + title.textContent + '.';
+      wa.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+    }
+
+    lastTrigger = trigger || null;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    var closeBtn = document.getElementById('modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal() {
+    var modal = document.getElementById('product-modal');
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  function setupModal() {
+    var modal = document.getElementById('product-modal');
+    var closeBtn = document.getElementById('modal-close');
+    if (!modal || !closeBtn) return;
+
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('[data-id]');
+      if (trigger && trigger.closest('.product-card')) {
+        openModal(trigger.closest('.product-card'), trigger);
+      }
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+    });
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  function setupAccordions() {
+    var headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(function (header) {
+      header.addEventListener('click', function () {
+        var expanded = header.getAttribute('aria-expanded') === 'true';
+        headers.forEach(function (h) {
+          h.setAttribute('aria-expanded', 'false');
+          var el = document.getElementById(h.getAttribute('aria-controls'));
+          if (el) el.hidden = true;
+        });
+        if (!expanded) {
+          header.setAttribute('aria-expanded', 'true');
+          var content = document.getElementById(header.getAttribute('aria-controls'));
+          if (content) content.hidden = false;
+        }
+      });
+    });
+  }
+
+  /* ---------- Enquiry form → WhatsApp ---------- */
+  function setupForm() {
+    var form = document.getElementById('enquiry-form');
+    var status = document.getElementById('form-status');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        if (status) { status.textContent = 'Please complete the required fields.'; status.className = 'form-status err'; }
         return;
       }
-      
-      // Close all accordions
-      headers.forEach(h => {
-        h.setAttribute('aria-expanded', 'false');
-        const contentEl = document.getElementById(h.getAttribute('aria-controls'));
-        if (contentEl) contentEl.hidden = true;
+
+      function v(id) { var el = document.getElementById(id); return el && el.value ? el.value.trim() : ''; }
+
+      var lines = [
+        'Hello JHALAR, new B2B enquiry:',
+        'Name: ' + v('name'),
+        'Company: ' + (v('company') || '-'),
+        'Buyer type: ' + v('buyer-type'),
+        'Phone: ' + v('phone'),
+        'Email: ' + (v('email') || '-'),
+        'Location: ' + v('location'),
+        'Category: ' + v('category'),
+        'Quantity: ' + (v('quantity') || '-'),
+        'Required by: ' + (v('date') || '-'),
+        'Details: ' + (v('details') || '-')
+      ];
+
+      var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+      window.open(url, '_blank', 'noopener');
+
+      if (status) {
+        status.textContent = 'Opening WhatsApp with your enquiry… we reply within 24 hours.';
+        status.className = 'form-status ok';
+      }
+      var btn = form.querySelector('.submit-btn');
+      if (btn) { btn.disabled = true; setTimeout(function () { btn.disabled = false; }, 4000); }
+    });
+  }
+
+  /* ---------- Scroll reveal (motion-safe, JS-only) ---------- */
+  function setupReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var targets = document.querySelectorAll('.section, .trust-strip');
+    targets.forEach(function (el) { el.classList.add('js-reveal'); });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-active');
+          io.unobserve(entry.target);
+        }
       });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
 
-      // Toggle clicked accordion
-      if (!expanded) {
-        header.setAttribute('aria-expanded', 'true');
-        content.hidden = false;
-      }
-    });
-  });
-}
-
-// Modal functionality
-function setupModal() {
-  const modal = document.getElementById('product-modal');
-  const closeBtn = document.getElementById('modal-close');
-  
-  if (!modal || !closeBtn) return;
-
-  closeBtn.addEventListener('click', () => {
-    closeModal(modal);
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal(modal);
-    }
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-      closeModal(modal);
-    }
-  });
-}
-
-// Close modal helper
-function closeModal(modal) {
-  modal.setAttribute('aria-hidden', 'true');
-  modal.style.display = 'none';
-  document.body.style.overflow = '';
-}
-
-// Open product modal
-function openProductModal(productId) {
-  const product = products.find(p => p.id === productId);
-  if (!product) {
-    console.error('Product not found:', productId);
-    return;
+    targets.forEach(function (el) { io.observe(el); });
   }
 
-  const modal = document.getElementById('product-modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalCategory = document.getElementById('modal-category');
-  const modalDesc = document.getElementById('modal-desc');
-  const modalTag = document.getElementById('modal-tag');
-
-  if (modalTitle) modalTitle.textContent = product.title;
-  if (modalCategory) modalCategory.textContent = product.category;
-  if (modalDesc) modalDesc.textContent = product.description;
-  if (modalTag) modalTag.textContent = product.b2bTag;
-
-  if (modal) {
-    modal.setAttribute('aria-hidden', 'false');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+  /* ---------- Misc ---------- */
+  function updateYear() {
+    var el = document.getElementById('current-year');
+    if (el) el.textContent = String(new Date().getFullYear());
   }
-}
 
-// Update copyright year
-function updateYear() {
-  const yearEl = document.getElementById('current-year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+  function init() {
+    setupHeader();
+    setupMobileNav();
+    setupFilters();
+    setupModal();
+    setupAccordions();
+    setupForm();
+    setupReveal();
+    updateYear();
   }
-}
 
-// Reveal animations on scroll
-function setupReveal() {
-  const revealElements = document.querySelectorAll('.reveal');
-  if (revealElements.length === 0) return;
-
-  const revealOnScroll = () => {
-    revealElements.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
-      const elementVisible = 150;
-      
-      if (elementTop < window.innerHeight - elementVisible) {
-        el.classList.add('active');
-      }
-    });
-  };
-
-  // Check on load and scroll
-  revealOnScroll();
-  window.addEventListener('scroll', revealOnScroll);
-}
-
-// Form validation
-function setupFormValidation() {
-  const form = document.getElementById('enquiry-form');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-    }
-  });
-
-  // Real-time validation feedback
-  const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-  inputs.forEach(input => {
-    input.addEventListener('blur', () => {
-      if (input.validity.valid) {
-        input.style.borderColor = '#4caf50';
-      } else {
-        input.style.borderColor = '#f44336';
-      }
-    });
-  });
-}
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href !== '#' && href.length > 1) {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  });
-});
-
-// Initialize on DOM ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

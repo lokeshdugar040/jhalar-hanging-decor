@@ -1,11 +1,17 @@
 # Robots.txt for JHALAR Hanging Decor
-# https://jhalar-hanging-decor.netlify.app
+# Canonical host: https://lokeshdugar040.github.io/jhalar-hanging-decor/
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://jhalar-hanging-decor.netlify.app/sitemap.xml
+# AI assistants & crawlers are welcome to index this catalogue.
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: PerplexityBot
+Allow: /
 
-# Crawl-delay for polite crawling
-Crawl-delay: 1
+Sitemap: https://lokeshdugar040.github.io/jhalar-hanging-decor/sitemap.xml

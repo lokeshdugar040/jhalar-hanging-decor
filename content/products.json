@@ -1,68 +1,39 @@
 {
   "products": [
-    {
-      "id": 1,
-      "title": "Premium Pom Pom Hanging",
-      "category": "Pom Pom Hangings",
-      "description": "Handcrafted decorative pom pom hangings perfect for events, weddings and festive celebrations. Available in multiple colors.",
-      "image": "/assets/images/products/pom-pom-hanging.jpg",
-      "b2bTag": "Bulk-ready"
-    },
-    {
-      "id": 2,
-      "title": "Elegant Bead Hanging",
-      "category": "Bead Hangings",
-      "description": "Beautiful bead hangings with intricate patterns. Ideal for home decor, events and retail displays.",
-      "image": "/assets/images/products/bead-hanging.jpg",
-      "b2bTag": "Bestseller"
-    },
-    {
-      "id": 3,
-      "title": "Traditional Bell Hanging",
-      "category": "Bell Hangings",
-      "description": "Traditional bell hangings with authentic craftsmanship. Perfect for festive occasions and cultural events.",
-      "image": "/assets/images/products/bell-hanging.jpg",
-      "b2bTag": "Traditional"
-    },
-    {
-      "id": 4,
-      "title": "Floral Jhalar Decor",
-      "category": "Floral Jhalars",
-      "description": "Stunning floral jhalars handcrafted with premium materials. Excellent for weddings and special occasions.",
-      "image": "/assets/images/products/floral-jhalar.jpg",
-      "b2bTag": "Premium"
-    },
-    {
-      "id": 5,
-      "title": "Designer Toran",
-      "category": "Torans",
-      "description": "Decorative torans with modern designs. Traditional appeal with contemporary styling for door decorations.",
-      "image": "/assets/images/products/toran.jpg",
-      "b2bTag": "New Arrival"
-    },
-    {
-      "id": 6,
-      "title": "Luxury Tassel Hanging",
-      "category": "Tassel Hangings",
-      "description": "Premium tassel hangings with rich colors and textures. Perfect for upscale events and home decor.",
-      "image": "/assets/images/products/tassel-hanging.jpg",
-      "b2bTag": "Luxury"
-    },
-    {
-      "id": 7,
-      "title": "Decorative String Lights",
-      "category": "Decorative Strings",
-      "description": "Illuminated decorative strings for ambient lighting. Creates beautiful atmosphere for any occasion.",
-      "image": "/assets/images/products/string-lights.jpg",
-      "b2bTag": "Trending"
-    },
-    {
-      "id": 8,
-      "title": "Custom Design Hanging",
-      "category": "Custom Designs",
-      "description": "Fully customizable hanging decor made to your specifications. Discuss your unique requirements with us.",
-      "image": "/assets/images/products/custom-design.jpg",
-      "b2bTag": "Customizable"
-    }
+    { "id": 1,  "title": "Tricolor Floral Jhalar", "category": "Floral Jhalars", "tag": "Bestseller", "img": "assets/images/products/jhalar-01.jpg", "desc": "Saffron, white and green tricolor jhalar with gold ball accents and beaded tassels — a bestseller for festive and themed event décor." },
+    { "id": 2,  "title": "Rani Pink Floral Jhalar", "category": "Floral Jhalars", "tag": "Bulk-ready", "img": "assets/images/products/jhalar-02.jpg", "desc": "Rich rani-pink petal jhalar with cream highlights; a bold colour statement for wedding and sangeet backdrops." },
+    { "id": 3,  "title": "Crimson Red Floral Jhalar", "category": "Floral Jhalars", "tag": "Classic", "img": "assets/images/products/jhalar-03.jpg", "desc": "Deep crimson petal jhalar with cream accents; a classic choice for festive doorways, mandaps and stage décor." },
+    { "id": 4,  "title": "Blue & Orange Festive Jhalar", "category": "Floral Jhalars", "tag": "Vibrant", "img": "assets/images/products/jhalar-04.jpg", "desc": "Royal blue and marigold orange jhalar with white bead fillers for high-contrast event styling." },
+    { "id": 5,  "title": "Red & Green Door Jhalar", "category": "Floral Jhalars", "tag": "Door décor", "img": "assets/images/products/jhalar-05.jpg", "desc": "Compact red and green jhalar shown as a vertical drape; ideal for door frames, pillars and wall décor." },
+    { "id": 6,  "title": "Yellow & Green Floral Jhalar", "category": "Floral Jhalars", "tag": "Lightweight", "img": "assets/images/products/jhalar-06.jpg", "desc": "Sunshine yellow and green jhalar with white fillers; bright, lightweight and quick to install at scale." },
+    { "id": 7,  "title": "Magenta Blossom Jhalar", "category": "Floral Jhalars", "tag": "Premium", "img": "assets/images/products/jhalar-07.jpg", "desc": "Full magenta blossom jhalar with cream sprigs; a dense, premium-look drape for stages and photo backdrops." },
+    { "id": 8,  "title": "Marigold Yellow Jhalar", "category": "Floral Jhalars", "tag": "Festive", "img": "assets/images/products/jhalar-08.jpg", "desc": "All-marigold yellow jhalar that mimics fresh genda phool; perfect for pooja, festive and temple décor." },
+    { "id": 9,  "title": "Ivory & Green Floral Jhalar", "category": "Floral Jhalars", "tag": "Elegant", "img": "assets/images/products/jhalar-09.jpg", "desc": "Ivory petal jhalar with fresh green sprigs; an elegant neutral for minimalist and pastel event styling." },
+    { "id": 10, "title": "Red & White Block Jhalar", "category": "Floral Jhalars", "tag": "Bulk-ready", "img": "assets/images/products/jhalar-10.jpg", "desc": "Red, white and green block-pattern jhalar with beaded tassels; a staple for festive bulk orders." },
+    { "id": 11, "title": "Orange & White Block Jhalar", "category": "Floral Jhalars", "tag": "Warm palette", "img": "assets/images/products/jhalar-11.jpg", "desc": "Orange and white block jhalar with green separators; a warm palette for entrance and canopy décor." },
+    { "id": 12, "title": "Pink & White Block Jhalar", "category": "Floral Jhalars", "tag": "Wedding", "img": "assets/images/products/jhalar-12.jpg", "desc": "Pink and white block jhalar with daisy-style tassels; popular for wedding canopies and mandaps." },
+    { "id": 13, "title": "Red Daisy Floral Jhalar", "category": "Floral Jhalars", "tag": "Textured", "img": "assets/images/products/jhalar-13.jpg", "desc": "Red petal jhalar with green foliage and white daisies; rich texture for retail and window displays." },
+    { "id": 14, "title": "Red & Yellow Festive Jhalar", "category": "Floral Jhalars", "tag": "Festive", "img": "assets/images/products/jhalar-14.jpg", "desc": "Red and yellow jhalar with white daisy fillers; a high-energy combination for festive installations." },
+    { "id": 15, "title": "Blue & Yellow Floral Jhalar", "category": "Floral Jhalars", "tag": "Themed", "img": "assets/images/products/jhalar-15.jpg", "desc": "Blue and yellow jhalar with white daisies; striking contrast for themed events and brand activations." },
+    { "id": 16, "title": "White Blossom String with Red Rose", "category": "Floral Jhalars", "tag": "Curtain-style", "img": "assets/images/products/jhalar-16.jpg", "desc": "White blossom tube string finished with a red rose; a delicate curtain-style hanging for doorways." },
+    { "id": 17, "title": "Mogra Bud Garland with Brass Bell", "category": "Floral Jhalars", "tag": "Temple décor", "img": "assets/images/products/jhalar-17.jpg", "desc": "Dense mogra bud garland finished with a brass bell; a temple- and entrance-grade decorative hanging." },
+    { "id": 18, "title": "Red & Yellow Daisy Jhalar", "category": "Floral Jhalars", "tag": "All-rounder", "img": "assets/images/products/jhalar-18.jpg", "desc": "Red and yellow petal jhalar with daisy accents; a bright all-rounder for bulk festive supply." },
+    { "id": 19, "title": "Yellow Rose & Mogra Jhalar with Om Bell", "category": "Floral Jhalars", "tag": "Pooja décor", "img": "assets/images/products/jhalar-19.jpg", "desc": "Yellow rose and mogra bud jhalar with an ‘Om’ brass bell; made for pooja rooms and entrances." },
+    { "id": 20, "title": "Pink Pom Pom & Gold Bead Hanging", "category": "Pom Pom Hangings", "tag": "Premium", "img": "assets/images/products/jhalar-20.jpg", "desc": "Hot pink pom poms on a gold bead chain with a brass flower charm; a playful premium hanging." },
+    { "id": 21, "title": "Orange Pom Pom Chakra Hanging", "category": "Pom Pom Hangings", "tag": "Handcrafted", "img": "assets/images/products/jhalar-21.jpg", "desc": "Orange pom poms and thread-wrapped chakra discs with a brass bell; a handcrafted statement hanging." },
+    { "id": 22, "title": "Maroon Pom Pom Blossom Bell Hanging", "category": "Pom Pom Hangings", "tag": "Mixed texture", "img": "assets/images/products/jhalar-22.jpg", "desc": "Maroon and orange pom poms alternated with white blossoms on a gold bead chain with a brass bell." },
+    { "id": 23, "title": "Yellow Pom Pom Vertical Hanging", "category": "Pom Pom Hangings", "tag": "Vertical", "img": "assets/images/products/jhalar-23.jpg", "desc": "Yellow marigold-style pom pom vertical hanging with a triple-ball tassel finish for doorways." },
+    { "id": 24, "title": "Yellow Pom Pom Chakra Bell Hanging", "category": "Pom Pom Hangings", "tag": "Cheerful", "img": "assets/images/products/jhalar-24.jpg", "desc": "Yellow pom poms and gold chakra discs with a brass bell; a cheerful festive hanging." },
+    { "id": 25, "title": "Red Pom Pom Vertical Hanging", "category": "Pom Pom Hangings", "tag": "Vertical", "img": "assets/images/products/jhalar-25.jpg", "desc": "Coral red pom pom vertical hanging with a marigold column and triple tassel; striking door décor." },
+    { "id": 26, "title": "Rani Pink Pom Pom Chakra Hanging", "category": "Pom Pom Hangings", "tag": "Vibrant", "img": "assets/images/products/jhalar-26.jpg", "desc": "Rani pink pom poms and chakra discs with a brass bell; a vibrant statement hanging for events." },
+    { "id": 27, "title": "Red & Yellow Pom Pom Bell Hanging", "category": "Pom Pom Hangings", "tag": "Festive", "img": "assets/images/products/jhalar-27.jpg", "desc": "Red and yellow pom poms with white blossoms and a brass bell on a gold bead chain." },
+    { "id": 28, "title": "Tricolor Pom Pom Medallion Hanging", "category": "Pom Pom Hangings", "tag": "Tricolor", "img": "assets/images/products/jhalar-28.jpg", "desc": "Tricolor pom poms with gold filigree medallions and a bell; ideal for themed and national-day décor." },
+    { "id": 29, "title": "Green Pom Pom Chakra Bell Hanging", "category": "Pom Pom Hangings", "tag": "Modern", "img": "assets/images/products/jhalar-29.jpg", "desc": "Green pom poms and gold chakra discs with a brass bell; a fresh palette for modern décor." },
+    { "id": 30, "title": "Kalash & Pom Pom Bell Hanging", "category": "Bell Hangings", "tag": "Kalash", "img": "assets/images/products/jhalar-30.jpg", "desc": "Gold kalash beads and pink–yellow pom poms on a bead chain with a carved brass bell." },
+    { "id": 31, "title": "Yellow Rose Brass Bell Hanging", "category": "Bell Hangings", "tag": "Pastel", "img": "assets/images/products/jhalar-31.jpg", "desc": "Yellow foam roses on a gold bead chain with a carved brass bell; a soft pastel hanging." },
+    { "id": 32, "title": "Pink Rose Brass Bell Hanging", "category": "Bell Hangings", "tag": "Gifting", "img": "assets/images/products/jhalar-32.jpg", "desc": "Pink foam roses on a gold bead chain with a carved brass bell; popular for gifting lines." },
+    { "id": 33, "title": "Red Rose & Mogra Bell Hanging", "category": "Bell Hangings", "tag": "Classic", "img": "assets/images/products/jhalar-33.jpg", "desc": "Red rose and mogra cluster string with a brass bell; a classic welcome hanging for entrances." },
+    { "id": 34, "title": "Pearl Bead Hanging with Om Bell", "category": "Bead Hangings", "tag": "Traditional", "img": "assets/images/products/jhalar-34.jpg", "desc": "Pearl-white bead string with pom poms, enamel balls and an Om–Swastik brass bell; a traditional favourite." },
+    { "id": 35, "title": "Gold Star Bead Strings (Pair)", "category": "Decorative Strings", "tag": "Pair", "img": "assets/images/products/jhalar-35.jpg", "desc": "Pair of gold star bead strings; shimmering add-ons for windows, mirrors, torans and displays." }
   ]
 }
