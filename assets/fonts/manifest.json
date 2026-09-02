@@ -77,6 +77,78 @@
       "file": "assets/fonts/Mogranx-BlackUltraCondensed.woff2",
       "format": "woff2",
       "weight": 400
+    },
+    {
+      "family": "Mogranx Bold",
+      "file": "assets/fonts/Mogranx-Bold.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldCondensed",
+      "file": "assets/fonts/Mogranx-BoldCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldExpanded",
+      "file": "assets/fonts/Mogranx-BoldExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldExtraCondensed",
+      "file": "assets/fonts/Mogranx-BoldExtraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldExtraExpanded",
+      "file": "assets/fonts/Mogranx-BoldExtraExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSemiCondensed",
+      "file": "assets/fonts/Mogranx-BoldSemiCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSemiExpanded",
+      "file": "assets/fonts/Mogranx-BoldSemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlanted",
+      "file": "assets/fonts/Mogranx-BoldSlanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlantedCondensed",
+      "file": "assets/fonts/Mogranx-BoldSlantedCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlantedExpanded",
+      "file": "assets/fonts/Mogranx-BoldSlantedExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlantExtExp",
+      "file": "assets/fonts/Mogranx-BoldSlantExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx BoldSlantExtraCond",
+      "file": "assets/fonts/Mogranx-BoldSlantExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
     }
   ]
 }
