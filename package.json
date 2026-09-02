@@ -1,0 +1,15 @@
+{
+  "name": "jhalar-hanging-decor",
+  "version": "1.0.0",
+  "description": "JHALAR Hanging Decor - B2B Manufacturer",
+  "scripts": {
+    "dev": "tinacms dev -c tina.config.ts",
+    "build": "tinacms build -c tina.config.ts"
+  },
+  "devDependencies": {
+    "tinacms": "^2.0.0"
+  },
+  "keywords": ["cms", "tina", "jamstack"],
+  "author": "lokeshdugar040",
+  "license": "MIT"
+}
