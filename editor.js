@@ -7,7 +7,7 @@ const FILES_TO_PUBLISH = ['content/site-settings.json','content/theme.json','con
 let state = {
   settings: null, theme: null, products: [], sections: {}, sectionOrder: [],
   customCSS: '', navItems: [], footerNavItems: [], socialLinks: {},
-  imageManifest: [], selectedProductId: null, viewport: 'desktop',
+  imageManifest: [], fontManifest: [], selectedProductId: null, viewport: 'desktop',
   changed: false, githubToken: null, darkMode: false
 };
 let history = { stack: [], index: -1 };
@@ -16,8 +16,8 @@ let history = { stack: [], index: -1 };
 document.addEventListener('DOMContentLoaded', async () => {
   setupTabs(); setupViewport(); setupAutoSave(); setupKeyboardShortcuts(); setupDragDrop();
   setupUploadZone(); restoreDarkMode(); restoreGitHubToken();
-  await loadPublishedData(); await loadImageManifest();
-  populateAllForms(); renderSectionList(); renderProductList(); renderMediaGrid();
+  await loadPublishedData(); await loadImageManifest(); await loadFontManifest();
+  populateAllForms(); renderSectionList(); renderProductList(); renderMediaGrid(); populateFontOptions();
   applyPreview(); updatePreviewUrl(); pushHistory();
 });
 
@@ -106,6 +106,50 @@ async function loadPublishedData() {
 function ensureProductIds() {
   let m = 0; state.products.forEach(p => { if (p.id && p.id > m) m = p.id; });
   state.products.forEach(p => { if (!p.id) p.id = ++m; });
+}
+
+// ===== FONT MANIFEST =====
+async function loadFontManifest() {
+  try {
+    const r = await fetch('assets/fonts/manifest.json');
+    state.fontManifest = r.ok ? (await r.json()).fonts||[] : [];
+  } catch(e) { console.warn('Font manifest:', e); state.fontManifest = []; }
+}
+
+function isFontFile(file) {
+  const ext = (file.name.split('.').pop()||'').toLowerCase();
+  return ['ttf','otf','woff','woff2'].includes(ext) ||
+         /font\//.test(file.type);
+}
+function fontFormat(ext) {
+  if (ext === 'woff2') return 'woff2';
+  if (ext === 'woff') return 'woff';
+  if (ext === 'otf') return 'opentype';
+  return 'truetype';
+}
+function familyFromFilename(name) {
+  let stem = name.replace(/\.(ttf|otf|woff2?)$/i,'');
+  stem = stem.replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim();
+  return stem.replace(/\b\w/g, c => c.toUpperCase());
+}
+function populateFontOptions() {
+  const extra = state.fontManifest.map(f => ({
+    family: f.family,
+    heading: `'${f.family}', Georgia, 'Times New Roman', serif`,
+    body: `'${f.family}', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
+  }));
+  const headSel = document.getElementById('ed-font-heading');
+  const bodySel = document.getElementById('ed-font-body');
+  if (!headSel || !bodySel) return;
+  const curH = headSel.value, curB = bodySel.value;
+  extra.forEach(f => {
+    if (![...headSel.options].some(o => o.value === f.heading))
+      headSel.add(new Option(`${f.family} (self-hosted)`, f.heading));
+    if (![...bodySel.options].some(o => o.value === f.body))
+      bodySel.add(new Option(`${f.family} (self-hosted)`, f.body));
+  });
+  if (curH) headSel.value = curH;
+  if (curB) bodySel.value = curB;
 }
 
 // ===== IMAGE MANIFEST =====
@@ -352,13 +396,15 @@ async function handleUpload(e) { handleFiles(e.target.files); e.target.value = '
 async function handleFiles(files) {
   if (!files.length) return;
   const token = getVal('ed-github-token').trim();
-  if (!token) { showToast('Set a GitHub token in the Publish tab to upload images','error'); return; }
+  if (!token) { showToast('Set a GitHub token in the Publish tab to upload files','error'); return; }
   for (const file of files) {
-    if (!file.type.startsWith('image/')) continue;
+    const isFont = isFontFile(file);
+    const isImage = file.type.startsWith('image/');
+    if (!isFont && !isImage) { showToast(`Skipped ${file.name} (not an image or font)`, 'error'); continue; }
     showToast(`Uploading ${file.name}...`, 'success');
     try {
       const base64 = await fileToBase64(file);
-      const path = `assets/images/${file.name}`;
+      const path = isFont ? `assets/fonts/${file.name}` : `assets/images/${file.name}`;
       const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
       const baseUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
       // Get current commit SHA
@@ -382,18 +428,50 @@ async function handleFiles(files) {
       const ncd = await ncResp.json();
       // Update ref
       await fetch(`${baseUrl}/git/refs/heads/${GITHUB_BRANCH}`, { method:'PATCH', headers, body: JSON.stringify({sha:ncd.sha, force:false}) });
-      // Update manifest
-      if (!state.imageManifest.includes(path)) {
-        state.imageManifest.push(path);
-        state.imageManifest.sort();
-        // Update manifest.json in repo
-        await updateManifest(token);
+      if (isFont) {
+        const ext = (file.name.split('.').pop()||'').toLowerCase();
+        const family = familyFromFilename(file.name);
+        const entry = { family, file: path, format: fontFormat(ext), weight: 400 };
+        if (!state.fontManifest.some(f => f.file === path)) state.fontManifest.push(entry);
+        await updateFontManifest(token);
+        // Auto-register @font-face in custom CSS so the site can render it
+        const face = `@font-face { font-family: '${family}'; font-style: normal; font-weight: ${entry.weight}; font-display: swap; src: url('${path}') format('${entry.format}'); }`;
+        if (!state.customCSS.includes(face)) {
+          state.customCSS = (state.customCSS ? state.customCSS + '\n' : '') + face;
+          setVal('ed-custom-css', state.customCSS);
+        }
+        populateFontOptions();
+        markChanged(); saveDrafts(); applyPreview();
+        showToast(`Font '${family}' uploaded — pick it in Theme → Fonts`, 'success');
+      } else {
+        // Update image manifest
+        if (!state.imageManifest.includes(path)) {
+          state.imageManifest.push(path);
+          state.imageManifest.sort();
+          await updateManifest(token);
+        }
+        renderMediaGrid();
+        populateImageDropdowns();
+        showToast(`Uploaded ${file.name}`, 'success');
       }
-      renderMediaGrid();
-      populateImageDropdowns();
-      showToast(`Uploaded ${file.name}`, 'success');
     } catch(e) { showToast(`Upload failed: ${e.message}`, 'error'); }
   }
+}
+
+async function updateFontManifest(token) {
+  const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
+  const baseUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
+  const br = await fetch(`${baseUrl}/git/ref/heads/${GITHUB_BRANCH}`, {headers});
+  const bd = await br.json();
+  const commitResp = await fetch(`${baseUrl}/git/commits/${bd.object.sha}`, {headers});
+  const cd = await commitResp.json();
+  const blobResp = await fetch(`${baseUrl}/git/blobs`, { method:'POST', headers, body: JSON.stringify({content:JSON.stringify({fonts:state.fontManifest},null,2),encoding:'utf-8'}) });
+  const blob = await blobResp.json();
+  const treeResp = await fetch(`${baseUrl}/git/trees`, { method:'POST', headers, body: JSON.stringify({base_tree:cd.tree.sha, tree:[{path:'assets/fonts/manifest.json', mode:'100644', type:'blob', sha:blob.sha}]}) });
+  const td = await treeResp.json();
+  const ncResp = await fetch(`${baseUrl}/git/commits`, { method:'POST', headers, body: JSON.stringify({message:'Update font manifest via editor', tree:td.sha, parents:[bd.object.sha]}) });
+  const ncd = await ncResp.json();
+  await fetch(`${baseUrl}/git/refs/heads/${GITHUB_BRANCH}`, { method:'PATCH', headers, body: JSON.stringify({sha:ncd.sha, force:false}) });
 }
 async function updateManifest(token) {
   const headers = { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
@@ -584,7 +662,7 @@ async function resetToPublished() {
   try {
     ['jhalar_editor_settings','jhalar_editor_theme','jhalar_editor_products','jhalar_editor_sections','jhalar_editor_customcss'].forEach(k => localStorage.removeItem(k));
     state.changed = false; updateSaveIndicator();
-    await loadPublishedData(); populateAllForms(); renderSectionList(); renderProductList(); applyPreview();
+    await loadPublishedData(); await loadFontManifest(); populateAllForms(); populateFontOptions(); renderSectionList(); renderProductList(); applyPreview();
     showToast('Reset to published state','success');
   } catch(e) { showToast('Reset failed','error'); }
 }

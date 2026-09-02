@@ -226,7 +226,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         </div>
         <div class="panel-section">
           <h4><i class="fas fa-font"></i> Fonts</h4>
-          <p>Fonts are <strong>self-hosted</strong> in <code>assets/fonts/</code> (offline-ready, fast). Only the self-hosted families render fully — other choices fall back to system fonts.</p>
+          <p>Fonts are <strong>self-hosted</strong> in <code>assets/fonts/</code> (offline-ready, fast). Upload your own <strong>.ttf / .otf / .woff / .woff2</strong> files in the <strong>Media</strong> tab — they appear here automatically and render fully. Other choices fall back to system fonts.</p>
           <div class="form-row">
             <div class="form-group"><label>Heading Font</label>
               <select id="ed-font-heading">
@@ -287,9 +287,9 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <p class="hint">Browse, upload, and manage images. Upload requires a GitHub token (set in Publish tab).</p>
         <div class="upload-zone" id="upload-zone" onclick="triggerUpload()">
           <i class="fas fa-cloud-upload-alt"></i>
-          <p>Click to upload images or drag &amp; drop here</p>
+          <p>Click to upload images or fonts (.ttf / .otf / .woff / .woff2) — drag &amp; drop here</p>
         </div>
-        <input type="file" id="file-input" accept="image/*" multiple style="display:none" onchange="handleUpload(event)">
+        <input type="file" id="file-input" accept="image/*,.ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2" multiple style="display:none" onchange="handleUpload(event)">
         <div class="media-grid" id="media-grid"></div>
       </div>
 
