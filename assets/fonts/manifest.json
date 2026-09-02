@@ -593,6 +593,78 @@
       "file": "assets/fonts/Mogranx-SemBdExtraCond.woff2",
       "format": "woff2",
       "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdSlantCond",
+      "file": "assets/fonts/Mogranx-SemBdSlantCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdSlantExp",
+      "file": "assets/fonts/Mogranx-SemBdSlantExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdSlantExtExp",
+      "file": "assets/fonts/Mogranx-SemBdSlantExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdSlantExtraCond",
+      "file": "assets/fonts/Mogranx-SemBdSlantExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdSlantSemExp",
+      "file": "assets/fonts/Mogranx-SemBdSlantSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdSlantSemiCond",
+      "file": "assets/fonts/Mogranx-SemBdSlantSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdSlantUltraCond",
+      "file": "assets/fonts/Mogranx-SemBdSlantUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdUltraCond",
+      "file": "assets/fonts/Mogranx-SemBdUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiBold",
+      "file": "assets/fonts/Mogranx-SemiBold.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiBoldCondensed",
+      "file": "assets/fonts/Mogranx-SemiBoldCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiBoldExpanded",
+      "file": "assets/fonts/Mogranx-SemiBoldExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemiBoldExtraExpanded",
+      "file": "assets/fonts/Mogranx-SemiBoldExtraExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
     }
   ]
 }
