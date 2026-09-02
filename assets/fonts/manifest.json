@@ -371,6 +371,228 @@
       "file": "assets/fonts/Mogranx-ExtraLight.woff2",
       "format": "woff2",
       "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraLightCondensed",
+      "file": "assets/fonts/Mogranx-ExtraLightCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraLightExpanded",
+      "file": "assets/fonts/Mogranx-ExtraLightExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx ExtraLightSlanted",
+      "file": "assets/fonts/Mogranx-ExtraLightSlanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx Light",
+      "file": "assets/fonts/Mogranx-Light.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightCondensed",
+      "file": "assets/fonts/Mogranx-LightCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightExpanded",
+      "file": "assets/fonts/Mogranx-LightExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightExtraCondensed",
+      "file": "assets/fonts/Mogranx-LightExtraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightExtraExpanded",
+      "file": "assets/fonts/Mogranx-LightExtraExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSemiCondensed",
+      "file": "assets/fonts/Mogranx-LightSemiCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSemiExpanded",
+      "file": "assets/fonts/Mogranx-LightSemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlanted",
+      "file": "assets/fonts/Mogranx-LightSlanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlantedCondensed",
+      "file": "assets/fonts/Mogranx-LightSlantedCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlantedExpanded",
+      "file": "assets/fonts/Mogranx-LightSlantedExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlantExtExp",
+      "file": "assets/fonts/Mogranx-LightSlantExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlantExtraCond",
+      "file": "assets/fonts/Mogranx-LightSlantExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlantSemExp",
+      "file": "assets/fonts/Mogranx-LightSlantSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlantSemiCond",
+      "file": "assets/fonts/Mogranx-LightSlantSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightSlantUltraCond",
+      "file": "assets/fonts/Mogranx-LightSlantUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx LightUltraCondensed",
+      "file": "assets/fonts/Mogranx-LightUltraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx Medium",
+      "file": "assets/fonts/Mogranx-Medium.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumCondensed",
+      "file": "assets/fonts/Mogranx-MediumCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumExpanded",
+      "file": "assets/fonts/Mogranx-MediumExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumExtraCondensed",
+      "file": "assets/fonts/Mogranx-MediumExtraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumExtraExpanded",
+      "file": "assets/fonts/Mogranx-MediumExtraExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumSemiCondensed",
+      "file": "assets/fonts/Mogranx-MediumSemiCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumSemiExpanded",
+      "file": "assets/fonts/Mogranx-MediumSemiExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumSlanted",
+      "file": "assets/fonts/Mogranx-MediumSlanted.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumSlantedExpanded",
+      "file": "assets/fonts/Mogranx-MediumSlantedExpanded.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumSlantUltraCond",
+      "file": "assets/fonts/Mogranx-MediumSlantUltraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MediumUltraCondensed",
+      "file": "assets/fonts/Mogranx-MediumUltraCondensed.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MedSlantCond",
+      "file": "assets/fonts/Mogranx-MedSlantCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MedSlantExtExp",
+      "file": "assets/fonts/Mogranx-MedSlantExtExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MedSlantExtraCond",
+      "file": "assets/fonts/Mogranx-MedSlantExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MedSlantSemExp",
+      "file": "assets/fonts/Mogranx-MedSlantSemExp.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx MedSlantSemiCond",
+      "file": "assets/fonts/Mogranx-MedSlantSemiCond.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx Regular",
+      "file": "assets/fonts/Mogranx-Regular.woff2",
+      "format": "woff2",
+      "weight": 400
+    },
+    {
+      "family": "Mogranx SemBdExtraCond",
+      "file": "assets/fonts/Mogranx-SemBdExtraCond.woff2",
+      "format": "woff2",
+      "weight": 400
     }
   ]
 }
