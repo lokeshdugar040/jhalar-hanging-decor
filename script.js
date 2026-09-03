@@ -106,7 +106,41 @@ let theme = {
     productColumns: "3",
     buttonRadius: "9999px",
     shadowIntensity: "0.12",
-    revealAnimation: true
+    revealAnimation: true,
+    headingWeight: "600",
+    headingTracking: "-0.015em",
+    headingLeading: "1.15",
+    bodyWeight: "400",
+    bodyTracking: "0",
+    bodyLeading: "1.7",
+    titleSize: "48px",
+    heroTitleSize: "64px",
+    cardTitleSize: "24px",
+    cardPad: "24px",
+    gridGap: "24px",
+    sectionHeaderGap: "48px",
+    sectionAlign: "center",
+    heroColumns: "split",
+    featureColumns: "3",
+    splitLayout: "split",
+    aboutLayout: "split",
+    processColumns: "3",
+    contactLayout: "split",
+    trustLayout: "auto",
+    faqWidth: "740px",
+    footerColumns: "4",
+    featureGap: "24px",
+    productGap: "24px",
+    splitGap: "48px",
+    processGap: "24px",
+    contactGap: "24px",
+    faqGap: "12px",
+    trustGap: "12px",
+    footerGap: "48px",
+    productPad: "24px",
+    faqPad: "20px",
+    footerPad: "80px",
+    trustPad: "16px"
   }
 };
 
@@ -238,6 +272,48 @@ function applyTheme() {
     if (l.headerHeight) root.style.setProperty('--header-h', l.headerHeight);
     if (l.buttonRadius) root.style.setProperty('--button-radius', l.buttonRadius);
     if (l.shadowIntensity) root.style.setProperty('--shadow-alpha', l.shadowIntensity);
+    // typography
+    if (l.headingWeight) root.style.setProperty('--heading-weight', l.headingWeight);
+    if (l.headingTracking) root.style.setProperty('--heading-tracking', l.headingTracking);
+    if (l.headingLeading) root.style.setProperty('--heading-leading', l.headingLeading);
+    if (l.bodyWeight) root.style.setProperty('--body-weight', l.bodyWeight);
+    if (l.bodyTracking) root.style.setProperty('--body-tracking', l.bodyTracking);
+    if (l.bodyLeading) root.style.setProperty('--body-leading', l.bodyLeading);
+    if (l.titleSize) root.style.setProperty('--title-size', l.titleSize);
+    if (l.heroTitleSize) root.style.setProperty('--hero-title-size', l.heroTitleSize);
+    if (l.cardTitleSize) root.style.setProperty('--card-title-size', l.cardTitleSize);
+    // inner spacing
+    if (l.cardPad) root.style.setProperty('--card-pad', l.cardPad);
+    if (l.gridGap) root.style.setProperty('--grid-gap', l.gridGap);
+    if (l.sectionHeaderGap) root.style.setProperty('--section-header-gap', l.sectionHeaderGap);
+    if (l.sectionAlign) {
+      root.style.setProperty('--section-align', l.sectionAlign);
+      root.style.setProperty('--section-header-margin', l.sectionAlign === 'left' ? '0 0 var(--section-header-gap,3rem)' : '0 auto var(--section-header-gap,3rem)');
+      root.style.setProperty('--section-subtitle-margin', l.sectionAlign === 'left' ? '0' : '0 auto');
+      root.style.setProperty('--faq-margin', l.sectionAlign === 'left' ? '0' : '0 auto');
+    }
+    // rows / columns
+    if (l.heroColumns) root.style.setProperty('--hero-cols', l.heroColumns === 'stack' ? '1fr' : '1.1fr .9fr');
+    if (l.featureColumns) root.style.setProperty('--feature-cols', l.featureColumns);
+    if (l.splitLayout) root.style.setProperty('--split-cols', l.splitLayout === 'stack' ? '1fr' : '1.1fr 1fr');
+    if (l.aboutLayout) root.style.setProperty('--about-cols', l.aboutLayout === 'stack' ? '1fr' : '1fr 1.1fr');
+    if (l.processColumns) root.style.setProperty('--process-cols', l.processColumns);
+    if (l.contactLayout) root.style.setProperty('--contact-cols', l.contactLayout === 'stack' ? '1fr' : '1.15fr .85fr');
+    if (l.trustLayout) root.style.setProperty('--trust-direction', l.trustLayout === 'stack' ? 'column' : 'row');
+    if (l.faqWidth) root.style.setProperty('--faq-width', l.faqWidth);
+    if (l.footerColumns) root.style.setProperty('--footer-cols', l.footerColumns === '2' ? '1.4fr 1fr' : (l.footerColumns === '3' ? '1.2fr 1fr 1fr' : '1.4fr 1fr 1.2fr 1fr'));
+    if (l.featureGap) root.style.setProperty('--feature-gap', l.featureGap);
+    if (l.productGap) root.style.setProperty('--product-gap', l.productGap);
+    if (l.splitGap) root.style.setProperty('--split-gap', l.splitGap);
+    if (l.processGap) root.style.setProperty('--process-gap', l.processGap);
+    if (l.contactGap) root.style.setProperty('--contact-gap', l.contactGap);
+    if (l.faqGap) root.style.setProperty('--faq-gap', l.faqGap);
+    if (l.trustGap) root.style.setProperty('--trust-gap', l.trustGap);
+    if (l.footerGap) root.style.setProperty('--footer-gap', l.footerGap);
+    if (l.productPad) root.style.setProperty('--product-pad', l.productPad);
+    if (l.faqPad) root.style.setProperty('--faq-pad', l.faqPad);
+    if (l.footerPad) root.style.setProperty('--footer-pad', l.footerPad);
+    if (l.trustPad) root.style.setProperty('--trust-pad', l.trustPad);
     root.style.setProperty('--grid-min', l.productColumns === '2' ? '380px' : (l.productColumns === '4' ? '260px' : '300px'));
   }
   const mt = document.querySelector('meta[name="theme-color"]');

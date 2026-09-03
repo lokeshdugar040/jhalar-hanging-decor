@@ -91,7 +91,16 @@ function defaultThemeTemplate() {
     },
     layout: {
       baseFontSize:'16px', sectionY:'96px', cardRadius:'20px', containerWidth:'1140px',
-      headerHeight:'72px', productColumns:'3', buttonRadius:'9999px', shadowIntensity:'0.12', revealAnimation:true
+      headerHeight:'72px', productColumns:'3', buttonRadius:'9999px', shadowIntensity:'0.12', revealAnimation:true,
+      headingWeight:'600', headingTracking:'-0.015em', headingLeading:'1.15',
+      bodyWeight:'400', bodyTracking:'0', bodyLeading:'1.7',
+      titleSize:'48px', heroTitleSize:'64px', cardTitleSize:'24px',
+      cardPad:'24px', gridGap:'24px', sectionHeaderGap:'48px', sectionAlign:'center',
+      heroColumns:'split', featureColumns:'3', splitLayout:'split', aboutLayout:'split', processColumns:'3',
+      contactLayout:'split', trustLayout:'auto', faqWidth:'740px', footerColumns:'4',
+      featureGap:'24px', productGap:'24px', splitGap:'48px', processGap:'24px', contactGap:'24px',
+      faqGap:'12px', trustGap:'12px', footerGap:'48px', productPad:'24px', faqPad:'20px',
+      footerPad:'80px', trustPad:'16px'
     }
   };
 }
@@ -376,9 +385,63 @@ function populateAllForms() {
     setVal('ed-layout-button-radius', l.buttonRadius === '9999px' || !Number.isFinite(brRaw) ? 40 : brRaw);
     setVal('ed-layout-shadow', Number(l.shadowIntensity??'0.12'));
     setVal('ed-layout-reveal', l.revealAnimation === false ? 'false' : 'true');
+    // Typography
+    setVal('ed-font-heading-weight', String(l.headingWeight||'600'));
+    setVal('ed-font-heading-tracking', l.headingTracking||'-0.015em');
+    setVal('ed-font-heading-leading', String(l.headingLeading||'1.15'));
+    setVal('ed-font-body-weight', String(l.bodyWeight||'400'));
+    setVal('ed-font-body-tracking', l.bodyTracking||'0');
+    setVal('ed-font-body-leading', String(l.bodyLeading||'1.7'));
+    // Rows / columns / inner spacing
+    setVal('ed-layout-feature-cols', String(l.featureColumns||'3'));
+    setVal('ed-layout-hero-cols', l.heroColumns==='stack'?'stack':'split');
+    setVal('ed-layout-split', l.splitLayout==='stack'?'stack':'split');
+    setVal('ed-layout-about', l.aboutLayout==='stack'?'stack':'split');
+    setVal('ed-layout-trust', l.trustLayout||'auto');
+    setVal('ed-layout-process-cols', String(l.processColumns||'3'));
+    setVal('ed-layout-contact', l.contactLayout==='stack'?'stack':'split');
+    setVal('ed-layout-faq-width', l.faqWidth||'740px');
+    setVal('ed-layout-footer-cols', String(l.footerColumns||'4'));
+    setVal('ed-layout-section-align', l.sectionAlign||'center');
+    setVal('ed-layout-card-pad', parseInt(l.cardPad||'24px',10)||24);
+    setVal('ed-layout-grid-gap', parseInt(l.gridGap||'24px',10)||24);
+    setVal('ed-layout-section-gap', parseInt(l.sectionHeaderGap||'48px',10)||48);
+    setVal('ed-layout-title-size', parseInt(l.titleSize||'48px',10)||48);
+    setVal('ed-layout-hero-title-size', parseInt(l.heroTitleSize||'64px',10)||64);
+    setVal('ed-layout-card-title-size', parseInt(l.cardTitleSize||'24px',10)||24);
+    setVal('ed-layout-feature-gap', parseInt(l.featureGap||'24px',10)||24);
+    setVal('ed-layout-product-gap', parseInt(l.productGap||'24px',10)||24);
+    setVal('ed-layout-split-gap', parseInt(l.splitGap||'48px',10)||48);
+    setVal('ed-layout-process-gap', parseInt(l.processGap||'24px',10)||24);
+    setVal('ed-layout-contact-gap', parseInt(l.contactGap||'24px',10)||24);
+    setVal('ed-layout-faq-gap', parseInt(l.faqGap||'12px',10)||12);
+    setVal('ed-layout-trust-gap', parseInt(l.trustGap||'12px',10)||12);
+    setVal('ed-layout-footer-gap', parseInt(l.footerGap||'48px',10)||48);
+    setVal('ed-layout-product-pad', parseInt(l.productPad||'24px',10)||24);
+    setVal('ed-layout-faq-pad', parseInt(l.faqPad||'20px',10)||20);
+    setVal('ed-layout-footer-pad', parseInt(l.footerPad||'80px',10)||80);
+    setVal('ed-layout-trust-pad', parseInt(l.trustPad||'16px',10)||16);
     const hh = document.getElementById('help-header-h'); if (hh) hh.textContent = getVal('ed-layout-header-h');
     const br2 = document.getElementById('help-button-radius'); if (br2) br2.textContent = getVal('ed-layout-button-radius') === '40' ? '40px (pill-like)' : getVal('ed-layout-button-radius')+'px';
     const sh = document.getElementById('help-shadow'); if (sh) sh.textContent = getVal('ed-layout-shadow');
+    const cp = document.getElementById('help-card-pad'); if (cp) cp.textContent = getVal('ed-layout-card-pad');
+    const gg = document.getElementById('help-grid-gap'); if (gg) gg.textContent = getVal('ed-layout-grid-gap');
+    const sg = document.getElementById('help-section-gap'); if (sg) sg.textContent = getVal('ed-layout-section-gap');
+    const ts = document.getElementById('help-title-size'); if (ts) ts.textContent = getVal('ed-layout-title-size');
+    const hs = document.getElementById('help-hero-title-size'); if (hs) hs.textContent = getVal('ed-layout-hero-title-size');
+    const cts = document.getElementById('help-card-title-size'); if (cts) cts.textContent = getVal('ed-layout-card-title-size');
+    const fg = document.getElementById('help-feature-gap'); if (fg) fg.textContent = getVal('ed-layout-feature-gap');
+    const pg = document.getElementById('help-product-gap'); if (pg) pg.textContent = getVal('ed-layout-product-gap');
+    const sgl = document.getElementById('help-split-gap'); if (sgl) sgl.textContent = getVal('ed-layout-split-gap');
+    const prg = document.getElementById('help-process-gap'); if (prg) prg.textContent = getVal('ed-layout-process-gap');
+    const cg = document.getElementById('help-contact-gap'); if (cg) cg.textContent = getVal('ed-layout-contact-gap');
+    const fg2 = document.getElementById('help-faq-gap'); if (fg2) fg2.textContent = getVal('ed-layout-faq-gap');
+    const tg = document.getElementById('help-trust-gap'); if (tg) tg.textContent = getVal('ed-layout-trust-gap');
+    const ftg = document.getElementById('help-footer-gap'); if (ftg) ftg.textContent = getVal('ed-layout-footer-gap');
+    const pp = document.getElementById('help-product-pad'); if (pp) pp.textContent = getVal('ed-layout-product-pad');
+    const fp = document.getElementById('help-faq-pad'); if (fp) fp.textContent = getVal('ed-layout-faq-pad');
+    const ftp = document.getElementById('help-footer-pad'); if (ftp) ftp.textContent = getVal('ed-layout-footer-pad');
+    const tp = document.getElementById('help-trust-pad'); if (tp) tp.textContent = getVal('ed-layout-trust-pad');
   }
   renderFeatureEditor();
   renderChipEditor();
@@ -892,13 +955,18 @@ function setupAutoSave() {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', onChange);
   });
+  // Typography selects
+  ['ed-font-heading-weight','ed-font-heading-tracking','ed-font-heading-leading','ed-font-body-weight','ed-font-body-tracking','ed-font-body-leading'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', onChange);
+  });
   // Layout selects
-  ['ed-layout-fs-base','ed-layout-product-cols','ed-layout-reveal'].forEach(id => {
+  ['ed-layout-fs-base','ed-layout-product-cols','ed-layout-reveal','ed-layout-feature-cols','ed-layout-hero-cols','ed-layout-split','ed-layout-about','ed-layout-trust','ed-layout-process-cols','ed-layout-contact','ed-layout-faq-width','ed-layout-footer-cols','ed-layout-section-align'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', onChange);
   });
   // Layout ranges
-  ['ed-layout-section-y','ed-layout-radius','ed-layout-container','ed-layout-header-h','ed-layout-button-radius','ed-layout-shadow'].forEach(id => {
+  ['ed-layout-section-y','ed-layout-radius','ed-layout-container','ed-layout-header-h','ed-layout-button-radius','ed-layout-shadow','ed-layout-card-pad','ed-layout-grid-gap','ed-layout-section-gap','ed-layout-title-size','ed-layout-hero-title-size','ed-layout-card-title-size','ed-layout-feature-gap','ed-layout-product-gap','ed-layout-split-gap','ed-layout-process-gap','ed-layout-contact-gap','ed-layout-faq-gap','ed-layout-trust-gap','ed-layout-footer-gap','ed-layout-product-pad','ed-layout-faq-pad','ed-layout-footer-pad','ed-layout-trust-pad'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('input', () => {
@@ -1001,6 +1069,42 @@ function collectAllData() {
   l.buttonRadius = (br >= 40) ? '9999px' : br+'px';
   l.shadowIntensity = String(getVal('ed-layout-shadow') || '0.12');
   l.revealAnimation = getVal('ed-layout-reveal') !== 'false';
+  // Typography
+  l.headingWeight = getVal('ed-font-heading-weight') || '600';
+  l.headingTracking = getVal('ed-font-heading-tracking') || '-0.015em';
+  l.headingLeading = getVal('ed-font-heading-leading') || '1.15';
+  l.bodyWeight = getVal('ed-font-body-weight') || '400';
+  l.bodyTracking = getVal('ed-font-body-tracking') || '0';
+  l.bodyLeading = getVal('ed-font-body-leading') || '1.7';
+  // Rows / columns / inner spacing
+  l.featureColumns = getVal('ed-layout-feature-cols') || '3';
+  l.heroColumns = getVal('ed-layout-hero-cols') || 'split';
+  l.splitLayout = getVal('ed-layout-split') || 'split';
+  l.aboutLayout = getVal('ed-layout-about') || 'split';
+  l.trustLayout = getVal('ed-layout-trust') || 'auto';
+  l.processColumns = getVal('ed-layout-process-cols') || '3';
+  l.contactLayout = getVal('ed-layout-contact') || 'split';
+  l.faqWidth = getVal('ed-layout-faq-width') || '740px';
+  l.footerColumns = getVal('ed-layout-footer-cols') || '4';
+  l.sectionAlign = getVal('ed-layout-section-align') || 'center';
+  l.cardPad = (getVal('ed-layout-card-pad') || '24') + 'px';
+  l.gridGap = (getVal('ed-layout-grid-gap') || '24') + 'px';
+  l.sectionHeaderGap = (getVal('ed-layout-section-gap') || '48') + 'px';
+  l.titleSize = (getVal('ed-layout-title-size') || '48') + 'px';
+  l.heroTitleSize = (getVal('ed-layout-hero-title-size') || '64') + 'px';
+  l.cardTitleSize = (getVal('ed-layout-card-title-size') || '24') + 'px';
+  l.featureGap = (getVal('ed-layout-feature-gap') || '24') + 'px';
+  l.productGap = (getVal('ed-layout-product-gap') || '24') + 'px';
+  l.splitGap = (getVal('ed-layout-split-gap') || '48') + 'px';
+  l.processGap = (getVal('ed-layout-process-gap') || '24') + 'px';
+  l.contactGap = (getVal('ed-layout-contact-gap') || '24') + 'px';
+  l.faqGap = (getVal('ed-layout-faq-gap') || '12') + 'px';
+  l.trustGap = (getVal('ed-layout-trust-gap') || '12') + 'px';
+  l.footerGap = (getVal('ed-layout-footer-gap') || '48') + 'px';
+  l.productPad = (getVal('ed-layout-product-pad') || '24') + 'px';
+  l.faqPad = (getVal('ed-layout-faq-pad') || '20') + 'px';
+  l.footerPad = (getVal('ed-layout-footer-pad') || '80') + 'px';
+  l.trustPad = (getVal('ed-layout-trust-pad') || '16') + 'px';
   // Custom CSS
   state.customCSS = getVal('ed-custom-css');
 }
@@ -1143,6 +1247,12 @@ function updateSaveIndicator() {
     el.innerHTML = state.changed ? '<i class="fas fa-pen"></i> Unsaved' : '<i class="fas fa-check-circle" style="color:#2e7d32"></i> Saved';
     el.style.color = state.changed ? 'var(--gold)' : '';
   }
+}
+function resetThemeDefaults() {
+  state.theme = defaultThemeTemplate();
+  populateAllForms();
+  markChanged(); saveDrafts(); applyPreview();
+  showToast('Theme restored to defaults','success');
 }
 async function resetToPublished() {
   if (!confirm('Reset all changes? This discards drafts.')) return;
