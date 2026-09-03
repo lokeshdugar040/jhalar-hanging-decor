@@ -12,13 +12,13 @@ let settings = {
   heroIntro: "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive decor, and custom projects across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
   siteTitle: "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
-  siteDescription: "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
+  siteDescription: "JHALAR manufactures handcrafted decorative hangings - pom pom garlands, floral jhalars, bell hangings, torans and tassels - for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
   footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
   socialLinks: {instagram:{url:"#",label:"Instagram"},facebook:{url:"#",label:"Facebook"},whatsapp:{url:"https://wa.me/918100656258",label:"WhatsApp"}},
   sectionCopy: {
-    heroTag: {icon:"icon-mfr", text:"Direct Manufacturer · B2B Supply"},
+    heroTag: {icon:"icon-mfr", text:"Direct Manufacturer | B2B Supply"},
     heroPrimary: {label:"Explore Product Collection", href:"#collection"},
     heroSecondary: {label:"WhatsApp for B2B Enquiry", href:"https://wa.me/918100656258"},
     why: {
@@ -26,9 +26,9 @@ let settings = {
       title:"Built for Events & Wholesale Decor",
       intro:"Designed for businesses and teams looking for distinctive hanging decor solutions at scale.",
       features:[
-        {icon:"icon-mfr", title:"Factory-to-client pricing", text:"Work directly with the source — no middle layers, faster answers, better pricing."},
-        {icon:"icon-palette", title:"Made-to-Brief Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
-        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From dozens to thousands of pieces — suitable for event, wholesale, retail and organisational requirements."}
+        {icon:"icon-mfr", title:"Factory-to-client pricing", text:"Work directly with the source - no middle layers, faster answers, better pricing."},
+        {icon:"icon-palette", title:"Made-to-Brief Design", text:"Colours, motifs and lengths built to your brief - from brand palettes to festive themes."},
+        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From dozens to thousands of pieces - suitable for event, wholesale, retail and organisational requirements."}
       ]
     },
     collection: {
@@ -415,7 +415,7 @@ function renderProducts(productList) {
   }
   grid.innerHTML = productList.map(p => `
     <div class="product-card" data-category="${esc(p.category)}">
-      <div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.title)} — ${esc(p.category)}" width="1080" height="1080" loading="lazy" decoding="async"></div>
+      <div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.title)} - ${esc(p.category)}" width="1080" height="1080" loading="lazy" decoding="async"></div>
       <div class="product-info">
         <span class="product-category">${esc(p.category)}</span>
         <h3 class="product-title">${esc(p.title)}</h3>
@@ -648,7 +648,7 @@ function setupEnquiryForm() {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const v = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
-    const lines = ['*New B2B Enquiry — JHALAR Website*','',`*Name:* ${v('name')}`];
+    const lines = ['*New B2B Enquiry - JHALAR Website*','',`*Name:* ${v('name')}`];
     if (v('company')) lines.push(`*Company:* ${v('company')}`);
     lines.push(`*Buyer Type:* ${v('buyer-type')}`,`*Phone:* ${v('phone')}`);
     if (v('email')) lines.push(`*Email:* ${v('email')}`);
@@ -658,7 +658,7 @@ function setupEnquiryForm() {
     if (v('details')) lines.push(`*Details:* ${v('details')}`);
     window.open(`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lines.join('\\n'))}`, '_blank', 'noopener');
     const st = document.getElementById('form-status');
-    if (st) { st.textContent = 'WhatsApp opened with your enquiry pre-filled — just press send.'; st.classList.add('visible'); }
+    if (st) { st.textContent = 'WhatsApp opened with your enquiry pre-filled - just press send.'; st.classList.add('visible'); }
   });
 }
 

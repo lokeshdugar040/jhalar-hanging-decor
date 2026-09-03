@@ -1,7 +1,7 @@
 {
   "name": "jhalar-hanging-decor",
   "version": "2.0.0",
-  "description": "JHALAR Hanging Decor — B2B manufacturer & wholesale supplier website (static, no build step)",
+  "description": "JHALAR Hanging Decor - B2B manufacturer & wholesale supplier website (static, no build step)",
   "private": true,
   "scripts": {
     "dev": "python3 -m http.server 8000"
