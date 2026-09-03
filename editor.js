@@ -14,16 +14,16 @@ let state = {
 
 function defaultSectionCopy() {
   return {
-    heroTag: {icon:'icon-mfr', text:'Direct Manufacturer · B2B Supply'},
+    heroTag: {icon:'icon-mfr', text:'Direct Manufacturer | B2B Supply'},
     heroPrimary: {label:'Explore Product Collection', href:'#collection'},
     heroSecondary: {label:'WhatsApp for B2B Enquiry', href:'https://wa.me/918100656258'},
     why: {
       label:'Why JHALAR', title:'Built for Events & Wholesale Decor',
       intro:'Designed for businesses and teams looking for distinctive hanging decor solutions at scale.',
       features:[
-        {icon:'icon-mfr', title:'Factory-to-client pricing', text:'Work directly with the source — no middle layers, faster answers, better pricing.'},
-        {icon:'icon-palette', title:'Made-to-Brief Design', text:'Colours, motifs and lengths built to your brief — from brand palettes to festive themes.'},
-        {icon:'icon-bulk', title:'Bulk & Wholesale Ready', text:'From dozens to thousands of pieces — suitable for event, wholesale, retail and organisational requirements.'}
+        {icon:'icon-mfr', title:'Factory-to-client pricing', text:'Work directly with the source - no middle layers, faster answers, better pricing.'},
+        {icon:'icon-palette', title:'Made-to-Brief Design', text:'Colours, motifs and lengths built to your brief - from brand palettes to festive themes.'},
+        {icon:'icon-bulk', title:'Bulk & Wholesale Ready', text:'From dozens to thousands of pieces - suitable for event, wholesale, retail and organisational requirements.'}
       ]
     },
     collection: {
@@ -660,7 +660,7 @@ function renderSectionList() {
     const v = s.visible !== false;
     return `<div class="section-item" draggable="true" data-key="${key}" data-index="${i}">
       <button class="toggle ${v?'active':''}" onclick="toggleSection('${key}')"></button>
-      <div class="info"><div class="name">${escapeHtml(s.label||key)}</div><div class="status">${v?'Visible':'Hidden'} · ${key}</div></div>
+      <div class="info"><div class="name">${escapeHtml(s.label||key)}</div><div class="status">${v?'Visible':'Hidden'} | ${key}</div></div>
       <div class="drag-handle"><i class="fas fa-grip-vertical"></i></div>
     </div>`;
   }).join('');
@@ -748,7 +748,7 @@ function onProductChange() {
 }
 function addProduct() {
   const m = state.products.reduce((a,p) => Math.max(a,p.id||0),0);
-  state.products.push({id:m+1,title:'New Product',category:'Custom Designs',description:'Describe this product…',image:'assets/images/og-cover.jpg',b2bTag:'New Arrival'});
+  state.products.push({id:m+1,title:'New Product',category:'Custom Designs',description:'Describe this product...',image:'assets/images/og-cover.jpg',b2bTag:'New Arrival'});
   renderProductList(); selectProduct(state.products[state.products.length-1].id); markChanged(); saveDrafts(); applyPreview();
   showToast('Product added','success');
 }
@@ -823,7 +823,7 @@ async function createCommitWithRetry(token, entries, message, onLog) {
   let lastErr = null;
   for (let attempt = 1; attempt <= 5; attempt++) {
     try {
-      if (onLog && attempt > 1) onLog(`Retry ${attempt}/5 — branch moved, rebuilding...`, 'act');
+      if (onLog && attempt > 1) onLog(`Retry ${attempt}/5 - branch moved, rebuilding...`, 'act');
       const br = await fetch(`${baseUrl}/git/ref/heads/${GITHUB_BRANCH}`, {headers});
       if (!br.ok) throw new Error(`Failed to get branch: ${br.status}`);
       const bd = await br.json();
@@ -841,7 +841,7 @@ async function createCommitWithRetry(token, entries, message, onLog) {
         if (!blobResp.ok) throw new Error(`Blob error for ${e.path}: ${blobResp.status}`);
         const blob = await blobResp.json();
         blobs.push({path:e.path, mode:'100644', type:'blob', sha:blob.sha});
-        if (onLog) onLog(`  ${e.path} ✓`, 'done');
+        if (onLog) onLog(`  ${e.path} [ok]`, 'done');
       }
       const treeResp = await fetch(`${baseUrl}/git/trees`, { method:'POST', headers, body: JSON.stringify({base_tree:cd.tree.sha, tree:blobs}) });
       if (!treeResp.ok) throw new Error(`Tree error: ${treeResp.status}`);
@@ -894,7 +894,7 @@ async function handleFiles(files) {
         setVal('ed-custom-css', state.customCSS);
         populateFontOptions();
         markChanged(); saveDrafts(); applyPreview();
-        showToast(`Font '${family}' uploaded — pick it in Theme → Fonts`, 'success');
+        showToast(`Font '${family}' uploaded - pick it in Theme -> Fonts`, 'success');
       } else {
         // Update image manifest only after the commit succeeds
         if (!state.imageManifest.includes(path)) {
@@ -1181,7 +1181,7 @@ function syncPreview() {
       return;
     }
   } catch(e) {}
-  // JHALAR not ready yet — retry a few times, then hard-reload the iframe
+  // JHALAR not ready yet - retry a few times, then hard-reload the iframe
   previewRetry++;
   if (previewRetry > 8) {
     previewRetry = 0;
@@ -1319,18 +1319,18 @@ async function publishToGitHub() {
   try {
     const commitSha = await createCommitWithRetry(token, files, commitMsg, addLog);
     fill.style.width = '100%';
-    status.textContent = '✅ Published!';
+    status.textContent = '[OK] Published!';
     status.style.color = '#2e7d32';
-    addLog('🎉 Published successfully!','done');
+    addLog('Published successfully!','done');
     addLog('GitHub Pages will rebuild in ~1-2 min.','done');
 
     state.changed = false; updateSaveIndicator();
-    showToast('🎉 Published to GitHub!','success');
+    showToast('Published to GitHub!','success');
     btn.innerHTML = '<i class="fas fa-check"></i> Published!';
     setTimeout(() => { btn.disabled = false; btn.innerHTML = '<i class="fas fa-rocket"></i> Publish to GitHub'; }, 3000);
   } catch(e) {
     console.error('Publish:', e);
-    status.textContent = `❌ ${e.message}`; status.style.color = 'var(--red)';
+    status.textContent = `[X] ${e.message}`; status.style.color = 'var(--red)';
     addLog(`Error: ${e.message}`,'err');
     showToast('Publish failed: '+e.message,'error');
     btn.disabled = false; btn.innerHTML = '<i class="fas fa-rocket"></i> Publish to GitHub';
