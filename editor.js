@@ -86,8 +86,8 @@ function defaultThemeTemplate() {
       '--brand-header-background':'#FFFFFF','--brand-footer-background':'#141942','--brand-footer-text':'#FFFFFF'
     },
     fonts: {
-      heading:"'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif",
-      body:"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      heading:"-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      body:"-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
     },
     layout: {
       baseFontSize:'16px', sectionY:'96px', cardRadius:'20px', containerWidth:'1140px',
@@ -375,8 +375,8 @@ function populateAllForms() {
       setVal('ed-color-footer-text', c['--brand-footer-text']||'#FFFFFF');
     }
     if (state.theme.fonts) {
-      setVal('ed-font-heading', state.theme.fonts.heading||"'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif");
-      setVal('ed-font-body', state.theme.fonts.body||"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif");
+      setVal('ed-font-heading', state.theme.fonts.heading||"-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif");
+      setVal('ed-font-body', state.theme.fonts.body||"-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif");
     }
     const l = state.theme.layout || {};
     setVal('ed-layout-header-h', parseInt(l.headerHeight||'72px',10)||72);

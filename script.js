@@ -94,8 +94,8 @@ let theme = {
     "--brand-footer-text": "#FFFFFF"
   },
   fonts: {
-    heading: "'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif",
-    body: "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    heading: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    body: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
   },
   layout: {
     baseFontSize: "16px",
