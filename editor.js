@@ -18,8 +18,8 @@ function defaultSectionCopy() {
     heroPrimary: {label:'Explore Product Collection', href:'#collection'},
     heroSecondary: {label:'WhatsApp for B2B Enquiry', href:'https://wa.me/918100656258'},
     why: {
-      label:'Why JHALAR', title:'Built for Events & Wholesale Décor',
-      intro:'Designed for businesses and teams looking for distinctive hanging décor solutions at scale.',
+      label:'Why JHALAR', title:'Built for Events & Wholesale Decor',
+      intro:'Designed for businesses and teams looking for distinctive hanging decor solutions at scale.',
       features:[
         {icon:'icon-mfr', title:'Factory-to-client pricing', text:'Work directly with the source — no middle layers, faster answers, better pricing.'},
         {icon:'icon-palette', title:'Made-to-Brief Design', text:'Colours, motifs and lengths built to your brief — from brand palettes to festive themes.'},
@@ -28,12 +28,12 @@ function defaultSectionCopy() {
     },
     collection: {
       label:'Our Collection', title:'Product Collection',
-      intro:'Explore decorative hanging categories for bulk supply, event décor and wholesale requirements.',
+      intro:'Explore decorative hanging categories for bulk supply, event decor and wholesale requirements.',
       note:'Need something specific? '
     },
     customOrders: {
-      label:'Made to Order', title:'Custom Hanging Décor for Your Requirement',
-      intro:'Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging décor solutions for event projects, wholesale orders and organisational requirements.',
+      label:'Made to Order', title:'Custom Hanging Decor for Your Requirement',
+      intro:'Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging decor solutions for event projects, wholesale orders and organisational requirements.',
       image:'assets/images/custom-orders.jpg',
       chips:[
         {icon:'icon-palette', text:'Colour matching'},
