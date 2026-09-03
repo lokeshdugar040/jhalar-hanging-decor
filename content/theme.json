@@ -17,8 +17,8 @@
     "--brand-footer-text": "#FFFFFF"
   },
   "fonts": {
-    "heading": "'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif",
-    "body": "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    "heading": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "body": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
   },
   "layout": {
     "baseFontSize": "16px",
@@ -29,6 +29,40 @@
     "productColumns": "3",
     "buttonRadius": "9999px",
     "shadowIntensity": "0.12",
-    "revealAnimation": true
+    "revealAnimation": true,
+    "headingWeight": "600",
+    "headingTracking": "-0.02em",
+    "headingLeading": "1.1",
+    "bodyWeight": "400",
+    "bodyTracking": "0",
+    "bodyLeading": "1.7",
+    "titleSize": "fluid",
+    "heroTitleSize": "fluid",
+    "cardTitleSize": "fluid",
+    "cardPad": "24px",
+    "gridGap": "24px",
+    "sectionHeaderGap": "48px",
+    "sectionAlign": "center",
+    "heroColumns": "split",
+    "featureColumns": "3",
+    "splitLayout": "split",
+    "aboutLayout": "split",
+    "processColumns": "3",
+    "contactLayout": "split",
+    "trustLayout": "auto",
+    "faqWidth": "740px",
+    "footerColumns": "4",
+    "featureGap": "24px",
+    "productGap": "24px",
+    "splitGap": "48px",
+    "processGap": "24px",
+    "contactGap": "24px",
+    "faqGap": "12px",
+    "trustGap": "12px",
+    "footerGap": "48px",
+    "productPad": "24px",
+    "faqPad": "20px",
+    "footerPad": "80px",
+    "trustPad": "16px"
   }
 }

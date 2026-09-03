@@ -9,7 +9,7 @@ let settings = {
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
   heroHeadline: "Decorative Hanging Solutions for Events & Businesses",
-  heroIntro: "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive décor, and custom projects across India.",
+  heroIntro: "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive decor, and custom projects across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
   siteTitle: "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
   siteDescription: "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
@@ -23,8 +23,8 @@ let settings = {
     heroSecondary: {label:"WhatsApp for B2B Enquiry", href:"https://wa.me/918100656258"},
     why: {
       label:"Why JHALAR",
-      title:"Built for Events & Wholesale Décor",
-      intro:"Designed for businesses and teams looking for distinctive hanging décor solutions at scale.",
+      title:"Built for Events & Wholesale Decor",
+      intro:"Designed for businesses and teams looking for distinctive hanging decor solutions at scale.",
       features:[
         {icon:"icon-mfr", title:"Factory-to-client pricing", text:"Work directly with the source — no middle layers, faster answers, better pricing."},
         {icon:"icon-palette", title:"Made-to-Brief Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
@@ -34,13 +34,13 @@ let settings = {
     collection: {
       label:"Our Collection",
       title:"Product Collection",
-      intro:"Explore decorative hanging categories for bulk supply, event décor and wholesale requirements.",
+      intro:"Explore decorative hanging categories for bulk supply, event decor and wholesale requirements.",
       note:"Need something specific? "
     },
     customOrders: {
       label:"Made to Order",
-      title:"Custom Hanging Décor for Your Requirement",
-      intro:"Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging décor solutions for event projects, wholesale orders and organisational requirements.",
+      title:"Custom Hanging Decor for Your Requirement",
+      intro:"Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging decor solutions for event projects, wholesale orders and organisational requirements.",
       image:"assets/images/custom-orders.jpg",
       chips:[
         {icon:"icon-palette", text:"Colour matching"},
@@ -94,8 +94,8 @@ let theme = {
     "--brand-footer-text": "#FFFFFF"
   },
   fonts: {
-    heading: "'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif",
-    body: "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    heading: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    body: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
   },
   layout: {
     baseFontSize: "16px",
@@ -106,7 +106,41 @@ let theme = {
     productColumns: "3",
     buttonRadius: "9999px",
     shadowIntensity: "0.12",
-    revealAnimation: true
+    revealAnimation: true,
+    headingWeight: "600",
+    headingTracking: "-0.02em",
+    headingLeading: "1.1",
+    bodyWeight: "400",
+    bodyTracking: "0",
+    bodyLeading: "1.7",
+    titleSize: "fluid",
+    heroTitleSize: "fluid",
+    cardTitleSize: "fluid",
+    cardPad: "24px",
+    gridGap: "24px",
+    sectionHeaderGap: "48px",
+    sectionAlign: "center",
+    heroColumns: "split",
+    featureColumns: "3",
+    splitLayout: "split",
+    aboutLayout: "split",
+    processColumns: "3",
+    contactLayout: "split",
+    trustLayout: "auto",
+    faqWidth: "740px",
+    footerColumns: "4",
+    featureGap: "24px",
+    productGap: "24px",
+    splitGap: "48px",
+    processGap: "24px",
+    contactGap: "24px",
+    faqGap: "12px",
+    trustGap: "12px",
+    footerGap: "48px",
+    productPad: "24px",
+    faqPad: "20px",
+    footerPad: "80px",
+    trustPad: "16px"
   }
 };
 
@@ -238,6 +272,48 @@ function applyTheme() {
     if (l.headerHeight) root.style.setProperty('--header-h', l.headerHeight);
     if (l.buttonRadius) root.style.setProperty('--button-radius', l.buttonRadius);
     if (l.shadowIntensity) root.style.setProperty('--shadow-alpha', l.shadowIntensity);
+    // typography
+    if (l.headingWeight) root.style.setProperty('--heading-weight', l.headingWeight);
+    if (l.headingTracking) root.style.setProperty('--heading-tracking', l.headingTracking);
+    if (l.headingLeading) root.style.setProperty('--heading-leading', l.headingLeading);
+    if (l.bodyWeight) root.style.setProperty('--body-weight', l.bodyWeight);
+    if (l.bodyTracking) root.style.setProperty('--body-tracking', l.bodyTracking);
+    if (l.bodyLeading) root.style.setProperty('--body-leading', l.bodyLeading);
+    if (l.titleSize && l.titleSize !== 'fluid') root.style.setProperty('--title-size', l.titleSize);
+    if (l.heroTitleSize && l.heroTitleSize !== 'fluid') root.style.setProperty('--hero-title-size', l.heroTitleSize);
+    if (l.cardTitleSize && l.cardTitleSize !== 'fluid') root.style.setProperty('--card-title-size', l.cardTitleSize);
+    // inner spacing
+    if (l.cardPad) root.style.setProperty('--card-pad', l.cardPad);
+    if (l.gridGap) root.style.setProperty('--grid-gap', l.gridGap);
+    if (l.sectionHeaderGap) root.style.setProperty('--section-header-gap', l.sectionHeaderGap);
+    if (l.sectionAlign) {
+      root.style.setProperty('--section-align', l.sectionAlign);
+      root.style.setProperty('--section-header-margin', l.sectionAlign === 'left' ? '0 0 var(--section-header-gap,3rem)' : '0 auto var(--section-header-gap,3rem)');
+      root.style.setProperty('--section-subtitle-margin', l.sectionAlign === 'left' ? '0' : '0 auto');
+      root.style.setProperty('--faq-margin', l.sectionAlign === 'left' ? '0' : '0 auto');
+    }
+    // rows / columns
+    if (l.heroColumns) root.style.setProperty('--hero-cols', l.heroColumns === 'stack' ? '1fr' : '1.1fr .9fr');
+    if (l.featureColumns) root.style.setProperty('--feature-cols', l.featureColumns);
+    if (l.splitLayout) root.style.setProperty('--split-cols', l.splitLayout === 'stack' ? '1fr' : '1.1fr 1fr');
+    if (l.aboutLayout) root.style.setProperty('--about-cols', l.aboutLayout === 'stack' ? '1fr' : '1fr 1.1fr');
+    if (l.processColumns) root.style.setProperty('--process-cols', l.processColumns);
+    if (l.contactLayout) root.style.setProperty('--contact-cols', l.contactLayout === 'stack' ? '1fr' : '1.15fr .85fr');
+    if (l.trustLayout) root.style.setProperty('--trust-direction', l.trustLayout === 'stack' ? 'column' : 'row');
+    if (l.faqWidth) root.style.setProperty('--faq-width', l.faqWidth);
+    if (l.footerColumns) root.style.setProperty('--footer-cols', l.footerColumns === '2' ? '1.4fr 1fr' : (l.footerColumns === '3' ? '1.2fr 1fr 1fr' : '1.4fr 1fr 1.2fr 1fr'));
+    if (l.featureGap) root.style.setProperty('--feature-gap', l.featureGap);
+    if (l.productGap) root.style.setProperty('--product-gap', l.productGap);
+    if (l.splitGap) root.style.setProperty('--split-gap', l.splitGap);
+    if (l.processGap) root.style.setProperty('--process-gap', l.processGap);
+    if (l.contactGap) root.style.setProperty('--contact-gap', l.contactGap);
+    if (l.faqGap) root.style.setProperty('--faq-gap', l.faqGap);
+    if (l.trustGap) root.style.setProperty('--trust-gap', l.trustGap);
+    if (l.footerGap) root.style.setProperty('--footer-gap', l.footerGap);
+    if (l.productPad) root.style.setProperty('--product-pad', l.productPad);
+    if (l.faqPad) root.style.setProperty('--faq-pad', l.faqPad);
+    if (l.footerPad) root.style.setProperty('--footer-pad', l.footerPad);
+    if (l.trustPad) root.style.setProperty('--trust-pad', l.trustPad);
     root.style.setProperty('--grid-min', l.productColumns === '2' ? '380px' : (l.productColumns === '4' ? '260px' : '300px'));
   }
   const mt = document.querySelector('meta[name="theme-color"]');

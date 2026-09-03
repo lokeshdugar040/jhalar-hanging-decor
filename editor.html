@@ -51,6 +51,12 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 .panel-section{background:var(--bg2);border:1px solid rgba(128,128,128,0.1);border-radius:var(--r-md);padding:12px;margin-bottom:10px}
 .panel-section h4{font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text)}
 .panel-section p{font-size:11px;color:var(--text2);line-height:1.5;margin-bottom:8px}
+.spacing-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.spacing-grid .form-group{margin-bottom:0}
+.spacing-grid .form-group label{font-size:10px;margin-bottom:2px}
+.spacing-grid .form-group .help{font-size:9px;margin-top:1px}
+@media(max-width:520px){.spacing-grid{grid-template-columns:1fr}}
+.theme-actions{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .btn-sm{padding:4px 10px;border-radius:var(--r-sm);border:1px solid rgba(128,128,128,0.2);background:var(--bg);font-family:var(--font);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:4px;color:var(--text)}
 .btn-sm:hover{background:var(--bg3)}
 .btn-sm.primary{background:var(--red);border-color:var(--red);color:#fff}
@@ -218,21 +224,21 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <h4><i class="fas fa-list-check"></i> Hero Highlights</h4>
           <p>Small bullet points under the hero intro (icon + text).</p>
           <div id="highlight-editor"></div>
-          <button class="btn-sm" onclick="addHighlight()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Highlight</button>
+          <button class="btn-sm" onclick="addHighlight()" style="margin-top:4px">+ Add Highlight</button>
         </div>
 
         <div class="panel-section">
           <h4><i class="fas fa-bars"></i> Header Navigation</h4>
           <p>Top menu links.</p>
           <div id="nav-editor"></div>
-          <button class="btn-sm" onclick="addNavItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Link</button>
+          <button class="btn-sm" onclick="addNavItem()" style="margin-top:4px">+ Add Link</button>
         </div>
 
         <div class="panel-section">
           <h4><i class="fas fa-sitemap"></i> Footer Navigation</h4>
           <p>Links shown in the footer column.</p>
           <div id="footer-nav-editor"></div>
-          <button class="btn-sm" onclick="addFooterNavItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Footer Link</button>
+          <button class="btn-sm" onclick="addFooterNavItem()" style="margin-top:4px">+ Add Footer Link</button>
         </div>
 
         <div class="panel-section">
@@ -246,14 +252,14 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <h4><i class="fas fa-award"></i> Trust Bar</h4>
           <p>The strip below the hero: icon + short label.</p>
           <div id="trust-editor"></div>
-          <button class="btn-sm" onclick="addTrustItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Trust Item</button>
+          <button class="btn-sm" onclick="addTrustItem()" style="margin-top:4px">+ Add Trust Item</button>
         </div>
 
         <div class="panel-section">
           <h4><i class="fas fa-circle-question"></i> FAQ</h4>
           <p>Question / answer pairs shown in the FAQ section.</p>
           <div id="faq-editor"></div>
-          <button class="btn-sm" onclick="addFaqItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Question</button>
+          <button class="btn-sm" onclick="addFaqItem()" style="margin-top:4px">+ Add Question</button>
           <div class="form-group" style="margin-top:8px"><label>FAQ Eyebrow</label><input type="text" id="ed-faq-label" placeholder="FAQ"></div>
           <div class="form-group"><label>FAQ Title</label><input type="text" id="ed-faq-title" placeholder="Frequently Asked Questions"></div>
         </div>
@@ -261,11 +267,11 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <div class="panel-section">
           <h4><i class="fas fa-align-left"></i> Why JHALAR Copy</h4>
           <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-why-label" placeholder="Why JHALAR"></div>
-          <div class="form-group"><label>Title</label><input type="text" id="ed-why-title" placeholder="Built for Events &amp; Wholesale Décor"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-why-title" placeholder="Built for Events &amp; Wholesale Decor"></div>
           <div class="form-group"><label>Intro</label><textarea id="ed-why-intro" rows="2" placeholder="Designed for businesses..."></textarea></div>
           <p>Feature cards (icon + title + description)</p>
           <div id="feature-editor" class="stack"></div>
-          <button class="btn-sm" onclick="addFeatureItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Feature</button>
+          <button class="btn-sm" onclick="addFeatureItem()" style="margin-top:4px">+ Add Feature</button>
         </div>
 
         <div class="panel-section">
@@ -279,16 +285,16 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <div class="panel-section">
           <h4><i class="fas fa-palette"></i> Custom Orders Copy</h4>
           <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-custom-label" placeholder="Made to Order"></div>
-          <div class="form-group"><label>Title</label><input type="text" id="ed-custom-title" placeholder="Custom Hanging Décor for Your Requirement"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-custom-title" placeholder="Custom Hanging Decor for Your Requirement"></div>
           <div class="form-group"><label>Intro</label><textarea id="ed-custom-intro" rows="2" placeholder="Share your preferred colours..."></textarea></div>
           <div class="form-group"><label>Image</label><select id="ed-custom-image"></select></div>
           <p>Chips / tags</p>
           <div id="chip-editor" class="stack"></div>
-          <button class="btn-sm" onclick="addChipItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Chip</button>
+          <button class="btn-sm" onclick="addChipItem()" style="margin-top:4px">+ Add Chip</button>
           <div class="form-group" style="margin-top:8px"><label>Process Label</label><input type="text" id="ed-process-label" placeholder="How it works"></div>
           <p>Process steps</p>
           <div id="process-editor" class="stack"></div>
-          <button class="btn-sm" onclick="addProcessItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Step</button>
+          <button class="btn-sm" onclick="addProcessItem()" style="margin-top:4px">+ Add Step</button>
         </div>
 
         <div class="panel-section">
@@ -299,7 +305,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <div class="form-group"><label>Image</label><select id="ed-about-image"></select></div>
           <p>Value list</p>
           <div id="value-editor" class="stack"></div>
-          <button class="btn-sm" onclick="addValueItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Value</button>
+          <button class="btn-sm" onclick="addValueItem()" style="margin-top:4px">+ Add Value</button>
         </div>
 
         <div class="panel-section">
@@ -321,7 +327,11 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
       <!-- THEME -->
       <div class="tab-panel" id="panel-theme">
         <h3><i class="fas fa-palette"></i> Theme</h3>
-        <p class="hint">Everything is mapped to the live CSS system: <strong>colors</strong> drive brand accents, buttons, sections, header &amp; footer; <strong>typography</strong> controls headings and body; <strong>layout</strong> controls spacing, grid density, radius, shadows and reveal motion. Every change previews live.</p>
+        <p class="hint">Theme controls are mapped to the live page like this: <strong>Colors</strong> → brand, buttons, header, footer &amp; backgrounds. <strong>Fonts &amp; Text</strong> → heading font/weight/letter spacing/line height, body font/weight/letter spacing/line height. <strong>Layout</strong> → rows &amp; columns per section, card radius, shadows, reveal motion. <strong>Inside Every Section</strong> → per-section gaps &amp; padding. Every value applies instantly in the preview — no reload needed.</p>
+        <div class="theme-actions">
+          <button class="btn-sm primary" onclick="previewChanges()"><i class="fas fa-sync-alt"></i> Refresh Live Preview</button>
+          <button class="btn-sm" onclick="resetThemeDefaults()"><i class="fas fa-rotate-left"></i> Restore Theme Defaults</button>
+        </div>
 
         <div class="panel-section">
           <h4><i class="fas fa-fill-drip"></i> Brand Colors</h4>
@@ -356,11 +366,14 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         </div>
 
         <div class="panel-section">
-          <h4><i class="fas fa-font"></i> Typography</h4>
+          <h4><i class="fas fa-font"></i> Fonts &amp; Text</h4>
           <p>Fonts are <strong>self-hosted</strong> in <code>assets/fonts/</code> (offline-ready, fast). Upload your own <strong>.ttf / .otf / .woff / .woff2</strong> files in the <strong>Media</strong> tab — they appear here automatically and render fully. Other choices fall back to system fonts.</p>
+          <p style="margin-top:6px;padding:8px;background:rgba(200,32,57,.05);border-radius:var(--r-sm)"><strong>Readability tip:</strong> leave title sizes on <strong>Auto</strong> so the site stays readable on phones, tablets and desktops. Set a fixed size only if you want one size everywhere.</p>
           <div class="form-row">
             <div class="form-group"><label>Heading Font</label>
               <select id="ed-font-heading">
+                <option value="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" selected>Apple System (SF Pro / Segoe UI)</option>
+                <option value="'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">DM Sans (self-hosted)</option>
                 <option value="'Playfair Display', Georgia, 'Times New Roman', serif">Playfair Display (self-hosted)</option>
                 <option value="'Georgia', 'Times New Roman', serif">Georgia</option>
                 <option value="'Times New Roman', serif">Times New Roman</option>
@@ -368,22 +381,81 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
             </div>
             <div class="form-group"><label>Body Font</label>
               <select id="ed-font-body">
+                <option value="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" selected>Apple System (SF Pro / Segoe UI)</option>
                 <option value="'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">DM Sans (self-hosted)</option>
                 <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">System Stack</option>
                 <option value="'Segoe UI', Arial, sans-serif">Segoe UI</option>
                 <option value="'Arial', Helvetica, sans-serif">Arial</option>
-                <option value="'Verdana', Geneva, sans-serif">Verdana</option>
               </select>
             </div>
           </div>
           <div class="form-group"><label>Base Font Size</label>
             <select id="ed-layout-fs-base">
-              <option value="15px">15px — compact</option>
-              <option value="16px" selected>16px — default</option>
-              <option value="17px">17px — relaxed</option>
-              <option value="18px">18px — large</option>
+              <option value="15px">15px - Compact</option>
+              <option value="16px" selected>16px - Default</option>
+              <option value="17px">17px - Relaxed</option>
+              <option value="18px">18px - Large</option>
             </select>
             <span class="help">Scales all text sizes up/down proportionally.</span>
+          </div>
+          <hr class="divider">
+          <h4 style="margin:6px 0 8px;font-size:12px"><i class="fas fa-spell-check"></i> Weight</h4>
+          <div class="form-row">
+            <div class="form-group"><label>Heading Weight</label>
+              <select id="ed-font-heading-weight">
+                <option value="400">Regular</option>
+                <option value="500">Medium</option>
+                <option value="600" selected>Semibold</option>
+                <option value="700">Bold</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Body Weight</label>
+              <select id="ed-font-body-weight">
+                <option value="400" selected>Regular</option>
+                <option value="500">Medium</option>
+                <option value="600">Semibold</option>
+                <option value="700">Bold</option>
+              </select>
+            </div>
+          </div>
+          <h4 style="margin:6px 0 8px;font-size:12px"><i class="fas fa-arrows-left-right"></i> Letter Spacing</h4>
+          <div class="form-row">
+            <div class="form-group"><label>Heading Letter Spacing</label>
+              <select id="ed-font-heading-tracking">
+                <option value="0">Normal</option>
+                <option value="-0.02em" selected>Tight (recommended)</option>
+                <option value="-0.015em">Slightly tight</option>
+                <option value="0">Normal</option>
+                <option value="0.01em">Loose</option>
+                <option value="0.02em">Airy</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Body Letter Spacing</label>
+              <select id="ed-font-body-tracking">
+                <option value="0" selected>Normal</option>
+                <option value="0.01em">Loose</option>
+                <option value="-0.005em">Tight</option>
+              </select>
+            </div>
+          </div>
+          <h4 style="margin:6px 0 8px;font-size:12px"><i class="fas fa-text-height"></i> Line Height</h4>
+          <div class="form-row">
+            <div class="form-group"><label>Heading Leading</label>
+              <select id="ed-font-heading-leading">
+                <option value="1.05">1.05 - compact</option>
+                <option value="1.1" selected>1.1 - recommended</option>
+                <option value="1.15">1.15 - open</option>
+                <option value="1.25">1.25 - airy</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Body Leading</label>
+              <select id="ed-font-body-leading">
+                <option value="1.5">1.5 - compact</option>
+                <option value="1.6">1.6 - balanced</option>
+                <option value="1.7" selected>1.7 - recommended</option>
+                <option value="1.8">1.8 - relaxed</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -402,6 +474,18 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
             <input type="range" id="ed-layout-container" min="960" max="1440" step="20" value="1140">
             <span class="help" id="help-container">1140px</span>
           </div>
+          <div class="form-group"><label>Hero Title Size</label>
+            <input type="range" id="ed-layout-hero-title-size" min="40" max="80" step="2" value="64">
+            <span class="help" id="help-hero-title-size">64px</span>
+          </div>
+          <div class="form-group"><label>Section Title Size</label>
+            <input type="range" id="ed-layout-title-size" min="32" max="64" step="2" value="48">
+            <span class="help" id="help-title-size">48px</span>
+          </div>
+          <div class="form-group"><label>Card / Inner Title Size</label>
+            <input type="range" id="ed-layout-card-title-size" min="20" max="34" step="2" value="24">
+            <span class="help" id="help-card-title-size">24px</span>
+          </div>
           <hr class="divider">
           <div class="form-group"><label>Header Height</label>
             <input type="range" id="ed-layout-header-h" min="56" max="104" step="4" value="72">
@@ -414,6 +498,84 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
               <option value="4">4 columns — compact</option>
             </select>
             <span class="help">Images always stay 1:1, never cropped.</span>
+          </div>
+          <div class="form-group"><label>Feature Card Columns</label>
+            <select id="ed-layout-feature-cols">
+              <option value="2">2 columns</option>
+              <option value="3" selected>3 columns — default</option>
+              <option value="4">4 columns</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Hero Layout</label>
+            <select id="ed-layout-hero-cols">
+              <option value="split" selected>Split (text + image)</option>
+              <option value="stack">Stacked (one column)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Custom Orders Section</label>
+            <select id="ed-layout-split">
+              <option value="split" selected>Two columns</option>
+              <option value="stack">Stacked (one column)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>About Section</label>
+            <select id="ed-layout-about">
+              <option value="split" selected>Two columns</option>
+              <option value="stack">Stacked (one column)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Trust Bar Layout</label>
+            <select id="ed-layout-trust">
+              <option value="auto" selected>Auto (stack mobile / row desktop)</option>
+              <option value="row">Always row</option>
+              <option value="stack">Always stacked</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Process Step Columns</label>
+            <select id="ed-layout-process-cols">
+              <option value="1">1 column</option>
+              <option value="2">2 columns</option>
+              <option value="3" selected>3 columns — default</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Contact Layout</label>
+            <select id="ed-layout-contact">
+              <option value="split" selected>Two columns (form + details)</option>
+              <option value="stack">Stacked (one column)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>FAQ Max Width</label>
+            <select id="ed-layout-faq-width">
+              <option value="640px">640px — compact</option>
+              <option value="740px" selected>740px — default</option>
+              <option value="840px">840px — wide</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Footer Columns</label>
+            <select id="ed-layout-footer-cols">
+              <option value="2">2 columns</option>
+              <option value="3">3 columns</option>
+              <option value="4" selected>4 columns — default</option>
+            </select>
+          </div>
+          <hr class="divider">
+          <div class="form-group"><label>Inner Card Padding</label>
+            <input type="range" id="ed-layout-card-pad" min="12" max="48" step="4" value="24">
+            <span class="help" id="help-card-pad">24px</span>
+          </div>
+          <div class="form-group"><label>Grid Gap Between Cards</label>
+            <input type="range" id="ed-layout-grid-gap" min="12" max="48" step="4" value="24">
+            <span class="help" id="help-grid-gap">24px</span>
+          </div>
+          <div class="form-group"><label>Section Heading Spacing</label>
+            <input type="range" id="ed-layout-section-gap" min="24" max="80" step="4" value="48">
+            <span class="help" id="help-section-gap">48px</span>
+          </div>
+          <div class="form-group"><label>Section Heading Alignment</label>
+            <select id="ed-layout-section-align">
+              <option value="center" selected>Center</option>
+              <option value="left">Left</option>
+            </select>
           </div>
           <div class="form-group"><label>Button Corner Radius</label>
             <input type="range" id="ed-layout-button-radius" min="0" max="40" step="2" value="40">
@@ -429,6 +591,23 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
               <option value="false">Off (simpler)</option>
             </select>
           </div>
+          <hr class="divider">
+          <h4 style="margin:6px 0 8px;font-size:12px"><i class="fas fa-table-columns"></i> Inside Every Section</h4>
+          <p style="margin-bottom:8px">Per-section spacing &amp; padding — changes apply instantly to that component only.</p>
+          <div class="spacing-grid">
+            <div class="form-group"><label>Feature Card Gap</label><input type="range" id="ed-layout-feature-gap" min="12" max="48" step="4" value="24"><span class="help" id="help-feature-gap">24px</span></div>
+            <div class="form-group"><label>Product Card Gap</label><input type="range" id="ed-layout-product-gap" min="12" max="48" step="4" value="24"><span class="help" id="help-product-gap">24px</span></div>
+            <div class="form-group"><label>Split Section Gap</label><input type="range" id="ed-layout-split-gap" min="12" max="80" step="4" value="48"><span class="help" id="help-split-gap">48px</span></div>
+            <div class="form-group"><label>Process Step Gap</label><input type="range" id="ed-layout-process-gap" min="8" max="48" step="4" value="24"><span class="help" id="help-process-gap">24px</span></div>
+            <div class="form-group"><label>Contact Gap</label><input type="range" id="ed-layout-contact-gap" min="12" max="48" step="4" value="24"><span class="help" id="help-contact-gap">24px</span></div>
+            <div class="form-group"><label>FAQ Gap</label><input type="range" id="ed-layout-faq-gap" min="4" max="32" step="2" value="12"><span class="help" id="help-faq-gap">12px</span></div>
+            <div class="form-group"><label>Trust Bar Gap</label><input type="range" id="ed-layout-trust-gap" min="4" max="32" step="2" value="12"><span class="help" id="help-trust-gap">12px</span></div>
+            <div class="form-group"><label>Footer Column Gap</label><input type="range" id="ed-layout-footer-gap" min="16" max="80" step="4" value="48"><span class="help" id="help-footer-gap">48px</span></div>
+            <div class="form-group"><label>Product Info Padding</label><input type="range" id="ed-layout-product-pad" min="12" max="48" step="4" value="24"><span class="help" id="help-product-pad">24px</span></div>
+            <div class="form-group"><label>FAQ Item Padding</label><input type="range" id="ed-layout-faq-pad" min="8" max="32" step="2" value="20"><span class="help" id="help-faq-pad">20px</span></div>
+            <div class="form-group"><label>Footer Top Padding</label><input type="range" id="ed-layout-footer-pad" min="32" max="96" step="4" value="80"><span class="help" id="help-footer-pad">80px</span></div>
+            <div class="form-group"><label>Trust Bar Padding</label><input type="range" id="ed-layout-trust-pad" min="8" max="32" step="2" value="16"><span class="help" id="help-trust-pad">16px</span></div>
+          </div>
         </div>
 
         <div class="panel-section">
@@ -443,7 +622,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <h3><i class="fas fa-box"></i> Products</h3>
         <p class="hint">Manage your product catalog. Add, duplicate, edit, delete, reorder.</p>
         <div class="toolbar">
-          <button class="btn-sm primary" onclick="addProduct()"><i class="fas fa-plus"></i> Add</button>
+          <button class="btn-sm primary" onclick="addProduct()">+ Add</button>
           <button class="btn-sm" onclick="duplicateProduct()"><i class="fas fa-copy"></i> Duplicate</button>
           <button class="btn-sm" onclick="exportProducts()"><i class="fas fa-file-export"></i> Export</button>
           <button class="btn-sm" onclick="document.getElementById('import-json').click()"><i class="fas fa-file-import"></i> Import</button>
