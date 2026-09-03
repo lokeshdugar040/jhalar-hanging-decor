@@ -9,8 +9,92 @@ let state = {
   customCSS: '', navItems: [], footerNavItems: [], socialLinks: {},
   imageManifest: [], fontManifest: [], selectedProductId: null, viewport: 'desktop',
   changed: false, githubToken: null, darkMode: false,
-  heroHighlights: [], trustItems: [], faqItems: []
+  heroHighlights: [], trustItems: [], faqItems: [], sectionCopy: {}
 };
+
+function defaultSectionCopy() {
+  return {
+    heroTag: {icon:'icon-mfr', text:'Direct Manufacturer · B2B Supply'},
+    heroPrimary: {label:'Explore Product Collection', href:'#collection'},
+    heroSecondary: {label:'WhatsApp for B2B Enquiry', href:'https://wa.me/918100656258'},
+    why: {
+      label:'Why JHALAR', title:'Built for Bulk Décor Requirements',
+      intro:'Designed for businesses and teams looking for distinctive hanging décor solutions at scale.',
+      features:[
+        {icon:'icon-mfr', title:'Direct Manufacturer', text:'Work directly with the source — no middle layers, faster answers, better pricing.'},
+        {icon:'icon-palette', title:'Custom Colours & Designs', text:'Colours, motifs and lengths made to your brief — from brand palettes to festive themes.'},
+        {icon:'icon-bulk', title:'Bulk & Wholesale Ready', text:'From dozens to thousands of pieces — suitable for event, wholesale, retail and organisational requirements.'}
+      ]
+    },
+    collection: {
+      label:'Our Collection', title:'Product Collection',
+      intro:'Explore decorative hanging categories for bulk supply, event décor and wholesale requirements.',
+      note:'Need something specific? '
+    },
+    customOrders: {
+      label:'Made to Order', title:'Custom Hanging Décor for Your Requirement',
+      intro:'Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging décor solutions for event projects, wholesale orders and organisational requirements.',
+      image:'assets/images/custom-orders.jpg',
+      chips:[
+        {icon:'icon-palette', text:'Colour Options'},
+        {icon:'icon-ruler', text:'Size Requirements'},
+        {icon:'icon-chart', text:'Quantity Planning'}
+      ],
+      processLabel:'How it works',
+      steps:[
+        {title:'Share Your Requirement', text:'Tell us the product category, quantity and intended application.'},
+        {title:'Discuss Design & Quantity', text:'Colour preferences, sizing, design references and bulk quantities.'},
+        {title:'Receive Supply Details', text:'Get all the details you need to proceed with your sourcing requirement.'}
+      ]
+    },
+    about: {
+      label:'About JHALAR', title:'Handcrafted, Made for Business Buyers',
+      intro:'JHALAR focuses on handcrafted decorative hanging solutions for business buyers, events, wholesale requirements and organisational projects.',
+      image:'assets/images/about-collage.jpg',
+      values:[
+        {icon:'icon-check', text:'Crafted for decorative impact'},
+        {icon:'icon-check', text:'Designed for B2B requirements'},
+        {icon:'icon-check', text:'Flexible project discussions'}
+      ]
+    },
+    faq: {label:'FAQ', title:'Frequently Asked Questions'},
+    contact: {
+      label:'Get in Touch', title:'Start a B2B Enquiry',
+      intro:'Share your requirement and our team can discuss suitable options with you.'
+    },
+    footerTagline:'Handcrafted decorative hangings for events, retailers and wholesalers across India.'
+  };
+}
+
+function deepMerge(base, over) {
+  const out = Array.isArray(base) ? base.slice() : Object.assign({}, base || {});
+  if (!over || typeof over !== 'object') return out;
+  Object.keys(over).forEach(k => {
+    if (over[k] && typeof over[k] === 'object' && !Array.isArray(over[k]) && out[k] && typeof out[k] === 'object' && !Array.isArray(out[k])) out[k] = deepMerge(out[k], over[k]);
+    else out[k] = over[k];
+  });
+  return out;
+}
+
+function defaultThemeTemplate() {
+  return {
+    colors: {
+      '--colour-jhalar-red':'#C82039','--colour-jhalar-red-dark':'#A3182E','--colour-jhalar-red-light':'#E8485F',
+      '--colour-accent-gold':'#C9A84C','--colour-deep-navy':'#141942','--colour-warm-cream':'#FFFAF1',
+      '--brand-background':'#FFFFFF','--brand-alt-background':'#F9F7F4','--brand-text':'#4A4752',
+      '--brand-muted':'#7A7780','--brand-heading':'#1F1D24','--brand-border':'#F0EFEB',
+      '--brand-header-background':'#FFFFFF','--brand-footer-background':'#141942','--brand-footer-text':'#FFFFFF'
+    },
+    fonts: {
+      heading:"'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif",
+      body:"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    },
+    layout: {
+      baseFontSize:'16px', sectionY:'96px', cardRadius:'20px', containerWidth:'1140px',
+      headerHeight:'72px', productColumns:'3', buttonRadius:'9999px', shadowIntensity:'0.12', revealAnimation:true
+    }
+  };
+}
 let history = { stack: [], index: -1 };
 
 // ===== INIT =====
@@ -18,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupTabs(); setupViewport(); setupAutoSave(); setupKeyboardShortcuts(); setupDragDrop();
   setupUploadZone(); restoreDarkMode(); restoreGitHubToken();
   await loadPublishedData(); await loadImageManifest(); await loadFontManifest();
-  populateAllForms(); renderSectionList(); renderProductList(); renderMediaGrid(); populateFontOptions();
+  populateFontOptions(); populateAllForms(); renderSectionList(); renderProductList(); renderMediaGrid();
   applyPreview(); updatePreviewUrl(); pushHistory();
 });
 
@@ -90,14 +174,26 @@ async function loadPublishedData() {
     const pcc = ccr.ok ? await ccr.json() : {css:''};
 
     state.settings = ds ? JSON.parse(ds) : ps;
-    state.theme = dt ? JSON.parse(dt) : pt;
+    state.theme = deepMerge(defaultThemeTemplate(), dt ? JSON.parse(dt) : pt);
+    state.theme = deepMerge(defaultThemeTemplate(), state.theme);
     state.products = dp ? JSON.parse(dp) : (pp.products||[]);
-    state.sections = dsec ? JSON.parse(dsec) : (psec.sections||{});
-    state.sectionOrder = psec.order||[];
+    if (dsec) {
+      const ds = JSON.parse(dsec);
+      state.sections = ds.sections || ds;
+      state.sectionOrder = ds.order || psec.order || [];
+    } else {
+      state.sections = psec.sections || {};
+      state.sectionOrder = psec.order || [];
+    }
     state.customCSS = dcss ? dcss : (pcc.css||'');
     state.navItems = state.settings.navItems||[];
     state.footerNavItems = state.settings.footerNavItems||[];
     state.socialLinks = state.settings.socialLinks||{};
+    state.sectionCopy = deepMerge(defaultSectionCopy(), state.settings.sectionCopy||{});
+    state.settings.navItems = state.navItems;
+    state.settings.footerNavItems = state.footerNavItems;
+    state.settings.socialLinks = state.socialLinks;
+    state.settings.sectionCopy = state.sectionCopy;
     state.heroHighlights = state.settings.heroHighlights||[{text:'Bulk-ready supply',icon:'icon-check'},{text:'Custom colours',icon:'icon-palette'},{text:'Fast quotations',icon:'icon-clock'}];
     state.trustItems = state.settings.trustItems||[{label:'Direct Manufacturer',icon:'icon-mfr'},{label:'Custom Designs',icon:'icon-design'},{label:'Bulk & Wholesale',icon:'icon-bulk'}];
     state.faqItems = state.settings.faqItems||[
@@ -157,8 +253,10 @@ function populateFontOptions() {
     if (![...bodySel.options].some(o => o.value === f.body))
       bodySel.add(new Option(`${f.family} (self-hosted)`, f.body));
   });
-  if (curH) headSel.value = curH;
-  if (curB) bodySel.value = curB;
+  if (state.theme?.fonts?.heading) headSel.value = state.theme.fonts.heading;
+  else if (curH) headSel.value = curH;
+  if (state.theme?.fonts?.body) bodySel.value = state.theme.fonts.body;
+  else if (curB) bodySel.value = curB;
 }
 
 // ===== IMAGE MANIFEST =====
@@ -182,7 +280,7 @@ async function loadImageManifest() {
 
 function populateImageDropdowns() {
   const opts = state.imageManifest.map(p => `<option value="${p}">${p.split('/').pop()}</option>`).join('');
-  ['ed-prod-image','ed-hero-image','ed-seo-ogimage'].forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = opts; });
+  ['ed-prod-image','ed-hero-image','ed-seo-ogimage','ed-custom-image','ed-about-image'].forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = opts; });
 }
 
 // ===== POPULATE ALL FORMS =====
@@ -196,6 +294,38 @@ function populateAllForms() {
   setVal('ed-hero-headline', state.settings.heroHeadline||'');
   setVal('ed-hero-intro', state.settings.heroIntro||'');
   setVal('ed-hero-image', state.settings.heroImage||'assets/images/hero-jhalar.jpg');
+  const sc = state.sectionCopy || defaultSectionCopy();
+  state.sectionCopy = deepMerge(defaultSectionCopy(), sc);
+  populateIconSelects();
+  setVal('ed-hero-tag-text', state.sectionCopy?.heroTag?.text||'');
+  setVal('ed-hero-tag-icon', state.sectionCopy?.heroTag?.icon||'icon-mfr');
+  const htp = document.getElementById('preview-hero-tag-icon'); if (htp) htp.innerHTML = svgSlot(getVal('ed-hero-tag-icon'), 16);
+  setVal('ed-hero-primary-label', state.sectionCopy?.heroPrimary?.label||'');
+  setVal('ed-hero-primary-href', state.sectionCopy?.heroPrimary?.href||'');
+  setVal('ed-hero-secondary-label', state.sectionCopy?.heroSecondary?.label||'');
+  setVal('ed-hero-secondary-href', state.sectionCopy?.heroSecondary?.href||'');
+  setVal('ed-why-label', state.sectionCopy?.why?.label||'');
+  setVal('ed-why-title', state.sectionCopy?.why?.title||'');
+  setVal('ed-why-intro', state.sectionCopy?.why?.intro||'');
+  setVal('ed-collection-label', state.sectionCopy?.collection?.label||'');
+  setVal('ed-collection-title', state.sectionCopy?.collection?.title||'');
+  setVal('ed-collection-intro', state.sectionCopy?.collection?.intro||'');
+  setVal('ed-collection-note', state.sectionCopy?.collection?.note||'');
+  setVal('ed-custom-label', state.sectionCopy?.customOrders?.label||'');
+  setVal('ed-custom-title', state.sectionCopy?.customOrders?.title||'');
+  setVal('ed-custom-intro', state.sectionCopy?.customOrders?.intro||'');
+  setVal('ed-custom-image', state.sectionCopy?.customOrders?.image||'assets/images/custom-orders.jpg');
+  setVal('ed-process-label', state.sectionCopy?.customOrders?.processLabel||'');
+  setVal('ed-about-label', state.sectionCopy?.about?.label||'');
+  setVal('ed-about-title', state.sectionCopy?.about?.title||'');
+  setVal('ed-about-intro', state.sectionCopy?.about?.intro||'');
+  setVal('ed-about-image', state.sectionCopy?.about?.image||'assets/images/about-collage.jpg');
+  setVal('ed-faq-label', state.sectionCopy?.faq?.label||'');
+  setVal('ed-faq-title', state.sectionCopy?.faq?.title||'');
+  setVal('ed-contact-label', state.sectionCopy?.contact?.label||'');
+  setVal('ed-contact-title', state.sectionCopy?.contact?.title||'');
+  setVal('ed-contact-intro', state.sectionCopy?.contact?.intro||'');
+  setVal('ed-footer-tagline', state.sectionCopy?.footerTagline||'');
   setVal('ed-social-instagram', state.socialLinks.instagram?.url||'');
   setVal('ed-social-facebook', state.socialLinks.facebook?.url||'');
   setVal('ed-social-whatsapp', state.socialLinks.whatsapp?.url||'');
@@ -218,18 +348,42 @@ function populateAllForms() {
   renderFaqEditor();
   if (state.theme) {
     if (state.theme.colors) {
-      setVal('ed-color-red', state.theme.colors['--colour-jhalar-red']||'#C82039');
-      setVal('ed-color-red-dark', state.theme.colors['--colour-jhalar-red-dark']||'#A3182E');
-      setVal('ed-color-red-light', state.theme.colors['--colour-jhalar-red-light']||'#E8485F');
-      setVal('ed-color-gold', state.theme.colors['--colour-accent-gold']||'#C9A84C');
-      setVal('ed-color-navy', state.theme.colors['--colour-deep-navy']||'#141942');
-      setVal('ed-color-cream', state.theme.colors['--colour-warm-cream']||'#FFFAF1');
+      const c = state.theme.colors;
+      setVal('ed-color-red', c['--colour-jhalar-red']||'#C82039');
+      setVal('ed-color-red-dark', c['--colour-jhalar-red-dark']||'#A3182E');
+      setVal('ed-color-red-light', c['--colour-jhalar-red-light']||'#E8485F');
+      setVal('ed-color-gold', c['--colour-accent-gold']||'#C9A84C');
+      setVal('ed-color-navy', c['--colour-deep-navy']||'#141942');
+      setVal('ed-color-cream', c['--colour-warm-cream']||'#FFFAF1');
+      setVal('ed-color-bg', c['--brand-background']||'#FFFFFF');
+      setVal('ed-color-alt', c['--brand-alt-background']||'#F9F7F4');
+      setVal('ed-color-text', c['--brand-text']||'#4A4752');
+      setVal('ed-color-muted', c['--brand-muted']||'#7A7780');
+      setVal('ed-color-heading', c['--brand-heading']||'#1F1D24');
+      setVal('ed-color-border', c['--brand-border']||'#F0EFEB');
+      setVal('ed-color-header', c['--brand-header-background']||'#FFFFFF');
+      setVal('ed-color-footer-bg', c['--brand-footer-background']||'#141942');
+      setVal('ed-color-footer-text', c['--brand-footer-text']||'#FFFFFF');
     }
     if (state.theme.fonts) {
-      setVal('ed-font-heading', state.theme.fonts.heading||"'Playfair Display', Georgia, 'Times New Roman', serif");
+      setVal('ed-font-heading', state.theme.fonts.heading||"'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif");
       setVal('ed-font-body', state.theme.fonts.body||"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif");
     }
+    const l = state.theme.layout || {};
+    setVal('ed-layout-header-h', parseInt(l.headerHeight||'72px',10)||72);
+    setVal('ed-layout-product-cols', String(l.productColumns||'3'));
+    const brRaw = parseInt(l.buttonRadius||'9999px',10);
+    setVal('ed-layout-button-radius', l.buttonRadius === '9999px' || !Number.isFinite(brRaw) ? 40 : brRaw);
+    setVal('ed-layout-shadow', Number(l.shadowIntensity??'0.12'));
+    setVal('ed-layout-reveal', l.revealAnimation === false ? 'false' : 'true');
+    const hh = document.getElementById('help-header-h'); if (hh) hh.textContent = getVal('ed-layout-header-h');
+    const br2 = document.getElementById('help-button-radius'); if (br2) br2.textContent = getVal('ed-layout-button-radius') === '40' ? '40px (pill-like)' : getVal('ed-layout-button-radius')+'px';
+    const sh = document.getElementById('help-shadow'); if (sh) sh.textContent = getVal('ed-layout-shadow');
   }
+  renderFeatureEditor();
+  renderChipEditor();
+  renderProcessEditor();
+  renderValueEditor();
 }
 
 // ===== NAV EDITOR =====
@@ -266,20 +420,49 @@ function renderFooterNavEditor() {
 function addFooterNavItem() { state.footerNavItems.push({label:'New Link',href:'#'}); renderFooterNavEditor(); markChanged(); saveDrafts(); applyPreview(); }
 function removeFooterNavItem(i) { state.footerNavItems.splice(i,1); renderFooterNavEditor(); markChanged(); saveDrafts(); applyPreview(); }
 
-// ===== HIGHLIGHT EDITOR =====
+// ===== ICON OPTIONS =====
 const ICON_OPTIONS = ['icon-mfr','icon-palette','icon-bulk','icon-check','icon-clock','icon-design','icon-ruler','icon-chart','icon-route','icon-phone','icon-email','icon-location','icon-invoice'];
+function iconOptionsHtml(sel) {
+  return ICON_OPTIONS.map(ic => `<option value="${ic}" ${sel===ic?'selected':''}>${ic.replace('icon-','')}</option>`).join('');
+}
+function svgSlot(icon, w) {
+  return `<svg class="icon" width="${w||16}" height="${w||16}" aria-hidden="true"><use href="assets/icons.svg#${icon||'icon-check'}"/></svg>`;
+}
+function populateIconSelects() {
+  const sel = document.getElementById('ed-hero-tag-icon');
+  if (sel) {
+    sel.innerHTML = iconOptionsHtml(getVal('ed-hero-tag-icon')||'icon-mfr');
+    if (!sel.dataset.iconBound) {
+      sel.dataset.iconBound = '1';
+      sel.addEventListener('change', () => { const p = document.getElementById('preview-hero-tag-icon'); if (p) p.innerHTML = svgSlot(sel.value,16); onChange(); });
+    }
+  }
+  const p = document.getElementById('preview-hero-tag-icon');
+  if (p) p.innerHTML = svgSlot(getVal('ed-hero-tag-icon')||'icon-mfr',16);
+}
+function bindIconPreview(sel) {
+  sel.addEventListener('change', () => {
+    const row = sel.closest('.icon-row');
+    const pre = row && row.querySelector('.icon-preview');
+    if (pre) pre.innerHTML = svgSlot(sel.value,16);
+  });
+}
+
+// ===== HIGHLIGHT EDITOR =====
 function renderHighlightEditor() {
   const c = document.getElementById('highlight-editor'); if (!c) return;
   c.innerHTML = state.heroHighlights.map((h,i) => `
-    <div class="nav-item-row" data-index="${i}">
-      <select class="hl-icon" style="width:110px;flex:none">
-        ${ICON_OPTIONS.map(ic => `<option value="${ic}" ${h.icon===ic?'selected':''}>${ic.replace('icon-','')}</option>`).join('')}
-      </select>
+    <div class="icon-row" data-index="${i}">
+      <span class="icon-preview">${svgSlot(h.icon,16)}</span>
+      <select class="hl-icon">${iconOptionsHtml(h.icon)}</select>
       <input type="text" class="hl-text" value="${escapeHtml(h.text)}" placeholder="Highlight text">
       <button class="del" onclick="removeHighlight(${i})"><i class="fas fa-times"></i></button>
     </div>
   `).join('');
-  c.querySelectorAll('.hl-icon').forEach((sel,i) => sel.addEventListener('change', () => { state.heroHighlights[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.hl-icon').forEach((sel,i) => {
+    bindIconPreview(sel);
+    sel.addEventListener('change', () => { state.heroHighlights[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); });
+  });
   c.querySelectorAll('.hl-text').forEach((inp,i) => inp.addEventListener('input', () => { state.heroHighlights[i].text = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
 }
 function addHighlight() { state.heroHighlights.push({text:'New highlight',icon:'icon-check'}); renderHighlightEditor(); markChanged(); saveDrafts(); applyPreview(); }
@@ -289,19 +472,103 @@ function removeHighlight(i) { state.heroHighlights.splice(i,1); renderHighlightE
 function renderTrustEditor() {
   const c = document.getElementById('trust-editor'); if (!c) return;
   c.innerHTML = state.trustItems.map((t,i) => `
-    <div class="nav-item-row" data-index="${i}">
-      <select class="tr-icon" style="width:110px;flex:none">
-        ${ICON_OPTIONS.map(ic => `<option value="${ic}" ${t.icon===ic?'selected':''}>${ic.replace('icon-','')}</option>`).join('')}
-      </select>
+    <div class="icon-row" data-index="${i}">
+      <span class="icon-preview">${svgSlot(t.icon,16)}</span>
+      <select class="tr-icon">${iconOptionsHtml(t.icon)}</select>
       <input type="text" class="tr-label" value="${escapeHtml(t.label)}" placeholder="Label">
       <button class="del" onclick="removeTrustItem(${i})"><i class="fas fa-times"></i></button>
     </div>
   `).join('');
-  c.querySelectorAll('.tr-icon').forEach((sel,i) => sel.addEventListener('change', () => { state.trustItems[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.tr-icon').forEach((sel,i) => {
+    bindIconPreview(sel);
+    sel.addEventListener('change', () => { state.trustItems[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); });
+  });
   c.querySelectorAll('.tr-label').forEach((inp,i) => inp.addEventListener('input', () => { state.trustItems[i].label = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
 }
 function addTrustItem() { state.trustItems.push({label:'New item',icon:'icon-check'}); renderTrustEditor(); markChanged(); saveDrafts(); applyPreview(); }
 function removeTrustItem(i) { state.trustItems.splice(i,1); renderTrustEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+// ===== FEATURE / CHIP / PROCESS / VALUE EDITORS =====
+function ensureSectionCopy() {
+  if (!state.sectionCopy) state.sectionCopy = defaultSectionCopy();
+  state.sectionCopy = deepMerge(defaultSectionCopy(), state.sectionCopy);
+  if (!state.sectionCopy.why) state.sectionCopy.why = {features:[]};
+  if (!Array.isArray(state.sectionCopy.why.features)) state.sectionCopy.why.features = [];
+  if (!state.sectionCopy.customOrders) state.sectionCopy.customOrders = {chips:[],steps:[]};
+  if (!Array.isArray(state.sectionCopy.customOrders.chips)) state.sectionCopy.customOrders.chips = [];
+  if (!Array.isArray(state.sectionCopy.customOrders.steps)) state.sectionCopy.customOrders.steps = [];
+  if (!state.sectionCopy.about) state.sectionCopy.about = {values:[]};
+  if (!Array.isArray(state.sectionCopy.about.values)) state.sectionCopy.about.values = [];
+}
+function renderFeatureEditor() {
+  ensureSectionCopy();
+  const c = document.getElementById('feature-editor'); if (!c) return;
+  c.innerHTML = state.sectionCopy.why.features.map((f,i) => `
+    <div class="icon-row" data-index="${i}">
+      <span class="icon-preview">${svgSlot(f.icon,16)}</span>
+      <select class="feat-icon">${iconOptionsHtml(f.icon)}</select>
+      <input type="text" class="feat-title" value="${escapeHtml(f.title)}" placeholder="Title">
+      <input type="text" class="feat-text" value="${escapeHtml(f.text)}" placeholder="Description">
+      <button class="del" onclick="removeFeatureItem(${i})"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.feat-icon').forEach((sel,i) => { bindIconPreview(sel); sel.addEventListener('change', () => { state.sectionCopy.why.features[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); }); });
+  c.querySelectorAll('.feat-title').forEach((inp,i) => inp.addEventListener('input', () => { state.sectionCopy.why.features[i].title = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.feat-text').forEach((inp,i) => inp.addEventListener('input', () => { state.sectionCopy.why.features[i].text = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addFeatureItem() { ensureSectionCopy(); state.sectionCopy.why.features.push({icon:'icon-check',title:'New feature',text:'Describe this feature.'}); renderFeatureEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeFeatureItem(i) { state.sectionCopy.why.features.splice(i,1); renderFeatureEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+function renderChipEditor() {
+  ensureSectionCopy();
+  const c = document.getElementById('chip-editor'); if (!c) return;
+  c.innerHTML = state.sectionCopy.customOrders.chips.map((x,i) => `
+    <div class="icon-row" data-index="${i}">
+      <span class="icon-preview">${svgSlot(x.icon,16)}</span>
+      <select class="chip-icon">${iconOptionsHtml(x.icon)}</select>
+      <input type="text" class="chip-text" value="${escapeHtml(x.text)}" placeholder="Chip label">
+      <button class="del" onclick="removeChipItem(${i})"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.chip-icon').forEach((sel,i) => { bindIconPreview(sel); sel.addEventListener('change', () => { state.sectionCopy.customOrders.chips[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); }); });
+  c.querySelectorAll('.chip-text').forEach((inp,i) => inp.addEventListener('input', () => { state.sectionCopy.customOrders.chips[i].text = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addChipItem() { ensureSectionCopy(); state.sectionCopy.customOrders.chips.push({icon:'icon-check',text:'New chip'}); renderChipEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeChipItem(i) { state.sectionCopy.customOrders.chips.splice(i,1); renderChipEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+function renderProcessEditor() {
+  ensureSectionCopy();
+  const c = document.getElementById('process-editor'); if (!c) return;
+  c.innerHTML = state.sectionCopy.customOrders.steps.map((x,i) => `
+    <div class="icon-row" style="align-items:flex-start" data-index="${i}">
+      <span class="icon-preview" style="font-weight:800;font-family:var(--mono);color:var(--navy)">${String(i+1).padStart(2,'0')}</span>
+      <input type="text" class="proc-title" value="${escapeHtml(x.title)}" placeholder="Step title">
+      <input type="text" class="proc-text" value="${escapeHtml(x.text)}" placeholder="Step description">
+      <button class="del" onclick="removeProcessItem(${i})"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.proc-title').forEach((inp,i) => inp.addEventListener('input', () => { state.sectionCopy.customOrders.steps[i].title = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+  c.querySelectorAll('.proc-text').forEach((inp,i) => inp.addEventListener('input', () => { state.sectionCopy.customOrders.steps[i].text = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addProcessItem() { ensureSectionCopy(); state.sectionCopy.customOrders.steps.push({title:'New step',text:'Describe the step.'}); renderProcessEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeProcessItem(i) { state.sectionCopy.customOrders.steps.splice(i,1); renderProcessEditor(); markChanged(); saveDrafts(); applyPreview(); }
+
+function renderValueEditor() {
+  ensureSectionCopy();
+  const c = document.getElementById('value-editor'); if (!c) return;
+  c.innerHTML = state.sectionCopy.about.values.map((x,i) => `
+    <div class="icon-row" data-index="${i}">
+      <span class="icon-preview">${svgSlot(x.icon,16)}</span>
+      <select class="val-icon">${iconOptionsHtml(x.icon)}</select>
+      <input type="text" class="val-text" value="${escapeHtml(x.text)}" placeholder="Value / benefit">
+      <button class="del" onclick="removeValueItem(${i})"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  c.querySelectorAll('.val-icon').forEach((sel,i) => { bindIconPreview(sel); sel.addEventListener('change', () => { state.sectionCopy.about.values[i].icon = sel.value; markChanged(); saveDrafts(); applyPreview(); }); });
+  c.querySelectorAll('.val-text').forEach((inp,i) => inp.addEventListener('input', () => { state.sectionCopy.about.values[i].text = inp.value; markChanged(); saveDrafts(); applyPreview(); }));
+}
+function addValueItem() { ensureSectionCopy(); state.sectionCopy.about.values.push({icon:'icon-check',text:'New value'}); renderValueEditor(); markChanged(); saveDrafts(); applyPreview(); }
+function removeValueItem(i) { state.sectionCopy.about.values.splice(i,1); renderValueEditor(); markChanged(); saveDrafts(); applyPreview(); }
 
 // ===== FAQ EDITOR =====
 function renderFaqEditor() {
@@ -549,23 +816,26 @@ async function handleFiles(files) {
         const ext = (file.name.split('.').pop()||'').toLowerCase();
         const family = familyFromFilename(file.name);
         const entry = { family, file: path, format: fontFormat(ext), weight: 400 };
-        if (!state.fontManifest.some(f => f.file === path)) state.fontManifest.push(entry);
-        await updateFontManifest(token);
-        // Auto-register @font-face in custom CSS so the site can render it
+        const newManifest = state.fontManifest.some(f => f.file === path) ? state.fontManifest.slice() : state.fontManifest.slice().concat(entry);
         const face = `@font-face { font-family: '${family}'; font-style: normal; font-weight: ${entry.weight}; font-display: swap; src: url('${path}') format('${entry.format}'); }`;
-        if (!state.customCSS.includes(face)) {
-          state.customCSS = (state.customCSS ? state.customCSS + '\n' : '') + face;
-          setVal('ed-custom-css', state.customCSS);
-        }
+        const newCSS = state.customCSS.includes(face) ? state.customCSS : (state.customCSS ? state.customCSS + '\n' : '') + face;
+        // Commit manifest + custom CSS before mutating local state so a 422 never creates phantom entries.
+        await createCommitWithRetry(token, [
+          { path: 'assets/fonts/manifest.json', content: JSON.stringify({fonts:newManifest}, null, 2) },
+          { path: 'content/custom-css.json', content: JSON.stringify({css:newCSS}, null, 2) }
+        ], `Register font ${family} via editor`);
+        if (!state.fontManifest.some(f => f.file === path)) state.fontManifest.push(entry);
+        state.customCSS = newCSS;
+        setVal('ed-custom-css', state.customCSS);
         populateFontOptions();
         markChanged(); saveDrafts(); applyPreview();
         showToast(`Font '${family}' uploaded — pick it in Theme → Fonts`, 'success');
       } else {
-        // Update image manifest
+        // Update image manifest only after the commit succeeds
         if (!state.imageManifest.includes(path)) {
-          state.imageManifest.push(path);
-          state.imageManifest.sort();
-          await updateManifest(token);
+          const next = [...state.imageManifest, path].sort();
+          await createCommitWithRetry(token, [{ path:'assets/images/manifest.json', content: JSON.stringify({images:next},null,2) }], `Update image manifest via editor`);
+          state.imageManifest = next;
         }
         renderMediaGrid();
         populateImageDropdowns();
@@ -596,7 +866,14 @@ function fileToBase64(file) {
 // ===== AUTO-SAVE =====
 function setupAutoSave() {
   // Content fields
-  ['ed-whatsapp','ed-phone','ed-email','ed-location','ed-gst','ed-hero-headline','ed-hero-intro','ed-hero-image',
+  ['ed-whatsapp','ed-phone','ed-email','ed-location','ed-gst',
+   'ed-hero-headline','ed-hero-intro','ed-hero-image','ed-hero-tag-text',
+   'ed-hero-primary-label','ed-hero-primary-href','ed-hero-secondary-label','ed-hero-secondary-href',
+   'ed-why-label','ed-why-title','ed-why-intro',
+   'ed-collection-label','ed-collection-title','ed-collection-intro','ed-collection-note',
+   'ed-custom-label','ed-custom-title','ed-custom-intro','ed-custom-image','ed-process-label',
+   'ed-about-label','ed-about-title','ed-about-intro','ed-about-image',
+   'ed-faq-label','ed-faq-title','ed-contact-label','ed-contact-title','ed-contact-intro','ed-footer-tagline',
    'ed-social-instagram','ed-social-facebook','ed-social-whatsapp',
    'ed-seo-title','ed-seo-desc','ed-seo-ogimage'
   ].forEach(id => {
@@ -604,7 +881,10 @@ function setupAutoSave() {
     if (el) { el.addEventListener('input', onChange); el.addEventListener('change', onChange); }
   });
   // Theme fields
-  ['ed-color-red','ed-color-red-dark','ed-color-red-light','ed-color-gold','ed-color-navy','ed-color-cream'].forEach(id => {
+  ['ed-color-red','ed-color-red-dark','ed-color-red-light','ed-color-gold','ed-color-navy','ed-color-cream',
+   'ed-color-bg','ed-color-alt','ed-color-text','ed-color-muted','ed-color-heading','ed-color-border',
+   'ed-color-header','ed-color-footer-bg','ed-color-footer-text'
+  ].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('input', onChange);
   });
@@ -612,17 +892,24 @@ function setupAutoSave() {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', onChange);
   });
-  // Layout fields
-  ['ed-layout-fs-base'].forEach(id => {
+  // Layout selects
+  ['ed-layout-fs-base','ed-layout-product-cols','ed-layout-reveal'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', onChange);
   });
-  ['ed-layout-section-y','ed-layout-radius','ed-layout-container'].forEach(id => {
+  // Layout ranges
+  ['ed-layout-section-y','ed-layout-radius','ed-layout-container','ed-layout-header-h','ed-layout-button-radius','ed-layout-shadow'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('input', () => {
-      const h = document.getElementById('help-'+id.replace('ed-layout-',''));
-      if (h) h.textContent = el.value + (id === 'ed-layout-section-y' || id === 'ed-layout-radius' ? 'px' : 'px');
+      const key = id.replace('ed-layout-','');
+      const h = document.getElementById('help-'+key);
+      if (h) {
+        const v = el.value;
+        if (key === 'shadow') h.textContent = v;
+        else if (key === 'button-radius') h.textContent = v === '40' ? '40px (pill-like)' : v+'px';
+        else h.textContent = v+'px';
+      }
       onChange();
     });
   });
@@ -660,24 +947,60 @@ function collectAllData() {
     whatsapp: {url: getVal('ed-social-whatsapp'), label: 'WhatsApp'}
   };
   state.settings.socialLinks = state.socialLinks;
+  // Section copy
+  ensureSectionCopy();
+  const sc = state.sectionCopy;
+  sc.heroTag = { icon: getVal('ed-hero-tag-icon')||'icon-mfr', text: getVal('ed-hero-tag-text') };
+  sc.heroPrimary = { label: getVal('ed-hero-primary-label'), href: getVal('ed-hero-primary-href') };
+  sc.heroSecondary = { label: getVal('ed-hero-secondary-label'), href: getVal('ed-hero-secondary-href') };
+  sc.why.label = getVal('ed-why-label'); sc.why.title = getVal('ed-why-title'); sc.why.intro = getVal('ed-why-intro');
+  sc.collection.label = getVal('ed-collection-label'); sc.collection.title = getVal('ed-collection-title');
+  sc.collection.intro = getVal('ed-collection-intro'); sc.collection.note = getVal('ed-collection-note');
+  sc.customOrders.label = getVal('ed-custom-label'); sc.customOrders.title = getVal('ed-custom-title');
+  sc.customOrders.intro = getVal('ed-custom-intro'); sc.customOrders.image = getVal('ed-custom-image');
+  sc.customOrders.processLabel = getVal('ed-process-label');
+  sc.about.label = getVal('ed-about-label'); sc.about.title = getVal('ed-about-title');
+  sc.about.intro = getVal('ed-about-intro'); sc.about.image = getVal('ed-about-image');
+  sc.faq.label = getVal('ed-faq-label'); sc.faq.title = getVal('ed-faq-title');
+  sc.contact.label = getVal('ed-contact-label'); sc.contact.title = getVal('ed-contact-title');
+  sc.contact.intro = getVal('ed-contact-intro');
+  sc.footerTagline = getVal('ed-footer-tagline');
+  state.settings.sectionCopy = sc;
   // Theme
-  if (!state.theme) state.theme = {colors:{},fonts:{}};
+  if (!state.theme) state.theme = {colors:{},fonts:{},layout:{}};
   if (!state.theme.colors) state.theme.colors = {};
   if (!state.theme.fonts) state.theme.fonts = {};
-  state.theme.colors['--colour-jhalar-red'] = getVal('ed-color-red');
-  state.theme.colors['--colour-jhalar-red-dark'] = getVal('ed-color-red-dark');
-  state.theme.colors['--colour-jhalar-red-light'] = getVal('ed-color-red-light');
-  state.theme.colors['--colour-accent-gold'] = getVal('ed-color-gold');
-  state.theme.colors['--colour-deep-navy'] = getVal('ed-color-navy');
-  state.theme.colors['--colour-warm-cream'] = getVal('ed-color-cream');
+  if (!state.theme.layout) state.theme.layout = {};
+  const c = state.theme.colors;
+  c['--colour-jhalar-red'] = getVal('ed-color-red');
+  c['--colour-jhalar-red-dark'] = getVal('ed-color-red-dark');
+  c['--colour-jhalar-red-light'] = getVal('ed-color-red-light');
+  c['--colour-accent-gold'] = getVal('ed-color-gold');
+  c['--colour-deep-navy'] = getVal('ed-color-navy');
+  c['--colour-warm-cream'] = getVal('ed-color-cream');
+  c['--brand-background'] = getVal('ed-color-bg');
+  c['--brand-alt-background'] = getVal('ed-color-alt');
+  c['--brand-text'] = getVal('ed-color-text');
+  c['--brand-muted'] = getVal('ed-color-muted');
+  c['--brand-heading'] = getVal('ed-color-heading');
+  c['--brand-border'] = getVal('ed-color-border');
+  c['--brand-header-background'] = getVal('ed-color-header');
+  c['--brand-footer-background'] = getVal('ed-color-footer-bg');
+  c['--brand-footer-text'] = getVal('ed-color-footer-text');
   state.theme.fonts.heading = getVal('ed-font-heading');
   state.theme.fonts.body = getVal('ed-font-body');
   // Layout
-  if (!state.theme.layout) state.theme.layout = {};
-  state.theme.layout.baseFontSize = getVal('ed-layout-fs-base') || '16px';
-  state.theme.layout.sectionY = (getVal('ed-layout-section-y') || '64') + 'px';
-  state.theme.layout.cardRadius = (getVal('ed-layout-radius') || '20') + 'px';
-  state.theme.layout.containerWidth = (getVal('ed-layout-container') || '1140') + 'px';
+  const l = state.theme.layout;
+  l.baseFontSize = getVal('ed-layout-fs-base') || '16px';
+  l.sectionY = (getVal('ed-layout-section-y') || '64') + 'px';
+  l.cardRadius = (getVal('ed-layout-radius') || '20') + 'px';
+  l.containerWidth = (getVal('ed-layout-container') || '1140') + 'px';
+  l.headerHeight = (getVal('ed-layout-header-h') || '72') + 'px';
+  l.productColumns = getVal('ed-layout-product-cols') || '3';
+  const br = Number(getVal('ed-layout-button-radius') || '40');
+  l.buttonRadius = (br >= 40) ? '9999px' : br+'px';
+  l.shadowIntensity = String(getVal('ed-layout-shadow') || '0.12');
+  l.revealAnimation = getVal('ed-layout-reveal') !== 'false';
   // Custom CSS
   state.customCSS = getVal('ed-custom-css');
 }
@@ -716,6 +1039,7 @@ function restoreHistory() {
     state.heroHighlights = state.settings.heroHighlights||[];
     state.trustItems = state.settings.trustItems||[];
     state.faqItems = state.settings.faqItems||[];
+    state.sectionCopy = deepMerge(defaultSectionCopy(), state.settings.sectionCopy||{});
   }
   populateAllForms(); renderSectionList(); renderProductList();
   markChanged(); saveDrafts(); applyPreview();
@@ -777,11 +1101,12 @@ function pushToIframe() {
     const s = JSON.parse(JSON.stringify(state.settings));
     s.navItems = state.navItems; s.footerNavItems = state.footerNavItems; s.socialLinks = state.socialLinks;
     s.heroHighlights = state.heroHighlights; s.trustItems = state.trustItems; s.faqItems = state.faqItems;
+    s.sectionCopy = state.sectionCopy || s.sectionCopy || {};
     s.siteTitle = getVal('ed-seo-title'); s.siteDescription = getVal('ed-seo-desc'); s.ogImage = getVal('ed-seo-ogimage');
     if (s) w.JHALAR.setSettings(s);
     if (state.theme) w.JHALAR.setTheme(state.theme);
     if (state.products) w.JHALAR.setProducts(state.products);
-    if (state.sections) w.JHALAR.setSections(state.sections);
+    if (state.sections) w.JHALAR.setSections({ sections: state.sections, order: state.sectionOrder });
     if (state.customCSS !== undefined) w.JHALAR.setCustomCSS(state.customCSS);
   } catch(e) { console.warn('Push to iframe:', e); }
 }
@@ -806,7 +1131,7 @@ function saveDrafts() {
     localStorage.setItem('jhalar_editor_settings', JSON.stringify(state.settings));
     localStorage.setItem('jhalar_editor_theme', JSON.stringify(state.theme));
     localStorage.setItem('jhalar_editor_products', JSON.stringify(state.products));
-    localStorage.setItem('jhalar_editor_sections', JSON.stringify(state.sections));
+    localStorage.setItem('jhalar_editor_sections', JSON.stringify({ sections: state.sections, order: state.sectionOrder }));
     localStorage.setItem('jhalar_editor_customcss', state.customCSS || '');
     pushHistory();
   } catch(e) { console.warn('Save drafts:', e); }
@@ -824,7 +1149,7 @@ async function resetToPublished() {
   try {
     ['jhalar_editor_settings','jhalar_editor_theme','jhalar_editor_products','jhalar_editor_sections','jhalar_editor_customcss'].forEach(k => localStorage.removeItem(k));
     state.changed = false; updateSaveIndicator();
-    await loadPublishedData(); await loadFontManifest(); populateAllForms(); populateFontOptions(); renderSectionList(); renderProductList(); applyPreview();
+    await loadPublishedData(); await loadFontManifest(); populateFontOptions(); populateAllForms(); renderSectionList(); renderProductList(); applyPreview();
     showToast('Reset to published state','success');
   } catch(e) { showToast('Reset failed','error'); }
 }
@@ -878,52 +1203,8 @@ async function publishToGitHub() {
   const commitMsg = `Theme Editor update: ${new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'})}`;
 
   try {
-    addLog('Fetching branch...','act');
-    const br = await fetch(`${baseUrl}/git/ref/heads/${GITHUB_BRANCH}`, {headers});
-    if (!br.ok) throw new Error(`Branch error: ${br.status}`);
-    const bd = await br.json();
-    const currentSha = bd.object.sha;
-    addLog(`Branch: ${currentSha.substring(0,7)}`,'done');
-    fill.style.width = '15%';
-
-    addLog('Fetching base tree...','act');
-    const cr = await fetch(`${baseUrl}/git/commits/${currentSha}`, {headers});
-    if (!cr.ok) throw new Error(`Commit error: ${cr.status}`);
-    const cd = await cr.json();
-    addLog(`Tree: ${cd.tree.sha.substring(0,7)}`,'done');
-    fill.style.width = '20%';
-
-    const blobs = [];
-    for (let i = 0; i < files.length; i++) {
-      addLog(`Blob: ${files[i].path}...`,'act');
-      const blobR = await fetch(`${baseUrl}/git/blobs`, { method:'POST', headers, body: JSON.stringify({content: files[i].content, encoding:'utf-8'}) });
-      if (!blobR.ok) throw new Error(`Blob error for ${files[i].path}: ${blobR.status}`);
-      const bd2 = await blobR.json();
-      blobs.push({path: files[i].path, mode: '100644', type: 'blob', sha: bd2.sha});
-      addLog(`  ${files[i].path} ✓`,'done');
-      fill.style.width = `${20 + (i+1)*12}%`;
-    }
-
-    addLog('Creating tree...','act');
-    const tr = await fetch(`${baseUrl}/git/trees`, { method:'POST', headers, body: JSON.stringify({base_tree: cd.tree.sha, tree: blobs}) });
-    if (!tr.ok) throw new Error(`Tree error: ${tr.status}`);
-    const td = await tr.json();
-    addLog(`Tree: ${td.sha.substring(0,7)}`,'done');
-    fill.style.width = '65%';
-
-    addLog('Creating commit...','act');
-    const nc = await fetch(`${baseUrl}/git/commits`, { method:'POST', headers, body: JSON.stringify({message: commitMsg, tree: td.sha, parents: [currentSha]}) });
-    if (!nc.ok) throw new Error(`Commit error: ${nc.status}`);
-    const ncd = await nc.json();
-    addLog(`Commit: ${ncd.sha.substring(0,7)}`,'done');
-    fill.style.width = '80%';
-
-    addLog('Updating branch...','act');
-    const ur = await fetch(`${baseUrl}/git/refs/heads/${GITHUB_BRANCH}`, { method:'PATCH', headers, body: JSON.stringify({sha: ncd.sha, force: false}) });
-    if (!ur.ok) throw new Error(`Branch update error: ${ur.status}`);
-    addLog(`Branch ${GITHUB_BRANCH} updated ✓`,'done');
+    const commitSha = await createCommitWithRetry(token, files, commitMsg, addLog);
     fill.style.width = '100%';
-
     status.textContent = '✅ Published!';
     status.style.color = '#2e7d32';
     addLog('🎉 Published successfully!','done');
@@ -978,7 +1259,7 @@ function importAllData(e) {
     try {
       const d = JSON.parse(ev.target.result);
       if (!d.settings) { showToast('Invalid backup file','error'); return; }
-      state.settings = d.settings; state.theme = d.theme; state.products = d.products||[];
+      state.settings = d.settings; state.theme = deepMerge(defaultThemeTemplate(), d.theme||{}); state.products = d.products||[];
       state.sections = d.sections||{}; state.sectionOrder = d.sectionOrder||[];
       state.customCSS = d.customCSS||''; state.navItems = d.navItems||state.settings.navItems||[];
       state.socialLinks = d.socialLinks||state.settings.socialLinks||{};
@@ -986,6 +1267,7 @@ function importAllData(e) {
       state.heroHighlights = state.settings.heroHighlights||[];
       state.trustItems = state.settings.trustItems||[];
       state.faqItems = state.settings.faqItems||[];
+      state.sectionCopy = deepMerge(defaultSectionCopy(), d.sectionCopy || state.settings.sectionCopy || {});
       ensureProductIds();
       populateAllForms(); renderSectionList(); renderProductList();
       markChanged(); saveDrafts(); applyPreview();

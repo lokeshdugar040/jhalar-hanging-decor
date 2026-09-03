@@ -104,6 +104,17 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 .nav-item-row button{width:22px;height:22px;border:none;background:none;cursor:pointer;border-radius:3px;color:var(--text3);font-size:11px;display:flex;align-items:center;justify-content:center}
 .nav-item-row button:hover{background:rgba(0,0,0,0.08);color:var(--text)}
 .nav-item-row button.del:hover{background:rgba(200,32,57,0.1);color:var(--red)}
+.icon-row{display:flex;align-items:center;gap:6px;margin:0 0 6px}
+.icon-row .icon-preview{width:32px;height:32px;flex:none;display:inline-flex;align-items:center;justify-content:center;background:var(--bg2);border:1px solid rgba(128,128,128,0.15);border-radius:var(--r-sm);color:var(--red)}
+.icon-row .icon-preview svg{width:16px;height:16px}
+.icon-row select{width:108px;flex:none;padding:5px 7px;font-family:var(--font);font-size:11px;background:var(--bg2);border:1px solid rgba(128,128,128,0.15);border-radius:var(--r-sm);color:var(--text)}
+.icon-row input{flex:1;min-width:0;padding:5px 8px;font-family:var(--font);font-size:12px;background:var(--bg2);border:1px solid rgba(128,128,128,0.15);border-radius:var(--r-sm);color:var(--text)}
+.icon-row textarea{flex:1;min-width:0;padding:5px 8px;font-family:var(--font);font-size:12px;background:var(--bg2);border:1px solid rgba(128,128,128,0.15);border-radius:var(--r-sm);color:var(--text);resize:vertical}
+.icon-row:focus-within,.icon-row input:focus,.icon-row select:focus,.icon-row textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 2px rgba(200,32,57,0.1)}
+.icon-row button{width:22px;height:22px;flex:none;border:none;background:none;cursor:pointer;border-radius:3px;color:var(--text3);font-size:11px;display:flex;align-items:center;justify-content:center}
+.icon-row button:hover{background:rgba(0,0,0,0.08);color:var(--text)}
+.icon-row button.del:hover{background:rgba(200,32,57,0.1);color:var(--red)}
+.stack{display:flex;flex-direction:column;gap:4px;margin-top:2px}
 .css-editor{width:100%;min-height:200px;font-family:var(--mono);font-size:12px;padding:8px;background:var(--bg2);border:1px solid rgba(128,128,128,0.15);border-radius:var(--r-sm);color:var(--text);resize:vertical;tab-size:2}
 .css-editor:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(200,32,57,0.1);background:var(--bg)}
 .publish-progress{display:none;margin-top:8px}
@@ -131,7 +142,6 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 .live-badge.live i{color:#2e7d32;animation:livePulse 2s infinite}
 .live-badge.err{color:var(--red);border-color:rgba(200,32,57,0.3)}
 .live-badge.err i{color:var(--red)}
-@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.4}}
 .preview-toolbar .preview-url{font-size:10px;color:var(--text3);margin-left:auto;padding:3px 6px;background:var(--bg2);border-radius:var(--r-sm);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .preview-container{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;background:#e8e8e8;overflow:auto}
@@ -193,8 +203,14 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 
         <div class="panel-section">
           <h4><i class="fas fa-star"></i> Hero Section</h4>
+          <div class="form-group"><label>Hero Badge / Tag Text</label><input type="text" id="ed-hero-tag-text" placeholder="Direct Manufacturer · B2B Supply"></div>
+          <div class="icon-row"><span class="icon-preview" id="preview-hero-tag-icon"><svg class="icon" width="16" height="16"><use href="assets/icons.svg#icon-mfr"/></svg></span><select id="ed-hero-tag-icon"></select></div>
           <div class="form-group"><label>Hero Headline</label><input type="text" id="ed-hero-headline" placeholder="Decorative Hanging Solutions..."></div>
           <div class="form-group"><label>Hero Intro</label><textarea id="ed-hero-intro" rows="2" placeholder="JHALAR manufactures..."></textarea></div>
+          <div class="form-group"><label>Hero Primary Button Text</label><input type="text" id="ed-hero-primary-label" placeholder="Explore Product Collection"></div>
+          <div class="form-group"><label>Hero Primary Button Link</label><input type="text" id="ed-hero-primary-href" placeholder="#collection"></div>
+          <div class="form-group"><label>Hero Secondary Button Text</label><input type="text" id="ed-hero-secondary-label" placeholder="WhatsApp for B2B Enquiry"></div>
+          <div class="form-group"><label>Hero Secondary Button Link</label><input type="text" id="ed-hero-secondary-href" placeholder="https://wa.me/..."></div>
           <div class="form-group"><label>Hero Image</label><select id="ed-hero-image"></select></div>
         </div>
 
@@ -238,6 +254,60 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <p>Question / answer pairs shown in the FAQ section.</p>
           <div id="faq-editor"></div>
           <button class="btn-sm" onclick="addFaqItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Question</button>
+          <div class="form-group" style="margin-top:8px"><label>FAQ Eyebrow</label><input type="text" id="ed-faq-label" placeholder="FAQ"></div>
+          <div class="form-group"><label>FAQ Title</label><input type="text" id="ed-faq-title" placeholder="Frequently Asked Questions"></div>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-align-left"></i> Why JHALAR Copy</h4>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-why-label" placeholder="Why JHALAR"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-why-title" placeholder="Built for Bulk Décor Requirements"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-why-intro" rows="2" placeholder="Designed for businesses..."></textarea></div>
+          <p>Feature cards (icon + title + description)</p>
+          <div id="feature-editor" class="stack"></div>
+          <button class="btn-sm" onclick="addFeatureItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Feature</button>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-cubes"></i> Collection Copy</h4>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-collection-label" placeholder="Our Collection"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-collection-title" placeholder="Product Collection"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-collection-intro" rows="2" placeholder="Explore decorative hanging categories..."></textarea></div>
+          <div class="form-group"><label>Bottom Note</label><input type="text" id="ed-collection-note" placeholder="Need something specific?"></div>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-palette"></i> Custom Orders Copy</h4>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-custom-label" placeholder="Made to Order"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-custom-title" placeholder="Custom Hanging Décor for Your Requirement"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-custom-intro" rows="2" placeholder="Share your preferred colours..."></textarea></div>
+          <div class="form-group"><label>Image</label><select id="ed-custom-image"></select></div>
+          <p>Chips / tags</p>
+          <div id="chip-editor" class="stack"></div>
+          <button class="btn-sm" onclick="addChipItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Chip</button>
+          <div class="form-group" style="margin-top:8px"><label>Process Label</label><input type="text" id="ed-process-label" placeholder="How it works"></div>
+          <p>Process steps</p>
+          <div id="process-editor" class="stack"></div>
+          <button class="btn-sm" onclick="addProcessItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Step</button>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-user-tie"></i> About Copy</h4>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-about-label" placeholder="About JHALAR"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-about-title" placeholder="Handcrafted, Made for Business Buyers"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-about-intro" rows="2" placeholder="JHALAR focuses on..."></textarea></div>
+          <div class="form-group"><label>Image</label><select id="ed-about-image"></select></div>
+          <p>Value list</p>
+          <div id="value-editor" class="stack"></div>
+          <button class="btn-sm" onclick="addValueItem()" style="margin-top:4px"><i class="fas fa-plus"></i> Add Value</button>
+        </div>
+
+        <div class="panel-section">
+          <h4><i class="fas fa-envelope-open-text"></i> Contact &amp; Footer Copy</h4>
+          <div class="form-group"><label>Contact Eyebrow</label><input type="text" id="ed-contact-label" placeholder="Get in Touch"></div>
+          <div class="form-group"><label>Contact Title</label><input type="text" id="ed-contact-title" placeholder="Start a B2B Enquiry"></div>
+          <div class="form-group"><label>Contact Intro</label><textarea id="ed-contact-intro" rows="2" placeholder="Share your requirement..."></textarea></div>
+          <div class="form-group"><label>Footer Tagline</label><input type="text" id="ed-footer-tagline" placeholder="Handcrafted decorative hangings..."></div>
         </div>
       </div>
 
@@ -251,7 +321,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
       <!-- THEME -->
       <div class="tab-panel" id="panel-theme">
         <h3><i class="fas fa-palette"></i> Theme</h3>
-        <p class="hint">Brand colors, typography, layout spacing and custom CSS. Every change previews live.</p>
+        <p class="hint">Everything is mapped to the live CSS system: <strong>colors</strong> drive brand accents, buttons, sections, header &amp; footer; <strong>typography</strong> controls headings and body; <strong>layout</strong> controls spacing, grid density, radius, shadows and reveal motion. Every change previews live.</p>
 
         <div class="panel-section">
           <h4><i class="fas fa-fill-drip"></i> Brand Colors</h4>
@@ -265,6 +335,23 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
             <div class="form-group"><label>Accent Gold</label><input type="color" id="ed-color-gold" value="#C9A84C"></div>
             <div class="form-group"><label>Deep Navy</label><input type="color" id="ed-color-navy" value="#141942"></div>
             <div class="form-group"><label>Warm Cream</label><input type="color" id="ed-color-cream" value="#FFFAF1"></div>
+          </div>
+          <hr class="divider">
+          <p>Extended brand surfaces — change these to lighten or deepen the overall look.</p>
+          <div class="form-row-3">
+            <div class="form-group"><label>Page Background</label><input type="color" id="ed-color-bg" value="#FFFFFF"></div>
+            <div class="form-group"><label>Alt Section Background</label><input type="color" id="ed-color-alt" value="#F9F7F4"></div>
+            <div class="form-group"><label>Header Background</label><input type="color" id="ed-color-header" value="#FFFFFF"></div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group"><label>Body Text</label><input type="color" id="ed-color-text" value="#4A4752"></div>
+            <div class="form-group"><label>Muted Text</label><input type="color" id="ed-color-muted" value="#7A7780"></div>
+            <div class="form-group"><label>Heading Text</label><input type="color" id="ed-color-heading" value="#1F1D24"></div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group"><label>Border / Lines</label><input type="color" id="ed-color-border" value="#F0EFEB"></div>
+            <div class="form-group"><label>Footer Background</label><input type="color" id="ed-color-footer-bg" value="#141942"></div>
+            <div class="form-group"><label>Footer Text</label><input type="color" id="ed-color-footer-text" value="#FFFFFF"></div>
           </div>
         </div>
 
@@ -314,6 +401,33 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <div class="form-group"><label>Container Max Width</label>
             <input type="range" id="ed-layout-container" min="960" max="1440" step="20" value="1140">
             <span class="help" id="help-container">1140px</span>
+          </div>
+          <hr class="divider">
+          <div class="form-group"><label>Header Height</label>
+            <input type="range" id="ed-layout-header-h" min="56" max="104" step="4" value="72">
+            <span class="help" id="help-header-h">72px</span>
+          </div>
+          <div class="form-group"><label>Product Grid Columns</label>
+            <select id="ed-layout-product-cols">
+              <option value="2">2 columns — spacious</option>
+              <option value="3" selected>3 columns — default</option>
+              <option value="4">4 columns — compact</option>
+            </select>
+            <span class="help">Images always stay 1:1, never cropped.</span>
+          </div>
+          <div class="form-group"><label>Button Corner Radius</label>
+            <input type="range" id="ed-layout-button-radius" min="0" max="40" step="2" value="40">
+            <span class="help" id="help-button-radius">40px (pill-like)</span>
+          </div>
+          <div class="form-group"><label>Card / Shadow Intensity</label>
+            <input type="range" id="ed-layout-shadow" min="0" max="0.4" step="0.02" value="0.12">
+            <span class="help" id="help-shadow">0.12</span>
+          </div>
+          <div class="form-group"><label>Scroll Reveal Animation</label>
+            <select id="ed-layout-reveal">
+              <option value="true" selected>On (premium fade-up)</option>
+              <option value="false">Off (simpler)</option>
+            </select>
           </div>
         </div>
 

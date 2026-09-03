@@ -1,52 +1,17 @@
 {
   "sections": {
-    "hero": {
-      "visible": true,
-      "label": "Hero Banner"
-    },
-    "trustStrip": {
-      "visible": true,
-      "label": "Trust Strip"
-    },
-    "whyJhalar": {
-      "visible": true,
-      "label": "Why Jhalar (Features)"
-    },
-    "collection": {
-      "visible": true,
-      "label": "Product Collection"
-    },
-    "customOrders": {
-      "visible": true,
-      "label": "Custom Orders"
-    },
-    "applications": {
-      "visible": true,
-      "label": "Applications"
-    },
-    "cta": {
-      "visible": true,
-      "label": "Call to Action"
-    },
-    "howItWorks": {
-      "visible": true,
-      "label": "How It Works"
-    },
-    "about": {
-      "visible": true,
-      "label": "About"
-    },
-    "faq": {
-      "visible": true,
-      "label": "FAQ"
-    },
-    "contact": {
-      "visible": true,
-      "label": "Contact"
-    }
+    "hero": { "visible": true, "label": "Hero Banner" },
+    "trustStrip": { "visible": true, "label": "Trust Strip" },
+    "whyJhalar": { "visible": true, "label": "Why JHALAR (Features)" },
+    "collection": { "visible": true, "label": "Product Collection" },
+    "customOrders": { "visible": true, "label": "Custom Orders" },
+    "about": { "visible": true, "label": "About" },
+    "faq": { "visible": true, "label": "FAQ" },
+    "contact": { "visible": true, "label": "Contact" }
   },
   "order": [
     "hero",
+    "trustStrip",
     "whyJhalar",
     "collection",
     "customOrders",

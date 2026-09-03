@@ -1,14 +1,34 @@
 {
   "colors": {
-    "--colour-jhalar-red": "#c82039",
-    "--colour-jhalar-red-dark": "#a3182e",
-    "--colour-jhalar-red-light": "#e8485f",
-    "--colour-accent-gold": "#c9a84c",
+    "--colour-jhalar-red": "#C82039",
+    "--colour-jhalar-red-dark": "#A3182E",
+    "--colour-jhalar-red-light": "#E8485F",
+    "--colour-accent-gold": "#C9A84C",
     "--colour-deep-navy": "#141942",
-    "--colour-warm-cream": "#fffaf1"
+    "--colour-warm-cream": "#FFFAF1",
+    "--brand-background": "#FFFFFF",
+    "--brand-alt-background": "#F9F7F4",
+    "--brand-text": "#4A4752",
+    "--brand-muted": "#7A7780",
+    "--brand-heading": "#1F1D24",
+    "--brand-border": "#F0EFEB",
+    "--brand-header-background": "#FFFFFF",
+    "--brand-footer-background": "#141942",
+    "--brand-footer-text": "#FFFFFF"
   },
   "fonts": {
     "heading": "'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif",
     "body": "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  },
+  "layout": {
+    "baseFontSize": "16px",
+    "sectionY": "96px",
+    "cardRadius": "20px",
+    "containerWidth": "1140px",
+    "headerHeight": "72px",
+    "productColumns": "3",
+    "buttonRadius": "9999px",
+    "shadowIntensity": "0.12",
+    "revealAnimation": true
   }
 }

@@ -8,13 +8,71 @@ let settings = {
   email: "lokeshdugar040@gmail.com",
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
+  heroHeadline: "Decorative Hanging Solutions for Events & Businesses",
+  heroIntro: "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive décor, and custom projects across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
   siteTitle: "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
   siteDescription: "JHALAR manufactures handcrafted decorative hangings...",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
   footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
-  socialLinks: {instagram:{url:"#",label:"Instagram"},facebook:{url:"#",label:"Facebook"},whatsapp:{url:"https://wa.me/918100656258",label:"WhatsApp"}}
+  socialLinks: {instagram:{url:"#",label:"Instagram"},facebook:{url:"#",label:"Facebook"},whatsapp:{url:"https://wa.me/918100656258",label:"WhatsApp"}},
+  sectionCopy: {
+    heroTag: {icon:"icon-mfr", text:"Direct Manufacturer · B2B Supply"},
+    heroPrimary: {label:"Explore Product Collection", href:"#collection"},
+    heroSecondary: {label:"WhatsApp for B2B Enquiry", href:"https://wa.me/918100656258"},
+    why: {
+      label:"Why JHALAR",
+      title:"Built for Bulk Décor Requirements",
+      intro:"Designed for businesses and teams looking for distinctive hanging décor solutions at scale.",
+      features:[
+        {icon:"icon-mfr", title:"Direct Manufacturer", text:"Work directly with the source — no middle layers, faster answers, better pricing."},
+        {icon:"icon-palette", title:"Custom Colours & Designs", text:"Colours, motifs and lengths made to your brief — from brand palettes to festive themes."},
+        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From dozens to thousands of pieces — suitable for event, wholesale, retail and organisational requirements."}
+      ]
+    },
+    collection: {
+      label:"Our Collection",
+      title:"Product Collection",
+      intro:"Explore decorative hanging categories for bulk supply, event décor and wholesale requirements.",
+      note:"Need something specific? "
+    },
+    customOrders: {
+      label:"Made to Order",
+      title:"Custom Hanging Décor for Your Requirement",
+      intro:"Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging décor solutions for event projects, wholesale orders and organisational requirements.",
+      image:"assets/images/custom-orders.jpg",
+      chips:[
+        {icon:"icon-palette", text:"Colour Options"},
+        {icon:"icon-ruler", text:"Size Requirements"},
+        {icon:"icon-chart", text:"Quantity Planning"}
+      ],
+      processLabel:"How it works",
+      steps:[
+        {title:"Share Your Requirement", text:"Tell us the product category, quantity and intended application."},
+        {title:"Discuss Design & Quantity", text:"Colour preferences, sizing, design references and bulk quantities."},
+        {title:"Receive Supply Details", text:"Get all the details you need to proceed with your sourcing requirement."}
+      ]
+    },
+    about: {
+      label:"About JHALAR",
+      title:"Handcrafted, Made for Business Buyers",
+      intro:"JHALAR focuses on handcrafted decorative hanging solutions for business buyers, events, wholesale requirements and organisational projects.",
+      image:"assets/images/about-collage.jpg",
+      values:[
+        {icon:"icon-check", text:"Crafted for decorative impact"},
+        {icon:"icon-check", text:"Designed for B2B requirements"},
+        {icon:"icon-check", text:"Flexible project discussions"}
+      ]
+    },
+    faq: {label:"FAQ", title:"Frequently Asked Questions"},
+    contact: {
+      label:"Get in Touch",
+      title:"Start a B2B Enquiry",
+      intro:"Share your requirement and our team can discuss suitable options with you."
+    },
+    footerTagline:"Handcrafted decorative hangings for events, retailers and wholesalers across India."
+  }
 };
 
 let theme = {
@@ -24,16 +82,38 @@ let theme = {
     "--colour-jhalar-red-light": "#E8485F",
     "--colour-accent-gold": "#C9A84C",
     "--colour-deep-navy": "#141942",
-    "--colour-warm-cream": "#FFFAF1"
+    "--colour-warm-cream": "#FFFAF1",
+    "--brand-background": "#FFFFFF",
+    "--brand-alt-background": "#F9F7F4",
+    "--brand-text": "#4A4752",
+    "--brand-muted": "#7A7780",
+    "--brand-heading": "#1F1D24",
+    "--brand-border": "#F0EFEB",
+    "--brand-header-background": "#FFFFFF",
+    "--brand-footer-background": "#141942",
+    "--brand-footer-text": "#FFFFFF"
   },
   fonts: {
-    "heading": "'Playfair Display', Georgia, 'Times New Roman', serif",
-    "body": "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    heading: "'Mogranx MediumSemiCondensed', Georgia, 'Times New Roman', serif",
+    body: "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  },
+  layout: {
+    baseFontSize: "16px",
+    sectionY: "96px",
+    cardRadius: "20px",
+    containerWidth: "1140px",
+    headerHeight: "72px",
+    productColumns: "3",
+    buttonRadius: "9999px",
+    shadowIntensity: "0.12",
+    revealAnimation: true
   }
 };
 
 let sections = {};
+let sectionOrder = [];
 let customCSS = '';
+let livePushed = { settings:false, theme:false, products:false, sections:false, css:false };
 
 // ===== INIT =====
 async function init() {
@@ -49,6 +129,7 @@ async function init() {
   applySiteSettings();
   applyTheme();
   applySectionVisibility();
+  applySectionOrder();
   applyNavigation();
   applySEO();
   applyCustomCSS();
@@ -62,16 +143,19 @@ async function loadProducts() {
     const r = await fetch('content/products.json');
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const d = await r.json();
+    if (livePushed.products) return;
     products = Array.isArray(d.products) ? d.products : [];
     if (!products.length) showFallbackProducts();
-  } catch(e) { console.error('Products load failed:', e); showFallbackProducts(); }
+  } catch(e) { console.error('Products load failed:', e); if (!livePushed.products) showFallbackProducts(); }
 }
 
 async function loadSettings() {
   try {
     const r = await fetch('content/site-settings.json');
     if (!r.ok) throw new Error('HTTP ' + r.status);
-    settings = Object.assign({}, settings, await r.json());
+    const d = await r.json();
+    if (livePushed.settings) return;
+    settings = Object.assign({}, settings, d);
   } catch(e) { console.warn('Settings fallback:', e); }
 }
 
@@ -80,8 +164,10 @@ async function loadTheme() {
     const r = await fetch('content/theme.json');
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const d = await r.json();
+    if (livePushed.theme) return;
     if (d.colors) theme.colors = Object.assign({}, theme.colors, d.colors);
     if (d.fonts) theme.fonts = Object.assign({}, theme.fonts, d.fonts);
+    if (d.layout) theme.layout = Object.assign({}, theme.layout, d.layout);
   } catch(e) { console.warn('Theme fallback:', e); }
 }
 
@@ -90,9 +176,13 @@ async function loadSections() {
     const r = await fetch('content/sections.json');
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const d = await r.json();
+    if (livePushed.sections) return;
     sections = d.sections || {};
+    sectionOrder = Array.isArray(d.order) ? d.order : Object.keys(sections);
   } catch(e) { console.warn('Sections fallback:', e);
+    if (livePushed.sections) return;
     document.querySelectorAll('[data-section]').forEach(el => { sections[el.dataset.section] = { visible: true }; });
+    if (!sectionOrder.length) sectionOrder = document.querySelectorAll('[data-section]').length ? Array.from(document.querySelectorAll('[data-section]')).map(el=>el.dataset.section) : [];
   }
 }
 
@@ -101,14 +191,40 @@ async function loadCustomCSS() {
     const r = await fetch('content/custom-css.json');
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const d = await r.json();
+    if (livePushed.css) return;
     customCSS = d.css || '';
   } catch(e) { customCSS = ''; }
 }
 
 // ===== APPLIERS =====
+const THEME_COLOR_ALIASES = {
+  '--colour-jhalar-red': ['--red'],
+  '--colour-jhalar-red-dark': ['--red-dark'],
+  '--colour-jhalar-red-light': ['--red-light'],
+  '--colour-accent-gold': ['--gold', '--gold-dark'],
+  '--colour-deep-navy': ['--navy'],
+  '--colour-warm-cream': ['--cream', '--cream-alt'],
+  '--brand-background': ['--white', '--card-bg'],
+  '--brand-alt-background': ['--off-white'],
+  '--brand-text': ['--gray-700', '--body-text'],
+  '--brand-muted': ['--gray-500', '--muted'],
+  '--brand-heading': ['--gray-900', '--heading'],
+  '--brand-border': ['--gray-100', '--gray-200'],
+  '--brand-header-background': ['--header-bg'],
+  '--brand-footer-background': ['--footer-bg'],
+  '--brand-footer-text': ['--footer-text']
+};
+
 function applyTheme() {
   const root = document.documentElement;
-  if (theme.colors) Object.entries(theme.colors).forEach(([k,v]) => root.style.setProperty(k, v));
+  if (theme.colors) {
+    Object.entries(theme.colors).forEach(([k,v]) => {
+      if (!v) return;
+      root.style.setProperty(k, v);
+      const aliases = THEME_COLOR_ALIASES[k] || [];
+      aliases.forEach(alias => root.style.setProperty(alias, v));
+    });
+  }
   if (theme.fonts) {
     if (theme.fonts.heading) root.style.setProperty('--serif', theme.fonts.heading);
     if (theme.fonts.body) root.style.setProperty('--sans', theme.fonts.body);
@@ -119,7 +235,14 @@ function applyTheme() {
     if (l.sectionY) root.style.setProperty('--section-y', l.sectionY);
     if (l.cardRadius) root.style.setProperty('--radius-lg', l.cardRadius);
     if (l.containerWidth) root.style.setProperty('--container', l.containerWidth);
+    if (l.headerHeight) root.style.setProperty('--header-h', l.headerHeight);
+    if (l.buttonRadius) root.style.setProperty('--button-radius', l.buttonRadius);
+    if (l.shadowIntensity) root.style.setProperty('--shadow-alpha', l.shadowIntensity);
+    root.style.setProperty('--grid-min', l.productColumns === '2' ? '380px' : (l.productColumns === '4' ? '260px' : '300px'));
   }
+  const mt = document.querySelector('meta[name="theme-color"]');
+  if (mt && theme.colors && theme.colors['--colour-jhalar-red']) mt.content = theme.colors['--colour-jhalar-red'];
+  applyRevealMode();
 }
 
 function esc(s) {
@@ -135,6 +258,15 @@ function applySectionVisibility() {
   });
 }
 
+function applySectionOrder() {
+  const main = document.querySelector('main');
+  if (!main || !Array.isArray(sectionOrder) || !sectionOrder.length) return;
+  sectionOrder.forEach(key => {
+    const el = main.querySelector(`[data-section="${key}"]`);
+    if (el) main.appendChild(el);
+  });
+}
+
 function applyCustomCSS() {
   let el = document.getElementById('jhalar-custom-css');
   if (!el) { el = document.createElement('style'); el.id = 'jhalar-custom-css'; document.head.appendChild(el); }
@@ -145,26 +277,28 @@ function applyNavigation() {
   // Desktop nav
   const navList = document.querySelector('.desktop-nav .nav-list');
   if (navList && settings.navItems && settings.navItems.length) {
-    navList.innerHTML = settings.navItems.map(n => `<li><a href="${n.href}">${n.label}</a></li>`).join('');
+    navList.innerHTML = settings.navItems.map(n => `<li><a href="${esc(n.href)}">${esc(n.label)}</a></li>`).join('');
   }
   // Mobile nav
   const mobileList = document.querySelector('.mobile-nav-list');
   if (mobileList && settings.navItems && settings.navItems.length) {
-    mobileList.innerHTML = settings.navItems.map(n => `<li><a href="${n.href}" class="mobile-link">${n.label}</a></li>`).join('');
+    mobileList.innerHTML = settings.navItems.map(n => `<li><a href="${esc(n.href)}" class="mobile-link">${esc(n.label)}</a></li>`).join('');
   }
   // Footer nav
   const footerList = document.querySelector('.footer-links ul');
-  if (footerList && settings.footerNavItems && settings.footerNavItems.length) {
-    footerList.innerHTML = settings.footerNavItems.map(n => `<li><a href="${n.href}">${n.label}</a></li>`).join('');
+  if (footerList && settings.footerNavItems) {
+    const lines = settings.footerNavItems.map(n => `<li><a href="${esc(n.href)}">${esc(n.label)}</a></li>`);
+    if (!lines.some(l => /privacy\.html/.test(l))) lines.push('<li><a href="privacy.html">Privacy Policy</a></li>');
+    footerList.innerHTML = lines.join('');
   }
   // Social links
   const socialContainer = document.querySelector('.footer-social ul');
   if (socialContainer && settings.socialLinks) {
     socialContainer.innerHTML = '';
     const sl = settings.socialLinks;
-    if (sl.instagram) socialContainer.innerHTML += `<li><a href="${sl.instagram.url}" aria-label="Instagram"><i class="fab fa-instagram"></i> ${sl.instagram.label}</a></li>`;
-    if (sl.facebook) socialContainer.innerHTML += `<li><a href="${sl.facebook.url}" aria-label="Facebook"><i class="fab fa-facebook"></i> ${sl.facebook.label}</a></li>`;
-    if (sl.whatsapp) socialContainer.innerHTML += `<li><a href="${sl.whatsapp.url}" data-wa target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> ${sl.whatsapp.label}</a></li>`;
+    if (sl.instagram) socialContainer.innerHTML += `<li><a href="${esc(sl.instagram.url)}" aria-label="Instagram"><i class="fab fa-instagram"></i> ${esc(sl.instagram.label)}</a></li>`;
+    if (sl.facebook) socialContainer.innerHTML += `<li><a href="${esc(sl.facebook.url)}" aria-label="Facebook"><i class="fab fa-facebook"></i> ${esc(sl.facebook.label)}</a></li>`;
+    if (sl.whatsapp) socialContainer.innerHTML += `<li><a href="${esc(sl.whatsapp.url)}" data-wa target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> ${esc(sl.whatsapp.label)}</a></li>`;
   }
 }
 
@@ -204,13 +338,13 @@ function renderProducts(productList) {
     return;
   }
   grid.innerHTML = productList.map(p => `
-    <div class="product-card" data-category="${p.category}">
-      <div class="product-image"><img src="${p.image}" alt="${p.title} — ${p.category}" width="1080" height="1080" loading="lazy" decoding="async"></div>
+    <div class="product-card" data-category="${esc(p.category)}">
+      <div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.title)} — ${esc(p.category)}" width="1080" height="1080" loading="lazy" decoding="async"></div>
       <div class="product-info">
-        <span class="product-category">${p.category}</span>
-        <h3 class="product-title">${p.title}</h3>
-        <p class="product-desc">${p.description}</p>
-        <span class="product-meta">${p.b2bTag}</span>
+        <span class="product-category">${esc(p.category)}</span>
+        <h3 class="product-title">${esc(p.title)}</h3>
+        <p class="product-desc">${esc(p.description)}</p>
+        <span class="product-meta">${esc(p.b2bTag)}</span>
         <button class="btn btn-primary product-details-btn" data-product-id="${p.id}" style="margin-top:1rem;width:100%;">View Details</button>
       </div>
     </div>
@@ -279,33 +413,115 @@ function openProductModal(id) {
   const cb = document.getElementById('modal-close'); if (cb) cb.focus();
 }
 
+function svgIcon(name, cls, size) {
+  return `<svg class="icon ${cls||''}" aria-hidden="true" width="${size||18}" height="${size||18}"><use href="assets/icons.svg#${esc(name||'icon-check')}"/></svg>`;
+}
+
+function setText(sel, text, asHtml) {
+  const el = document.querySelector(sel);
+  if (!el) return;
+  el[asHtml ? 'innerHTML' : 'textContent'] = text == null ? '' : (asHtml ? text : esc(text));
+}
+
 function applySiteSettings() {
+  const copy = settings.sectionCopy || {};
+
   document.querySelectorAll('[data-contact]').forEach(el => { const k = el.dataset.contact; if (settings[k]) el.textContent = settings[k]; });
   document.querySelectorAll('a[data-wa]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}`; });
   document.querySelectorAll('a[data-wa-msg]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(a.dataset.waMsg||'Hello JHALAR, I would like a B2B quotation.')}`; });
-  document.querySelectorAll('a[data-tel]').forEach(a => { a.href = `tel:+${String(settings.whatsapp).replace(/\D/g,'')}`; });
+  document.querySelectorAll('a[data-tel]').forEach(a => { a.href = `tel:+${String(settings.whatsapp).replace(/\\D/g,'')}`; });
   document.querySelectorAll('a[data-mailto]').forEach(a => { a.href = `mailto:${settings.email}`; });
-  if (settings.heroHeadline) { const t = document.querySelector('.hero-title'); if (t) t.textContent = settings.heroHeadline; }
-  if (settings.heroIntro) { const t = document.querySelector('.hero-desc'); if (t) t.textContent = settings.heroIntro; }
+
+  // Hero
+  if (settings.heroHeadline) setText('.hero-title', settings.heroHeadline);
+  if (settings.heroIntro) setText('.hero-desc', settings.heroIntro);
   if (settings.heroImage) { const t = document.querySelector('.hero-img'); if (t) t.src = settings.heroImage; }
+  if (copy.heroTag) { const tag = document.querySelector('.hero .tag'); if (tag) tag.innerHTML = svgIcon(copy.heroTag.icon, '', 18) + ' ' + esc(copy.heroTag.text); }
+  const heroActions = document.querySelectorAll('.hero-actions a');
+  if (copy.heroPrimary && heroActions[0]) { heroActions[0].textContent = copy.heroPrimary.label; heroActions[0].href = copy.heroPrimary.href || '#collection'; }
+  if (copy.heroSecondary && heroActions[1]) {
+    heroActions[1].innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i> ' + esc(copy.heroSecondary.label);
+    heroActions[1].href = copy.heroSecondary.href || settings.socialLinks?.whatsapp?.url || `https://wa.me/${settings.whatsapp}`;
+  }
+
   // Hero highlights
   if (Array.isArray(settings.heroHighlights) && settings.heroHighlights.length) {
     const ul = document.querySelector('.hero-highlights');
-    if (ul) {
-      ul.innerHTML = settings.heroHighlights.map(h => `<li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#${esc(h.icon||'icon-check')}"/></svg> ${esc(h.text)}</li>`).join('');
-    }
+    if (ul) ul.innerHTML = settings.heroHighlights.map(h => `<li>${svgIcon(h.icon,'',18)} ${esc(h.text)}</li>`).join('');
   }
+
   // Trust bar
   if (Array.isArray(settings.trustItems) && settings.trustItems.length) {
     const bar = document.querySelector('.trust-bar-inner');
-    if (bar) {
-      bar.innerHTML = settings.trustItems.map((t,i) => `
-        ${i ? '<div class="trust-bar-divider" aria-hidden="true"></div>' : ''}
-        <div class="trust-bar-item"><svg class="icon" aria-hidden="true" width="16" height="16"><use href="assets/icons.svg#${esc(t.icon||'icon-check')}"/></svg> ${esc(t.label)}</div>
+    if (bar) bar.innerHTML = settings.trustItems.map((t,i) => `${i ? '<div class="trust-bar-divider" aria-hidden="true"></div>' : ''}<div class="trust-bar-item">${svgIcon(t.icon,'',16)} ${esc(t.label)}</div>`).join('');
+  }
+
+  // Why JHALAR
+  if (copy.why) {
+    setText('#why-jhalar .eyebrow', copy.why.label);
+    setText('#why-jhalar .section-title', copy.why.title);
+    setText('#why-jhalar .section-subtitle', copy.why.intro);
+    const grid = document.querySelector('#why-jhalar .feature-grid');
+    if (grid && Array.isArray(copy.why.features)) {
+      grid.innerHTML = copy.why.features.map(f => `
+        <div class="feature-card">
+          <div class="feature-icon">${svgIcon(f.icon,'',20)}</div>
+          <h3>${esc(f.title)}</h3>
+          <p>${esc(f.text)}</p>
+        </div>
       `).join('');
     }
   }
+
+  // Collection
+  if (copy.collection) {
+    setText('#collection .eyebrow', copy.collection.label);
+    setText('#collection .section-title', copy.collection.title);
+    setText('#collection .section-subtitle', copy.collection.intro);
+    const note = document.querySelector('#collection .collection-note');
+    if (note) note.innerHTML = esc(copy.collection.note) + ' <a href="https://wa.me/' + esc(settings.whatsapp) + '" data-wa target="_blank" rel="noopener">Message us on WhatsApp</a>';
+  }
+
+  // Custom orders
+  if (copy.customOrders) {
+    const cs = copy.customOrders;
+    setText('#custom-orders .eyebrow', cs.label);
+    setText('#custom-orders h2', cs.title);
+    const customIntro = document.querySelector('#custom-orders .split-text > p');
+    if (customIntro) customIntro.textContent = cs.intro;
+    if (cs.image) { const img = document.querySelector('#custom-orders .split-img'); if (img) img.src = cs.image; }
+    const chips = document.querySelector('#custom-orders .chips');
+    if (chips && Array.isArray(cs.chips)) chips.innerHTML = cs.chips.map(c => `<span class="chip">${svgIcon(c.icon,'',16)} ${esc(c.text)}</span>`).join('');
+    const pl = document.querySelector('#custom-orders .process-label');
+    if (pl) pl.innerHTML = svgIcon('icon-route','',18) + ' ' + esc(cs.processLabel || 'How it works');
+    const steps = document.querySelector('#custom-orders .process-grid');
+    if (steps && Array.isArray(cs.steps)) {
+      steps.innerHTML = cs.steps.map((s,i) => `
+        <div class="step">
+          <div class="step-num">${String(i+1).padStart(2,'0')}</div>
+          <div><div class="step-title">${esc(s.title)}</div><p class="step-desc">${esc(s.text)}</p></div>
+        </div>
+      `).join('');
+    }
+  }
+
+  // About
+  if (copy.about) {
+    const ab = copy.about;
+    setText('#about .eyebrow', ab.label);
+    setText('#about h2', ab.title);
+    const aboutIntro = document.querySelector('#about .split-text > p');
+    if (aboutIntro) aboutIntro.textContent = ab.intro;
+    if (ab.image) { const img = document.querySelector('#about .split-img'); if (img) img.src = ab.image; }
+    const vals = document.querySelector('#about .values');
+    if (vals && Array.isArray(ab.values)) vals.innerHTML = ab.values.map(v => `<li>${svgIcon(v.icon,'',20)} ${esc(v.text)}</li>`).join('');
+  }
+
   // FAQ
+  if (copy.faq) {
+    setText('#faq .eyebrow', copy.faq.label);
+    setText('#faq .section-title', copy.faq.title);
+  }
   if (Array.isArray(settings.faqItems) && settings.faqItems.length) {
     const acc = document.querySelector('.accordion');
     if (acc) {
@@ -318,14 +534,33 @@ function applySiteSettings() {
       setupAccordions();
     }
   }
-}
 
+  // Contact
+  if (copy.contact) {
+    setText('#contact .eyebrow', copy.contact.label);
+    setText('#contact h2', copy.contact.title);
+    setText('#contact .section-subtitle', copy.contact.intro);
+  }
+
+  // Footer
+  if (copy.footerTagline) setText('.footer-tagline', copy.footerTagline);
+}
 function updateYear() { const e = document.getElementById('current-year'); if (e) e.textContent = String(new Date().getFullYear()); }
+
+function applyRevealMode() {
+  const off = theme.layout?.revealAnimation === false;
+  document.body.classList.toggle('no-reveal', off);
+  if (off) document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+  else document.querySelectorAll('.reveal').forEach(el => el.classList.remove('active'));
+}
 
 function setupReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
-  const fn = () => els.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('active'); });
+  const fn = () => {
+    if (document.body.classList.contains('no-reveal')) return;
+    els.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('active'); });
+  };
   fn(); window.addEventListener('scroll', fn, { passive: true });
 }
 
@@ -365,11 +600,25 @@ window.JHALAR = {
   getTheme: () => theme,
   getSections: () => sections,
   getCustomCSS: () => customCSS,
-  setSettings: (ns) => { settings = Object.assign({}, settings, ns); applySiteSettings(); applyNavigation(); applySEO(); try { localStorage.setItem('jhalar_settings', JSON.stringify(settings)); } catch(e){} },
-  setTheme: (nt) => { if (nt.colors) theme.colors = Object.assign({}, theme.colors, nt.colors); if (nt.fonts) theme.fonts = Object.assign({}, theme.fonts, nt.fonts); applyTheme(); try { localStorage.setItem('jhalar_theme', JSON.stringify(theme)); } catch(e){} },
-  setProducts: (np) => { products = Array.isArray(np) ? np : []; renderProducts(products); setupFilterButtons(); try { localStorage.setItem('jhalar_products', JSON.stringify(products)); } catch(e){} },
-  setSections: (ns) => { sections = ns || {}; applySectionVisibility(); try { localStorage.setItem('jhalar_sections', JSON.stringify(sections)); } catch(e){} },
-  setCustomCSS: (css) => { customCSS = css || ''; applyCustomCSS(); try { localStorage.setItem('jhalar_custom_css', css); } catch(e){} }
+  setSettings: (ns) => { livePushed.settings = true; settings = Object.assign({}, settings, ns); applySiteSettings(); applyNavigation(); applySEO(); try { localStorage.setItem('jhalar_settings', JSON.stringify(settings)); } catch(e){} },
+  setTheme: (nt) => {
+    livePushed.theme = true;
+    if (nt.colors) theme.colors = Object.assign({}, theme.colors, nt.colors);
+    if (nt.fonts) theme.fonts = Object.assign({}, theme.fonts, nt.fonts);
+    if (nt.layout) theme.layout = Object.assign({}, theme.layout, nt.layout);
+    applyTheme();
+    try { localStorage.setItem('jhalar_theme', JSON.stringify(theme)); } catch(e){}
+  },
+  setProducts: (np) => { livePushed.products = true; products = Array.isArray(np) ? np : []; renderProducts(products); setupFilterButtons(); try { localStorage.setItem('jhalar_products', JSON.stringify(products)); } catch(e){} },
+  setSections: (ns) => {
+    livePushed.sections = true;
+    if (ns && ns.sections) { sections = ns.sections; if (Array.isArray(ns.order)) sectionOrder = ns.order; }
+    else sections = ns || {};
+    applySectionVisibility();
+    applySectionOrder();
+    try { localStorage.setItem('jhalar_sections', JSON.stringify(sections)); localStorage.setItem('jhalar_section_order', JSON.stringify(sectionOrder)); } catch(e){}
+  },
+  setCustomCSS: (css) => { livePushed.css = true; customCSS = css || ''; applyCustomCSS(); try { localStorage.setItem('jhalar_custom_css', css); } catch(e){} }
 };
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
