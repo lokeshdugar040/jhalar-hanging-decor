@@ -14,12 +14,12 @@ let state = {
 
 function defaultSectionCopy() {
   return {
-    heroTag: {icon:'icon-mfr', text:'Direct Manufacturer | B2B Supply'},
-    heroPrimary: {label:'Explore Product Collection', href:'#collection'},
-    heroSecondary: {label:'WhatsApp for B2B Enquiry', href:'https://wa.me/918100656258'},
+    heroTag: {icon:'icon-mfr', text:'Direct Manufacturer | Bulk Supply | Howrah'},
+    heroPrimary: {label:'Explore the Collection', href:'#collection'},
+    heroSecondary: {label:'WhatsApp for a Quote', href:'https://wa.me/918100656258'},
     why: {
-      label:'Why JHALAR', title:'Built for Events & Wholesale Decor',
-      intro:'Designed for businesses and teams looking for distinctive hanging decor solutions at scale.',
+      label:'Why JHALAR', title:'Handmade Decor, Built for Bulk Buyers',
+      intro:'We make hanging decor in our own workshop, so you buy direct from the source with no layers in between.',
       features:[
         {icon:'icon-mfr', title:'Factory-to-client pricing', text:'Work directly with the source - no middle layers, faster answers, better pricing.'},
         {icon:'icon-palette', title:'Made-to-Brief Design', text:'Colours, motifs and lengths built to your brief - from brand palettes to festive themes.'},
@@ -27,13 +27,13 @@ function defaultSectionCopy() {
       ]
     },
     collection: {
-      label:'Our Collection', title:'Product Collection',
-      intro:'Explore decorative hanging categories for bulk supply, event decor and wholesale requirements.',
+      label:'Our Collection', title:'Hanging Decor for Every Event',
+      intro:'Browse the categories we make in bulk. Every piece is hand-finished in our Howrah workshop.',
       note:'Need something specific? '
     },
     customOrders: {
-      label:'Made to Order', title:'Custom Hanging Decor for Your Requirement',
-      intro:'Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging decor solutions for event projects, wholesale orders and organisational requirements.',
+      label:'Made to Order', title:'Custom Hanging Decor, Made to Your Brief',
+      intro:'Share your colours, sizes, quantity and design direction. We will suit a hanging decor solution to your event, wholesale or organisational requirement.',
       image:'assets/images/custom-orders.jpg',
       chips:[
         {icon:'icon-palette', text:'Colour matching'},
@@ -48,8 +48,8 @@ function defaultSectionCopy() {
       ]
     },
     about: {
-      label:'About JHALAR', title:'Handcrafted, Made for Business Buyers',
-      intro:'JHALAR works directly with business buyers, event teams and wholesale clients to source decorative hanging solutions that match their project, scale and budget.',
+      label:'About JHALAR', title:'Handmade in Howrah, Supplied Across India',
+      intro:'JHALAR is a manufacturer and wholesale supplier of handcrafted decorative hangings, based in Howrah, West Bengal. We work directly with business buyers, event teams and wholesale clients across India.',
       image:'assets/images/about-collage.jpg',
       values:[
         {icon:'icon-check', text:'Hand-finished detailing'},
@@ -60,9 +60,9 @@ function defaultSectionCopy() {
     faq: {label:'FAQ', title:'Frequently Asked Questions'},
     contact: {
       label:'Get in Touch', title:'Start a B2B Enquiry',
-      intro:'Share your requirement and our team can discuss suitable options with you.'
+      intro:'Share your requirement and we will reply with pricing, availability and a dispatch estimate.'
     },
-    footerTagline:'Factory-direct decorative hangings for events, retailers and wholesalers across India.'
+    footerTagline:'Handmade hanging decor from Howrah, supplied in bulk across India.'
   };
 }
 
@@ -203,8 +203,8 @@ async function loadPublishedData() {
     state.settings.footerNavItems = state.footerNavItems;
     state.settings.socialLinks = state.socialLinks;
     state.settings.sectionCopy = state.sectionCopy;
-    state.heroHighlights = state.settings.heroHighlights||[{text:'Made-to-order colourways',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotations',icon:'icon-route'}];
-    state.trustItems = state.settings.trustItems||[{label:'Manufacturer-direct supply',icon:'icon-mfr'},{label:'Design & sampling support',icon:'icon-design'},{label:'Pan-India dispatch',icon:'icon-location'}];
+    state.heroHighlights = state.settings.heroHighlights||[{text:'Handmade in Howrah',icon:'icon-check'},{text:'Bulk-ready finishing',icon:'icon-clock'},{text:'Fast quotations',icon:'icon-route'}];
+    state.trustItems = state.settings.trustItems||[{label:'Manufacturer-direct supply',icon:'icon-mfr'},{label:'Design and sampling support',icon:'icon-design'},{label:'Dispatch across India',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
       {q:'Do you supply decorative hangings in bulk?',a:'Yes, we focus on bulk supply requirements for event decorators, wholesalers, retailers, and organisations.'},
       {q:'Can I discuss custom colours and designs?',a:'Custom colour and design discussions are available for suitable order quantities. Share your project requirements with us.'},
@@ -1273,6 +1273,15 @@ function restoreGitHubToken() {
   try { const s = localStorage.getItem('jhalar_github_token'); if (s) { state.githubToken = atob(s); setVal('ed-github-token', state.githubToken); updateTokenStatus('Token restored','ok'); } } catch(e) {}
 }
 function saveGitHubToken() { if (state.githubToken) { try { localStorage.setItem('jhalar_github_token', btoa(state.githubToken)); } catch(e) {} } }
+function deleteGitHubToken() {
+  if (!confirm('Remove the saved GitHub token from this browser?')) return;
+  state.githubToken = null;
+  try { localStorage.removeItem('jhalar_github_token'); } catch(e) {}
+  const t = document.getElementById('ed-github-token');
+  if (t) t.value = '';
+  updateTokenStatus('Token removed','');
+  showToast('GitHub token deleted','success');
+}
 async function testGitHubToken() {
   const t = getVal('ed-github-token').trim(); if (!t) { updateTokenStatus('Enter a token','bad'); return; }
   state.githubToken = t; saveGitHubToken();
@@ -1296,7 +1305,14 @@ async function publishToGitHub() {
   const log = document.getElementById('progress-log');
 
   const token = getVal('ed-github-token').trim();
-  if (!token) { showToast('Enter GitHub token first','error'); return; }
+  if (!token) { showToast('Enter GitHub token first','error'); openPublishTab(); return; }
+
+  // Confirm before publishing to main - this fires a real GitHub commit.
+  if (!confirm('Publish your edits to the live site?\n\nThis commits site-settings.json, theme.json, products.json, sections.json and custom-css.json to the main branch and rebuilds GitHub Pages.')) {
+    updateTokenStatus('Publish cancelled','');
+    return;
+  }
+
   state.githubToken = token; saveGitHubToken();
   collectAllData();
 

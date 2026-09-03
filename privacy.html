@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | JHALAR Hanging Decor</title>
+    <meta name="description" content="How JHALAR Hanging Decor collects, uses, protects and handles the information you share when you make a B2B enquiry on our website.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lokeshdugar040.github.io/jhalar-hanging-decor/privacy.html">
+    <meta name="theme-color" content="#C82039">
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background: linear-gradient(180deg, #fffdf9 0%, #fffaf2 100%);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #FFFAF1 0%, #FFF5E6 100%);
+            font-family: var(--sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
             line-height: 1.7;
             color: #141942;
         }
-        .container {
+        .privacy-page {
             max-width: 800px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: calc(var(--header-h, 72px) + 3rem) 2rem 4rem;
         }
         h1 {
-            font-size: 2.5rem;
-            color: #c82039;
+            font-size: clamp(1.75rem, 1.4rem + 2vw, 2.5rem);
+            color: #C82039;
             margin-bottom: 1rem;
         }
         h2 {
-            font-size: 1.5rem;
-            color: #c82039;
+            font-size: clamp(1.25rem, 1.1rem + 1vw, 1.5rem);
+            color: #C82039;
             margin-top: 2rem;
         }
         p {
             margin: 1rem 0;
             color: rgba(20, 25, 66, 0.8);
+            max-width: none;
         }
         ul {
             margin: 1rem 0;
             padding-left: 2rem;
+            list-style: disc;
         }
         li {
             margin: 0.5rem 0;
@@ -42,26 +48,30 @@
         .back-link {
             display: inline-block;
             margin-top: 2rem;
-            color: #c82039;
+            color: #C82039;
             text-decoration: none;
             font-weight: 600;
         }
         .back-link:hover {
             text-decoration: underline;
         }
+        .footer-social a, .contact-list a {
+            color: rgba(20, 25, 66, 0.8);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="privacy-page">
         <h1>Privacy Policy</h1>
         <p><strong>Last Updated:</strong> September 1, 2026</p>
-        
+
         <h2>1. Information We Collect</h2>
         <p>When you submit a B2B enquiry through our website, we collect:</p>
         <ul>
             <li>Your name and contact information (phone, email)</li>
             <li>Company or organisation name</li>
-            <li>Product requirements and specifications</li>
+            <li>Buyer type and requirement category</li>
+            <li>Estimated quantity and required-by date</li>
             <li>Any additional information you provide in your message</li>
         </ul>
 
@@ -77,7 +87,7 @@
         <h2>3. Information Sharing</h2>
         <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only:</p>
         <ul>
-            <li>With service providers who assist in our operations (e.g., hosting providers)</li>
+            <li>With service providers who assist in our operations (for example, hosting providers)</li>
             <li>When required by law or to protect our rights</li>
         </ul>
 
@@ -90,22 +100,20 @@
             <li>Access your personal information</li>
             <li>Request correction of inaccurate data</li>
             <li>Request deletion of your data</li>
-            <li>Opt-out of marketing communications</li>
+            <li>Opt out of marketing communications</li>
         </ul>
 
         <h2>6. Contact Us</h2>
         <p>If you have questions about this privacy policy or your personal data, please contact us:</p>
         <ul>
-            <li>Email: lokeshdugar040@gmail.com</li>
-            <li>WhatsApp: +91 98765 43210</li>
-            <li>Location: Howrah, West Bengal, India</li>
+            <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-email"/></svg> Email: <a href="mailto:lokeshdugar040@gmail.com" data-mailto><span data-contact="email">lokeshdugar040@gmail.com</span></a></li>
+            <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-phone"/></svg> WhatsApp: <a href="https://wa.me/918100656258" data-wa target="_blank" rel="noopener noreferrer"><span data-contact="phone">+91 81006 56258</span></a></li>
+            <li><svg class="icon" aria-hidden="true" width="18" height="18"><use href="assets/icons.svg#icon-location"/></svg> Location: <span data-contact="location">Howrah, West Bengal, India</span></li>
         </ul>
 
-        <a href="index.html" class="back-link">&lt;- Back to Website</a>
+        <a href="index.html" class="back-link">Back to Website</a>
     </div>
 
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <script src="contact-sync.js" defer></script>
 </body>
 </html>
