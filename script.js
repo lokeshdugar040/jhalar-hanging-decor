@@ -9,7 +9,7 @@ let settings = {
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
   heroHeadline: "Decorative Hanging Solutions for Events & Businesses",
-  heroIntro: "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive decor, and custom projects across India.",
+  heroIntro: "Handcrafted decorative hangings, manufactured in India and supplied to businesses nationwide — for bulk orders, event installations, festive decor and custom projects.",
   heroImage: "assets/images/hero-jhalar.jpg",
   siteTitle: "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
   siteDescription: "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
@@ -28,19 +28,19 @@ let settings = {
       features:[
         {icon:"icon-mfr", title:"Factory-to-client pricing", text:"Work directly with the source — no middle layers, faster answers, better pricing."},
         {icon:"icon-palette", title:"Made-to-Brief Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
-        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From dozens to thousands of pieces — suitable for event, wholesale, retail and organisational requirements."}
+        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From a few dozen to several thousand pieces — sized for events, wholesale, retail and institutional orders."}
       ]
     },
     collection: {
       label:"Our Collection",
       title:"Product Collection",
-      intro:"Explore decorative hanging categories for bulk supply, event decor and wholesale requirements.",
+      intro:"Browse our hanging decor categories for bulk supply, event styling and wholesale orders.",
       note:"Need something specific? "
     },
     customOrders: {
       label:"Made to Order",
       title:"Custom Hanging Decor for Your Requirement",
-      intro:"Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging decor solutions for event projects, wholesale orders and organisational requirements.",
+      intro:"Share your colours, sizes, quantity and design direction — decorative hangings tailored to your event, wholesale or institutional project.",
       image:"assets/images/custom-orders.jpg",
       chips:[
         {icon:"icon-palette", text:"Colour matching"},
@@ -57,7 +57,7 @@ let settings = {
     about: {
       label:"About JHALAR",
       title:"Handcrafted, Made for Business Buyers",
-      intro:"JHALAR works directly with business buyers, event teams and wholesale clients to source decorative hanging solutions that match their project, scale and budget.",
+      intro:"JHALAR works directly with business buyers, event teams and wholesale clients to source decorative hangings that fit their project, scale and budget.",
       image:"assets/images/about-collage.jpg",
       values:[
         {icon:"icon-check", text:"Hand-finished detailing"},
