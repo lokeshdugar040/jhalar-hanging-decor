@@ -4,4 +4,10 @@
 User-agent: *
 Allow: /
 
+# Private / admin tooling - not for search engines
+Disallow: /editor.html
+Disallow: /content/
+Disallow: /assets/fonts/manifest.json
+Disallow: /assets/images/manifest.json
+
 Sitemap: https://lokeshdugar040.github.io/jhalar-hanging-decor/sitemap.xml

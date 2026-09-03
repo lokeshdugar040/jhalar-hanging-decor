@@ -8,19 +8,19 @@ let settings = {
   email: "lokeshdugar040@gmail.com",
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
-  heroHeadline: "Decorative Hanging Solutions for Events & Businesses",
-  heroIntro: "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive decor, and custom projects across India.",
+  heroHeadline: "Hanging decor handmade in Howrah, supplied in bulk across India",
+  heroIntro: "JHALAR makes decorative hangings by hand in Howrah, West Bengal. We supply pom pom garlands, floral jhalars, bell hangings, torans and tassels to event teams, retailers and wholesalers across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
-  siteTitle: "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
-  siteDescription: "JHALAR manufactures handcrafted decorative hangings - pom pom garlands, floral jhalars, bell hangings, torans and tassels - for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
+  siteTitle: "JHALAR Hanging Decor | Made in Howrah, Bulk Supply Across India",
+  siteDescription: "Handmade decorative hangings from Howrah, India. Pom pom garlands, floral jhalars, bell hangings, torans and tassels supplied in bulk across India.",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
   footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
   socialLinks: {instagram:{url:"#",label:"Instagram"},facebook:{url:"#",label:"Facebook"},whatsapp:{url:"https://wa.me/918100656258",label:"WhatsApp"}},
   sectionCopy: {
-    heroTag: {icon:"icon-mfr", text:"Direct Manufacturer | B2B Supply"},
-    heroPrimary: {label:"Explore Product Collection", href:"#collection"},
-    heroSecondary: {label:"WhatsApp for B2B Enquiry", href:"https://wa.me/918100656258"},
+    heroTag: {icon:"icon-mfr", text:"Direct Manufacturer | Bulk Supply | Howrah"},
+    heroPrimary: {label:"Explore the Collection", href:"#collection"},
+    heroSecondary: {label:"WhatsApp for a Quote", href:"https://wa.me/918100656258"},
     why: {
       label:"Why JHALAR",
       title:"Built for Events & Wholesale Decor",
@@ -71,7 +71,7 @@ let settings = {
       title:"Start a B2B Enquiry",
       intro:"Share your requirement and our team can discuss suitable options with you."
     },
-    footerTagline:"Factory-direct decorative hangings for events, retailers and wholesalers across India."
+    footerTagline:"Handmade hanging decor from Howrah, supplied in bulk across India."
   }
 };
 
@@ -156,6 +156,7 @@ async function init() {
   setupAccordions();
   setupModal();
   updateYear();
+  setDateMinToday();
   setupReveal();
   setupEnquiryForm();
 
@@ -349,6 +350,13 @@ function applyCustomCSS() {
   el.textContent = customCSS || '';
 }
 
+function readablePhone(raw) {
+  let d = String(raw || '').replace(/\D/g, '');
+  if (d.startsWith('91') && d.length === 12) d = d.slice(2);
+  if (d.length === 10) return '+91 ' + d.slice(0,5) + ' ' + d.slice(5);
+  return String(raw || '');
+}
+
 function applyNavigation() {
   // Desktop nav
   const navList = document.querySelector('.desktop-nav .nav-list');
@@ -372,9 +380,9 @@ function applyNavigation() {
   if (socialContainer && settings.socialLinks) {
     socialContainer.innerHTML = '';
     const sl = settings.socialLinks;
-    if (sl.instagram) socialContainer.innerHTML += `<li><a href="${esc(sl.instagram.url)}" aria-label="Instagram"><i class="fab fa-instagram"></i> ${esc(sl.instagram.label)}</a></li>`;
-    if (sl.facebook) socialContainer.innerHTML += `<li><a href="${esc(sl.facebook.url)}" aria-label="Facebook"><i class="fab fa-facebook"></i> ${esc(sl.facebook.label)}</a></li>`;
-    if (sl.whatsapp) socialContainer.innerHTML += `<li><a href="${esc(sl.whatsapp.url)}" data-wa target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> ${esc(sl.whatsapp.label)}</a></li>`;
+    if (sl.instagram && sl.instagram.url && sl.instagram.url !== '#') socialContainer.innerHTML += `<li><a href="${esc(sl.instagram.url)}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i> ${esc(sl.instagram.label)}</a></li>`;
+    if (sl.facebook && sl.facebook.url && sl.facebook.url !== '#') socialContainer.innerHTML += `<li><a href="${esc(sl.facebook.url)}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i> ${esc(sl.facebook.label)}</a></li>`;
+    if (sl.whatsapp) socialContainer.innerHTML += `<li><a href="${esc(sl.whatsapp.url)}" data-wa target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> ${esc(sl.whatsapp.label)}</a></li>`;
   }
 }
 
@@ -409,37 +417,90 @@ function showFallbackProducts() {
 function renderProducts(productList) {
   const grid = document.getElementById('product-grid');
   if (!grid) return;
+  const resultCount = document.getElementById('result-count');
   if (!productList || !productList.length) {
-    grid.innerHTML = '<p style="text-align:center;color:#666;padding:2rem;">No products available right now. Please WhatsApp us for the latest catalog.</p>';
+    showEmptyState(grid, 'No products are available right now.', 'Please WhatsApp us for the latest catalogue.');
+    if (resultCount) resultCount.textContent = '0 products';
     return;
   }
-  grid.innerHTML = productList.map(p => `
+  const list = productList.map(p => `
     <div class="product-card" data-category="${esc(p.category)}">
-      <div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.title)} - ${esc(p.category)}" width="1080" height="1080" loading="lazy" decoding="async"></div>
+      <div class="product-image"><button type="button" class="product-image-btn" data-product-id="${p.id}" aria-label="View ${esc(p.title)}" aria-haspopup="dialog"><img src="${esc(p.image)}" alt="${esc(p.title)} - ${esc(p.category)}" width="1080" height="1080" loading="lazy" decoding="async"></button></div>
       <div class="product-info">
         <span class="product-category">${esc(p.category)}</span>
-        <h3 class="product-title">${esc(p.title)}</h3>
+        <h3 class="product-title"><button type="button" class="product-title-btn" data-product-id="${p.id}" aria-haspopup="dialog">${esc(p.title)}</button></h3>
         <p class="product-desc">${esc(p.description)}</p>
         <span class="product-meta">${esc(p.b2bTag)}</span>
-        <button class="btn btn-primary product-details-btn" data-product-id="${p.id}" style="margin-top:1rem;width:100%;">View Details</button>
+        <button class="btn btn-primary product-details-btn" data-product-id="${p.id}" aria-haspopup="dialog">View Details</button>
       </div>
     </div>
   `).join('');
-  grid.querySelectorAll('.product-details-btn').forEach(b => b.addEventListener('click', () => openProductModal(Number(b.dataset.productId))));
+  grid.innerHTML = list;
+  if (resultCount) resultCount.textContent = productList.length + (productList.length === 1 ? ' product' : ' products');
+  bindProductCardButtons(grid);
+}
+
+function bindProductCardButtons(root) {
+  root.querySelectorAll('.product-details-btn, .product-image-btn, .product-title-btn').forEach(b => {
+    b.addEventListener('click', () => openProductModal(Number(b.dataset.productId)));
+  });
+}
+
+function showEmptyState(grid, title, note) {
+  const div = document.createElement('div');
+  div.className = 'empty-state';
+  div.id = 'empty-state';
+  div.innerHTML = '<p>' + esc(title) + '</p><p class="empty-state-note">' + esc(note) + '</p>';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'btn btn-outline';
+  btn.id = 'clear-filter-reset';
+  btn.textContent = 'Show all products';
+  btn.addEventListener('click', () => {
+    const all = document.querySelector('.filter-btn[data-filter="all"]');
+    if (all) all.click();
+  });
+  div.appendChild(btn);
+  grid.innerHTML = '';
+  grid.appendChild(div);
 }
 
 function setupFilterButtons() {
-  const btns = document.querySelectorAll('.filter-btn');
-  if (!btns.length) return;
+  // Rebuild chips from the real catalogue so a renamed category cannot strand products.
+  const container = document.getElementById('product-filters');
+  if (!container) return;
+  const cats = Array.from(new Set(products.map(p => p.category).filter(Boolean)));
+  let html = '<button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Products</button>';
+  html += cats.map(c => `<button class="filter-btn" data-filter="${esc(c)}" role="tab" aria-selected="false">${esc(c)}</button>`).join('');
+  container.innerHTML = html;
+  const btns = container.querySelectorAll('.filter-btn');
   btns.forEach(b => b.addEventListener('click', () => {
-    btns.forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
-    b.classList.add('active'); b.setAttribute('aria-selected','true');
+    btns.forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected', 'false'); });
+    b.classList.add('active');
+    b.setAttribute('aria-selected', 'true');
     filterProducts(b.dataset.filter);
   }));
 }
 
 function filterProducts(cat) {
-  document.querySelectorAll('.product-card').forEach(c => c.style.display = (cat === 'all' || c.dataset.category === cat) ? 'block' : 'none');
+  const cards = document.querySelectorAll('.product-card');
+  const grid = document.getElementById('product-grid');
+  let visible = 0;
+  cards.forEach(c => {
+    const show = (cat === 'all' || c.dataset.category === cat);
+    c.hidden = !show;
+    if (show) visible++;
+  });
+  const resultCount = document.getElementById('result-count');
+  if (resultCount) resultCount.textContent = visible + (visible === 1 ? ' product' : ' products');
+  let empty = grid ? grid.querySelector('.empty-state') : null;
+  if (visible === 0) {
+    if (!empty) {
+      showEmptyState(grid, 'No products match this category.', 'Try another category or browse the full collection.');
+    }
+  } else if (empty) {
+    empty.remove();
+  }
 }
 
 // ===== UI SETUP =====
@@ -452,41 +513,96 @@ function setupMobileNav() {
     toggle.setAttribute('aria-expanded', String(!exp));
     nav.classList.toggle('open');
   });
-  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }));
+  // Event-delegated so links re-rendered by applyNavigation() still close the nav.
+  document.addEventListener('click', (e) => {
+    if (!nav.classList.contains('open')) return;
+    const link = e.target.closest('.mobile-nav a');
+    if (!link) return;
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  });
 }
 
 function setupAccordions() {
-  document.querySelectorAll('.accordion-header').forEach(h => h.addEventListener('click', () => {
-    const exp = h.getAttribute('aria-expanded') === 'true';
-    document.querySelectorAll('.accordion-header').forEach(x => { x.setAttribute('aria-expanded','false'); const c = document.getElementById(x.getAttribute('aria-controls')); if (c) c.hidden = true; });
-    if (!exp) { h.setAttribute('aria-expanded','true'); const c = document.getElementById(h.getAttribute('aria-controls')); if (c) c.hidden = false; }
-  }));
+  // Event-delegated. applySiteSettings() rebuilds the .accordion markup, so bind
+  // once on the container and let every (current and future) header use it.
+  const acc = document.querySelector('.accordion');
+  if (!acc) return;
+  acc.addEventListener('click', (e) => {
+    const header = e.target.closest('.accordion-header');
+    if (!header) return;
+    const wasOpen = header.getAttribute('aria-expanded') === 'true';
+    acc.querySelectorAll('.accordion-header').forEach(x => {
+      x.setAttribute('aria-expanded', 'false');
+      const c = document.getElementById(x.getAttribute('aria-controls'));
+      if (c) c.hidden = true;
+    });
+    if (!wasOpen) {
+      header.setAttribute('aria-expanded', 'true');
+      const c = document.getElementById(header.getAttribute('aria-controls'));
+      if (c) c.hidden = false;
+    }
+  });
 }
 
 function setupModal() {
   const modal = document.getElementById('product-modal');
   const close = document.getElementById('modal-close');
   if (!modal || !close) return;
+
+  function trapFocus(e) {
+    if (modal.getAttribute('aria-hidden') !== 'false') return;
+    if (e.key !== 'Tab') return;
+    const focusables = modal.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    else if (!modal.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+  }
+
   close.addEventListener('click', () => closeModal(modal));
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(modal); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(modal); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(modal);
+  });
+  document.addEventListener('keydown', trapFocus);
 }
 
-function closeModal(modal) { modal.setAttribute('aria-hidden','true'); modal.style.display = 'none'; document.body.style.overflow = ''; }
+function closeModal(modal) {
+  modal.setAttribute('aria-hidden', 'true');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+  // Restore focus to whatever opened the modal (stored by openProductModal).
+  const last = modal._lastFocus;
+  if (last && typeof last.focus === 'function') {
+    try { last.focus(); } catch(e) {}
+  }
+  modal._lastFocus = null;
+}
 
 function openProductModal(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
   const modal = document.getElementById('product-modal');
   if (!modal) return;
-  const s = (id, t) => { const e = document.getElementById(id); if (e) e.textContent = t; };
-  s('modal-title', p.title); s('modal-category', p.category); s('modal-desc', p.description); s('modal-tag', p.b2bTag);
+  const s = (id, t) => { const e = document.getElementById(id); if (e) e.textContent = t == null ? '' : t; };
+  // Guard against shipping the placeholder text or the literal string "undefined".
+  s('modal-title', p.title && String(p.title).indexOf('undefined') === -1 ? p.title : '');
+  s('modal-category', p.category && String(p.category).indexOf('undefined') === -1 ? p.category : '');
+  s('modal-desc', p.description && String(p.description).indexOf('undefined') === -1 ? p.description : '');
+  s('modal-tag', p.b2bTag && String(p.b2bTag).indexOf('undefined') === -1 ? p.b2bTag : '');
   const ph = document.getElementById('modal-photo');
-  if (ph) { ph.src = p.image; ph.alt = p.title; }
+  if (ph) { ph.src = p.image; ph.alt = p.title || ''; }
   const wa = document.getElementById('modal-wa-btn');
   if (wa) wa.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Hello JHALAR, I\'m interested in the "'+p.title+'" ('+p.category+'). Please share bulk pricing and availability.')}`;
-  modal.setAttribute('aria-hidden','false'); modal.style.display = 'flex'; document.body.style.overflow = 'hidden';
-  const cb = document.getElementById('modal-close'); if (cb) cb.focus();
+  modal._lastFocus = document.activeElement;
+  modal.setAttribute('aria-hidden', 'false');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  const cb = document.getElementById('modal-close');
+  if (cb) cb.focus();
 }
 
 function svgIcon(name, cls, size) {
@@ -502,12 +618,14 @@ function setText(sel, text, asHtml) {
 function applySiteSettings() {
   const copy = settings.sectionCopy || {};
 
-  document.querySelectorAll('[data-contact]').forEach(el => { const k = el.dataset.contact; if (settings[k]) el.textContent = settings[k]; });
-  document.querySelectorAll('a[data-wa]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}`; });
-  document.querySelectorAll('a[data-wa-msg]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(a.dataset.waMsg||'Hello JHALAR, I would like a B2B quotation.')}`; });
-  document.querySelectorAll('a[data-tel]').forEach(a => { a.href = `tel:+${String(settings.whatsapp).replace(/\\D/g,'')}`; });
+  document.querySelectorAll('[data-contact]').forEach(el => { const k = el.dataset.contact; if (settings[k]) el.textContent = k === 'phone' ? readablePhone(settings[k]) : settings[k]; });
+  document.querySelectorAll('a[data-wa]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}`; a.target = '_blank'; a.rel = 'noopener noreferrer'; });
+  document.querySelectorAll('a[data-wa-msg]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(a.dataset.waMsg||'Hello JHALAR, I would like a B2B quotation.')}`; a.target = '_blank'; a.rel = 'noopener noreferrer'; });
+  document.querySelectorAll('a[data-tel]').forEach(a => { a.href = `tel:+${String(settings.whatsapp).replace(/\D/g,'')}`; });
   document.querySelectorAll('a[data-mailto]').forEach(a => { a.href = `mailto:${settings.email}`; });
-
+  if (settings.phone) {
+    document.querySelectorAll('[data-contact="phone"]').forEach(el => { el.textContent = readablePhone(settings.phone); });
+  }
   // Hero
   if (settings.heroHeadline) setText('.hero-title', settings.heroHeadline);
   if (settings.heroIntro) setText('.hero-desc', settings.heroIntro);
@@ -640,13 +758,37 @@ function setupReveal() {
   fn(); window.addEventListener('scroll', fn, { passive: true });
 }
 
+function setDateMinToday() {
+  const d = document.getElementById('date');
+  if (!d) return;
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  d.min = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+}
+
 function setupEnquiryForm() {
   const form = document.getElementById('enquiry-form');
   if (!form) return;
-  form.querySelectorAll('input[required], select[required], textarea[required]').forEach(i => i.addEventListener('blur', () => { i.style.borderColor = i.validity.valid ? '#4caf50' : '#f44336'; }));
+  form.querySelectorAll('input, select, textarea').forEach(i => {
+    i.addEventListener('blur', () => {
+      if (i.required) {
+        if (i.validity.valid) { clearFieldError(i); }
+        else setFieldError(i, fieldMessage(i));
+      }
+    });
+  });
   form.addEventListener('submit', e => {
     e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const errors = validateForm(form);
+    if (errors.length) {
+      const first = errors[0];
+      const summary = document.getElementById('form-error-summary');
+      if (summary) {
+        summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (first) { first.focus(); }
+      return;
+    }
     const v = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
     const lines = ['*New B2B Enquiry - JHALAR Website*','',`*Name:* ${v('name')}`];
     if (v('company')) lines.push(`*Company:* ${v('company')}`);
@@ -656,10 +798,105 @@ function setupEnquiryForm() {
     if (v('quantity')) lines.push(`*Quantity:* ${v('quantity')}`);
     if (v('date')) lines.push(`*Required By:* ${v('date')}`);
     if (v('details')) lines.push(`*Details:* ${v('details')}`);
-    window.open(`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lines.join('\\n'))}`, '_blank', 'noopener');
+    // Send a real newline so the enquiry arrives as readable lines, not one block.
+    const url = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
+    const opened = window.open(url, '_blank', 'noopener');
     const st = document.getElementById('form-status');
-    if (st) { st.textContent = 'WhatsApp opened with your enquiry pre-filled - just press send.'; st.classList.add('visible'); }
+    if (opened) {
+      if (st) { st.textContent = 'WhatsApp opened with your enquiry pre-filled - just press send.'; st.classList.add('visible'); }
+    } else if (st) {
+      // Popup blocked: surface a direct link instead of silently failing.
+      st.textContent = 'Your browser blocked the popup. Tap here to open WhatsApp: ';
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Open WhatsApp enquiry';
+      st.appendChild(link);
+      st.classList.add('visible');
+    }
   });
+}
+
+const FIELD_LABELS = {
+  name: 'Full Name', company: 'Company / Organisation Name', 'buyer-type': 'Buyer Type',
+  phone: 'Phone / WhatsApp Number', email: 'Email Address', location: 'City and State',
+  category: 'Requirement Category', quantity: 'Estimated Quantity', date: 'Required-By Date',
+  details: 'Requirement Details'
+};
+
+function fieldMessage(field) {
+  const label = FIELD_LABELS[field.name] || field.name;
+  if (field.validity.valueMissing) return 'Please enter your ' + label + '.';
+  if (field.validity.typeMismatch && field.type === 'email') return 'Please enter a valid email address.';
+  if (field.validity.typeMismatch && field.type === 'tel') return 'Please enter a valid phone number.';
+  if (field.validity.typeMismatch) return 'Please check this field looks correct.';
+  if (field.validity.rangeUnderflow || field.validity.rangeOverflow) return 'Please enter a value within the allowed range.';
+  if (field.validity.tooShort) return 'Please enter at least ' + field.minLength + ' characters.';
+  if (field.validity.tooLong) return 'Please use ' + field.maxLength + ' characters or fewer.';
+  if (field.validity.patternMismatch) return 'Please match the requested format.';
+  return 'Please check this field.';
+}
+
+function setFieldError(field, msg) {
+  if (!msg) { clearFieldError(field); return; }
+  field.setAttribute('aria-invalid', 'true');
+  let err = document.getElementById(field.id + '-error');
+  if (!err) {
+    err = document.createElement('p');
+    err.id = field.id + '-error';
+    err.className = 'field-error';
+    const group = field.closest('.form-group');
+    if (group) group.appendChild(err);
+  }
+  err.textContent = msg;
+  err.hidden = false;
+  if (field.id) field.setAttribute('aria-describedby', field.id + '-error');
+}
+
+function clearFieldError(field) {
+  field.setAttribute('aria-invalid', 'false');
+  const err = document.getElementById(field.id + '-error');
+  if (err) { err.textContent = ''; err.hidden = true; }
+}
+
+function validateForm(form) {
+  const fields = form.querySelectorAll('input, select, textarea');
+  const errors = [];
+  fields.forEach(f => {
+    if (f.required && !f.validity.valid) {
+      setFieldError(f, fieldMessage(f));
+      errors.push(f);
+    } else {
+      clearFieldError(f);
+    }
+  });
+  const summary = document.getElementById('form-error-summary');
+  if (summary) {
+    if (errors.length) {
+      summary.innerHTML = '';
+      const lead = document.createElement('p');
+      lead.id = 'form-error-summary-count';
+      lead.textContent = 'There ' + (errors.length === 1 ? 'is 1 error' : 'are ' + errors.length + ' errors') + ' in the form below.';
+      summary.appendChild(lead);
+      const list = document.createElement('ul');
+      errors.forEach(f => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + f.id;
+        a.textContent = FIELD_LABELS[f.name] || f.name;
+        a.addEventListener('click', function (ev) { ev.preventDefault(); f.focus(); });
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      summary.appendChild(list);
+      summary.hidden = false;
+    } else {
+      summary.hidden = true;
+      summary.innerHTML = '';
+    }
+  }
+  return errors;
 }
 
 function setupSmoothScroll() {

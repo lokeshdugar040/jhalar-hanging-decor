@@ -4,11 +4,11 @@
   "email": "lokeshdugar040@gmail.com",
   "location": "Howrah, West Bengal, India",
   "gst": "Available on request",
-  "heroHeadline": "Decorative Hanging Solutions for Events & Businesses",
-  "heroIntro": "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive decor, and custom projects across India.",
+  "heroHeadline": "Hanging decor handmade in Howrah, supplied in bulk across India",
+  "heroIntro": "JHALAR makes decorative hangings by hand in Howrah, West Bengal. We supply pom pom garlands, floral jhalars, bell hangings, torans and tassels to event teams, retailers and wholesalers across India.",
   "heroImage": "assets/images/hero-jhalar.jpg",
-  "siteTitle": "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
-  "siteDescription": "JHALAR manufactures handcrafted decorative hangings - pom pom garlands, floral jhalars, bell hangings, torans and tassels - for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
+  "siteTitle": "JHALAR Hanging Decor | Made in Howrah, Bulk Supply Across India",
+  "siteDescription": "Handmade decorative hangings from Howrah, India: pom pom garlands, floral jhalars, bell hangings, torans and tassels. Bulk supply for events, retailers and wholesalers across India.",
   "ogImage": "assets/images/og-cover.jpg",
   "navItems": [
     {
@@ -67,11 +67,11 @@
   "heroHighlights": [
     {
       "icon": "icon-check",
-      "text": "Made-to-order colourways"
+      "text": "Handmade in Howrah"
     },
     {
       "icon": "icon-clock",
-      "text": "Event-ready finishing"
+      "text": "Bulk-ready finishing"
     },
     {
       "icon": "icon-route",
@@ -85,76 +85,88 @@
     },
     {
       "icon": "icon-design",
-      "label": "Design & sampling support"
+      "label": "Design and sampling support"
     },
     {
       "icon": "icon-location",
-      "label": "Pan-India dispatch"
+      "label": "Dispatch across India"
     }
   ],
   "faqItems": [
     {
       "q": "Do you supply decorative hangings in bulk?",
-      "a": "Yes, we focus on bulk supply requirements for event decorators, wholesalers, retailers, and organisations."
+      "a": "Yes. We are set up for bulk supply to event decorators, wholesalers and retailers. Tell us the category and quantity and we will confirm availability and pricing."
     },
     {
-      "q": "Can I discuss custom colours and designs?",
-      "a": "Custom colour and design discussions are available for suitable order quantities. Share your project requirements with us."
+      "q": "Can you make custom colours and designs?",
+      "a": "Yes. For suitable order quantities we can match your palette and build to your design. Share a reference image or colour codes and we will advise what is possible."
     },
     {
-      "q": "How can I enquire about a product collection?",
-      "a": "You can use the B2B enquiry form or contact us directly on WhatsApp."
+      "q": "What is your typical lead time?",
+      "a": "Lead time depends on quantity and design. Standard pieces usually ship faster than custom work. We will confirm a realistic timeline when you share your requirement."
+    },
+    {
+      "q": "Do you dispatch across India?",
+      "a": "Yes. We dispatch to most states across India. Freight is calculated on the destination and order weight, and we share the total before you confirm."
+    },
+    {
+      "q": "How do I get a quotation?",
+      "a": "Send the item, quantity and any custom notes through the enquiry form or WhatsApp. We reply with pricing, availability and a dispatch estimate."
     },
     {
       "q": "Do you work with wholesalers and distributors?",
-      "a": "Yes, we supply wholesalers and distributors. Please provide your business details and expected quantity requirements."
+      "a": "Yes. We supply wholesalers and distributors. Share your business details and expected volumes and we will outline wholesale terms."
+    },
+    {
+      "q": "Do you provide an invoice with GST?",
+      "a": "Yes. We issue a GST invoice with every order. GST registration details are available on request."
     }
   ],
   "sectionCopy": {
     "heroTag": {
       "icon": "icon-mfr",
-      "text": "Direct Manufacturer | B2B Supply"
+      "text": "Direct Manufacturer | Bulk Supply | Howrah"
     },
     "heroPrimary": {
-      "label": "Explore Product Collection",
+      "label": "Explore the Collection",
       "href": "#collection"
     },
     "heroSecondary": {
-      "label": "WhatsApp for B2B Enquiry",
+      "label": "WhatsApp for a Quote",
       "href": "https://wa.me/918100656258"
     },
     "why": {
       "label": "Why JHALAR",
-      "title": "Built for Events & Wholesale Decor",
-      "intro": "Designed for businesses and teams looking for distinctive hanging decor solutions at scale.",
+      "title": "Handmade Decor, Built for Bulk Buyers",
+      "intro": "We make hanging decor in our own workshop, so you buy direct from the source with no layers in between.",
       "features": [
         {
           "icon": "icon-mfr",
-          "title": "Factory-to-client pricing",
-          "text": "Work directly with the source - no middle layers, faster answers, better pricing."
+          "title": "Direct from the workshop",
+          "text": "No middle layers, so you get straight answers, realistic pricing and faster decisions."
         },
         {
           "icon": "icon-palette",
-          "title": "Made-to-Brief Design",
-          "text": "Colours, motifs and lengths built to your brief - from brand palettes to festive themes."
+          "title": "Made to your brief",
+          "text": "Colours, motifs and lengths matched to your palette, theme or reference design."
         },
         {
           "icon": "icon-bulk",
-          "title": "Bulk & Wholesale Ready",
-          "text": "From dozens to thousands of pieces - suitable for event, wholesale, retail and organisational requirements."
+          "title": "Bulk and wholesale ready",
+          "text": "From dozens to thousands of pieces, sized for event, retail and wholesale orders."
         }
       ]
     },
     "collection": {
       "label": "Our Collection",
-      "title": "Product Collection",
-      "intro": "Explore decorative hanging categories for bulk supply, event decor and wholesale requirements.",
+      "title": "Hanging Decor for Every Event",
+      "intro": "Browse the categories we make in bulk. Every piece is hand-finished in our Howrah workshop.",
       "note": "Need something specific? "
     },
     "customOrders": {
       "label": "Made to Order",
-      "title": "Custom Hanging Decor for Your Requirement",
-      "intro": "Share your preferred colours, sizes, quantity and design direction. We can discuss suitable hanging decor solutions for event projects, wholesale orders and organisational requirements.",
+      "title": "Custom Hanging Decor, Made to Your Brief",
+      "intro": "Share your colours, sizes, quantity and design direction. We will suit a hanging decor solution to your event, wholesale or organisational requirement.",
       "image": "assets/images/custom-orders.jpg",
       "chips": [
         {
@@ -163,7 +175,7 @@
         },
         {
           "icon": "icon-ruler",
-          "text": "Size & length options"
+          "text": "Size and length options"
         },
         {
           "icon": "icon-chart",
@@ -174,22 +186,22 @@
       "steps": [
         {
           "title": "Share Your Requirement",
-          "text": "Tell us the product category, quantity and intended application."
+          "text": "Tell us the category, quantity and where the decor will be used."
         },
         {
-          "title": "Confirm Design & Quantity",
-          "text": "Colour preferences, sizing, design references and quantity requirements."
+          "title": "Confirm Design and Quantity",
+          "text": "Agree colours, sizing, references and the exact quantity you need."
         },
         {
           "title": "Get Supply Details",
-          "text": "Get all the details you need to proceed with your sourcing requirement."
+          "text": "Receive pricing, a timeline and dispatch details for your order."
         }
       ]
     },
     "about": {
       "label": "About JHALAR",
-      "title": "Handcrafted, Made for Business Buyers",
-      "intro": "JHALAR works directly with business buyers, event teams and wholesale clients to source decorative hanging solutions that match their project, scale and budget.",
+      "title": "Handmade in Howrah, Supplied Across India",
+      "intro": "JHALAR is a manufacturer and wholesale supplier of handcrafted decorative hangings, based in Howrah, West Bengal. We work directly with business buyers, event teams and wholesale clients across India.",
       "image": "assets/images/about-collage.jpg",
       "values": [
         {
@@ -213,8 +225,8 @@
     "contact": {
       "label": "Get in Touch",
       "title": "Start a B2B Enquiry",
-      "intro": "Share your requirement and our team can discuss suitable options with you."
+      "intro": "Share your requirement and we will reply with pricing, availability and a dispatch estimate."
     },
-    "footerTagline": "Factory-direct decorative hangings for events, retailers and wholesalers across India."
+    "footerTagline": "Handmade hanging decor from Howrah, supplied in bulk across India."
   }
 }
