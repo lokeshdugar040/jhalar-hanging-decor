@@ -12,7 +12,7 @@ let settings = {
   heroIntro: "JHALAR manufactures handcrafted decorative hangings for bulk orders, event installations, wholesale supply, festive decor, and custom projects across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
   siteTitle: "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
-  siteDescription: "JHALAR manufactures handcrafted decorative hangings - pom pom garlands, floral jhalars, bell hangings, torans and tassels - for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
+  siteDescription: "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
   footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
@@ -26,9 +26,9 @@ let settings = {
       title:"Built for Events & Wholesale Decor",
       intro:"Designed for businesses and teams looking for distinctive hanging decor solutions at scale.",
       features:[
-        {icon:"icon-mfr", title:"Factory-to-client pricing", text:"Work directly with the source - no middle layers, faster answers, better pricing."},
-        {icon:"icon-palette", title:"Made-to-Brief Design", text:"Colours, motifs and lengths built to your brief - from brand palettes to festive themes."},
-        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From dozens to thousands of pieces - suitable for event, wholesale, retail and organisational requirements."}
+        {icon:"icon-mfr", title:"Factory-to-client pricing", text:"Work directly with the source — no middle layers, faster answers, better pricing."},
+        {icon:"icon-palette", title:"Made-to-Brief Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
+        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From dozens to thousands of pieces — suitable for event, wholesale, retail and organisational requirements."}
       ]
     },
     collection: {
@@ -94,8 +94,8 @@ let theme = {
     "--brand-footer-text": "#FFFFFF"
   },
   fonts: {
-    heading: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-    body: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+    heading: "'Playfair Display', Georgia, 'Times New Roman', serif",
+    body: "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
   },
   layout: {
     baseFontSize: "16px",
