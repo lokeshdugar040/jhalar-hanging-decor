@@ -8,10 +8,10 @@ let settings = {
   email: "lokeshdugar040@gmail.com",
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
-  heroHeadline: "Decorative Hanging Solutions for Events & Businesses",
+  heroHeadline: "Handcrafted Decorative Hangings for Events & Businesses",
   heroIntro: "Handcrafted decorative hangings, manufactured in India and supplied to businesses nationwide — for bulk orders, event installations, festive decor and custom projects.",
   heroImage: "assets/images/hero-jhalar.jpg",
-  siteTitle: "JHALAR Hanging Decor | B2B Manufacturer & Wholesale Supplier",
+  siteTitle: "JHALAR Hanging Decor | Decorative Hangings Manufacturer & Wholesale Supplier",
   siteDescription: "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
@@ -24,23 +24,23 @@ let settings = {
     why: {
       label:"Why JHALAR",
       title:"Built for Events & Wholesale Decor",
-      intro:"Designed for businesses and teams looking for distinctive hanging decor solutions at scale.",
+      intro:"Distinctive hanging decor, made for the scale of events, retail and wholesale.",
       features:[
-        {icon:"icon-mfr", title:"Factory-to-client pricing", text:"Work directly with the source — no middle layers, faster answers, better pricing."},
-        {icon:"icon-palette", title:"Made-to-Brief Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
+        {icon:"icon-mfr", title:"Factory-to-Client Pricing", text:"Work directly with the source — no middle layers, faster answers, better pricing."},
+        {icon:"icon-palette", title:"Made-to-Order Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
         {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From a few dozen to several thousand pieces — sized for events, wholesale, retail and institutional orders."}
       ]
     },
     collection: {
       label:"Our Collection",
-      title:"Product Collection",
+      title:"Hangings for Every Occasion",
       intro:"Browse our hanging decor categories for bulk supply, event styling and wholesale orders.",
       note:"Need something specific? "
     },
     customOrders: {
       label:"Made to Order",
-      title:"Custom Hanging Decor for Your Requirement",
-      intro:"Share your colours, sizes, quantity and design direction — decorative hangings tailored to your event, wholesale or institutional project.",
+      title:"Custom Hanging Decor for Your Project",
+      intro:"Share your colours, sizes and quantity — we tailor hanging decor to your event, wholesale or institutional project.",
       image:"assets/images/custom-orders.jpg",
       chips:[
         {icon:"icon-palette", text:"Colour matching"},
@@ -49,29 +49,29 @@ let settings = {
       ],
       processLabel:"How it works",
       steps:[
-        {title:"Share Your Requirement", text:"Tell us the product category, quantity and intended application."},
-        {title:"Confirm Design & Quantity", text:"Colour preferences, sizing, design references and quantity requirements."},
-        {title:"Get Supply Details", text:"Get all the details you need to proceed with your sourcing requirement."}
+        {title:"Share Your Brief", text:"Tell us the category, quantity, colours and where it will be used."},
+        {title:"Confirm Design & Quantity", text:"We agree the colours, sizing and design references before production."},
+        {title:"Receive Quote & Lead Time", text:"Get your price and delivery details to take the order forward."}
       ]
     },
     about: {
       label:"About JHALAR",
-      title:"Handcrafted, Made for Business Buyers",
-      intro:"JHALAR works directly with business buyers, event teams and wholesale clients to source decorative hangings that fit their project, scale and budget.",
+      title:"Handcrafted in Howrah, Supplied Across India",
+      intro:"JHALAR works directly with business buyers, event teams and wholesale clients, making decorative hangings to fit their project, scale and budget.",
       image:"assets/images/about-collage.jpg",
       values:[
         {icon:"icon-check", text:"Hand-finished detailing"},
-        {icon:"icon-check", text:"B2B buying support"},
-        {icon:"icon-check", text:"Project-specific guidance"}
+        {icon:"icon-check", text:"Dedicated B2B support"},
+        {icon:"icon-check", text:"Guidance for every project"}
       ]
     },
     faq: {label:"FAQ", title:"Frequently Asked Questions"},
     contact: {
       label:"Get in Touch",
       title:"Start a B2B Enquiry",
-      intro:"Share your requirement and our team can discuss suitable options with you."
+      intro:"Tell us what you need and the team will get back with options, prices and lead times."
     },
-    footerTagline:"Factory-direct decorative hangings for events, retailers and wholesalers across India."
+    footerTagline:"Handcrafted decorative hangings — factory-direct for events, retailers and wholesalers across India."
   }
 };
 
@@ -400,7 +400,7 @@ function applySEO() {
 function showFallbackProducts() {
   products = [
     {id:1,title:"Pink Pom Pom Gota Hanging",category:"Pom Pom Hangings",description:"Vibrant pink pom pom garland with gota fans and a decorative bell.",image:"assets/images/products/pom-pom-pink-gota.jpg",b2bTag:"Bestseller"},
-    {id:7,title:"Marigold Floral Jhalar",category:"Floral Jhalars",description:"Classic orange marigold jhalar for weddings and festive installs.",image:"assets/images/products/floral-marigold-orange.jpg",b2bTag:"Bulk-ready"},
+    {id:7,title:"Marigold Floral Jhalar",category:"Floral Jhalars",description:"Classic orange marigold jhalar for weddings and festive installations.",image:"assets/images/products/floral-marigold-orange.jpg",b2bTag:"Bulk-ready"},
     {id:5,title:"Pink Blossom Bell Hanging",category:"Bell Hangings",description:"Pink blossom garland finished with a golden temple bell.",image:"assets/images/products/bell-pink-blossom.jpg",b2bTag:"Bestseller"},
     {id:9,title:"Mogra Pearl Door Toran",category:"Torans",description:"White mogra-pearl toran with a golden bell centrepiece.",image:"assets/images/products/toran-mogra.jpg",b2bTag:"Premium"}
   ];
@@ -654,7 +654,7 @@ function setupEnquiryForm() {
     if (v('email')) lines.push(`*Email:* ${v('email')}`);
     lines.push(`*City/State:* ${v('location')}`,`*Category:* ${v('category')}`);
     if (v('quantity')) lines.push(`*Quantity:* ${v('quantity')}`);
-    if (v('date')) lines.push(`*Required By:* ${v('date')}`);
+    if (v('date')) lines.push(`*Date Required:* ${v('date')}`);
     if (v('details')) lines.push(`*Details:* ${v('details')}`);
     window.open(`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lines.join('\\n'))}`, '_blank', 'noopener');
     const st = document.getElementById('form-status');
