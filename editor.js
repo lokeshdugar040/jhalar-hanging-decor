@@ -92,9 +92,9 @@ function defaultThemeTemplate() {
     layout: {
       baseFontSize:'16px', sectionY:'96px', cardRadius:'20px', containerWidth:'1140px',
       headerHeight:'72px', productColumns:'3', buttonRadius:'9999px', shadowIntensity:'0.12', revealAnimation:true,
-      headingWeight:'600', headingTracking:'-0.015em', headingLeading:'1.15',
+      headingWeight:'600', headingTracking:'-0.02em', headingLeading:'1.1',
       bodyWeight:'400', bodyTracking:'0', bodyLeading:'1.7',
-      titleSize:'48px', heroTitleSize:'64px', cardTitleSize:'24px',
+      titleSize:'fluid', heroTitleSize:'fluid', cardTitleSize:'fluid',
       cardPad:'24px', gridGap:'24px', sectionHeaderGap:'48px', sectionAlign:'center',
       heroColumns:'split', featureColumns:'3', splitLayout:'split', aboutLayout:'split', processColumns:'3',
       contactLayout:'split', trustLayout:'auto', faqWidth:'740px', footerColumns:'4',
@@ -387,8 +387,8 @@ function populateAllForms() {
     setVal('ed-layout-reveal', l.revealAnimation === false ? 'false' : 'true');
     // Typography
     setVal('ed-font-heading-weight', String(l.headingWeight||'600'));
-    setVal('ed-font-heading-tracking', l.headingTracking||'-0.015em');
-    setVal('ed-font-heading-leading', String(l.headingLeading||'1.15'));
+    setVal('ed-font-heading-tracking', l.headingTracking||'-0.02em');
+    setVal('ed-font-heading-leading', String(l.headingLeading||'1.1'));
     setVal('ed-font-body-weight', String(l.bodyWeight||'400'));
     setVal('ed-font-body-tracking', l.bodyTracking||'0');
     setVal('ed-font-body-leading', String(l.bodyLeading||'1.7'));
@@ -406,9 +406,11 @@ function populateAllForms() {
     setVal('ed-layout-card-pad', parseInt(l.cardPad||'24px',10)||24);
     setVal('ed-layout-grid-gap', parseInt(l.gridGap||'24px',10)||24);
     setVal('ed-layout-section-gap', parseInt(l.sectionHeaderGap||'48px',10)||48);
-    setVal('ed-layout-title-size', parseInt(l.titleSize||'48px',10)||48);
-    setVal('ed-layout-hero-title-size', parseInt(l.heroTitleSize||'64px',10)||64);
-    setVal('ed-layout-card-title-size', parseInt(l.cardTitleSize||'24px',10)||24);
+    const fluidTitle = (v, fallback) => (v && v !== 'fluid') ? parseInt(v,10) : null;
+    const tsz = fluidTitle(l.titleSize), hsz = fluidTitle(l.heroTitleSize), csz = fluidTitle(l.cardTitleSize);
+    setVal('ed-layout-title-size', tsz || 48);
+    setVal('ed-layout-hero-title-size', hsz || 64);
+    setVal('ed-layout-card-title-size', csz || 24);
     setVal('ed-layout-feature-gap', parseInt(l.featureGap||'24px',10)||24);
     setVal('ed-layout-product-gap', parseInt(l.productGap||'24px',10)||24);
     setVal('ed-layout-split-gap', parseInt(l.splitGap||'48px',10)||48);
@@ -427,9 +429,9 @@ function populateAllForms() {
     const cp = document.getElementById('help-card-pad'); if (cp) cp.textContent = getVal('ed-layout-card-pad');
     const gg = document.getElementById('help-grid-gap'); if (gg) gg.textContent = getVal('ed-layout-grid-gap');
     const sg = document.getElementById('help-section-gap'); if (sg) sg.textContent = getVal('ed-layout-section-gap');
-    const ts = document.getElementById('help-title-size'); if (ts) ts.textContent = getVal('ed-layout-title-size');
-    const hs = document.getElementById('help-hero-title-size'); if (hs) hs.textContent = getVal('ed-layout-hero-title-size');
-    const cts = document.getElementById('help-card-title-size'); if (cts) cts.textContent = getVal('ed-layout-card-title-size');
+    const ts = document.getElementById('help-title-size'); if (ts) ts.textContent = tsz ? tsz+'px' : 'Auto (responsive)';
+    const hs = document.getElementById('help-hero-title-size'); if (hs) hs.textContent = hsz ? hsz+'px' : 'Auto (responsive)';
+    const cts = document.getElementById('help-card-title-size'); if (cts) cts.textContent = csz ? csz+'px' : 'Auto (responsive)';
     const fg = document.getElementById('help-feature-gap'); if (fg) fg.textContent = getVal('ed-layout-feature-gap');
     const pg = document.getElementById('help-product-gap'); if (pg) pg.textContent = getVal('ed-layout-product-gap');
     const sgl = document.getElementById('help-split-gap'); if (sgl) sgl.textContent = getVal('ed-layout-split-gap');
@@ -1071,8 +1073,8 @@ function collectAllData() {
   l.revealAnimation = getVal('ed-layout-reveal') !== 'false';
   // Typography
   l.headingWeight = getVal('ed-font-heading-weight') || '600';
-  l.headingTracking = getVal('ed-font-heading-tracking') || '-0.015em';
-  l.headingLeading = getVal('ed-font-heading-leading') || '1.15';
+  l.headingTracking = getVal('ed-font-heading-tracking') || '-0.02em';
+  l.headingLeading = getVal('ed-font-heading-leading') || '1.1';
   l.bodyWeight = getVal('ed-font-body-weight') || '400';
   l.bodyTracking = getVal('ed-font-body-tracking') || '0';
   l.bodyLeading = getVal('ed-font-body-leading') || '1.7';
@@ -1090,9 +1092,11 @@ function collectAllData() {
   l.cardPad = (getVal('ed-layout-card-pad') || '24') + 'px';
   l.gridGap = (getVal('ed-layout-grid-gap') || '24') + 'px';
   l.sectionHeaderGap = (getVal('ed-layout-section-gap') || '48') + 'px';
-  l.titleSize = (getVal('ed-layout-title-size') || '48') + 'px';
-  l.heroTitleSize = (getVal('ed-layout-hero-title-size') || '64') + 'px';
-  l.cardTitleSize = (getVal('ed-layout-card-title-size') || '24') + 'px';
+  // Only save explicit sizes; keep "fluid" when user leaves the auto values untouched.
+  const tsz = getVal('ed-layout-title-size'), hsz = getVal('ed-layout-hero-title-size'), csz = getVal('ed-layout-card-title-size');
+  l.titleSize = (state.theme && state.theme.layout && state.theme.layout.titleSize === 'fluid' && tsz === '48') ? 'fluid' : (Number(tsz)||48)+'px';
+  l.heroTitleSize = (state.theme && state.theme.layout && state.theme.layout.heroTitleSize === 'fluid' && hsz === '64') ? 'fluid' : (Number(hsz)||64)+'px';
+  l.cardTitleSize = (state.theme && state.theme.layout && state.theme.layout.cardTitleSize === 'fluid' && csz === '24') ? 'fluid' : (Number(csz)||24)+'px';
   l.featureGap = (getVal('ed-layout-feature-gap') || '24') + 'px';
   l.productGap = (getVal('ed-layout-product-gap') || '24') + 'px';
   l.splitGap = (getVal('ed-layout-split-gap') || '48') + 'px';

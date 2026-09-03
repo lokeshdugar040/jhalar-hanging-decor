@@ -108,14 +108,14 @@ let theme = {
     shadowIntensity: "0.12",
     revealAnimation: true,
     headingWeight: "600",
-    headingTracking: "-0.015em",
-    headingLeading: "1.15",
+    headingTracking: "-0.02em",
+    headingLeading: "1.1",
     bodyWeight: "400",
     bodyTracking: "0",
     bodyLeading: "1.7",
-    titleSize: "48px",
-    heroTitleSize: "64px",
-    cardTitleSize: "24px",
+    titleSize: "fluid",
+    heroTitleSize: "fluid",
+    cardTitleSize: "fluid",
     cardPad: "24px",
     gridGap: "24px",
     sectionHeaderGap: "48px",
@@ -279,9 +279,9 @@ function applyTheme() {
     if (l.bodyWeight) root.style.setProperty('--body-weight', l.bodyWeight);
     if (l.bodyTracking) root.style.setProperty('--body-tracking', l.bodyTracking);
     if (l.bodyLeading) root.style.setProperty('--body-leading', l.bodyLeading);
-    if (l.titleSize) root.style.setProperty('--title-size', l.titleSize);
-    if (l.heroTitleSize) root.style.setProperty('--hero-title-size', l.heroTitleSize);
-    if (l.cardTitleSize) root.style.setProperty('--card-title-size', l.cardTitleSize);
+    if (l.titleSize && l.titleSize !== 'fluid') root.style.setProperty('--title-size', l.titleSize);
+    if (l.heroTitleSize && l.heroTitleSize !== 'fluid') root.style.setProperty('--hero-title-size', l.heroTitleSize);
+    if (l.cardTitleSize && l.cardTitleSize !== 'fluid') root.style.setProperty('--card-title-size', l.cardTitleSize);
     // inner spacing
     if (l.cardPad) root.style.setProperty('--card-pad', l.cardPad);
     if (l.gridGap) root.style.setProperty('--grid-gap', l.gridGap);

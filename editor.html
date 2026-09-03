@@ -368,6 +368,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
         <div class="panel-section">
           <h4><i class="fas fa-font"></i> Fonts &amp; Text</h4>
           <p>Fonts are <strong>self-hosted</strong> in <code>assets/fonts/</code> (offline-ready, fast). Upload your own <strong>.ttf / .otf / .woff / .woff2</strong> files in the <strong>Media</strong> tab — they appear here automatically and render fully. Other choices fall back to system fonts.</p>
+          <p style="margin-top:6px;padding:8px;background:rgba(200,32,57,.05);border-radius:var(--r-sm)"><strong>Readability tip:</strong> leave title sizes on <strong>Auto</strong> so the site stays readable on phones, tablets and desktops. Set a fixed size only if you want one size everywhere.</p>
           <div class="form-row">
             <div class="form-group"><label>Heading Font</label>
               <select id="ed-font-heading">
@@ -422,9 +423,9 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
             <div class="form-group"><label>Heading Letter Spacing</label>
               <select id="ed-font-heading-tracking">
                 <option value="0">Normal</option>
-                <option value="-0.02em">Tight</option>
-                <option value="-0.015em" selected>Tighter (default)</option>
-                <option value="-0.01em">Slight</option>
+                <option value="-0.02em" selected>Tight (recommended)</option>
+                <option value="-0.015em">Slightly tight</option>
+                <option value="0">Normal</option>
                 <option value="0.01em">Loose</option>
                 <option value="0.02em">Airy</option>
               </select>
@@ -441,18 +442,18 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <div class="form-row">
             <div class="form-group"><label>Heading Leading</label>
               <select id="ed-font-heading-leading">
-                <option value="1.05">1.05 — compact</option>
-                <option value="1.15" selected>1.15 — default</option>
-                <option value="1.25">1.25 — open</option>
-                <option value="1.35">1.35 — airy</option>
+                <option value="1.05">1.05 - compact</option>
+                <option value="1.1" selected>1.1 - recommended</option>
+                <option value="1.15">1.15 - open</option>
+                <option value="1.25">1.25 - airy</option>
               </select>
             </div>
             <div class="form-group"><label>Body Leading</label>
               <select id="ed-font-body-leading">
-                <option value="1.5">1.5 — compact</option>
-                <option value="1.6">1.6 — balanced</option>
-                <option value="1.7" selected>1.7 — default</option>
-                <option value="1.8">1.8 — relaxed</option>
+                <option value="1.5">1.5 - compact</option>
+                <option value="1.6">1.6 - balanced</option>
+                <option value="1.7" selected>1.7 - recommended</option>
+                <option value="1.8">1.8 - relaxed</option>
               </select>
             </div>
           </div>
