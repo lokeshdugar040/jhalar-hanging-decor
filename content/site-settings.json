@@ -4,11 +4,11 @@
   "email": "lokeshdugar040@gmail.com",
   "location": "Howrah, West Bengal, India",
   "gst": "Available on request",
-  "heroHeadline": "Hanging Decor for Events and Businesses",
-  "heroIntro": "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
+  "heroHeadline": "Wedding and Event Jhalars — Made to Order in Howrah",
+  "heroIntro": "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — handcrafted in Howrah and supplied across India for weddings, celebrations and commercial spaces.",
   "heroImage": "assets/images/hero-jhalar.jpg",
-  "siteTitle": "JHALAR | Jhalar and Festive Hangings Manufacturer — Wholesale and Bulk",
-  "siteDescription": "Pom pom garlands, floral jhalars, torans, bead and bell hangings — handcrafted in Howrah, made to order and supplied in bulk across India.",
+  "siteTitle": "JHALAR | Wedding and Event Jhalars — Made to Order in Howrah",
+  "siteDescription": "Wedding and event jhalars, torans and garlands — handcrafted in Howrah, made to order across India for weddings and celebrations.",
   "ogImage": "assets/images/og-cover.jpg",
   "navItems": [
     {
@@ -94,30 +94,30 @@
   ],
   "faqItems": [
     {
-      "q": "Do you supply decorative hangings in large quantities?",
-      "a": "Yes — we supply event decorators, wholesalers, retailers and organisations."
+      "q": "Do you make jhalars for weddings and events?",
+      "a": "Yes — wedding and event jhalars, torans and garlands made to order in your colours, at any scale from a few dozen to several thousand pieces."
     },
     {
       "q": "Can I discuss custom colours and designs?",
-      "a": "Yes, for suitable order quantities. Share a reference photo or your palette and we'll develop the design with you."
+      "a": "Yes, for suitable order quantities. Share a reference photo or your palette and we will develop the design with you."
     },
     {
       "q": "How do I get prices for an order?",
-      "a": "Use the enquiry form or message us on WhatsApp for prices, samples and lead times."
+      "a": "Use the enquiry form or message us on WhatsApp at +91 81006 56258 for prices, samples and lead times."
     },
     {
-      "q": "Do you work with wholesalers and distributors?",
-      "a": "Yes — we supply wholesalers and distributors. Share your business details and the quantities you need."
+      "q": "Do you work with decorators, wholesalers and distributors?",
+      "a": "Yes — we supply event decorators, wholesalers, distributors and organisations. Share your business details and the quantities you need."
     },
     {
       "q": "What are your minimum order and delivery timelines?",
-      "a": "Minimums start from a few dozen pieces per design. Delivery depends on the design and quantity — share your date and we'll confirm what's possible before you commit."
+      "a": "Minimums start from a few dozen to several thousand pieces per design. Delivery depends on the design and quantity — share your date and we will confirm what is possible before you commit."
     }
   ],
   "sectionCopy": {
     "heroTag": {
       "icon": "icon-mfr",
-      "text": "Howrah Manufacturer | B2B Supply"
+      "text": "Howrah Workshop | Made to Order"
     },
     "heroPrimary": {
       "label": "Explore Product Collection",
@@ -129,8 +129,8 @@
     },
     "why": {
       "label": "Why JHALAR",
-      "title": "Factory-Direct, Made to Order, Built to Scale",
-      "intro": "Everything is made in our own workshop — priced factory-direct and built to order at scale.",
+      "title": "Direct from the Workshop — Built to Your Brief",
+      "intro": "Everything is made in our own workshop — priced direct and made to order at any scale.",
       "features": [
         {
           "icon": "icon-mfr",
@@ -192,8 +192,8 @@
     },
     "about": {
       "label": "About JHALAR",
-      "title": "Handcrafted in Howrah, Supplied Across India",
-      "intro": "JHALAR is the manufacturer — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly to you.",
+      "title": "From Our Workshop to Your Venue — No Middlemen",
+      "intro": "JHALAR is the maker — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly for your wedding, event or storefront.",
       "image": "assets/images/about-collage.jpg",
       "values": [
         {
@@ -216,8 +216,9 @@
     },
     "contact": {
       "label": "Get in Touch",
-      "title": "Start a B2B Enquiry",
-      "intro": "Tell us what you need and the team will get back with options, prices and lead times."
+      "title": "Get a Quote on WhatsApp",
+      "intro": "Tell us your venue, event date, colours and quantity — we will reply on WhatsApp with options and pricing.",
+      "submitLabel": "Send Message via WhatsApp"
     },
     "footerTagline": "Handcrafted jhalars and festive hangings, made in Howrah and supplied across India."
   }

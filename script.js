@@ -8,23 +8,23 @@ let settings = {
   email: "lokeshdugar040@gmail.com",
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
-  heroHeadline: "Hanging Decor for Events and Businesses",
-  heroIntro: "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
+  heroHeadline: "Wedding and Event Jhalars — Made to Order in Howrah",
+  heroIntro: "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — handcrafted in Howrah and supplied across India for weddings, celebrations and commercial spaces.",
   heroImage: "assets/images/hero-jhalar.jpg",
-  siteTitle: "JHALAR | Jhalar and Festive Hangings Manufacturer — Wholesale and Bulk",
-  siteDescription: "Pom pom garlands, floral jhalars, torans, bead and bell hangings — handcrafted in Howrah, made to order and supplied in bulk across India.",
+  siteTitle: "JHALAR | Wedding and Event Jhalars — Made to Order in Howrah",
+  siteDescription: "Wedding and event jhalars, torans and garlands — handcrafted in Howrah, made to order across India for weddings and celebrations.",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
   footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
   socialLinks: {instagram:{url:"#",label:"Instagram"},facebook:{url:"#",label:"Facebook"},whatsapp:{url:"https://wa.me/918100656258",label:"WhatsApp"}},
   sectionCopy: {
-    heroTag: {icon:"icon-mfr", text:"Howrah Manufacturer | B2B Supply"},
+    heroTag: {icon:"icon-mfr", text:"Howrah Workshop | Made to Order"},
     heroPrimary: {label:"Explore Product Collection", href:"#collection"},
     heroSecondary: {label:"Message on WhatsApp", href:"https://wa.me/918100656258"},
     why: {
       label:"Why JHALAR",
-      title:"Factory-Direct, Made to Order, Built to Scale",
-      intro:"Everything is made in our own workshop — priced factory-direct and built to order at scale.",
+      title:"Direct from the Workshop — Built to Your Brief",
+      intro:"Everything is made in our own workshop — priced direct and made to order at any scale.",
       features:[
         {icon:"icon-mfr", title:"Workshop-Direct Pricing", text:"You buy straight from the workshop — no middlemen, sharper prices, faster answers."},
         {icon:"icon-palette", title:"Made-to-Order Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
@@ -56,8 +56,8 @@ let settings = {
     },
     about: {
       label:"About JHALAR",
-      title:"Handcrafted in Howrah, Supplied Across India",
-      intro:"JHALAR is the manufacturer — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly to you.",
+      title:"From Our Workshop to Your Venue — No Middlemen",
+      intro:"JHALAR is the maker — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly for your wedding, event or storefront.",
       image:"assets/images/about-collage.jpg",
       values:[
         {icon:"icon-check", text:"Hand-finished detailing"},
@@ -68,8 +68,9 @@ let settings = {
     faq: {label:"FAQ", title:"Frequently Asked Questions"},
     contact: {
       label:"Get in Touch",
-      title:"Start a B2B Enquiry",
-      intro:"Tell us what you need and the team will get back with options, prices and lead times."
+      title:"Get a Quote on WhatsApp",
+      intro:"Tell us your venue, event date, colours and quantity — we will reply on WhatsApp with options and pricing.",
+      submitLabel:"Send Message via WhatsApp"
     },
     footerTagline:"Handcrafted jhalars and festive hangings, made in Howrah and supplied across India."
   }
@@ -608,6 +609,10 @@ function applySiteSettings() {
     setText('#contact .eyebrow', copy.contact.label);
     setText('#contact h2', copy.contact.title);
     setText('#contact .section-subtitle', copy.contact.intro);
+    if (copy.contact.submitLabel) {
+      const submitBtn = document.querySelector('.submit-btn');
+      if (submitBtn) submitBtn.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i> ' + esc(copy.contact.submitLabel);
+    }
   }
 
   // Footer
