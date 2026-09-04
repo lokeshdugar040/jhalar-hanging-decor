@@ -319,6 +319,62 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .modal-img{aspect-ratio:auto;min-height:100%}
 }
 
+/* --- RESPONSIVE REFINEMENTS (mobile / tablet wrapping) --- */
+
+/* Small tablet + large phone landscape: go 2-up instead of wasting a full column */
+@media(min-width:560px) and (max-width:767.98px){
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr 1fr}
+  .trust-bar-inner{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:var(--space-2) var(--space-4)}
+  .trust-bar-item{padding:var(--space-1) var(--space-2)}
+}
+
+/* Process steps live inside a half-width split column, so a 3-across grid
+   only ever gives each step ~160px and wraps every title onto 3 lines.
+   Keep them as a readable vertical list at every size. */
+.process-grid{grid-template-columns:1fr;gap:var(--space-4)}
+@media(min-width:768px){
+  .process-grid{grid-template-columns:1fr;gap:var(--space-4)}
+}
+
+/* Sections with 4 cards: 2x2 on tablet, 4-across only when wide.
+   Avoids the 3 + 1 orphan row. */
+@media(min-width:768px){
+  .feature-grid:has(> :nth-child(4)){grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:1200px){
+  .feature-grid:has(> :nth-child(4)){grid-template-columns:repeat(4,1fr)}
+}
+
+/* Footer: four 120px columns on an iPad is unreadable - use 2x2 first */
+@media(min-width:768px) and (max-width:1023.98px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+/* Contact form + info card need width before sitting side by side */
+@media(max-width:899.98px){
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* Header: nav + logo + CTA all collide around 768-900 */
+@media(min-width:768px) and (max-width:899.98px){
+  .header-actions .b2b-btn{display:none}
+}
+
+/* Long unbroken strings (emails, WhatsApp numbers) must never push layout */
+.contact-list li{flex-wrap:wrap}
+.accordion-header{gap:var(--space-3)}
+
+/* Very small phones: tighten padding so cards keep usable inner width */
+@media(max-width:359.98px){
+  :root{--card-pad:1.15rem}
+  .container{padding:0 var(--space-3)}
+  .hero-actions .btn,.filters .filter-btn{width:100%}
+  .filters{gap:var(--space-2)}
+}
+
 /* --- PRINT --- */
 @media print{.site-header,.mobile-nav,.wa-float,.modal-overlay{display:none!important}body{background:#fff;color:#000}.section{padding:1rem 0}}
 .icon{display:inline-block;vertical-align:middle;flex-shrink:0}
