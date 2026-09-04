@@ -14,56 +14,66 @@ let state = {
 
 function defaultSectionCopy() {
   return {
-    heroTag: {icon:'icon-mfr', text:'Howrah Workshop | Made to Order'},
-    heroPrimary: {label:'Explore Product Collection', href:'#collection'},
-    heroSecondary: {label:'Message on WhatsApp', href:'https://wa.me/918100656258'},
+    heroTag: {icon:'icon-mfr', text:'Seedha banane wale se | Poore India mein'},
+    heroPrimary: {label:'Dekho Collection', href:'#collection'},
+    heroSecondary: {label:'WhatsApp Pe Message Karo', href:'https://wa.me/918100656258'},
     why: {
-      label:'Why JHALAR', title:'Direct from the Workshop — Built to Your Brief',
-      intro:'Everything is made in our own workshop — priced direct and made to order at any scale.',
+      label:'Kyun JHALAR', title:'Seedha Banane Wale Se, Sab Kuch Hum Karte Hain',
+      intro:'Hum khud banate hain. Zyada quantity ho ya kam — daam seedha, kaam seedha.',
       features:[
-        {icon:'icon-mfr', title:'Workshop-Direct Pricing', text:'You buy straight from the workshop — no middlemen, sharper prices, faster answers.'},
-        {icon:'icon-palette', title:'Made-to-Order Design', text:'Colours, motifs and lengths built to your brief — from brand palettes to festive themes.'},
-        {icon:'icon-bulk', title:'Bulk and Wholesale Ready', text:'From a few dozen to several thousand pieces per design — with the same finish from first piece to last.'}
+        {icon:'icon-mfr', title:'Seedha Daam', text:'Beech mein koi nahi. Seedha humse, seedha daam. Jaldi reply.'},
+        {icon:'icon-palette', title:'Apna Rang, Apna Design', text:'Photo bhej do. Colour, size, design — sab apna bana dete hain.'},
+        {icon:'icon-bulk', title:'Zyada Quantity Bhi', text:'Kuch sau ho ya hazar — ek jaisa finish, ek jaisa kaam.'}
       ]
     },
     collection: {
-      label:'Our Collection', title:'Jhalars, Torans, Tassels and More',
-      intro:'Sixteen core designs across eight categories — all made in our workshop.',
-      note:'Need something specific? '
+      label:'Kya Kya Hai', title:'Pom Pom, Toran, Jhalar — Sab Kuch',
+      intro:'16 designs, 8 types. Sab hum banate hain.',
+      note:'Kuch aur chahiye? '
     },
     customOrders: {
-      label:'Made to Order', title:'Your Design, Made to Order',
-      intro:'Send your palette, sizes and quantity — we develop a sample first, then produce at scale.',
+      label:'Apna Design', title:'Apna Rang, Apna Size, Apna Design',
+      intro:'Batao kya chahiye. Hum bana denge. Rang, size, quantity — sab apne hisaab se.',
       image:'assets/images/custom-orders.jpg',
       chips:[
-        {icon:'icon-palette', text:'Colour matching'},
-        {icon:'icon-ruler', text:'Size and length options'},
-        {icon:'icon-chart', text:'Order quantity planning'}
+        {icon:'icon-palette', text:'Apna rang'},
+        {icon:'icon-ruler', text:'Apna size'},
+        {icon:'icon-chart', text:'Kitna chahiye'}
       ],
-      processLabel:'How it works',
+      processLabel:'Kaise hota hai',
       steps:[
-        {title:'Share Your Brief', text:'Tell us the category, quantity, colours and where it will be used.'},
-        {title:'Confirm Design and Quantity', text:'We agree the colours, sizing and design references before production.'},
-        {title:'Receive Quote and Lead Time', text:'Get your quote and delivery date — confirm when you\'re ready.'}
+        {title:'Batao Kya Chahiye', text:'Type, rang, quantity aur kab chahiye — bas itna batao.'},
+        {title:'Sample Dekho, Fix Karo', text:'Sample bhejte hain. Rang, size, quantity pakka kar lo.'},
+        {title:'Daam Aur Delivery Lo', text:'Daam bata dete hain, date bata dete hain. Confirm karo, le jao.'}
+      ]
+    },
+    whoUses: {
+      label:'Kiske Liye', title:'Yeh Sab Kiske Liye Hai',
+      intro:'Aap jaise logon ke liye. Sabka kaam ban jata hai.',
+      personas:[
+        {icon:'icon-route', title:'Event Wale', text:'Jaldi chahiye, accha dikhna chahiye. Poocho — daam aur delivery bata denge.'},
+        {icon:'icon-palette', title:'Shaadi Wale', text:'Apna rang, apna theme. Sample bhej dete hain, phir bana dete hain.'},
+        {icon:'icon-bulk', title:'Dukaan Wale', text:'Zyada quantity, accha daam, alag designs. Bik jaye aur alag dikhe.'},
+        {icon:'icon-design', title:'Puja Committee Wale', text:'Traditional look, budget mein, time pe. Festival se pehle bata dena.'}
       ]
     },
     about: {
-      label:'About JHALAR', title:'From Our Workshop to Your Venue — No Middlemen',
-      intro:'JHALAR is the maker — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly for your wedding, event or storefront.',
+      label:'Hum Kaun Hain', title:'Hum Khud Banate Hain — Beech Mein Koi Nahi',
+      intro:'Har jhalar, har toran Howrah mein hum khud banate hain. Seedha humse baat karo — daam seedha, baat seedhi.',
       image:'assets/images/about-collage.jpg',
       values:[
-        {icon:'icon-check', text:'Hand-finished detailing'},
-        {icon:'icon-check', text:'One point of contact, quote to dispatch'},
-        {icon:'icon-check', text:'Sampling before production runs'}
+        {icon:'icon-check', text:'Haath se finish'},
+        {icon:'icon-check', text:'Ek baat, ek aadmi — poora kaam'},
+        {icon:'icon-check', text:'Sample pehle, kaam baad mein'}
       ]
     },
-    faq: {label:'FAQ', title:'Frequently Asked Questions'},
+    faq: {label:'Sawal', title:'Sawal Aur Jawab'},
     contact: {
-      label:'Get in Touch', title:'Get a Quote on WhatsApp',
-      intro:'Tell us your venue, event date, colours and quantity — we will reply on WhatsApp with options and pricing.',
-      submitLabel:'Send Message via WhatsApp'
+      label:'Baat Karo', title:'Poocho Ya Order Karo',
+      intro:'Batao: kya chahiye, kitna chahiye, kab chahiye. Seedha humse, seedha baat.',
+      submitLabel:'WhatsApp Pe Message Karo'
     },
-    footerTagline:'Handcrafted jhalars and festive hangings, made in Howrah and supplied across India.'
+    footerTagline:'Haath se bane jhalar aur hangings. Howrah mein bane, poore India mein.'
   };
 }
 
@@ -204,14 +214,14 @@ async function loadPublishedData() {
     state.settings.footerNavItems = state.footerNavItems;
     state.settings.socialLinks = state.socialLinks;
     state.settings.sectionCopy = state.sectionCopy;
-    state.heroHighlights = state.settings.heroHighlights||[{text:'Colours matched to your brief',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotes',icon:'icon-route'}];
-    state.trustItems = state.settings.trustItems||[{label:'Own workshop — no middlemen',icon:'icon-mfr'},{label:'Sampling before you commit',icon:'icon-design'},{label:'Dispatched across India',icon:'icon-location'}];
+    state.heroHighlights = state.settings.heroHighlights||[{text:'Jaldi delivery',icon:'icon-check'},{text:'Apna rang, apna design',icon:'icon-clock'},{text:'Zyada quantity pe accha daam',icon:'icon-route'}];
+    state.trustItems = state.settings.trustItems||[{label:'Seedha banane wale se, beech mein koi nahi',icon:'icon-mfr'},{label:'Sample pehle dekho',icon:'icon-design'},{label:'Poore India mein delivery',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
-      {q:'Do you make jhalars for weddings and events?',a:'Yes — wedding and event jhalars, torans and garlands made to order in your colours, at any scale from a few dozen to several thousand pieces.'},
-      {q:'Can I discuss custom colours and designs?',a:'Yes, for suitable order quantities. Share a reference photo or your palette and we will develop the design with you.'},
-      {q:'How do I get prices for an order?',a:'Use the enquiry form or message us on WhatsApp at +91 81006 56258 for prices, samples and lead times.'},
-      {q:'Do you work with decorators, wholesalers and distributors?',a:'Yes — we supply event decorators, wholesalers, distributors and organisations. Share your business details and the quantities you need.'},
-      {q:'What are your minimum order and delivery timelines?',a:'Minimums start from a few dozen to several thousand pieces per design. Delivery depends on the design and quantity — share your date and we will confirm what is possible before you commit.'}
+      {q:'Zyada quantity chahiye?',a:'Haan. Event wale, dukaan wale, sab lete hain. Kuch sau se hazar tak bhi — batao kitna chahiye, daam seedha milega.'},
+      {q:'Apna rang aur design ban sakta hai?',a:'Haan. Photo bhej do. Hum apna rang, size, design bana dete hain.'},
+      {q:'Kaise message karein?',a:'WhatsApp pe batao: kya chahiye, kitna chahiye, kab chahiye. Hum jaldi reply karte hain.'},
+      {q:'Kitne din mein milta hai?',a:'Design aur quantity pe depend karta hai. Date batao, hum confirm kar denge.'},
+      {q:'Dukaan ke liye alag daam hai kya?',a:'Haan. Zyada quantity pe accha daam. Batao kitna chahiye — seedha quote milega.'}
     ];
 
     ensureProductIds();
@@ -336,7 +346,7 @@ function populateAllForms() {
   setVal('ed-contact-label', state.sectionCopy?.contact?.label||'');
   setVal('ed-contact-title', state.sectionCopy?.contact?.title||'');
   setVal('ed-contact-intro', state.sectionCopy?.contact?.intro||'');
-  setVal('ed-contact-submit-label', state.sectionCopy?.contact?.submitLabel||'Send Message via WhatsApp');
+  setVal('ed-contact-submit-label', state.sectionCopy?.contact?.submitLabel||'WhatsApp Pe Message Karo');
   setVal('ed-footer-tagline', state.sectionCopy?.footerTagline||'');
   setVal('ed-social-instagram', state.socialLinks.instagram?.url||'');
   setVal('ed-social-facebook', state.socialLinks.facebook?.url||'');
@@ -751,7 +761,7 @@ function onProductChange() {
 }
 function addProduct() {
   const m = state.products.reduce((a,p) => Math.max(a,p.id||0),0);
-  state.products.push({id:m+1,title:'New Product',category:'Custom Designs',description:'Describe this product...',image:'assets/images/og-cover.jpg',b2bTag:'New Arrival'});
+  state.products.push({id:m+1,title:'New Product',category:'Custom Designs',description:'Describe this product...',image:'assets/images/og-cover.jpg',b2bTag:'Naya'});
   renderProductList(); selectProduct(state.products[state.products.length-1].id); markChanged(); saveDrafts(); applyPreview();
   showToast('Product added','success');
 }
