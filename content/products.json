@@ -4,9 +4,9 @@
       "id": 1,
       "title": "Pink Pom Pom Gota Hanging",
       "category": "Pom Pom Hangings",
-      "description": "Hand-tied pink pom poms with gota fan accents and a finish bell — a bestseller for haldi, mehndi and wedding decor, reproduced consistently in bulk runs.",
+      "description": "Hand-tied pink pom poms with gota fan accents and a finish bell — a firm favourite for haldi, mehndi and wedding decor, reproduced consistently in bulk runs.",
       "image": "assets/images/products/pom-pom-pink-gota.jpg",
-      "b2bTag": "Bestseller"
+      "b2bTag": "Popular"
     },
     {
       "id": 2,
@@ -38,7 +38,7 @@
       "category": "Bell Hangings",
       "description": "Pink blossoms around a large golden temple bell — a signature entrance piece for weddings, pooja setups and photo backdrops.",
       "image": "assets/images/products/bell-pink-blossom.jpg",
-      "b2bTag": "Bestseller"
+      "b2bTag": "Popular"
     },
     {
       "id": 6,
@@ -86,7 +86,7 @@
       "category": "Tassel Hangings",
       "description": "Layered tri-colour latkan strings with red pom pom drops — adds movement along aisles, pillars and stage edges.",
       "image": "assets/images/products/tassel-tricolour.jpg",
-      "b2bTag": "Trending"
+      "b2bTag": "Most ordered"
     },
     {
       "id": 12,
