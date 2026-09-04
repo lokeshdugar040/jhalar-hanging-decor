@@ -11,35 +11,35 @@ let settings = {
   heroHeadline: "Handcrafted Jhalars & Festive Hangings — Made to Order in Bulk",
   heroIntro: "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
-  siteTitle: "JHALAR Hanging Decor | Decorative Hangings Manufacturer & Wholesale Supplier",
-  siteDescription: "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
+  siteTitle: "JHALAR | Jhalar & Festive Hangings Manufacturer — Wholesale & Bulk",
+  siteDescription: "Pom pom garlands, floral jhalars, torans, bead and bell hangings — handcrafted in Howrah, made to order and supplied in bulk across India.",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
   footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
   socialLinks: {instagram:{url:"#",label:"Instagram"},facebook:{url:"#",label:"Facebook"},whatsapp:{url:"https://wa.me/918100656258",label:"WhatsApp"}},
   sectionCopy: {
-    heroTag: {icon:"icon-mfr", text:"Direct Manufacturer | B2B Supply"},
+    heroTag: {icon:"icon-mfr", text:"Howrah Manufacturer | B2B Supply"},
     heroPrimary: {label:"Explore Product Collection", href:"#collection"},
     heroSecondary: {label:"WhatsApp for B2B Enquiry", href:"https://wa.me/918100656258"},
     why: {
       label:"Why JHALAR",
-      title:"Built for Events & Wholesale Decor",
+      title:"Factory-Direct, Made to Order, Built to Scale",
       intro:"Everything is made in our own workshop — priced factory-direct and built to order at scale.",
       features:[
-        {icon:"icon-mfr", title:"Factory-to-Client Pricing", text:"You buy straight from the workshop — no middlemen, sharper prices, faster answers."},
+        {icon:"icon-mfr", title:"Factory-Direct Pricing", text:"You buy straight from the workshop — no middlemen, sharper prices, faster answers."},
         {icon:"icon-palette", title:"Made-to-Order Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
         {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From a few dozen to several thousand pieces per design — with the same finish from first piece to last."}
       ]
     },
     collection: {
       label:"Our Collection",
-      title:"Hangings for Every Occasion",
+      title:"Jhalars, Torans, Tassels & More",
       intro:"Sixteen core designs across eight categories — every style produced in bulk quantities.",
       note:"Need something specific? "
     },
     customOrders: {
       label:"Made to Order",
-      title:"Custom Hanging Decor for Your Project",
+      title:"Your Design, Made to Order",
       intro:"Send your palette, sizes and quantity — we develop a sample first, then produce at scale.",
       image:"assets/images/custom-orders.jpg",
       chips:[
@@ -409,10 +409,10 @@ function applySEO() {
 
 function showFallbackProducts() {
   products = [
-    {id:1,title:"Pink Pom Pom Gota Hanging",category:"Pom Pom Hangings",description:"Vibrant pink pom pom garland with gota fans and a decorative bell.",image:"assets/images/products/pom-pom-pink-gota.jpg",b2bTag:"Bestseller"},
-    {id:7,title:"Marigold Floral Jhalar",category:"Floral Jhalars",description:"Classic orange marigold jhalar for weddings and festive installations.",image:"assets/images/products/floral-marigold-orange.jpg",b2bTag:"Bulk-ready"},
-    {id:5,title:"Pink Blossom Bell Hanging",category:"Bell Hangings",description:"Pink blossom garland finished with a golden temple bell.",image:"assets/images/products/bell-pink-blossom.jpg",b2bTag:"Bestseller"},
-    {id:9,title:"Mogra Pearl Door Toran",category:"Torans",description:"White mogra-pearl toran with a golden bell centrepiece.",image:"assets/images/products/toran-mogra.jpg",b2bTag:"Premium"}
+    {id:1,title:"Pink Pom Pom Gota Hanging",category:"Pom Pom Hangings",description:"Pink pom poms, gota fans and a finish bell — a bestseller for haldi, mehndi and wedding decor.",image:"assets/images/products/pom-pom-pink-gota.jpg",b2bTag:"Bestseller"},
+    {id:7,title:"Marigold Floral Jhalar",category:"Floral Jhalars",description:"Full-petal orange marigold jhalar — the standard for Diwali, Durga Puja and weddings.",image:"assets/images/products/floral-marigold-orange.jpg",b2bTag:"Bulk-ready"},
+    {id:5,title:"Pink Blossom Bell Hanging",category:"Bell Hangings",description:"Pink blossoms around a golden temple bell — a signature entrance piece.",image:"assets/images/products/bell-pink-blossom.jpg",b2bTag:"Bestseller"},
+    {id:9,title:"Mogra Pearl Door Toran",category:"Torans",description:"Mogra-pearl toran with a bell centrepiece for doorways and stage frames.",image:"assets/images/products/toran-mogra.jpg",b2bTag:"Premium"}
   ];
 }
 

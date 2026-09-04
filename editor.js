@@ -14,25 +14,25 @@ let state = {
 
 function defaultSectionCopy() {
   return {
-    heroTag: {icon:'icon-mfr', text:'Direct Manufacturer | B2B Supply'},
+    heroTag: {icon:'icon-mfr', text:'Howrah Manufacturer | B2B Supply'},
     heroPrimary: {label:'Explore Product Collection', href:'#collection'},
     heroSecondary: {label:'WhatsApp for B2B Enquiry', href:'https://wa.me/918100656258'},
     why: {
-      label:'Why JHALAR', title:'Built for Events & Wholesale Decor',
+      label:'Why JHALAR', title:'Factory-Direct, Made to Order, Built to Scale',
       intro:'Everything is made in our own workshop — priced factory-direct and built to order at scale.',
       features:[
-        {icon:'icon-mfr', title:'Factory-to-Client Pricing', text:'You buy straight from the workshop — no middlemen, sharper prices, faster answers.'},
+        {icon:'icon-mfr', title:'Factory-Direct Pricing', text:'You buy straight from the workshop — no middlemen, sharper prices, faster answers.'},
         {icon:'icon-palette', title:'Made-to-Order Design', text:'Colours, motifs and lengths built to your brief — from brand palettes to festive themes.'},
         {icon:'icon-bulk', title:'Bulk & Wholesale Ready', text:'From a few dozen to several thousand pieces per design — with the same finish from first piece to last.'}
       ]
     },
     collection: {
-      label:'Our Collection', title:'Hangings for Every Occasion',
+      label:'Our Collection', title:'Jhalars, Torans, Tassels & More',
       intro:'Sixteen core designs across eight categories — every style produced in bulk quantities.',
       note:'Need something specific? '
     },
     customOrders: {
-      label:'Made to Order', title:'Custom Hanging Decor for Your Project',
+      label:'Made to Order', title:'Your Design, Made to Order',
       intro:'Send your palette, sizes and quantity — we develop a sample first, then produce at scale.',
       image:'assets/images/custom-orders.jpg',
       chips:[
@@ -203,8 +203,8 @@ async function loadPublishedData() {
     state.settings.footerNavItems = state.footerNavItems;
     state.settings.socialLinks = state.socialLinks;
     state.settings.sectionCopy = state.sectionCopy;
-    state.heroHighlights = state.settings.heroHighlights||[{text:'Made-to-order colours',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotes',icon:'icon-route'}];
-    state.trustItems = state.settings.trustItems||[{label:'Manufacturer-direct supply',icon:'icon-mfr'},{label:'Design & sampling support',icon:'icon-design'},{label:'Pan-India dispatch',icon:'icon-location'}];
+    state.heroHighlights = state.settings.heroHighlights||[{text:'Colours matched to your brief',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotes',icon:'icon-route'}];
+    state.trustItems = state.settings.trustItems||[{label:'Own workshop — no middlemen',icon:'icon-mfr'},{label:'Sampling before you commit',icon:'icon-design'},{label:'Dispatched across India',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
       {q:'Do you supply decorative hangings in bulk?',a:'Yes — we focus on bulk supply for event decorators, wholesalers, retailers and organisations.'},
       {q:'Can I discuss custom colours and designs?',a:'Yes, for suitable order quantities. Share a reference photo or your palette and we\'ll develop the design with you.'},

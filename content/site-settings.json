@@ -7,8 +7,8 @@
   "heroHeadline": "Handcrafted Jhalars & Festive Hangings — Made to Order in Bulk",
   "heroIntro": "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
   "heroImage": "assets/images/hero-jhalar.jpg",
-  "siteTitle": "JHALAR Hanging Decor | Decorative Hangings Manufacturer & Wholesale Supplier",
-  "siteDescription": "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
+  "siteTitle": "JHALAR | Jhalar & Festive Hangings Manufacturer — Wholesale & Bulk",
+  "siteDescription": "Pom pom garlands, floral jhalars, torans, bead and bell hangings — handcrafted in Howrah, made to order and supplied in bulk across India.",
   "ogImage": "assets/images/og-cover.jpg",
   "navItems": [
     {
@@ -67,7 +67,7 @@
   "heroHighlights": [
     {
       "icon": "icon-check",
-      "text": "Made-to-order colours"
+      "text": "Colours matched to your brief"
     },
     {
       "icon": "icon-clock",
@@ -81,15 +81,15 @@
   "trustItems": [
     {
       "icon": "icon-mfr",
-      "label": "Manufacturer-direct supply"
+      "label": "Own workshop — no middlemen"
     },
     {
       "icon": "icon-design",
-      "label": "Design & sampling support"
+      "label": "Sampling before you commit"
     },
     {
       "icon": "icon-location",
-      "label": "Pan-India dispatch"
+      "label": "Dispatched across India"
     }
   ],
   "faqItems": [
@@ -117,7 +117,7 @@
   "sectionCopy": {
     "heroTag": {
       "icon": "icon-mfr",
-      "text": "Direct Manufacturer | B2B Supply"
+      "text": "Howrah Manufacturer | B2B Supply"
     },
     "heroPrimary": {
       "label": "Explore Product Collection",
@@ -129,12 +129,12 @@
     },
     "why": {
       "label": "Why JHALAR",
-      "title": "Built for Events & Wholesale Decor",
+      "title": "Factory-Direct, Made to Order, Built to Scale",
       "intro": "Everything is made in our own workshop — priced factory-direct and built to order at scale.",
       "features": [
         {
           "icon": "icon-mfr",
-          "title": "Factory-to-Client Pricing",
+          "title": "Factory-Direct Pricing",
           "text": "You buy straight from the workshop — no middlemen, sharper prices, faster answers."
         },
         {
@@ -151,13 +151,13 @@
     },
     "collection": {
       "label": "Our Collection",
-      "title": "Hangings for Every Occasion",
+      "title": "Jhalars, Torans, Tassels & More",
       "intro": "Sixteen core designs across eight categories — every style produced in bulk quantities.",
       "note": "Need something specific? "
     },
     "customOrders": {
       "label": "Made to Order",
-      "title": "Custom Hanging Decor for Your Project",
+      "title": "Your Design, Made to Order",
       "intro": "Send your palette, sizes and quantity — we develop a sample first, then produce at scale.",
       "image": "assets/images/custom-orders.jpg",
       "chips": [
