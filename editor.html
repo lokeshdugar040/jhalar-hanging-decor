@@ -164,6 +164,65 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 .sidebar-content::-webkit-scrollbar-thumb{background:rgba(128,128,128,0.15);border-radius:2px}
 @media(max-width:900px){:root{--sidebar-w:360px}}
 @media(max-width:700px){.editor-sidebar{width:100%;min-width:100%}.editor-preview{display:none}.editor-body{flex-direction:column}}
+
+/* --- RESPONSIVE: editor chrome on tablet / phone --------------------------- */
+/* The preview pane is hidden under 700px, so it must never claim width above
+   that either - it was overflowing the viewport at 768/834px. */
+@media(max-width:900px){
+  .editor-preview{min-width:0;overflow:hidden}
+  .preview-toolbar{flex-wrap:wrap;height:auto;min-height:38px;padding:5px 8px;row-gap:5px}
+  .preview-toolbar .preview-url{max-width:100%;margin-left:0;flex:1 1 100%;order:5}
+  .preview-container{padding:8px}
+  .preview-container iframe.mobile{width:100%;max-width:375px}
+}
+
+/* Header: 7 fixed controls cannot fit a phone. Let it wrap and grow. */
+@media(max-width:820px){
+  :root{--h:auto}
+  .editor-header{position:sticky;flex-wrap:wrap;gap:8px;padding:8px 12px;min-height:52px}
+  .editor-header-left,.editor-header-right{flex-wrap:wrap;min-width:0}
+  .editor-header-right{gap:6px;width:100%;justify-content:flex-start}
+  .editor-body{height:auto;min-height:100vh;padding-top:0}
+  html,body{overflow:auto}
+  .editor-sidebar{height:auto;overflow:visible}
+  .sidebar-content{overflow:visible}
+}
+@media(max-width:520px){
+  .editor-header-right .btn{flex:1 1 auto;justify-content:center;min-height:40px;font-size:13px}
+  .editor-header-right .btn-icon{flex:0 0 40px;width:40px;height:40px}
+  .save-indicator{width:100%;text-align:center}
+  .logo-text span{display:none}
+}
+
+/* Comfortable tap targets on touch screens */
+@media(max-width:820px){
+  .editor-header-right .btn,.preview-toolbar .vp-btn{min-height:36px}
+  .form-group input,.form-group select,.form-group textarea,
+  input[type=text],input[type=url],input[type=email],input[type=number],select,textarea{
+    min-height:42px;font-size:16px} /* 16px stops iOS zoom-on-focus */
+  .tab-btn{min-height:44px}
+  .btn-sm{min-height:38px}
+}
+
+/* --- narrow-phone editor chrome ---------------------------------------- */
+@media(max-width:560px){
+  /* two inputs + 2 icon buttons in one flex row blew past the viewport */
+  .nav-item-row{flex-wrap:wrap}
+  .nav-item-row input{flex:1 1 100%;min-width:0;font-size:16px;padding:9px 10px}
+  .nav-item-row button{width:40px;height:40px;font-size:14px;background:var(--bg2)}
+  /* sidebar tab strip scrolls instead of overflowing */
+  .sidebar-tabs{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .sidebar-tabs::-webkit-scrollbar{display:none}
+  .sidebar-tab{flex:0 0 auto;min-height:44px}
+  .btn,.btn-sm,button.btn,.editor-header .btn{min-height:44px!important;height:auto}
+  button.del,button.up,button.down,.row-actions button{width:40px!important;height:40px!important}
+  .btn-sm{padding:0 12px}
+  /* any grid/flex child must be allowed to shrink */
+  .field-row,.form-row,.editor-body,.sidebar,.panel{min-width:0}
+  .field-row,.form-row{flex-wrap:wrap}
+  .field-row > *,.form-row > *{flex:1 1 100%;min-width:0}
+  img,iframe,table{max-width:100%}
+}
 </style>
 </head>
 <body>
@@ -209,13 +268,13 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 
         <div class="panel-section">
           <h4><i class="fas fa-star"></i> Hero Section</h4>
-          <div class="form-group"><label>Hero Badge / Tag Text</label><input type="text" id="ed-hero-tag-text" placeholder="Howrah Workshop | Made to Order"></div>
+          <div class="form-group"><label>Hero Badge / Tag Text</label><input type="text" id="ed-hero-tag-text" placeholder="Seedha banane wale se | Poore India mein"></div>
           <div class="icon-row"><span class="icon-preview" id="preview-hero-tag-icon"><svg class="icon" width="16" height="16"><use href="assets/icons.svg#icon-mfr"/></svg></span><select id="ed-hero-tag-icon"></select></div>
-          <div class="form-group"><label>Hero Headline</label><input type="text" id="ed-hero-headline" placeholder="Wedding and Event Jhalars — Made to Order in Howrah"></div>
-          <div class="form-group"><label>Hero Intro</label><textarea id="ed-hero-intro" rows="2" placeholder="Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — handcrafted in Howrah for weddings, celebrations and commercial spaces."></textarea></div>
-          <div class="form-group"><label>Hero Primary Button Text</label><input type="text" id="ed-hero-primary-label" placeholder="Explore Product Collection"></div>
+          <div class="form-group"><label>Hero Headline</label><input type="text" id="ed-hero-headline" placeholder="Haath Se Bane Hangings — Events Aur Dukaan Ke Liye."></div>
+          <div class="form-group"><label>Hero Intro</label><textarea id="ed-hero-intro" rows="2" placeholder="Pom pom, toran, jhalar, bead aur bell hangings. Zyada quantity chahiye? Apna rang chahiye? Seedha humse baat karo."></textarea></div>
+          <div class="form-group"><label>Hero Primary Button Text</label><input type="text" id="ed-hero-primary-label" placeholder="Dekho Collection"></div>
           <div class="form-group"><label>Hero Primary Button Link</label><input type="text" id="ed-hero-primary-href" placeholder="#collection"></div>
-          <div class="form-group"><label>Hero Secondary Button Text</label><input type="text" id="ed-hero-secondary-label" placeholder="Message on WhatsApp"></div>
+          <div class="form-group"><label>Hero Secondary Button Text</label><input type="text" id="ed-hero-secondary-label" placeholder="WhatsApp Pe Message Karo"></div>
           <div class="form-group"><label>Hero Secondary Button Link</label><input type="text" id="ed-hero-secondary-href" placeholder="https://wa.me/..."></div>
           <div class="form-group"><label>Hero Image</label><select id="ed-hero-image"></select></div>
         </div>
@@ -260,15 +319,15 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <p>Question / answer pairs shown in the FAQ section.</p>
           <div id="faq-editor"></div>
           <button class="btn-sm" onclick="addFaqItem()" style="margin-top:4px">+ Add Question</button>
-          <div class="form-group" style="margin-top:8px"><label>FAQ Eyebrow</label><input type="text" id="ed-faq-label" placeholder="FAQ"></div>
-          <div class="form-group"><label>FAQ Title</label><input type="text" id="ed-faq-title" placeholder="Frequently Asked Questions"></div>
+          <div class="form-group" style="margin-top:8px"><label>FAQ Eyebrow</label><input type="text" id="ed-faq-label" placeholder="Sawal"></div>
+          <div class="form-group"><label>FAQ Title</label><input type="text" id="ed-faq-title" placeholder="Sawal Aur Jawab"></div>
         </div>
 
         <div class="panel-section">
           <h4><i class="fas fa-align-left"></i> Why JHALAR Copy</h4>
-          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-why-label" placeholder="Why JHALAR"></div>
-          <div class="form-group"><label>Title</label><input type="text" id="ed-why-title" placeholder="Direct from the Workshop — Built to Your Brief"></div>
-          <div class="form-group"><label>Intro</label><textarea id="ed-why-intro" rows="2" placeholder="Everything is made in our own workshop — priced direct and made to order at any scale."></textarea></div>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-why-label" placeholder="Kyun JHALAR"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-why-title" placeholder="Seedha Banane Wale Se, Sab Kuch Hum Karte Hain"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-why-intro" rows="2" placeholder="Hum khud banate hain. Zyada quantity ho ya kam — daam seedha, kaam seedha."></textarea></div>
           <p>Feature cards (icon + title + description)</p>
           <div id="feature-editor" class="stack"></div>
           <button class="btn-sm" onclick="addFeatureItem()" style="margin-top:4px">+ Add Feature</button>
@@ -276,22 +335,22 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 
         <div class="panel-section">
           <h4><i class="fas fa-cubes"></i> Collection Copy</h4>
-          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-collection-label" placeholder="Our Collection"></div>
-          <div class="form-group"><label>Title</label><input type="text" id="ed-collection-title" placeholder="Jhalars, Torans, Tassels and More"></div>
-          <div class="form-group"><label>Intro</label><textarea id="ed-collection-intro" rows="2" placeholder="Browse our hanging decor categories..."></textarea></div>
-          <div class="form-group"><label>Bottom Note</label><input type="text" id="ed-collection-note" placeholder="Need something specific?"></div>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-collection-label" placeholder="Kya Kya Hai"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-collection-title" placeholder="Pom Pom, Toran, Jhalar — Sab Kuch"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-collection-intro" rows="2" placeholder="16 designs, 8 types. Sab hum banate hain."></textarea></div>
+          <div class="form-group"><label>Bottom Note</label><input type="text" id="ed-collection-note" placeholder="Kuch aur chahiye? "></div>
         </div>
 
         <div class="panel-section">
           <h4><i class="fas fa-palette"></i> Custom Orders Copy</h4>
-          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-custom-label" placeholder="Made to Order"></div>
-          <div class="form-group"><label>Title</label><input type="text" id="ed-custom-title" placeholder="Custom Hanging Decor for Your Project"></div>
-          <div class="form-group"><label>Intro</label><textarea id="ed-custom-intro" rows="2" placeholder="Share your colours, sizes, quantity..."></textarea></div>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-custom-label" placeholder="Apna Design"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-custom-title" placeholder="Apna Rang, Apna Size, Apna Design"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-custom-intro" rows="2" placeholder="Batao kya chahiye. Hum bana denge."></textarea></div>
           <div class="form-group"><label>Image</label><select id="ed-custom-image"></select></div>
           <p>Chips / tags</p>
           <div id="chip-editor" class="stack"></div>
           <button class="btn-sm" onclick="addChipItem()" style="margin-top:4px">+ Add Chip</button>
-          <div class="form-group" style="margin-top:8px"><label>Process Label</label><input type="text" id="ed-process-label" placeholder="How it works"></div>
+          <div class="form-group" style="margin-top:8px"><label>Process Label</label><input type="text" id="ed-process-label" placeholder="Kaise hota hai"></div>
           <p>Process steps</p>
           <div id="process-editor" class="stack"></div>
           <button class="btn-sm" onclick="addProcessItem()" style="margin-top:4px">+ Add Step</button>
@@ -299,9 +358,9 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 
         <div class="panel-section">
           <h4><i class="fas fa-user-tie"></i> About Copy</h4>
-          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-about-label" placeholder="About JHALAR"></div>
-          <div class="form-group"><label>Title</label><input type="text" id="ed-about-title" placeholder="From Our Workshop to Your Venue — No Middlemen"></div>
-          <div class="form-group"><label>Intro</label><textarea id="ed-about-intro" rows="2" placeholder="JHALAR is the maker — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly for your wedding, event or storefront."></textarea></div>
+          <div class="form-group"><label>Eyebrow</label><input type="text" id="ed-about-label" placeholder="Hum Kaun Hain"></div>
+          <div class="form-group"><label>Title</label><input type="text" id="ed-about-title" placeholder="Hum Khud Banate Hain — Beech Mein Koi Nahi"></div>
+          <div class="form-group"><label>Intro</label><textarea id="ed-about-intro" rows="2" placeholder="Har jhalar, har toran Howrah mein hum khud banate hain. Seedha humse baat karo — daam seedha, baat seedhi."></textarea></div>
           <div class="form-group"><label>Image</label><select id="ed-about-image"></select></div>
           <p>Value list</p>
           <div id="value-editor" class="stack"></div>
@@ -310,11 +369,11 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
 
         <div class="panel-section">
           <h4><i class="fas fa-envelope-open-text"></i> Contact &amp; Footer Copy</h4>
-          <div class="form-group"><label>Contact Eyebrow</label><input type="text" id="ed-contact-label" placeholder="Get in Touch"></div>
-          <div class="form-group"><label>Contact Title</label><input type="text" id="ed-contact-title" placeholder="Get a Quote on WhatsApp"></div>
-          <div class="form-group"><label>Contact Intro</label><textarea id="ed-contact-intro" rows="2" placeholder="Tell us your venue, event date, colours and quantity — we will reply on WhatsApp with options and pricing."></textarea></div>
-          <div class="form-group"><label>Submit Button Text</label><input type="text" id="ed-contact-submit-label" placeholder="Send Message via WhatsApp"></div>
-          <div class="form-group"><label>Footer Tagline</label><input type="text" id="ed-footer-tagline" placeholder="Handcrafted decorative hangings..."></div>
+          <div class="form-group"><label>Contact Eyebrow</label><input type="text" id="ed-contact-label" placeholder="Baat Karo"></div>
+          <div class="form-group"><label>Contact Title</label><input type="text" id="ed-contact-title" placeholder="Poocho Ya Order Karo"></div>
+          <div class="form-group"><label>Contact Intro</label><textarea id="ed-contact-intro" rows="2" placeholder="Batao: kya chahiye, kitna chahiye, kab chahiye. Seedha humse, seedha baat."></textarea></div>
+          <div class="form-group"><label>Submit Button Text</label><input type="text" id="ed-contact-submit-label" placeholder="WhatsApp Pe Message Karo"></div>
+          <div class="form-group"><label>Footer Tagline</label><input type="text" id="ed-footer-tagline" placeholder="Haath se bane jhalar aur hangings. Howrah mein bane, poore India mein."></div>
         </div>
       </div>
 
@@ -646,7 +705,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
             </select>
           </div>
           <div class="form-group"><label>Description</label><textarea id="ed-prod-description" rows="2"></textarea></div>
-          <div class="form-row"><div class="form-group"><label>B2B Tag</label><input type="text" id="ed-prod-b2b" placeholder="Bestseller"></div>
+          <div class="form-row"><div class="form-group"><label>Product Badge</label><input type="text" id="ed-prod-b2b" placeholder="Popular"></div>
           <div class="form-group"><label>Image</label><select id="ed-prod-image"></select></div></div>
         </div>
       </div>
@@ -667,8 +726,8 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
       <div class="tab-panel" id="panel-seo">
         <h3><i class="fas fa-search"></i> SEO Settings</h3>
         <p class="hint">Edit meta tags for search engines and social sharing. These control how your site appears in search results and social media previews.</p>
-        <div class="form-group"><label>Site Title (Browser Tab + Search)</label><input type="text" id="ed-seo-title" placeholder="JHALAR Hanging Decor | B2B Manufacturer..."></div>
-        <div class="form-group"><label>Meta Description</label><textarea id="ed-seo-desc" rows="2" placeholder="JHALAR manufactures handcrafted decorative hangings..."></textarea></div>
+        <div class="form-group"><label>Site Title (Browser Tab + Search)</label><input type="text" id="ed-seo-title" placeholder="JHALAR | Haath Se Bane Hangings — Seedha Banane Wale Se"></div>
+        <div class="form-group"><label>Meta Description</label><textarea id="ed-seo-desc" rows="2" placeholder="Pom pom, toran, jhalar, bead aur bell hangings — haath se bane, poore India mein."></textarea></div>
         <div class="form-group"><label>OG Image (Social Share Preview)</label><select id="ed-seo-ogimage"></select></div>
         <hr class="divider">
         <div class="panel-section">

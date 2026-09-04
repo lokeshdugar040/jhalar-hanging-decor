@@ -4,11 +4,11 @@
   "email": "lokeshdugar040@gmail.com",
   "location": "Howrah, West Bengal, India",
   "gst": "Available on request",
-  "heroHeadline": "Wedding and Event Jhalars — Made to Order in Howrah",
-  "heroIntro": "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — handcrafted in Howrah and supplied across India for weddings, celebrations and commercial spaces.",
+  "heroHeadline": "Haath Se Bane Hangings — Events Aur Dukaan Ke Liye.",
+  "heroIntro": "Pom pom, toran, jhalar, bead aur bell hangings. Zyada quantity chahiye? Apna rang chahiye? Seedha humse baat karo.",
   "heroImage": "assets/images/hero-jhalar.jpg",
-  "siteTitle": "JHALAR | Wedding and Event Jhalars — Made to Order in Howrah",
-  "siteDescription": "Wedding and event jhalars, torans and garlands — handcrafted in Howrah, made to order across India for weddings and celebrations.",
+  "siteTitle": "JHALAR | Haath Se Bane Hangings — Seedha Banane Wale Se",
+  "siteDescription": "Pom pom, toran, jhalar, bead aur bell hangings — haath se bane, poore India mein. Zyada quantity chahiye? Apna rang chahiye? Seedha humse baat karo.",
   "ogImage": "assets/images/og-cover.jpg",
   "navItems": [
     {
@@ -18,6 +18,10 @@
     {
       "label": "Custom Orders",
       "href": "#custom-orders"
+    },
+    {
+      "label": "Kiske Liye",
+      "href": "#who-uses"
     },
     {
       "label": "About",
@@ -40,6 +44,10 @@
     {
       "label": "Custom Orders",
       "href": "#custom-orders"
+    },
+    {
+      "label": "Kiske Liye",
+      "href": "#who-uses"
     },
     {
       "label": "About",
@@ -67,159 +75,186 @@
   "heroHighlights": [
     {
       "icon": "icon-check",
-      "text": "Colours matched to your brief"
+      "text": "Jaldi delivery"
     },
     {
       "icon": "icon-clock",
-      "text": "Event-ready finishing"
+      "text": "Apna rang, apna design"
     },
     {
       "icon": "icon-route",
-      "text": "Fast quotes"
+      "text": "Zyada quantity pe accha daam"
     }
   ],
   "trustItems": [
     {
       "icon": "icon-mfr",
-      "label": "Own workshop — no middlemen"
+      "label": "Seedha banane wale se, beech mein koi nahi"
     },
     {
       "icon": "icon-design",
-      "label": "Sampling before you commit"
+      "label": "Sample pehle dekho"
     },
     {
       "icon": "icon-location",
-      "label": "Dispatched across India"
+      "label": "Poore India mein delivery"
     }
   ],
   "faqItems": [
     {
-      "q": "Do you make jhalars for weddings and events?",
-      "a": "Yes — wedding and event jhalars, torans and garlands made to order in your colours, at any scale from a few dozen to several thousand pieces."
+      "q": "Zyada quantity chahiye?",
+      "a": "Haan. Event wale, dukaan wale, sab lete hain. Kuch sau se hazar tak bhi — batao kitna chahiye, daam seedha milega."
     },
     {
-      "q": "Can I discuss custom colours and designs?",
-      "a": "Yes, for suitable order quantities. Share a reference photo or your palette and we will develop the design with you."
+      "q": "Apna rang aur design ban sakta hai?",
+      "a": "Haan. Photo bhej do. Hum apna rang, size, design bana dete hain."
     },
     {
-      "q": "How do I get prices for an order?",
-      "a": "Use the enquiry form or message us on WhatsApp at +91 81006 56258 for prices, samples and lead times."
+      "q": "Kaise message karein?",
+      "a": "WhatsApp pe batao: kya chahiye, kitna chahiye, kab chahiye. Hum jaldi reply karte hain."
     },
     {
-      "q": "Do you work with decorators, wholesalers and distributors?",
-      "a": "Yes — we supply event decorators, wholesalers, distributors and organisations. Share your business details and the quantities you need."
+      "q": "Kitne din mein milta hai?",
+      "a": "Design aur quantity pe depend karta hai. Date batao, hum confirm kar denge."
     },
     {
-      "q": "What are your minimum order and delivery timelines?",
-      "a": "Minimums start from a few dozen to several thousand pieces per design. Delivery depends on the design and quantity — share your date and we will confirm what is possible before you commit."
+      "q": "Dukaan ke liye alag daam hai kya?",
+      "a": "Haan. Zyada quantity pe accha daam. Batao kitna chahiye — seedha quote milega."
     }
   ],
   "sectionCopy": {
     "heroTag": {
       "icon": "icon-mfr",
-      "text": "Howrah Workshop | Made to Order"
+      "text": "Seedha banane wale se | Poore India mein"
     },
     "heroPrimary": {
-      "label": "Explore Product Collection",
+      "label": "Dekho Collection",
       "href": "#collection"
     },
     "heroSecondary": {
-      "label": "Message on WhatsApp",
+      "label": "WhatsApp Pe Message Karo",
       "href": "https://wa.me/918100656258"
     },
     "why": {
-      "label": "Why JHALAR",
-      "title": "Direct from the Workshop — Built to Your Brief",
-      "intro": "Everything is made in our own workshop — priced direct and made to order at any scale.",
+      "label": "Kyun JHALAR",
+      "title": "Seedha Banane Wale Se, Sab Kuch Hum Karte Hain",
+      "intro": "Hum khud banate hain. Zyada quantity ho ya kam — daam seedha, kaam seedha.",
       "features": [
         {
           "icon": "icon-mfr",
-          "title": "Workshop-Direct Pricing",
-          "text": "You buy straight from the workshop — no middlemen, sharper prices, faster answers."
+          "title": "Seedha Daam",
+          "text": "Beech mein koi nahi. Seedha humse, seedha daam. Jaldi reply."
         },
         {
           "icon": "icon-palette",
-          "title": "Made-to-Order Design",
-          "text": "Colours, motifs and lengths built to your brief — from brand palettes to festive themes."
+          "title": "Apna Rang, Apna Design",
+          "text": "Photo bhej do. Colour, size, design — sab apna bana dete hain."
         },
         {
           "icon": "icon-bulk",
-          "title": "Bulk and Wholesale Ready",
-          "text": "From a few dozen to several thousand pieces per design — with the same finish from first piece to last."
+          "title": "Zyada Quantity Bhi",
+          "text": "Kuch sau ho ya hazar — ek jaisa finish, ek jaisa kaam."
         }
       ]
     },
     "collection": {
-      "label": "Our Collection",
-      "title": "Jhalars, Torans, Tassels and More",
-      "intro": "Sixteen core designs across eight categories — all made in our workshop.",
-      "note": "Need something specific? "
+      "label": "Kya Kya Hai",
+      "title": "Pom Pom, Toran, Jhalar — Sab Kuch",
+      "intro": "16 designs, 8 types. Sab hum banate hain.",
+      "note": "Kuch aur chahiye? "
     },
     "customOrders": {
-      "label": "Made to Order",
-      "title": "Your Design, Made to Order",
-      "intro": "Send your palette, sizes and quantity — we develop a sample first, then produce at scale.",
+      "label": "Apna Design",
+      "title": "Apna Rang, Apna Size, Apna Design",
+      "intro": "Batao kya chahiye. Hum bana denge. Rang, size, quantity — sab apne hisaab se.",
       "image": "assets/images/custom-orders.jpg",
       "chips": [
         {
           "icon": "icon-palette",
-          "text": "Colour matching"
+          "text": "Apna rang"
         },
         {
           "icon": "icon-ruler",
-          "text": "Size and length options"
+          "text": "Apna size"
         },
         {
           "icon": "icon-chart",
-          "text": "Order quantity planning"
+          "text": "Kitna chahiye"
         }
       ],
-      "processLabel": "How it works",
+      "processLabel": "Kaise hota hai",
       "steps": [
         {
-          "title": "Share Your Brief",
-          "text": "Tell us the category, quantity, colours and where it will be used."
+          "title": "Batao Kya Chahiye",
+          "text": "Type, rang, quantity aur kab chahiye — bas itna batao."
         },
         {
-          "title": "Confirm Design and Quantity",
-          "text": "We agree the colours, sizing and design references before production."
+          "title": "Sample Dekho, Fix Karo",
+          "text": "Sample bhejte hain. Rang, size, quantity pakka kar lo."
         },
         {
-          "title": "Receive Quote and Lead Time",
-          "text": "Get your quote and delivery date — confirm when you're ready."
+          "title": "Daam Aur Delivery Lo",
+          "text": "Daam bata dete hain, date bata dete hain. Confirm karo, le jao."
+        }
+      ]
+    },
+    "whoUses": {
+      "label": "Kiske Liye",
+      "title": "Yeh Sab Kiske Liye Hai",
+      "intro": "Aap jaise logon ke liye. Sabka kaam ban jata hai.",
+      "personas": [
+        {
+          "icon": "icon-route",
+          "title": "Event Wale",
+          "text": "Jaldi chahiye, accha dikhna chahiye. Poocho — daam aur delivery bata denge."
+        },
+        {
+          "icon": "icon-palette",
+          "title": "Shaadi Wale",
+          "text": "Apna rang, apna theme. Sample bhej dete hain, phir bana dete hain."
+        },
+        {
+          "icon": "icon-bulk",
+          "title": "Dukaan Wale",
+          "text": "Zyada quantity, accha daam, alag designs. Bik jaye aur alag dikhe."
+        },
+        {
+          "icon": "icon-design",
+          "title": "Puja Committee Wale",
+          "text": "Traditional look, budget mein, time pe. Festival se pehle bata dena."
         }
       ]
     },
     "about": {
-      "label": "About JHALAR",
-      "title": "From Our Workshop to Your Venue — No Middlemen",
-      "intro": "JHALAR is the maker — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly for your wedding, event or storefront.",
+      "label": "Hum Kaun Hain",
+      "title": "Hum Khud Banate Hain — Beech Mein Koi Nahi",
+      "intro": "Har jhalar, har toran Howrah mein hum khud banate hain. Seedha humse baat karo — daam seedha, baat seedhi.",
       "image": "assets/images/about-collage.jpg",
       "values": [
         {
           "icon": "icon-check",
-          "text": "Hand-finished detailing"
+          "text": "Haath se finish"
         },
         {
           "icon": "icon-check",
-          "text": "One point of contact, quote to dispatch"
+          "text": "Ek baat, ek aadmi — poora kaam"
         },
         {
           "icon": "icon-check",
-          "text": "Sampling before production runs"
+          "text": "Sample pehle, kaam baad mein"
         }
       ]
     },
     "faq": {
-      "label": "FAQ",
-      "title": "Frequently Asked Questions"
+      "label": "Sawal",
+      "title": "Sawal Aur Jawab"
     },
     "contact": {
-      "label": "Get in Touch",
-      "title": "Get a Quote on WhatsApp",
-      "intro": "Tell us your venue, event date, colours and quantity — we will reply on WhatsApp with options and pricing.",
-      "submitLabel": "Send Message via WhatsApp"
+      "label": "Baat Karo",
+      "title": "Poocho Ya Order Karo",
+      "intro": "Batao: kya chahiye, kitna chahiye, kab chahiye. Seedha humse, seedha baat.",
+      "submitLabel": "WhatsApp Pe Message Karo"
     },
-    "footerTagline": "Handcrafted jhalars and festive hangings, made in Howrah and supplied across India."
+    "footerTagline": "Haath se bane jhalar aur hangings. Howrah mein bane, poore India mein."
   }
 }
