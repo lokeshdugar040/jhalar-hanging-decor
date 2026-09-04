@@ -20,7 +20,7 @@
 # ============================================================================
 set -u
 
-cd "$(dirname "$0")/../.." || exit 1   # repo root
+cd "$(dirname "$0")/.." || exit 1      # repo root (scripts/)
 FAIL=0
 note() { printf '%s\n' "$*"; }
 fail() { printf 'FAIL: %s\n' "$*"; FAIL=1; }
