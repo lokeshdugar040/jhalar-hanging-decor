@@ -22,8 +22,8 @@ function defaultSectionCopy() {
       intro:'We are the makers, not a reseller — so the design, the price and the timeline all come from one place.',
       features:[
         {icon:'icon-mfr', title:'No Middlemen', text:'You talk to the people who actually make the pieces, not a trading desk in between.'},
-        {icon:'icon-palette', title:'Matched to Your Brief', text:'A reference photo is enough to start from; a swatch or hex code gets us closer.'},
-        {icon:'icon-bulk', title:'Built for Volume', text:'Small runs and several-thousand-piece orders come off the same bench, in one batch, to one approved standard.'}
+        {icon:'icon-palette', title:'Matched to Your Brief', text:'Send a reference photo or your palette and we will work to it.'},
+        {icon:'icon-bulk', title:'Built for Volume', text:'From a few dozen pieces to several thousand per design, made to the same standard throughout.'}
       ]
     },
     collection: {
@@ -44,7 +44,7 @@ function defaultSectionCopy() {
       steps:[
         {title:'Send Your Brief', text:'The category, your colours, how many pieces, and the date you need them.'},
         {title:'Approve a Sample', text:'We make one piece to your brief. Nothing goes into production until you sign it off.'},
-        {title:'Production and Dispatch', text:'Once you approve the sample, the product price and the dispatch date are agreed before production starts. Delivery is quoted separately.'}
+        {title:'Production and Dispatch', text:'Once you approve the sample, we confirm the price and the timeline, and production starts.'}
       ]
     },
     whoUses: {
@@ -52,9 +52,9 @@ function defaultSectionCopy() {
       intro:'Event decorators, wedding planners, retailers and puja committees.',
       personas:[
         {icon:'icon-route', title:'Event Decorators', text:'Venue-scale quantities against a fixed install date. Give us the date and we work backwards from it.'},
-        {icon:'icon-palette', title:'Wedding Planners', text:'One palette carried across mandap, entrance and aisle so the whole venue reads as a single set.'},
-        {icon:'icon-bulk', title:'Retailers and Stores', text:'Repeatable designs you can reorder by name, packed and labelled for shelf display.'},
-        {icon:'icon-design', title:'Puja Committees', text:'Traditional torans and jhalars at pandal scale. Book ahead of the Durga Puja and Diwali rush.'}
+        {icon:'icon-palette', title:'Wedding Planners', text:'Colours matched to your theme, so the whole setting works as one.'},
+        {icon:'icon-bulk', title:'Retailers and Stores', text:'Designs you can reorder in the same colours, run after run.'},
+        {icon:'icon-design', title:'Puja Committees', text:'Traditional torans and jhalars for pujas, pandals and festival programmes.'}
       ]
     },
     about: {
@@ -64,7 +64,7 @@ function defaultSectionCopy() {
       values:[
         {icon:'icon-check', text:'Finished by hand, piece by piece'},
         {icon:'icon-check', text:'One contact from quote to dispatch'},
-        {icon:'icon-check', text:'Small runs and repeat orders'}
+        {icon:'icon-check', text:'Repeat orders in the same colours'}
       ]
     },
     faq: {label:'FAQ', title:'Frequently Asked Questions'},
@@ -214,13 +214,13 @@ async function loadPublishedData() {
     state.settings.footerNavItems = state.footerNavItems;
     state.settings.socialLinks = state.socialLinks;
     state.settings.sectionCopy = state.sectionCopy;
-    state.heroHighlights = state.settings.heroHighlights||[{text:'Made to order',icon:'icon-check'},{text:'Custom colourways',icon:'icon-clock'},{text:'Small runs welcome',icon:'icon-route'}];
+    state.heroHighlights = state.settings.heroHighlights||[{text:'Made to order',icon:'icon-check'},{text:'Custom colourways',icon:'icon-clock'},{text:'Any quantity',icon:'icon-route'}];
     state.trustItems = state.settings.trustItems||[{label:'Our own karigars in Howrah',icon:'icon-mfr'},{label:'16 designs, 8 categories',icon:'icon-design'},{label:'Delivered across India',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
-      {q:'What is the smallest order you take?',a:'A few dozen pieces for an existing design. Custom colourways start higher because of the dyeing run — name the design and we will give you the exact figure.'},
-      {q:'Can you match a specific colour?',a:'Usually. Send a photo, a fabric swatch or a hex code and we will match it in the sample before production.'},
-      {q:'Do you deliver outside West Bengal?',a:'Yes, across India. Freight is quoted separately once we know the destination and the number of pieces.'},
-      {q:'How long does an order take?',a:'It depends on the design and how many you need. You get a firm dispatch date before you commit to anything.'},
+      {q:'What quantities do you take?',a:'From a few dozen to several thousand pieces per design. Tell us the design and the quantity and we will confirm.'},
+      {q:'Can you match a specific colour?',a:'Yes. Share a reference photo or your palette and we will match it in the sample before production.'},
+      {q:'Do you deliver outside West Bengal?',a:'Yes, we dispatch across India. Tell us where it needs to reach and we will confirm the arrangements.'},
+      {q:'How long does an order take?',a:'It depends on the design and the quantity. Share the date you need it by and we will confirm whether we can meet it.'},
       {q:'How do I place an order?',a:'Message us on WhatsApp with the design and how many you need. We take it from there.'}
     ];
 
