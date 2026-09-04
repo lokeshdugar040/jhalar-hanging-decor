@@ -4,11 +4,11 @@
   "email": "lokeshdugar040@gmail.com",
   "location": "Howrah, West Bengal, India",
   "gst": "Available on request",
-  "heroHeadline": "Handcrafted Decorative Hangings for Events & Businesses",
-  "heroIntro": "Handcrafted decorative hangings, manufactured in India and supplied to businesses nationwide — for bulk orders, event installations, festive decor and custom projects.",
+  "heroHeadline": "Handcrafted Jhalars & Festive Hangings — Made to Order in Bulk",
+  "heroIntro": "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
   "heroImage": "assets/images/hero-jhalar.jpg",
-  "siteTitle": "JHALAR Hanging Decor | Decorative Hangings Manufacturer & Wholesale Supplier",
-  "siteDescription": "JHALAR manufactures handcrafted decorative hangings — pom pom garlands, floral jhalars, bell hangings, torans and tassels — for events, retailers and wholesalers across India. Made-to-brief and bulk-ready supply.",
+  "siteTitle": "JHALAR | Jhalar & Festive Hangings Manufacturer — Wholesale & Bulk",
+  "siteDescription": "Pom pom garlands, floral jhalars, torans, bead and bell hangings — handcrafted in Howrah, made to order and supplied in bulk across India.",
   "ogImage": "assets/images/og-cover.jpg",
   "navItems": [
     {
@@ -67,7 +67,7 @@
   "heroHighlights": [
     {
       "icon": "icon-check",
-      "text": "Made-to-order colours"
+      "text": "Colours matched to your brief"
     },
     {
       "icon": "icon-clock",
@@ -81,15 +81,15 @@
   "trustItems": [
     {
       "icon": "icon-mfr",
-      "label": "Manufacturer-direct supply"
+      "label": "Own workshop — no middlemen"
     },
     {
       "icon": "icon-design",
-      "label": "Design & sampling support"
+      "label": "Sampling before you commit"
     },
     {
       "icon": "icon-location",
-      "label": "Pan-India dispatch"
+      "label": "Dispatched across India"
     }
   ],
   "faqItems": [
@@ -99,7 +99,7 @@
     },
     {
       "q": "Can I discuss custom colours and designs?",
-      "a": "Yes, for suitable order quantities. Share your colour and design ideas and our team will take it from there."
+      "a": "Yes, for suitable order quantities. Share a reference photo or your palette and we'll develop the design with you."
     },
     {
       "q": "How do I get prices for an order?",
@@ -108,12 +108,16 @@
     {
       "q": "Do you work with wholesalers and distributors?",
       "a": "Yes — we supply wholesalers and distributors. Share your business details and the quantities you need."
+    },
+    {
+      "q": "What are your minimum order and delivery timelines?",
+      "a": "Minimums start from a few dozen pieces per design. Delivery depends on the design and quantity — share your date and we'll confirm what's possible before you commit."
     }
   ],
   "sectionCopy": {
     "heroTag": {
       "icon": "icon-mfr",
-      "text": "Direct Manufacturer | B2B Supply"
+      "text": "Howrah Manufacturer | B2B Supply"
     },
     "heroPrimary": {
       "label": "Explore Product Collection",
@@ -125,13 +129,13 @@
     },
     "why": {
       "label": "Why JHALAR",
-      "title": "Built for Events & Wholesale Decor",
-      "intro": "Distinctive hanging decor, made for the scale of events, retail and wholesale.",
+      "title": "Factory-Direct, Made to Order, Built to Scale",
+      "intro": "Everything is made in our own workshop — priced factory-direct and built to order at scale.",
       "features": [
         {
           "icon": "icon-mfr",
-          "title": "Factory-to-Client Pricing",
-          "text": "Work directly with the source — no middle layers, faster answers, better pricing."
+          "title": "Factory-Direct Pricing",
+          "text": "You buy straight from the workshop — no middlemen, sharper prices, faster answers."
         },
         {
           "icon": "icon-palette",
@@ -141,20 +145,20 @@
         {
           "icon": "icon-bulk",
           "title": "Bulk & Wholesale Ready",
-          "text": "From a few dozen to several thousand pieces — sized for events, wholesale, retail and institutional orders."
+          "text": "From a few dozen to several thousand pieces per design — with the same finish from first piece to last."
         }
       ]
     },
     "collection": {
       "label": "Our Collection",
-      "title": "Hangings for Every Occasion",
-      "intro": "Browse our hanging decor categories for bulk supply, event styling and wholesale orders.",
+      "title": "Jhalars, Torans, Tassels & More",
+      "intro": "Sixteen core designs across eight categories — every style produced in bulk quantities.",
       "note": "Need something specific? "
     },
     "customOrders": {
       "label": "Made to Order",
-      "title": "Custom Hanging Decor for Your Project",
-      "intro": "Share your colours, sizes and quantity — we tailor hanging decor to your event, wholesale or institutional project.",
+      "title": "Your Design, Made to Order",
+      "intro": "Send your palette, sizes and quantity — we develop a sample first, then produce at scale.",
       "image": "assets/images/custom-orders.jpg",
       "chips": [
         {
@@ -182,14 +186,14 @@
         },
         {
           "title": "Receive Quote & Lead Time",
-          "text": "Get your price and delivery details to take the order forward."
+          "text": "Get your quote and delivery date — confirm when you're ready."
         }
       ]
     },
     "about": {
       "label": "About JHALAR",
       "title": "Handcrafted in Howrah, Supplied Across India",
-      "intro": "JHALAR works directly with business buyers, event teams and wholesale clients, making decorative hangings to fit their project, scale and budget.",
+      "intro": "JHALAR is the manufacturer — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly to you.",
       "image": "assets/images/about-collage.jpg",
       "values": [
         {
@@ -198,11 +202,11 @@
         },
         {
           "icon": "icon-check",
-          "text": "Dedicated B2B support"
+          "text": "One point of contact, quote to dispatch"
         },
         {
           "icon": "icon-check",
-          "text": "Guidance for every project"
+          "text": "Sampling before bulk production"
         }
       ]
     },
@@ -215,6 +219,6 @@
       "title": "Start a B2B Enquiry",
       "intro": "Tell us what you need and the team will get back with options, prices and lead times."
     },
-    "footerTagline": "Handcrafted decorative hangings — factory-direct for events, retailers and wholesalers across India."
+    "footerTagline": "Handcrafted jhalars and festive hangings, made in Howrah and supplied across India."
   }
 }

@@ -14,26 +14,26 @@ let state = {
 
 function defaultSectionCopy() {
   return {
-    heroTag: {icon:'icon-mfr', text:'Direct Manufacturer | B2B Supply'},
+    heroTag: {icon:'icon-mfr', text:'Howrah Manufacturer | B2B Supply'},
     heroPrimary: {label:'Explore Product Collection', href:'#collection'},
     heroSecondary: {label:'WhatsApp for B2B Enquiry', href:'https://wa.me/918100656258'},
     why: {
-      label:'Why JHALAR', title:'Built for Events & Wholesale Decor',
-      intro:'Distinctive hanging decor, made for the scale of events, retail and wholesale.',
+      label:'Why JHALAR', title:'Factory-Direct, Made to Order, Built to Scale',
+      intro:'Everything is made in our own workshop — priced factory-direct and built to order at scale.',
       features:[
-        {icon:'icon-mfr', title:'Factory-to-Client Pricing', text:'Work directly with the source — no middle layers, faster answers, better pricing.'},
+        {icon:'icon-mfr', title:'Factory-Direct Pricing', text:'You buy straight from the workshop — no middlemen, sharper prices, faster answers.'},
         {icon:'icon-palette', title:'Made-to-Order Design', text:'Colours, motifs and lengths built to your brief — from brand palettes to festive themes.'},
-        {icon:'icon-bulk', title:'Bulk & Wholesale Ready', text:'From a few dozen to several thousand pieces — sized for events, wholesale, retail and institutional orders.'}
+        {icon:'icon-bulk', title:'Bulk & Wholesale Ready', text:'From a few dozen to several thousand pieces per design — with the same finish from first piece to last.'}
       ]
     },
     collection: {
-      label:'Our Collection', title:'Hangings for Every Occasion',
-      intro:'Browse our hanging decor categories for bulk supply, event styling and wholesale orders.',
+      label:'Our Collection', title:'Jhalars, Torans, Tassels & More',
+      intro:'Sixteen core designs across eight categories — every style produced in bulk quantities.',
       note:'Need something specific? '
     },
     customOrders: {
-      label:'Made to Order', title:'Custom Hanging Decor for Your Project',
-      intro:'Share your colours, sizes and quantity — we tailor hanging decor to your event, wholesale or institutional project.',
+      label:'Made to Order', title:'Your Design, Made to Order',
+      intro:'Send your palette, sizes and quantity — we develop a sample first, then produce at scale.',
       image:'assets/images/custom-orders.jpg',
       chips:[
         {icon:'icon-palette', text:'Colour matching'},
@@ -44,17 +44,17 @@ function defaultSectionCopy() {
       steps:[
         {title:'Share Your Brief', text:'Tell us the category, quantity, colours and where it will be used.'},
         {title:'Confirm Design & Quantity', text:'We agree the colours, sizing and design references before production.'},
-        {title:'Receive Quote & Lead Time', text:'Get your price and delivery details to take the order forward.'}
+        {title:'Receive Quote & Lead Time', text:'Get your quote and delivery date — confirm when you\'re ready.'}
       ]
     },
     about: {
       label:'About JHALAR', title:'Handcrafted in Howrah, Supplied Across India',
-      intro:'JHALAR works directly with business buyers, event teams and wholesale clients, making decorative hangings to fit their project, scale and budget.',
+      intro:'JHALAR is the manufacturer — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly to you.',
       image:'assets/images/about-collage.jpg',
       values:[
         {icon:'icon-check', text:'Hand-finished detailing'},
-        {icon:'icon-check', text:'Dedicated B2B support'},
-        {icon:'icon-check', text:'Guidance for every project'}
+        {icon:'icon-check', text:'One point of contact, quote to dispatch'},
+        {icon:'icon-check', text:'Sampling before bulk production'}
       ]
     },
     faq: {label:'FAQ', title:'Frequently Asked Questions'},
@@ -62,7 +62,7 @@ function defaultSectionCopy() {
       label:'Get in Touch', title:'Start a B2B Enquiry',
       intro:'Tell us what you need and the team will get back with options, prices and lead times.'
     },
-    footerTagline:'Handcrafted decorative hangings — factory-direct for events, retailers and wholesalers across India.'
+    footerTagline:'Handcrafted jhalars and festive hangings, made in Howrah and supplied across India.'
   };
 }
 
@@ -92,7 +92,7 @@ function defaultThemeTemplate() {
     layout: {
       baseFontSize:'16px', sectionY:'96px', cardRadius:'20px', containerWidth:'1140px',
       headerHeight:'72px', productColumns:'3', buttonRadius:'9999px', shadowIntensity:'0.12', revealAnimation:true,
-      headingWeight:'600', headingTracking:'-0.02em', headingLeading:'1.1',
+      headingWeight:'600', headingTracking:'-0.01em', headingLeading:'1.18',
       bodyWeight:'400', bodyTracking:'0', bodyLeading:'1.7',
       titleSize:'fluid', heroTitleSize:'fluid', cardTitleSize:'fluid',
       cardPad:'24px', gridGap:'24px', sectionHeaderGap:'48px', sectionAlign:'center',
@@ -203,13 +203,14 @@ async function loadPublishedData() {
     state.settings.footerNavItems = state.footerNavItems;
     state.settings.socialLinks = state.socialLinks;
     state.settings.sectionCopy = state.sectionCopy;
-    state.heroHighlights = state.settings.heroHighlights||[{text:'Made-to-order colours',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotes',icon:'icon-route'}];
-    state.trustItems = state.settings.trustItems||[{label:'Manufacturer-direct supply',icon:'icon-mfr'},{label:'Design & sampling support',icon:'icon-design'},{label:'Pan-India dispatch',icon:'icon-location'}];
+    state.heroHighlights = state.settings.heroHighlights||[{text:'Colours matched to your brief',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotes',icon:'icon-route'}];
+    state.trustItems = state.settings.trustItems||[{label:'Own workshop — no middlemen',icon:'icon-mfr'},{label:'Sampling before you commit',icon:'icon-design'},{label:'Dispatched across India',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
       {q:'Do you supply decorative hangings in bulk?',a:'Yes — we focus on bulk supply for event decorators, wholesalers, retailers and organisations.'},
-      {q:'Can I discuss custom colours and designs?',a:'Yes, for suitable order quantities. Share your colour and design ideas and our team will take it from there.'},
+      {q:'Can I discuss custom colours and designs?',a:'Yes, for suitable order quantities. Share a reference photo or your palette and we\'ll develop the design with you.'},
       {q:'How do I get prices for an order?',a:'Use the enquiry form or message us on WhatsApp for prices, samples and lead times.'},
-      {q:'Do you work with wholesalers and distributors?',a:'Yes — we supply wholesalers and distributors. Share your business details and the quantities you need.'}
+      {q:'Do you work with wholesalers and distributors?',a:'Yes — we supply wholesalers and distributors. Share your business details and the quantities you need.'},
+      {q:'What are your minimum order and delivery timelines?',a:'Minimums start from a few dozen pieces per design. Delivery depends on the design and quantity — share your date and we\'ll confirm what\'s possible before you commit.'}
     ];
 
     ensureProductIds();
@@ -387,8 +388,8 @@ function populateAllForms() {
     setVal('ed-layout-reveal', l.revealAnimation === false ? 'false' : 'true');
     // Typography
     setVal('ed-font-heading-weight', String(l.headingWeight||'600'));
-    setVal('ed-font-heading-tracking', l.headingTracking||'-0.02em');
-    setVal('ed-font-heading-leading', String(l.headingLeading||'1.1'));
+    setVal('ed-font-heading-tracking', l.headingTracking||'-0.01em');
+    setVal('ed-font-heading-leading', String(l.headingLeading||'1.18'));
     setVal('ed-font-body-weight', String(l.bodyWeight||'400'));
     setVal('ed-font-body-tracking', l.bodyTracking||'0');
     setVal('ed-font-body-leading', String(l.bodyLeading||'1.7'));
@@ -408,9 +409,9 @@ function populateAllForms() {
     setVal('ed-layout-section-gap', parseInt(l.sectionHeaderGap||'48px',10)||48);
     const fluidTitle = (v, fallback) => (v && v !== 'fluid') ? parseInt(v,10) : null;
     const tsz = fluidTitle(l.titleSize), hsz = fluidTitle(l.heroTitleSize), csz = fluidTitle(l.cardTitleSize);
-    setVal('ed-layout-title-size', tsz || 48);
-    setVal('ed-layout-hero-title-size', hsz || 64);
-    setVal('ed-layout-card-title-size', csz || 24);
+    setVal('ed-layout-title-size', tsz || 38);
+    setVal('ed-layout-hero-title-size', hsz || 52);
+    setVal('ed-layout-card-title-size', csz || 22);
     setVal('ed-layout-feature-gap', parseInt(l.featureGap||'24px',10)||24);
     setVal('ed-layout-product-gap', parseInt(l.productGap||'24px',10)||24);
     setVal('ed-layout-split-gap', parseInt(l.splitGap||'48px',10)||48);
@@ -1073,8 +1074,8 @@ function collectAllData() {
   l.revealAnimation = getVal('ed-layout-reveal') !== 'false';
   // Typography
   l.headingWeight = getVal('ed-font-heading-weight') || '600';
-  l.headingTracking = getVal('ed-font-heading-tracking') || '-0.02em';
-  l.headingLeading = getVal('ed-font-heading-leading') || '1.1';
+  l.headingTracking = getVal('ed-font-heading-tracking') || '-0.01em';
+  l.headingLeading = getVal('ed-font-heading-leading') || '1.18';
   l.bodyWeight = getVal('ed-font-body-weight') || '400';
   l.bodyTracking = getVal('ed-font-body-tracking') || '0';
   l.bodyLeading = getVal('ed-font-body-leading') || '1.7';
@@ -1094,9 +1095,9 @@ function collectAllData() {
   l.sectionHeaderGap = (getVal('ed-layout-section-gap') || '48') + 'px';
   // Only save explicit sizes; keep "fluid" when user leaves the auto values untouched.
   const tsz = getVal('ed-layout-title-size'), hsz = getVal('ed-layout-hero-title-size'), csz = getVal('ed-layout-card-title-size');
-  l.titleSize = (state.theme && state.theme.layout && state.theme.layout.titleSize === 'fluid' && tsz === '48') ? 'fluid' : (Number(tsz)||48)+'px';
-  l.heroTitleSize = (state.theme && state.theme.layout && state.theme.layout.heroTitleSize === 'fluid' && hsz === '64') ? 'fluid' : (Number(hsz)||64)+'px';
-  l.cardTitleSize = (state.theme && state.theme.layout && state.theme.layout.cardTitleSize === 'fluid' && csz === '24') ? 'fluid' : (Number(csz)||24)+'px';
+  l.titleSize = (state.theme && state.theme.layout && state.theme.layout.titleSize === 'fluid' && tsz === '38') ? 'fluid' : (Number(tsz)||38)+'px';
+  l.heroTitleSize = (state.theme && state.theme.layout && state.theme.layout.heroTitleSize === 'fluid' && hsz === '52') ? 'fluid' : (Number(hsz)||52)+'px';
+  l.cardTitleSize = (state.theme && state.theme.layout && state.theme.layout.cardTitleSize === 'fluid' && csz === '22') ? 'fluid' : (Number(csz)||22)+'px';
   l.featureGap = (getVal('ed-layout-feature-gap') || '24') + 'px';
   l.productGap = (getVal('ed-layout-product-gap') || '24') + 'px';
   l.splitGap = (getVal('ed-layout-split-gap') || '48') + 'px';

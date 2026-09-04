@@ -408,6 +408,7 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
                 <option value="600" selected>Semibold</option>
                 <option value="700">Bold</option>
               </select>
+              <span class="help">H1/H2 stay Bold or heavier to preserve hierarchy.</span>
             </div>
             <div class="form-group"><label>Body Weight</label>
               <select id="ed-font-body-weight">
@@ -422,11 +423,11 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
           <div class="form-row">
             <div class="form-group"><label>Heading Letter Spacing</label>
               <select id="ed-font-heading-tracking">
-                <option value="-0.02em" selected>Tight (recommended)</option>
+                <option value="-0.02em">Tight</option>
                 <option value="-0.015em">Slightly tight</option>
+                <option value="-0.01em" selected>Recommended</option>
                 <option value="0">Normal</option>
                 <option value="0.01em">Loose</option>
-                <option value="0.02em">Airy</option>
               </select>
             </div>
             <div class="form-group"><label>Body Letter Spacing</label>
@@ -442,9 +443,9 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
             <div class="form-group"><label>Heading Line Height</label>
               <select id="ed-font-heading-leading">
                 <option value="1.05">1.05 - compact</option>
-                <option value="1.1" selected>1.1 - recommended</option>
-                <option value="1.15">1.15 - open</option>
-                <option value="1.25">1.25 - airy</option>
+                <option value="1.1">1.1 - snug</option>
+                <option value="1.18" selected>1.18 - recommended</option>
+                <option value="1.3">1.3 - airy</option>
               </select>
             </div>
             <div class="form-group"><label>Body Line Height</label>
@@ -474,16 +475,16 @@ hr.divider{margin:12px 0;border:none;border-top:1px solid rgba(128,128,128,0.1)}
             <span class="help" id="help-container">1140px</span>
           </div>
           <div class="form-group"><label>Hero Title Size</label>
-            <input type="range" id="ed-layout-hero-title-size" min="40" max="80" step="2" value="64">
-            <span class="help" id="help-hero-title-size">64px</span>
+            <input type="range" id="ed-layout-hero-title-size" min="36" max="72" step="2" value="52">
+            <span class="help" id="help-hero-title-size">Auto (responsive)</span>
           </div>
           <div class="form-group"><label>Section Title Size</label>
-            <input type="range" id="ed-layout-title-size" min="32" max="64" step="2" value="48">
-            <span class="help" id="help-title-size">48px</span>
+            <input type="range" id="ed-layout-title-size" min="24" max="56" step="2" value="38">
+            <span class="help" id="help-title-size">Auto (responsive)</span>
           </div>
           <div class="form-group"><label>Card / Inner Title Size</label>
-            <input type="range" id="ed-layout-card-title-size" min="20" max="34" step="2" value="24">
-            <span class="help" id="help-card-title-size">24px</span>
+            <input type="range" id="ed-layout-card-title-size" min="16" max="32" step="2" value="22">
+            <span class="help" id="help-card-title-size">Auto (responsive)</span>
           </div>
           <hr class="divider">
           <div class="form-group"><label>Header Height</label>
