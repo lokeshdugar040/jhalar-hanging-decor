@@ -108,8 +108,8 @@ let theme = {
     shadowIntensity: "0.12",
     revealAnimation: true,
     headingWeight: "600",
-    headingTracking: "-0.02em",
-    headingLeading: "1.1",
+    headingTracking: "-0.01em",
+    headingLeading: "1.18",
     bodyWeight: "400",
     bodyTracking: "0",
     bodyLeading: "1.7",
@@ -273,12 +273,22 @@ function applyTheme() {
     if (l.buttonRadius) root.style.setProperty('--button-radius', l.buttonRadius);
     if (l.shadowIntensity) root.style.setProperty('--shadow-alpha', l.shadowIntensity);
     // typography
-    if (l.headingWeight) root.style.setProperty('--heading-weight', l.headingWeight);
+    if (l.headingWeight) {
+      root.style.setProperty('--heading-weight', l.headingWeight);
+      // Display headings (h1/h2) stay at least Bold so the hierarchy survives any weight choice
+      const hw = Number(l.headingWeight) || 600;
+      root.style.setProperty('--heading-weight-strong', String(Math.max(700, hw)));
+    }
     if (l.headingTracking) root.style.setProperty('--heading-tracking', l.headingTracking);
     if (l.headingLeading) root.style.setProperty('--heading-leading', l.headingLeading);
     if (l.bodyWeight) root.style.setProperty('--body-weight', l.bodyWeight);
     if (l.bodyTracking) root.style.setProperty('--body-tracking', l.bodyTracking);
     if (l.bodyLeading) root.style.setProperty('--body-leading', l.bodyLeading);
+    // Base font size scales the whole rem-based type scale proportionally
+    if (l.baseFontSize) {
+      root.style.setProperty('--fs-base', l.baseFontSize);
+      root.style.fontSize = l.baseFontSize;
+    }
     if (l.titleSize && l.titleSize !== 'fluid') root.style.setProperty('--title-size', l.titleSize);
     if (l.heroTitleSize && l.heroTitleSize !== 'fluid') root.style.setProperty('--hero-title-size', l.heroTitleSize);
     if (l.cardTitleSize && l.cardTitleSize !== 'fluid') root.style.setProperty('--card-title-size', l.cardTitleSize);

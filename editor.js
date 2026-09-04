@@ -92,7 +92,7 @@ function defaultThemeTemplate() {
     layout: {
       baseFontSize:'16px', sectionY:'96px', cardRadius:'20px', containerWidth:'1140px',
       headerHeight:'72px', productColumns:'3', buttonRadius:'9999px', shadowIntensity:'0.12', revealAnimation:true,
-      headingWeight:'600', headingTracking:'-0.02em', headingLeading:'1.1',
+      headingWeight:'600', headingTracking:'-0.01em', headingLeading:'1.18',
       bodyWeight:'400', bodyTracking:'0', bodyLeading:'1.7',
       titleSize:'fluid', heroTitleSize:'fluid', cardTitleSize:'fluid',
       cardPad:'24px', gridGap:'24px', sectionHeaderGap:'48px', sectionAlign:'center',
@@ -387,8 +387,8 @@ function populateAllForms() {
     setVal('ed-layout-reveal', l.revealAnimation === false ? 'false' : 'true');
     // Typography
     setVal('ed-font-heading-weight', String(l.headingWeight||'600'));
-    setVal('ed-font-heading-tracking', l.headingTracking||'-0.02em');
-    setVal('ed-font-heading-leading', String(l.headingLeading||'1.1'));
+    setVal('ed-font-heading-tracking', l.headingTracking||'-0.01em');
+    setVal('ed-font-heading-leading', String(l.headingLeading||'1.18'));
     setVal('ed-font-body-weight', String(l.bodyWeight||'400'));
     setVal('ed-font-body-tracking', l.bodyTracking||'0');
     setVal('ed-font-body-leading', String(l.bodyLeading||'1.7'));
@@ -408,9 +408,9 @@ function populateAllForms() {
     setVal('ed-layout-section-gap', parseInt(l.sectionHeaderGap||'48px',10)||48);
     const fluidTitle = (v, fallback) => (v && v !== 'fluid') ? parseInt(v,10) : null;
     const tsz = fluidTitle(l.titleSize), hsz = fluidTitle(l.heroTitleSize), csz = fluidTitle(l.cardTitleSize);
-    setVal('ed-layout-title-size', tsz || 48);
-    setVal('ed-layout-hero-title-size', hsz || 64);
-    setVal('ed-layout-card-title-size', csz || 24);
+    setVal('ed-layout-title-size', tsz || 38);
+    setVal('ed-layout-hero-title-size', hsz || 52);
+    setVal('ed-layout-card-title-size', csz || 22);
     setVal('ed-layout-feature-gap', parseInt(l.featureGap||'24px',10)||24);
     setVal('ed-layout-product-gap', parseInt(l.productGap||'24px',10)||24);
     setVal('ed-layout-split-gap', parseInt(l.splitGap||'48px',10)||48);
@@ -1073,8 +1073,8 @@ function collectAllData() {
   l.revealAnimation = getVal('ed-layout-reveal') !== 'false';
   // Typography
   l.headingWeight = getVal('ed-font-heading-weight') || '600';
-  l.headingTracking = getVal('ed-font-heading-tracking') || '-0.02em';
-  l.headingLeading = getVal('ed-font-heading-leading') || '1.1';
+  l.headingTracking = getVal('ed-font-heading-tracking') || '-0.01em';
+  l.headingLeading = getVal('ed-font-heading-leading') || '1.18';
   l.bodyWeight = getVal('ed-font-body-weight') || '400';
   l.bodyTracking = getVal('ed-font-body-tracking') || '0';
   l.bodyLeading = getVal('ed-font-body-leading') || '1.7';
@@ -1094,9 +1094,9 @@ function collectAllData() {
   l.sectionHeaderGap = (getVal('ed-layout-section-gap') || '48') + 'px';
   // Only save explicit sizes; keep "fluid" when user leaves the auto values untouched.
   const tsz = getVal('ed-layout-title-size'), hsz = getVal('ed-layout-hero-title-size'), csz = getVal('ed-layout-card-title-size');
-  l.titleSize = (state.theme && state.theme.layout && state.theme.layout.titleSize === 'fluid' && tsz === '48') ? 'fluid' : (Number(tsz)||48)+'px';
-  l.heroTitleSize = (state.theme && state.theme.layout && state.theme.layout.heroTitleSize === 'fluid' && hsz === '64') ? 'fluid' : (Number(hsz)||64)+'px';
-  l.cardTitleSize = (state.theme && state.theme.layout && state.theme.layout.cardTitleSize === 'fluid' && csz === '24') ? 'fluid' : (Number(csz)||24)+'px';
+  l.titleSize = (state.theme && state.theme.layout && state.theme.layout.titleSize === 'fluid' && tsz === '38') ? 'fluid' : (Number(tsz)||38)+'px';
+  l.heroTitleSize = (state.theme && state.theme.layout && state.theme.layout.heroTitleSize === 'fluid' && hsz === '52') ? 'fluid' : (Number(hsz)||52)+'px';
+  l.cardTitleSize = (state.theme && state.theme.layout && state.theme.layout.cardTitleSize === 'fluid' && csz === '22') ? 'fluid' : (Number(csz)||22)+'px';
   l.featureGap = (getVal('ed-layout-feature-gap') || '24') + 'px';
   l.productGap = (getVal('ed-layout-product-gap') || '24') + 'px';
   l.splitGap = (getVal('ed-layout-split-gap') || '48') + 'px';
