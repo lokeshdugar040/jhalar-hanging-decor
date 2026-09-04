@@ -577,10 +577,10 @@ function applySiteSettings() {
     const steps = document.querySelector('#custom-orders .process-grid');
     if (steps && Array.isArray(cs.steps)) {
       steps.innerHTML = cs.steps.map((s,i) => `
-        <div class="step">
+        <li class="step">
           <div class="step-num">${String(i+1).padStart(2,'0')}</div>
           <div><div class="step-title">${esc(s.title)}</div><p class="step-desc">${esc(s.text)}</p></div>
-        </div>
+        </li>
       `).join('');
     }
   }
