@@ -49,7 +49,7 @@ function defaultSectionCopy() {
     },
     whoUses: {
       label:'Who It\'s For', title:'Who We Work With',
-      intro:'Decorators, families, retailers and committees — we work with all of them.',
+      intro:'Event decorators, wedding planners, retailers and puja committees.',
       personas:[
         {icon:'icon-route', title:'Event Decorators', text:'Short deadlines and a finish that photographs well. Ask us for pricing and delivery timelines.'},
         {icon:'icon-palette', title:'Wedding Planners', text:'Colours matched to your theme. We send a sample first, then produce the full order.'},
@@ -93,7 +93,7 @@ function defaultThemeTemplate() {
       '--brand-primary':'#C82039','--brand-primary-dark':'#A3182E','--brand-primary-light':'#E8485F',
       '--brand-accent':'#C9A84C','--brand-navy':'#141942','--brand-cream':'#FFFAF1',
       '--brand-background':'#FFFFFF','--brand-alt-background':'#F9F7F4','--brand-text':'#4A4752',
-      '--brand-muted':'#7A7780','--brand-heading':'#1F1D24','--brand-border':'#F0EFEB',
+      '--brand-muted':'#6B6874','--brand-heading':'#1F1D24','--brand-border':'#F0EFEB',
       '--brand-header-background':'#FFFFFF','--brand-footer-background':'#141942','--brand-footer-text':'#FFFFFF'
     },
     fonts: {
@@ -380,7 +380,7 @@ function populateAllForms() {
       setVal('ed-color-bg', c['--brand-background']||'#FFFFFF');
       setVal('ed-color-alt', c['--brand-alt-background']||'#F9F7F4');
       setVal('ed-color-text', c['--brand-text']||'#4A4752');
-      setVal('ed-color-muted', c['--brand-muted']||'#7A7780');
+      setVal('ed-color-muted', c['--brand-muted']||'#6B6874');
       setVal('ed-color-heading', c['--brand-heading']||'#1F1D24');
       setVal('ed-color-border', c['--brand-border']||'#F0EFEB');
       setVal('ed-color-header', c['--brand-header-background']||'#FFFFFF');

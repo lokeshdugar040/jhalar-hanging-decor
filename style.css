@@ -20,7 +20,7 @@
   --brand-accent: #C9A84C;
   --brand-navy: #141942; --brand-cream: #FFFAF1;
   --brand-background: #FFFFFF; --brand-alt-background: #F9F7F4;
-  --brand-text: #4A4752; --brand-muted: #7A7780; --brand-heading: #1F1D24;
+  --brand-text: #4A4752; --brand-muted: #6B6874; --brand-heading: #1F1D24;
   --brand-border: #F0EFEB;
   --brand-header-background: #FFFFFF; --brand-footer-background: #141942; --brand-footer-text: #FFFFFF;
   --font-heading: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -247,7 +247,8 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .site-footer{background:var(--brand-footer-background);color:var(--brand-footer-text);padding:var(--footer-pad,var(--space-9)) 0 var(--space-5)}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:var(--footer-gap,var(--space-7));margin-bottom:var(--space-6)}
 .footer-brand .logo{margin-bottom:var(--space-3)}
-.footer-tagline{font-size:var(--fs-md);color:rgba(255,255,255,.6);max-width:34ch;line-height:var(--body-leading,1.65);text-wrap:pretty}
+/* raised from .6 for legibility on navy */
+.footer-tagline{font-size:var(--fs-md);color:rgba(255,255,255,.72);max-width:34ch;line-height:var(--body-leading,1.65);text-wrap:pretty}
 .footer-col h4{color:var(--brand-background);font-size:var(--fs-md);font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:var(--space-4);opacity:.75}
 .footer-col li{margin-bottom:.35rem}
 .footer-col a{color:rgba(255,255,255,.7);font-size:var(--fs-md);transition:color .2s;overflow-wrap:anywhere}
@@ -256,7 +257,10 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .footer-social{display:flex;gap:var(--space-4)}
 .footer-social a{color:rgba(255,255,255,.7);font-size:var(--fs-md);font-weight:500;transition:color .2s;display:flex;align-items:center;gap:8px}
 .footer-social a:hover{color:var(--brand-accent)}
-.footer-bottom{padding-top:var(--space-5);border-top:1px solid rgba(255,255,255,.08);text-align:center;color:rgba(255,255,255,.45);font-size:var(--fs-sm);max-width:none}
+.footer-bottom{padding-top:var(--space-5);border-top:1px solid rgba(255,255,255,.08);text-align:center;color:rgba(255,255,255,.72);font-size:var(--fs-sm);max-width:none}
+/* the global p{color:var(--brand-text)} rule wins over the parent colour here,
+   which put dark grey text on the navy footer (1.86:1). Force the inherit. */
+.footer-bottom p{color:inherit;max-width:none;margin:0}
 
 /* --- MODAL --- */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,19,48,.72);display:none;align-items:center;justify-content:center;z-index:2000;padding:var(--space-4)}
