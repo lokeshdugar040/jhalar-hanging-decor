@@ -8,7 +8,7 @@ let settings = {
   email: "lokeshdugar040@gmail.com",
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
-  heroHeadline: "Handcrafted Decorative Hangings for Events & Businesses",
+  heroHeadline: "Handcrafted Jhalars & Festive Hangings — Made to Order in Bulk",
   heroIntro: "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
   siteTitle: "JHALAR Hanging Decor | Decorative Hangings Manufacturer & Wholesale Supplier",
