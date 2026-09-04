@@ -33,7 +33,7 @@ function defaultSectionCopy() {
     },
     customOrders: {
       label:'Custom Orders', title:'Order Something Made to Your Own Design',
-      intro:'Send a reference and your palette. Everything below is made to your brief.',
+      intro:'Send a reference and your palette. Any design in the collection can be remade in your colours.',
       image:'assets/images/custom-orders.jpg',
       chips:[
         {icon:'icon-palette', text:'Colour matching'},
@@ -44,7 +44,7 @@ function defaultSectionCopy() {
       steps:[
         {title:'Send Your Brief', text:'The category, your colours, how many pieces, and the date you need them.'},
         {title:'Approve a Sample', text:'We make one piece to your brief. Nothing goes into production until you sign it off.'},
-        {title:'Production and Dispatch', text:'Price and dispatch date are fixed at sample stage, so there are no surprises later.'}
+        {title:'Production and Dispatch', text:'Once you approve the sample, the product price and the dispatch date are agreed before production starts. Delivery is quoted separately.'}
       ]
     },
     whoUses: {
@@ -71,7 +71,7 @@ function defaultSectionCopy() {
     contact: {
       label:'Contact', title:'Get in Touch or Place an Order',
       intro:'Include a photo if you have one. The clearer the brief, the faster the quote.',
-      submitLabel:'Message on WhatsApp'
+      submitLabel:'Review and Send on WhatsApp'
     },
     footerTagline:'Handcrafted jhalars and hangings, made in Howrah and delivered across India.'
   };
