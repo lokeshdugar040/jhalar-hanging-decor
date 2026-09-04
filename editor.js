@@ -14,12 +14,12 @@ let state = {
 
 function defaultSectionCopy() {
   return {
-    heroTag: {icon:'icon-mfr', text:'Howrah Manufacturer | B2B Supply'},
+    heroTag: {icon:'icon-mfr', text:'Howrah Workshop | Made to Order'},
     heroPrimary: {label:'Explore Product Collection', href:'#collection'},
     heroSecondary: {label:'Message on WhatsApp', href:'https://wa.me/918100656258'},
     why: {
-      label:'Why JHALAR', title:'Factory-Direct, Made to Order, Built to Scale',
-      intro:'Everything is made in our own workshop — priced factory-direct and built to order at scale.',
+      label:'Why JHALAR', title:'Direct from the Workshop — Built to Your Brief',
+      intro:'Everything is made in our own workshop — priced direct and made to order at any scale.',
       features:[
         {icon:'icon-mfr', title:'Workshop-Direct Pricing', text:'You buy straight from the workshop — no middlemen, sharper prices, faster answers.'},
         {icon:'icon-palette', title:'Made-to-Order Design', text:'Colours, motifs and lengths built to your brief — from brand palettes to festive themes.'},
@@ -48,8 +48,8 @@ function defaultSectionCopy() {
       ]
     },
     about: {
-      label:'About JHALAR', title:'Handcrafted in Howrah, Supplied Across India',
-      intro:'JHALAR is the manufacturer — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly to you.',
+      label:'About JHALAR', title:'From Our Workshop to Your Venue — No Middlemen',
+      intro:'JHALAR is the maker — every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly for your wedding, event or storefront.',
       image:'assets/images/about-collage.jpg',
       values:[
         {icon:'icon-check', text:'Hand-finished detailing'},
@@ -59,8 +59,9 @@ function defaultSectionCopy() {
     },
     faq: {label:'FAQ', title:'Frequently Asked Questions'},
     contact: {
-      label:'Get in Touch', title:'Start a B2B Enquiry',
-      intro:'Tell us what you need and the team will get back with options, prices and lead times.'
+      label:'Get in Touch', title:'Get a Quote on WhatsApp',
+      intro:'Tell us your venue, event date, colours and quantity — we will reply on WhatsApp with options and pricing.',
+      submitLabel:'Send Message via WhatsApp'
     },
     footerTagline:'Handcrafted jhalars and festive hangings, made in Howrah and supplied across India.'
   };
@@ -206,11 +207,11 @@ async function loadPublishedData() {
     state.heroHighlights = state.settings.heroHighlights||[{text:'Colours matched to your brief',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotes',icon:'icon-route'}];
     state.trustItems = state.settings.trustItems||[{label:'Own workshop — no middlemen',icon:'icon-mfr'},{label:'Sampling before you commit',icon:'icon-design'},{label:'Dispatched across India',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
-      {q:'Do you supply decorative hangings in large quantities?',a:'Yes — we supply event decorators, wholesalers, retailers and organisations.'},
-      {q:'Can I discuss custom colours and designs?',a:'Yes, for suitable order quantities. Share a reference photo or your palette and we\'ll develop the design with you.'},
-      {q:'How do I get prices for an order?',a:'Use the enquiry form or message us on WhatsApp for prices, samples and lead times.'},
-      {q:'Do you work with wholesalers and distributors?',a:'Yes — we supply wholesalers and distributors. Share your business details and the quantities you need.'},
-      {q:'What are your minimum order and delivery timelines?',a:'Minimums start from a few dozen pieces per design. Delivery depends on the design and quantity — share your date and we\'ll confirm what\'s possible before you commit.'}
+      {q:'Do you make jhalars for weddings and events?',a:'Yes — wedding and event jhalars, torans and garlands made to order in your colours, at any scale from a few dozen to several thousand pieces.'},
+      {q:'Can I discuss custom colours and designs?',a:'Yes, for suitable order quantities. Share a reference photo or your palette and we will develop the design with you.'},
+      {q:'How do I get prices for an order?',a:'Use the enquiry form or message us on WhatsApp at +91 81006 56258 for prices, samples and lead times.'},
+      {q:'Do you work with decorators, wholesalers and distributors?',a:'Yes — we supply event decorators, wholesalers, distributors and organisations. Share your business details and the quantities you need.'},
+      {q:'What are your minimum order and delivery timelines?',a:'Minimums start from a few dozen to several thousand pieces per design. Delivery depends on the design and quantity — share your date and we will confirm what is possible before you commit.'}
     ];
 
     ensureProductIds();
@@ -335,6 +336,7 @@ function populateAllForms() {
   setVal('ed-contact-label', state.sectionCopy?.contact?.label||'');
   setVal('ed-contact-title', state.sectionCopy?.contact?.title||'');
   setVal('ed-contact-intro', state.sectionCopy?.contact?.intro||'');
+  setVal('ed-contact-submit-label', state.sectionCopy?.contact?.submitLabel||'Send Message via WhatsApp');
   setVal('ed-footer-tagline', state.sectionCopy?.footerTagline||'');
   setVal('ed-social-instagram', state.socialLinks.instagram?.url||'');
   setVal('ed-social-facebook', state.socialLinks.facebook?.url||'');
@@ -1034,7 +1036,7 @@ function collectAllData() {
   sc.about.intro = getVal('ed-about-intro'); sc.about.image = getVal('ed-about-image');
   sc.faq.label = getVal('ed-faq-label'); sc.faq.title = getVal('ed-faq-title');
   sc.contact.label = getVal('ed-contact-label'); sc.contact.title = getVal('ed-contact-title');
-  sc.contact.intro = getVal('ed-contact-intro');
+  sc.contact.intro = getVal('ed-contact-intro'); sc.contact.submitLabel = getVal('ed-contact-submit-label');
   sc.footerTagline = getVal('ed-footer-tagline');
   state.settings.sectionCopy = sc;
   // Theme
