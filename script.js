@@ -27,8 +27,8 @@ let settings = {
       intro:"We are the makers, not a reseller — so the design, the price and the timeline all come from one place.",
       features:[
         {icon:"icon-mfr", title:"No Middlemen", text:"You talk to the people who actually make the pieces, not a trading desk in between."},
-        {icon:"icon-palette", title:"Matched to Your Brief", text:"A reference photo is enough to start from; a swatch or hex code gets us closer."},
-        {icon:"icon-bulk", title:"Built for Volume", text:"Small runs and several-thousand-piece orders come off the same bench, in one batch, to one approved standard."}
+        {icon:"icon-palette", title:"Matched to Your Brief", text:"Send a reference photo or your palette and we will work to it."},
+        {icon:"icon-bulk", title:"Built for Volume", text:"From a few dozen pieces to several thousand per design, made to the same standard throughout."}
       ]
     },
     collection: {
@@ -51,7 +51,7 @@ let settings = {
       steps:[
         {title:"Send Your Brief", text:"The category, your colours, how many pieces, and the date you need them."},
         {title:"Approve a Sample", text:"We make one piece to your brief. Nothing goes into production until you sign it off."},
-        {title:"Production and Dispatch", text:"Once you approve the sample, the product price and the dispatch date are agreed before production starts. Delivery is quoted separately."}
+        {title:"Production and Dispatch", text:"Once you approve the sample, we confirm the price and the timeline, and production starts."}
       ]
     },
     whoUses: {
@@ -60,9 +60,9 @@ let settings = {
       intro:"Event decorators, wedding planners, retailers and puja committees.",
       personas:[
         {icon:"icon-route", title:"Event Decorators", text:"Venue-scale quantities against a fixed install date. Give us the date and we work backwards from it."},
-        {icon:"icon-palette", title:"Wedding Planners", text:"One palette carried across mandap, entrance and aisle so the whole venue reads as a single set."},
-        {icon:"icon-bulk", title:"Retailers and Stores", text:"Repeatable designs you can reorder by name, packed and labelled for shelf display."},
-        {icon:"icon-design", title:"Puja Committees", text:"Traditional torans and jhalars at pandal scale. Book ahead of the Durga Puja and Diwali rush."}
+        {icon:"icon-palette", title:"Wedding Planners", text:"Colours matched to your theme, so the whole setting works as one."},
+        {icon:"icon-bulk", title:"Retailers and Stores", text:"Designs you can reorder in the same colours, run after run."},
+        {icon:"icon-design", title:"Puja Committees", text:"Traditional torans and jhalars for pujas, pandals and festival programmes."}
       ]
     },
     about: {
@@ -73,7 +73,7 @@ let settings = {
       values:[
         {icon:"icon-check", text:"Finished by hand, piece by piece"},
         {icon:"icon-check", text:"One contact from quote to dispatch"},
-        {icon:"icon-check", text:"Small runs and repeat orders"}
+        {icon:"icon-check", text:"Repeat orders in the same colours"}
       ]
     },
     faq: {label:"FAQ", title:"Frequently Asked Questions"},
