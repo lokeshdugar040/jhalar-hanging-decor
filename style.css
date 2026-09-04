@@ -331,12 +331,28 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
   .trust-bar-item{padding:var(--space-1) var(--space-2)}
 }
 
-/* Process steps live inside a half-width split column, so a 3-across grid
-   only ever gives each step ~160px and wraps every title onto 3 lines.
-   Keep them as a readable vertical list at every size. */
-.process-grid{grid-template-columns:1fr;gap:var(--space-4)}
+/* "How it works" is now a full-width band below the split, so the steps have
+   real room: a vertical list on phones, 3 across from tablet up. Numbered
+   <ol> for semantics - the counter is the visible .step-num. */
+.process{margin-top:var(--space-8);padding-top:var(--space-7);border-top:1px solid var(--brand-border)}
+.process-label{display:flex;align-items:center;gap:var(--space-2)}
+.process-grid{list-style:none;margin:0;padding:0;grid-template-columns:1fr;gap:var(--space-5)}
+.step{position:relative}
 @media(min-width:768px){
-  .process-grid{grid-template-columns:1fr;gap:var(--space-4)}
+  .process-grid{grid-template-columns:repeat(3,1fr);gap:var(--space-6)}
+  /* connector line between steps, drawn from the number pill outward */
+  .step:not(:last-child)::after{
+    content:"";position:absolute;top:22px;left:calc(44px + var(--space-4));
+    width:calc(100% - 44px - var(--space-4));height:1px;
+    background:linear-gradient(90deg,var(--brand-border),transparent);
+  }
+}
+/* Tablet band: 3 columns are ~224px, too narrow for a side-by-side number.
+   Stack the number above the text so titles get the full column width. */
+@media(min-width:768px) and (max-width:1023.98px){
+  .process-grid{gap:var(--space-4)}
+  .step{flex-direction:column;gap:var(--space-3)}
+  .step:not(:last-child)::after{display:none}
 }
 
 /* Sections with 4 cards: 2x2 on tablet, 4-across only when wide.
