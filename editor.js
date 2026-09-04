@@ -18,22 +18,22 @@ function defaultSectionCopy() {
     heroPrimary: {label:'View Collection', href:'#collection'},
     heroSecondary: {label:'Message on WhatsApp', href:'https://wa.me/918100656258'},
     why: {
-      label:'Why JHALAR', title:'Made by Our Own Karigars, Start to Finish',
-      intro:'Every piece is made by our own karigars — honest pricing and consistent work, whatever the quantity.',
+      label:'Why JHALAR', title:'What You Get Working With Us',
+      intro:'We are the makers, not a reseller — so the design, the price and the timeline all come from one place.',
       features:[
-        {icon:'icon-mfr', title:'Honest, Direct Pricing', text:'You buy straight from the makers — no middlemen, sharper prices and quick replies.'},
-        {icon:'icon-palette', title:'Your Colours, Your Design', text:'Send us a reference photo and we will match the colour, size and design to your theme.'},
-        {icon:'icon-bulk', title:'Large Orders Handled', text:'From a few hundred pieces to several thousand — the same finish from the first piece to the last.'}
+        {icon:'icon-mfr', title:'No Middlemen', text:'You talk to the people who actually make the pieces, not a trading desk in between.'},
+        {icon:'icon-palette', title:'Matched to Your Brief', text:'A reference photo is enough to start from; a swatch or hex code gets us closer.'},
+        {icon:'icon-bulk', title:'Built for Volume', text:'Small runs and several-thousand-piece orders come off the same bench, in one batch, to one approved standard.'}
       ]
     },
     collection: {
       label:'Our Collection', title:'Jhalars, Torans, Tassels and More',
-      intro:'Sixteen core designs across eight categories, all made in-house by our own karigars.',
+      intro:'Pom pom, bead, bell, floral, torans, tassels, strings and custom work.',
       note:'Looking for something else? '
     },
     customOrders: {
-      label:'Custom Orders', title:'Your Colours, Your Size, Your Design',
-      intro:'Tell us what you need and we will make it — colour, size and quantity entirely to your specification.',
+      label:'Custom Orders', title:'Order Something Made to Your Own Design',
+      intro:'Send a reference and your palette. Everything below is made to your brief.',
       image:'assets/images/custom-orders.jpg',
       chips:[
         {icon:'icon-palette', text:'Colour matching'},
@@ -42,35 +42,35 @@ function defaultSectionCopy() {
       ],
       processLabel:'How it works',
       steps:[
-        {title:'Tell Us What You Need', text:'Share the category, colours, quantity and the date you need it by.'},
-        {title:'Approve the Sample', text:'We make a sample first so you can confirm the colour, sizing and quantity.'},
-        {title:'Confirm Price and Delivery', text:'We share the final price and delivery date — confirm and we begin production.'}
+        {title:'Send Your Brief', text:'The category, your colours, how many pieces, and the date you need them.'},
+        {title:'Approve a Sample', text:'We make one piece to your brief. Nothing goes into production until you sign it off.'},
+        {title:'Production and Dispatch', text:'Price and dispatch date are fixed at sample stage, so there are no surprises later.'}
       ]
     },
     whoUses: {
       label:'Who It\'s For', title:'Who We Work With',
       intro:'Event decorators, wedding planners, retailers and puja committees.',
       personas:[
-        {icon:'icon-route', title:'Event Decorators', text:'Short deadlines and a finish that photographs well. Ask us for pricing and delivery timelines.'},
-        {icon:'icon-palette', title:'Wedding Planners', text:'Colours matched to your theme. We send a sample first, then produce the full order.'},
-        {icon:'icon-bulk', title:'Retailers and Stores', text:'Larger quantities at better rates, with designs that help your display stand apart.'},
-        {icon:'icon-design', title:'Puja Committees', text:'A traditional look, within budget and on time. Do reach out well before the festival season.'}
+        {icon:'icon-route', title:'Event Decorators', text:'Venue-scale quantities against a fixed install date. Give us the date and we work backwards from it.'},
+        {icon:'icon-palette', title:'Wedding Planners', text:'One palette carried across mandap, entrance and aisle so the whole venue reads as a single set.'},
+        {icon:'icon-bulk', title:'Retailers and Stores', text:'Repeatable designs you can reorder by name, packed and labelled for shelf display.'},
+        {icon:'icon-design', title:'Puja Committees', text:'Traditional torans and jhalars at pandal scale. Book ahead of the Durga Puja and Diwali rush.'}
       ]
     },
     about: {
       label:'About JHALAR', title:'From Our Workshop in Howrah to Your Venue',
-      intro:'Every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly to you — clear pricing and a straight conversation.',
+      intro:'JHALAR makes hanging decor in Howrah, West Bengal. Every piece is finished by hand, and one person stays on your order from the first message to dispatch.',
       image:'assets/images/about-collage.jpg',
       values:[
-        {icon:'icon-check', text:'Hand-finished detailing'},
-        {icon:'icon-check', text:'One point of contact, quote to dispatch'},
-        {icon:'icon-check', text:'Sampling before every production run'}
+        {icon:'icon-check', text:'Finished by hand, piece by piece'},
+        {icon:'icon-check', text:'One contact from quote to dispatch'},
+        {icon:'icon-check', text:'Small runs and repeat orders'}
       ]
     },
     faq: {label:'FAQ', title:'Frequently Asked Questions'},
     contact: {
       label:'Contact', title:'Get in Touch or Place an Order',
-      intro:'Tell us what you need, the quantity and your date. You will hear straight back from us.',
+      intro:'Include a photo if you have one. The clearer the brief, the faster the quote.',
       submitLabel:'Message on WhatsApp'
     },
     footerTagline:'Handcrafted jhalars and hangings, made in Howrah and delivered across India.'
@@ -214,14 +214,14 @@ async function loadPublishedData() {
     state.settings.footerNavItems = state.footerNavItems;
     state.settings.socialLinks = state.socialLinks;
     state.settings.sectionCopy = state.sectionCopy;
-    state.heroHighlights = state.settings.heroHighlights||[{text:'Quick turnaround',icon:'icon-check'},{text:'Custom colours and designs',icon:'icon-clock'},{text:'Better rates on larger orders',icon:'icon-route'}];
-    state.trustItems = state.settings.trustItems||[{label:'Straight from the makers, no middlemen',icon:'icon-mfr'},{label:'See a sample before you commit',icon:'icon-design'},{label:'Delivered across India',icon:'icon-location'}];
+    state.heroHighlights = state.settings.heroHighlights||[{text:'Made to order',icon:'icon-check'},{text:'Custom colourways',icon:'icon-clock'},{text:'Small runs welcome',icon:'icon-route'}];
+    state.trustItems = state.settings.trustItems||[{label:'Our own karigars in Howrah',icon:'icon-mfr'},{label:'16 designs, 8 categories',icon:'icon-design'},{label:'Delivered across India',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
-      {q:'Do you take large orders?',a:'Yes. Decorators and retailers order with us regularly, from a few hundred pieces to several thousand. Tell us the quantity and we will send you a direct quote.'},
-      {q:'Can you make custom colours and designs?',a:'Yes. Send us a reference photo and we will match the colour, size and design.'},
-      {q:'How do I get in touch?',a:'Message us on WhatsApp with what you need, the quantity and your date. We reply quickly.'},
-      {q:'What is the lead time?',a:'It depends on the design and quantity. Share your date and we will confirm whether we can meet it.'},
-      {q:'Do you offer trade pricing for retailers?',a:'Yes. Larger quantities are priced better. Tell us the volume and we will send a direct quote.'}
+      {q:'What is the smallest order you take?',a:'A few dozen pieces for an existing design. Custom colourways start higher because of the dyeing run — name the design and we will give you the exact figure.'},
+      {q:'Can you match a specific colour?',a:'Usually. Send a photo, a fabric swatch or a hex code and we will match it in the sample before production.'},
+      {q:'Do you deliver outside West Bengal?',a:'Yes, across India. Freight is quoted separately once we know the destination and the number of pieces.'},
+      {q:'How long does an order take?',a:'It depends on the design and how many you need. You get a firm dispatch date before you commit to anything.'},
+      {q:'How do I place an order?',a:'Message us on WhatsApp with the design and how many you need. We take it from there.'}
     ];
 
     ensureProductIds();

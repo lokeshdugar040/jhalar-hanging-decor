@@ -4,15 +4,15 @@
       "id": 1,
       "title": "Pink Pom Pom Gota Hanging",
       "category": "Pom Pom Hangings",
-      "description": "Hand-tied pink pom poms with gota fan accents and a finishing bell — a favourite for haldi, mehndi and wedding decor, reproduced consistently across large runs.",
+      "description": "Hand-tied pink pom poms with gota fan accents and a finishing bell. Made for haldi and mehndi settings, and consistent enough to repeat across a large run.",
       "image": "assets/images/products/pom-pom-pink-gota.jpg",
-      "b2bTag": "Popular"
+      "b2bTag": "Repeat order"
     },
     {
       "id": 2,
       "title": "Green Pom Pom Gota Hanging",
       "category": "Pom Pom Hangings",
-      "description": "Deep green pom poms with gota medallions and twin bells. A strong seller through the festive season, and the palette can be matched to your theme.",
+      "description": "Deep green pom poms with gota medallions and twin bells. The palette can be re-dyed to match your theme.",
       "image": "assets/images/products/pom-pom-green-gota.jpg",
       "b2bTag": "Large orders"
     },
@@ -20,15 +20,15 @@
       "id": 3,
       "title": "Pearl Bead Garland",
       "category": "Bead Hangings",
-      "description": "Clean white pearl strands with a tight, even finish. The standard choice for mandap frames, stage backdrops and layered installs.",
+      "description": "Clean white pearl strands with a tight, even bead spacing. Sized for mandap frames, stage backdrops and layered installs.",
       "image": "assets/images/products/bead-pearl-white.jpg",
-      "b2bTag": "Premium"
+      "b2bTag": "Heavier weight"
     },
     {
       "id": 4,
       "title": "Mogra Pearl Bead Hanging",
       "category": "Bead Hangings",
-      "description": "Dense mogra-bud beading with a soft white sheen, made for traditional ceremonies and premium event styling.",
+      "description": "Dense mogra-bud beading with a soft white sheen. Heavier than the plain pearl strand, so it hangs straighter.",
       "image": "assets/images/products/bead-mogra-pearl.jpg",
       "b2bTag": "Retail ready"
     },
@@ -36,23 +36,23 @@
       "id": 5,
       "title": "Pink Blossom Bell Hanging",
       "category": "Bell Hangings",
-      "description": "Pink blossoms around a large golden temple bell — a signature entrance piece for weddings, pooja setups and photo backdrops.",
+      "description": "Pink blossoms set around a large golden temple bell. Weighted at the base, so it reads well as a single entrance piece.",
       "image": "assets/images/products/bell-pink-blossom.jpg",
-      "b2bTag": "Popular"
+      "b2bTag": "Repeat order"
     },
     {
       "id": 6,
       "title": "Rose Leaf Bell Hanging",
       "category": "Bell Hangings",
-      "description": "Soft rose blooms with green leafwork and a bell drop. A new design this season, suited to spring weddings and boutique retail displays.",
+      "description": "Soft rose blooms with green leafwork and a bell drop. Added this season; lighter in tone than the pink blossom bell.",
       "image": "assets/images/products/bell-rose-leaf.jpg",
-      "b2bTag": "New"
+      "b2bTag": "New design"
     },
     {
       "id": 7,
       "title": "Marigold Floral Jhalar",
       "category": "Floral Jhalars",
-      "description": "Full-petal orange marigold (genda) jhalar — the standard choice for Diwali, Durga Puja and wedding installations, and our highest-volume design through the festive season.",
+      "description": "Full-petal orange marigold (genda) jhalar. Cut and tied for Diwali and Durga Puja installations, and stocked deepest through the festive season.",
       "image": "assets/images/products/floral-marigold-orange.jpg",
       "b2bTag": "Large orders"
     },
@@ -60,7 +60,7 @@
       "id": 8,
       "title": "Red & White Floral Jhalar",
       "category": "Floral Jhalars",
-      "description": "Red-and-white floral jhalar with green leaf detail, made for Bengali celebrations, weddings and cultural programmes.",
+      "description": "Red-and-white floral jhalar with green leaf detail — the traditional Bengali colourway for pujas and cultural programmes.",
       "image": "assets/images/products/floral-red-white.jpg",
       "b2bTag": "Traditional"
     },
@@ -68,15 +68,15 @@
       "id": 9,
       "title": "Mogra Pearl Door Toran",
       "category": "Torans",
-      "description": "White mogra-pearl toran with yellow corner accents and a bell centrepiece, sized for doorways, gates and stage frames.",
+      "description": "White mogra-pearl toran with yellow corner accents and a bell centrepiece. Cut to standard doorway width; gate and stage widths made to order.",
       "image": "assets/images/products/toran-mogra.jpg",
-      "b2bTag": "Premium"
+      "b2bTag": "Heavier weight"
     },
     {
       "id": 10,
       "title": "Pearl Bandhanwar Toran",
       "category": "Torans",
-      "description": "Pearl bandhanwar with red and yellow accents and a hanging bell — a welcome toran for homes, venues and temples.",
+      "description": "Pearl bandhanwar with red and yellow accents and a hanging bell. The shorter drop suits home and temple doorways.",
       "image": "assets/images/products/toran-bandhanwar.jpg",
       "b2bTag": "Retail ready"
     },
@@ -84,15 +84,15 @@
       "id": 11,
       "title": "Tri-Colour Tassel Latkan",
       "category": "Tassel Hangings",
-      "description": "Layered tri-colour latkan strings with red pom pom drops — adds movement along aisles, pillars and stage edges.",
+      "description": "Layered tri-colour latkan strings with red pom pom drops. The loose ends move in air, so it suits aisles and pillar wraps.",
       "image": "assets/images/products/tassel-tricolour.jpg",
-      "b2bTag": "Most ordered"
+      "b2bTag": "Repeat order"
     },
     {
       "id": 12,
       "title": "Red Floral Tassel Hanging",
       "category": "Tassel Hangings",
-      "description": "Rich red floral strands with tassel drops for wall accents, backdrop columns and window displays.",
+      "description": "Rich red floral strands with tassel drops. Flat-backed, so it sits close against walls, columns and window frames.",
       "image": "assets/images/products/tassel-red-floral.jpg",
       "b2bTag": "Large orders"
     },
@@ -100,7 +100,7 @@
       "id": 13,
       "title": "Golden Bead String Set",
       "category": "Decorative Strings",
-      "description": "Fine golden bead strings in full, half and spiral lengths — versatile draping for chandeliers, trees and tabletops, supplied as a set.",
+      "description": "Fine golden bead strings supplied as a set of three lengths — full, half and spiral — for chandeliers, trees and tabletops.",
       "image": "assets/images/products/string-golden-bead.jpg",
       "b2bTag": "Sold as a set"
     },
@@ -108,7 +108,7 @@
       "id": 14,
       "title": "Temple Bell Decor String",
       "category": "Decorative Strings",
-      "description": "Pearl string with pink and green accents and golden temple charms — a devotional favourite for festival decor.",
+      "description": "Pearl string with pink and green accents and small golden temple charms. Light enough to hang from a thread or a frame.",
       "image": "assets/images/products/string-temple-bell.jpg",
       "b2bTag": "Traditional"
     },
@@ -116,7 +116,7 @@
       "id": 15,
       "title": "Custom Emerald Gota Hanging",
       "category": "Custom Designs",
-      "description": "Green-and-orange custom design with gold diamond motifs and a statement bell — an example of what we build to your specification.",
+      "description": "Green-and-orange build with gold diamond motifs and a statement bell. Shown as an example of a custom colourway, not a stock design.",
       "image": "assets/images/products/custom-emerald-gota.jpg",
       "b2bTag": "Made to order"
     },
@@ -124,7 +124,7 @@
       "id": 16,
       "title": "Custom Sapphire Floral Jhalar",
       "category": "Custom Designs",
-      "description": "Blue-and-yellow custom floral jhalar — share your palette and theme and we will produce the colourway at scale.",
+      "description": "Blue-and-yellow custom floral jhalar. Another custom example — the same shape can be made in any palette.",
       "image": "assets/images/products/custom-sapphire.jpg",
       "b2bTag": "Made to order"
     }
