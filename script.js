@@ -8,82 +8,82 @@ let settings = {
   email: "lokeshdugar040@gmail.com",
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
-  heroHeadline: "Haath Se Bane Hangings — Events Aur Dukaan Ke Liye.",
-  heroIntro: "Pom pom, toran, jhalar, bead aur bell hangings. Zyada quantity chahiye? Apna rang chahiye? Seedha humse baat karo.",
+  heroHeadline: "Handcrafted Jhalars and Hangings for Events and Retailers",
+  heroIntro: "Pom pom garlands, torans, floral jhalars, bead and bell hangings — handmade in Howrah. Need a custom colourway or a large order? Talk to us directly.",
   heroImage: "assets/images/hero-jhalar.jpg",
-  siteTitle: "JHALAR | Haath Se Bane Hangings — Seedha Banane Wale Se",
-  siteDescription: "Pom pom, toran, jhalar, bead aur bell hangings — haath se bane, poore India mein. Zyada quantity chahiye? Apna rang chahiye? Seedha humse baat karo.",
+  siteTitle: "JHALAR | Handcrafted Jhalars, Torans and Hangings — Made in Howrah",
+  siteDescription: "Pom pom garlands, torans, floral jhalars, bead and bell hangings — handmade in Howrah and delivered across India. Custom colours and large orders welcome.",
   ogImage: "assets/images/og-cover.jpg",
-  navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"Kiske Liye",href:"#who-uses"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
-  footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"Kiske Liye",href:"#who-uses"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
+  navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"Who It's For",href:"#who-uses"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
+  footerNavItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"Who It's For",href:"#who-uses"},{label:"About",href:"#about"},{label:"Contact",href:"#contact"}],
   socialLinks: {instagram:{url:"#",label:"Instagram"},facebook:{url:"#",label:"Facebook"},whatsapp:{url:"https://wa.me/918100656258",label:"WhatsApp"}},
   sectionCopy: {
-    heroTag: {icon:"icon-mfr", text:"Seedha banane wale se | Poore India mein"},
-    heroPrimary: {label:"Dekho Collection", href:"#collection"},
-    heroSecondary: {label:"WhatsApp Pe Message Karo", href:"https://wa.me/918100656258"},
+    heroTag: {icon:"icon-mfr", text:"Made in Howrah | Delivered across India"},
+    heroPrimary: {label:"View Collection", href:"#collection"},
+    heroSecondary: {label:"Message on WhatsApp", href:"https://wa.me/918100656258"},
     why: {
-      label:"Kyun JHALAR",
-      title:"Seedha Banane Wale Se, Sab Kuch Hum Karte Hain",
-      intro:"Hum khud banate hain. Zyada quantity ho ya kam — daam seedha, kaam seedha.",
+      label:"Why JHALAR",
+      title:"Made by Our Own Karigars, Start to Finish",
+      intro:"Every piece is made by our own karigars — honest pricing and consistent work, whatever the quantity.",
       features:[
-        {icon:"icon-mfr", title:"Seedha Daam", text:"Beech mein koi nahi. Seedha humse, seedha daam. Jaldi reply."},
-        {icon:"icon-palette", title:"Apna Rang, Apna Design", text:"Photo bhej do. Colour, size, design — sab apna bana dete hain."},
-        {icon:"icon-bulk", title:"Zyada Quantity Bhi", text:"Kuch sau ho ya hazar — ek jaisa finish, ek jaisa kaam."}
+        {icon:"icon-mfr", title:"Honest, Direct Pricing", text:"You buy straight from the makers — no middlemen, sharper prices and quick replies."},
+        {icon:"icon-palette", title:"Your Colours, Your Design", text:"Send us a reference photo and we will match the colour, size and design to your theme."},
+        {icon:"icon-bulk", title:"Large Orders Handled", text:"From a few hundred pieces to several thousand — the same finish from the first piece to the last."}
       ]
     },
     collection: {
-      label:"Kya Kya Hai",
-      title:"Pom Pom, Toran, Jhalar — Sab Kuch",
-      intro:"16 designs, 8 types. Sab hum banate hain.",
-      note:"Kuch aur chahiye? "
+      label:"Our Collection",
+      title:"Jhalars, Torans, Tassels and More",
+      intro:"Sixteen core designs across eight categories, all made in-house by our own karigars.",
+      note:"Looking for something else? "
     },
     customOrders: {
-      label:"Apna Design",
-      title:"Apna Rang, Apna Size, Apna Design",
-      intro:"Batao kya chahiye. Hum bana denge. Rang, size, quantity — sab apne hisaab se.",
+      label:"Custom Orders",
+      title:"Your Colours, Your Size, Your Design",
+      intro:"Tell us what you need and we will make it — colour, size and quantity entirely to your specification.",
       image:"assets/images/custom-orders.jpg",
       chips:[
-        {icon:"icon-palette", text:"Apna rang"},
-        {icon:"icon-ruler", text:"Apna size"},
-        {icon:"icon-chart", text:"Kitna chahiye"}
+        {icon:"icon-palette", text:"Colour matching"},
+        {icon:"icon-ruler", text:"Size and length"},
+        {icon:"icon-chart", text:"Order quantity"}
       ],
-      processLabel:"Kaise hota hai",
+      processLabel:"How it works",
       steps:[
-        {title:"Batao Kya Chahiye", text:"Type, rang, quantity aur kab chahiye — bas itna batao."},
-        {title:"Sample Dekho, Fix Karo", text:"Sample bhejte hain. Rang, size, quantity pakka kar lo."},
-        {title:"Daam Aur Delivery Lo", text:"Daam bata dete hain, date bata dete hain. Confirm karo, le jao."}
+        {title:"Tell Us What You Need", text:"Share the category, colours, quantity and the date you need it by."},
+        {title:"Approve the Sample", text:"We make a sample first so you can confirm the colour, sizing and quantity."},
+        {title:"Confirm Price and Delivery", text:"We share the final price and delivery date — confirm and we begin production."}
       ]
     },
     whoUses: {
-      label:"Kiske Liye",
-      title:"Yeh Sab Kiske Liye Hai",
-      intro:"Aap jaise logon ke liye. Sabka kaam ban jata hai.",
+      label:"Who It's For",
+      title:"Who We Work With",
+      intro:"Decorators, families, retailers and committees — we work with all of them.",
       personas:[
-        {icon:"icon-route", title:"Event Wale", text:"Jaldi chahiye, accha dikhna chahiye. Poocho — daam aur delivery bata denge."},
-        {icon:"icon-palette", title:"Shaadi Wale", text:"Apna rang, apna theme. Sample bhej dete hain, phir bana dete hain."},
-        {icon:"icon-bulk", title:"Dukaan Wale", text:"Zyada quantity, accha daam, alag designs. Bik jaye aur alag dikhe."},
-        {icon:"icon-design", title:"Puja Committee Wale", text:"Traditional look, budget mein, time pe. Festival se pehle bata dena."}
+        {icon:"icon-route", title:"Event Decorators", text:"Short deadlines and a finish that photographs well. Ask us for pricing and delivery timelines."},
+        {icon:"icon-palette", title:"Wedding Planners", text:"Colours matched to your theme. We send a sample first, then produce the full order."},
+        {icon:"icon-bulk", title:"Retailers and Stores", text:"Larger quantities at better rates, with designs that help your display stand apart."},
+        {icon:"icon-design", title:"Puja Committees", text:"A traditional look, within budget and on time. Do reach out well before the festival season."}
       ]
     },
     about: {
-      label:"Hum Kaun Hain",
-      title:"Hum Khud Banate Hain — Beech Mein Koi Nahi",
-      intro:"Har jhalar, har toran Howrah mein hum khud banate hain. Seedha humse baat karo — daam seedha, baat seedhi.",
+      label:"About JHALAR",
+      title:"From Our Workshop in Howrah to Your Venue",
+      intro:"Every jhalar and toran is hand-finished by our karigars in Howrah and supplied directly to you — clear pricing and a straight conversation.",
       image:"assets/images/about-collage.jpg",
       values:[
-        {icon:"icon-check", text:"Haath se finish"},
-        {icon:"icon-check", text:"Ek baat, ek aadmi — poora kaam"},
-        {icon:"icon-check", text:"Sample pehle, kaam baad mein"}
+        {icon:"icon-check", text:"Hand-finished detailing"},
+        {icon:"icon-check", text:"One point of contact, quote to dispatch"},
+        {icon:"icon-check", text:"Sampling before every production run"}
       ]
     },
-    faq: {label:"Sawal", title:"Sawal Aur Jawab"},
+    faq: {label:"FAQ", title:"Frequently Asked Questions"},
     contact: {
-      label:"Baat Karo",
-      title:"Poocho Ya Order Karo",
-      intro:"Batao: kya chahiye, kitna chahiye, kab chahiye. Seedha humse, seedha baat.",
-      submitLabel:"WhatsApp Pe Message Karo"
+      label:"Contact",
+      title:"Get in Touch or Place an Order",
+      intro:"Tell us what you need, the quantity and your date. You will hear straight back from us.",
+      submitLabel:"Message on WhatsApp"
     },
-    footerTagline:"Haath se bane jhalar aur hangings. Howrah mein bane, poore India mein."
+    footerTagline:"Handcrafted jhalars and hangings, made in Howrah and delivered across India."
   }
 };
 
@@ -404,7 +404,7 @@ function applySEO() {
 function showFallbackProducts() {
   products = [
     {id:1,title:"Pink Pom Pom Gota Hanging",category:"Pom Pom Hangings",description:"Pink pom poms, gota fans and a finish bell — haldi, mehndi, shaadi ke liye favourite.",image:"assets/images/products/pom-pom-pink-gota.jpg",b2bTag:"Popular"},
-    {id:7,title:"Marigold Floral Jhalar",category:"Floral Jhalars",description:"Full-petal orange marigold (genda) jhalar — Diwali, Durga Puja, shaadi ke liye standard.",image:"assets/images/products/floral-marigold-orange.jpg",b2bTag:"Zyada quantity"},
+    {id:7,title:"Marigold Floral Jhalar",category:"Floral Jhalars",description:"Full-petal orange marigold (genda) jhalar — Diwali, Durga Puja, shaadi ke liye standard.",image:"assets/images/products/floral-marigold-orange.jpg",b2bTag:"Large orders"},
     {id:5,title:"Pink Blossom Bell Hanging",category:"Bell Hangings",description:"Pink blossoms around a golden temple bell — entrance ke liye signature piece.",image:"assets/images/products/bell-pink-blossom.jpg",b2bTag:"Popular"},
     {id:9,title:"Mogra Pearl Door Toran",category:"Torans",description:"Mogra-pearl toran with a bell centrepiece — doorways aur stage frames ke liye.",image:"assets/images/products/toran-mogra.jpg",b2bTag:"Premium"}
   ];
@@ -488,7 +488,7 @@ function openProductModal(id) {
   const ph = document.getElementById('modal-photo');
   if (ph) { ph.src = p.image; ph.alt = p.title; }
   const wa = document.getElementById('modal-wa-btn');
-  if (wa) wa.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Hello JHALAR, mujhe "' + p.title + '" (' + p.category + ') chahiye. Kitna daam hoga?')}`;
+  if (wa) wa.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Hello JHALAR, I am interested in "' + p.title + '" (' + p.category + '). Could you share pricing?')}`;
   modal.setAttribute('aria-hidden','false'); modal.style.display = 'flex'; document.body.style.overflow = 'hidden';
   const cb = document.getElementById('modal-close'); if (cb) cb.focus();
 }
@@ -508,7 +508,7 @@ function applySiteSettings() {
 
   document.querySelectorAll('[data-contact]').forEach(el => { const k = el.dataset.contact; if (settings[k]) el.textContent = settings[k]; });
   document.querySelectorAll('a[data-wa]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}`; });
-  document.querySelectorAll('a[data-wa-msg]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(a.dataset.waMsg||'Hello JHALAR, mujhe quote chahiye.')}`; });
+  document.querySelectorAll('a[data-wa-msg]').forEach(a => { a.href = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(a.dataset.waMsg||'Hello JHALAR, I would like a quote.')}`; });
   document.querySelectorAll('a[data-tel]').forEach(a => { a.href = `tel:+${String(settings.whatsapp).replace(/\\D/g,'')}`; });
   document.querySelectorAll('a[data-mailto]').forEach(a => { a.href = `mailto:${settings.email}`; });
 
@@ -559,7 +559,7 @@ function applySiteSettings() {
     setText('#collection .section-title', copy.collection.title);
     setText('#collection .section-subtitle', copy.collection.intro);
     const note = document.querySelector('#collection .collection-note');
-    if (note) note.innerHTML = esc(copy.collection.note) + ' <a href="https://wa.me/' + esc(settings.whatsapp) + '" data-wa target="_blank" rel="noopener">WhatsApp pe batao</a> — daam aur availability bata denge.';
+    if (note) note.innerHTML = esc(copy.collection.note) + ' <a href="https://wa.me/' + esc(settings.whatsapp) + '" data-wa target="_blank" rel="noopener">Message us on WhatsApp</a> — we will share pricing and availability.';
   }
 
   // Custom orders
@@ -656,7 +656,7 @@ function setupEnquiryForm() {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
     const v = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
-    const lines = ['*Naya Message - JHALAR*','',`*Name:* ${v('name')}`];
+    const lines = ['*New Message - JHALAR*','',`*Name:* ${v('name')}`];
     if (v('company')) lines.push(`*Company:* ${v('company')}`);
     lines.push(`*Buyer Type:* ${v('buyer-type')}`,`*Phone:* ${v('phone')}`);
     if (v('email')) lines.push(`*Email:* ${v('email')}`);
@@ -666,7 +666,7 @@ function setupEnquiryForm() {
     if (v('details')) lines.push(`*Details:* ${v('details')}`);
     window.open(`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lines.join('\\n'))}`, '_blank', 'noopener');
     const st = document.getElementById('form-status');
-    if (st) { st.textContent = 'WhatsApp khul gaya — message bhar gaya, bas send karo.'; st.classList.add('visible'); }
+    if (st) { st.textContent = 'WhatsApp is open with your message ready — just press send.'; st.classList.add('visible'); }
   });
 }
 

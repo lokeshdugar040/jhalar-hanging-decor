@@ -5,7 +5,7 @@
     "whyJhalar": { "visible": true, "label": "Why JHALAR (Features)" },
     "collection": { "visible": true, "label": "Product Collection" },
     "customOrders": { "visible": true, "label": "Custom Orders" },
-    "whoUses": { "visible": true, "label": "Kiske Liye (Who Uses)" },
+    "whoUses": { "visible": true, "label": "Who We Work With (Who Uses)" },
     "about": { "visible": true, "label": "About" },
     "faq": { "visible": true, "label": "FAQ" },
     "contact": { "visible": true, "label": "Contact" }

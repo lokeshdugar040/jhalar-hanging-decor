@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Pink Pom Pom Gota Hanging",
       "category": "Pom Pom Hangings",
-      "description": "Hand-tied pink pom poms with gota fan accents and a finish bell — haldi, mehndi, shaadi ke liye favourite. Ek jaisa finish, baar baar.",
+      "description": "Hand-tied pink pom poms with gota fan accents and a finishing bell — a favourite for haldi, mehndi and wedding decor, reproduced consistently across large runs.",
       "image": "assets/images/products/pom-pom-pink-gota.jpg",
       "b2bTag": "Popular"
     },
@@ -12,9 +12,9 @@
       "id": 2,
       "title": "Green Pom Pom Gota Hanging",
       "category": "Pom Pom Hangings",
-      "description": "Deep green pom poms with gota medallions and twin bells. Festival season ke liye best. Apna theme match kar dete hain.",
+      "description": "Deep green pom poms with gota medallions and twin bells. A strong seller through the festive season, and the palette can be matched to your theme.",
       "image": "assets/images/products/pom-pom-green-gota.jpg",
-      "b2bTag": "Zyada quantity"
+      "b2bTag": "Large orders"
     },
     {
       "id": 3,
@@ -30,7 +30,7 @@
       "category": "Bead Hangings",
       "description": "Dense mogra-bud beading with a soft white sheen, made for traditional ceremonies and premium event styling.",
       "image": "assets/images/products/bead-mogra-pearl.jpg",
-      "b2bTag": "Dukaan ke liye"
+      "b2bTag": "Retail ready"
     },
     {
       "id": 5,
@@ -44,17 +44,17 @@
       "id": 6,
       "title": "Rose Leaf Bell Hanging",
       "category": "Bell Hangings",
-      "description": "Soft rose blooms with green leafwork and a bell drop. Naya design — spring shaadi aur dukaan ke liye.",
+      "description": "Soft rose blooms with green leafwork and a bell drop. A new design this season, suited to spring weddings and boutique retail displays.",
       "image": "assets/images/products/bell-rose-leaf.jpg",
-      "b2bTag": "Naya"
+      "b2bTag": "New"
     },
     {
       "id": 7,
       "title": "Marigold Floral Jhalar",
       "category": "Floral Jhalars",
-      "description": "Full-petal orange marigold (genda) jhalar — Diwali, Durga Puja, shaadi ke liye standard. Festival season mein sabse zyada banta hai.",
+      "description": "Full-petal orange marigold (genda) jhalar — the standard choice for Diwali, Durga Puja and wedding installations, and our highest-volume design through the festive season.",
       "image": "assets/images/products/floral-marigold-orange.jpg",
-      "b2bTag": "Zyada quantity"
+      "b2bTag": "Large orders"
     },
     {
       "id": 8,
@@ -78,7 +78,7 @@
       "category": "Torans",
       "description": "Pearl bandhanwar with red and yellow accents and a hanging bell — a welcome toran for homes, venues and temples.",
       "image": "assets/images/products/toran-bandhanwar.jpg",
-      "b2bTag": "Dukaan ke liye"
+      "b2bTag": "Retail ready"
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "category": "Tassel Hangings",
       "description": "Layered tri-colour latkan strings with red pom pom drops — adds movement along aisles, pillars and stage edges.",
       "image": "assets/images/products/tassel-tricolour.jpg",
-      "b2bTag": "Sabse zyada"
+      "b2bTag": "Most ordered"
     },
     {
       "id": 12,
@@ -94,15 +94,15 @@
       "category": "Tassel Hangings",
       "description": "Rich red floral strands with tassel drops for wall accents, backdrop columns and window displays.",
       "image": "assets/images/products/tassel-red-floral.jpg",
-      "b2bTag": "Zyada quantity"
+      "b2bTag": "Large orders"
     },
     {
       "id": 13,
       "title": "Golden Bead String Set",
       "category": "Decorative Strings",
-      "description": "Fine golden bead strings in full, half and spiral lengths — chandelier, tree aur table ke liye, set ke roop mein milta hai.",
+      "description": "Fine golden bead strings in full, half and spiral lengths — versatile draping for chandeliers, trees and tabletops, supplied as a set.",
       "image": "assets/images/products/string-golden-bead.jpg",
-      "b2bTag": "Set mein"
+      "b2bTag": "Sold as a set"
     },
     {
       "id": 14,
@@ -116,17 +116,17 @@
       "id": 15,
       "title": "Custom Emerald Gota Hanging",
       "category": "Custom Designs",
-      "description": "Green-and-orange custom design with gold diamond motifs and a statement bell — apna design batane ka example.",
+      "description": "Green-and-orange custom design with gold diamond motifs and a statement bell — an example of what we build to your specification.",
       "image": "assets/images/products/custom-emerald-gota.jpg",
-      "b2bTag": "Apna design"
+      "b2bTag": "Made to order"
     },
     {
       "id": 16,
       "title": "Custom Sapphire Floral Jhalar",
       "category": "Custom Designs",
-      "description": "Blue-and-yellow custom floral jhalar — apna rang aur theme bhejo, hum bana denge.",
+      "description": "Blue-and-yellow custom floral jhalar — share your palette and theme and we will produce the colourway at scale.",
       "image": "assets/images/products/custom-sapphire.jpg",
-      "b2bTag": "Apna design"
+      "b2bTag": "Made to order"
     }
   ]
 }
