@@ -4,10 +4,10 @@
   "email": "lokeshdugar040@gmail.com",
   "location": "Howrah, West Bengal, India",
   "gst": "Available on request",
-  "heroHeadline": "Handcrafted Jhalars & Festive Hangings — Made to Order in Bulk",
+  "heroHeadline": "Hanging Decor for Events and Businesses",
   "heroIntro": "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
   "heroImage": "assets/images/hero-jhalar.jpg",
-  "siteTitle": "JHALAR | Jhalar & Festive Hangings Manufacturer — Wholesale & Bulk",
+  "siteTitle": "JHALAR | Jhalar and Festive Hangings Manufacturer — Wholesale and Bulk",
   "siteDescription": "Pom pom garlands, floral jhalars, torans, bead and bell hangings — handcrafted in Howrah, made to order and supplied in bulk across India.",
   "ogImage": "assets/images/og-cover.jpg",
   "navItems": [
@@ -94,8 +94,8 @@
   ],
   "faqItems": [
     {
-      "q": "Do you supply decorative hangings in bulk?",
-      "a": "Yes — we focus on bulk supply for event decorators, wholesalers, retailers and organisations."
+      "q": "Do you supply decorative hangings in large quantities?",
+      "a": "Yes — we supply event decorators, wholesalers, retailers and organisations."
     },
     {
       "q": "Can I discuss custom colours and designs?",
@@ -124,7 +124,7 @@
       "href": "#collection"
     },
     "heroSecondary": {
-      "label": "WhatsApp for B2B Enquiry",
+      "label": "Message on WhatsApp",
       "href": "https://wa.me/918100656258"
     },
     "why": {
@@ -134,7 +134,7 @@
       "features": [
         {
           "icon": "icon-mfr",
-          "title": "Factory-Direct Pricing",
+          "title": "Workshop-Direct Pricing",
           "text": "You buy straight from the workshop — no middlemen, sharper prices, faster answers."
         },
         {
@@ -144,15 +144,15 @@
         },
         {
           "icon": "icon-bulk",
-          "title": "Bulk & Wholesale Ready",
+          "title": "Bulk and Wholesale Ready",
           "text": "From a few dozen to several thousand pieces per design — with the same finish from first piece to last."
         }
       ]
     },
     "collection": {
       "label": "Our Collection",
-      "title": "Jhalars, Torans, Tassels & More",
-      "intro": "Sixteen core designs across eight categories — every style produced in bulk quantities.",
+      "title": "Jhalars, Torans, Tassels and More",
+      "intro": "Sixteen core designs across eight categories — all made in our workshop.",
       "note": "Need something specific? "
     },
     "customOrders": {
@@ -167,7 +167,7 @@
         },
         {
           "icon": "icon-ruler",
-          "text": "Size & length options"
+          "text": "Size and length options"
         },
         {
           "icon": "icon-chart",
@@ -181,11 +181,11 @@
           "text": "Tell us the category, quantity, colours and where it will be used."
         },
         {
-          "title": "Confirm Design & Quantity",
+          "title": "Confirm Design and Quantity",
           "text": "We agree the colours, sizing and design references before production."
         },
         {
-          "title": "Receive Quote & Lead Time",
+          "title": "Receive Quote and Lead Time",
           "text": "Get your quote and delivery date — confirm when you're ready."
         }
       ]
@@ -206,7 +206,7 @@
         },
         {
           "icon": "icon-check",
-          "text": "Sampling before bulk production"
+          "text": "Sampling before production runs"
         }
       ]
     },

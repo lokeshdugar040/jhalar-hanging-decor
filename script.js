@@ -8,10 +8,10 @@ let settings = {
   email: "lokeshdugar040@gmail.com",
   location: "Howrah, West Bengal, India",
   gst: "Available on request",
-  heroHeadline: "Handcrafted Jhalars & Festive Hangings — Made to Order in Bulk",
+  heroHeadline: "Hanging Decor for Events and Businesses",
   heroIntro: "Pom pom garlands, floral jhalars, bead and bell hangings, torans and tassels — made to order at our Howrah workshop and supplied in bulk across India.",
   heroImage: "assets/images/hero-jhalar.jpg",
-  siteTitle: "JHALAR | Jhalar & Festive Hangings Manufacturer — Wholesale & Bulk",
+  siteTitle: "JHALAR | Jhalar and Festive Hangings Manufacturer — Wholesale and Bulk",
   siteDescription: "Pom pom garlands, floral jhalars, torans, bead and bell hangings — handcrafted in Howrah, made to order and supplied in bulk across India.",
   ogImage: "assets/images/og-cover.jpg",
   navItems: [{label:"Collection",href:"#collection"},{label:"Custom Orders",href:"#custom-orders"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"},{label:"Contact",href:"#contact"}],
@@ -20,21 +20,21 @@ let settings = {
   sectionCopy: {
     heroTag: {icon:"icon-mfr", text:"Howrah Manufacturer | B2B Supply"},
     heroPrimary: {label:"Explore Product Collection", href:"#collection"},
-    heroSecondary: {label:"WhatsApp for B2B Enquiry", href:"https://wa.me/918100656258"},
+    heroSecondary: {label:"Message on WhatsApp", href:"https://wa.me/918100656258"},
     why: {
       label:"Why JHALAR",
       title:"Factory-Direct, Made to Order, Built to Scale",
       intro:"Everything is made in our own workshop — priced factory-direct and built to order at scale.",
       features:[
-        {icon:"icon-mfr", title:"Factory-Direct Pricing", text:"You buy straight from the workshop — no middlemen, sharper prices, faster answers."},
+        {icon:"icon-mfr", title:"Workshop-Direct Pricing", text:"You buy straight from the workshop — no middlemen, sharper prices, faster answers."},
         {icon:"icon-palette", title:"Made-to-Order Design", text:"Colours, motifs and lengths built to your brief — from brand palettes to festive themes."},
-        {icon:"icon-bulk", title:"Bulk & Wholesale Ready", text:"From a few dozen to several thousand pieces per design — with the same finish from first piece to last."}
+        {icon:"icon-bulk", title:"Bulk and Wholesale Ready", text:"From a few dozen to several thousand pieces per design — with the same finish from first piece to last."}
       ]
     },
     collection: {
       label:"Our Collection",
-      title:"Jhalars, Torans, Tassels & More",
-      intro:"Sixteen core designs across eight categories — every style produced in bulk quantities.",
+      title:"Jhalars, Torans, Tassels and More",
+      intro:"Sixteen core designs across eight categories — all made in our workshop.",
       note:"Need something specific? "
     },
     customOrders: {
@@ -44,14 +44,14 @@ let settings = {
       image:"assets/images/custom-orders.jpg",
       chips:[
         {icon:"icon-palette", text:"Colour matching"},
-        {icon:"icon-ruler", text:"Size & length options"},
+        {icon:"icon-ruler", text:"Size and length options"},
         {icon:"icon-chart", text:"Order quantity planning"}
       ],
       processLabel:"How it works",
       steps:[
         {title:"Share Your Brief", text:"Tell us the category, quantity, colours and where it will be used."},
-        {title:"Confirm Design & Quantity", text:"We agree the colours, sizing and design references before production."},
-        {title:"Receive Quote & Lead Time", text:"Get your quote and delivery date — confirm when you're ready."}
+        {title:"Confirm Design and Quantity", text:"We agree the colours, sizing and design references before production."},
+        {title:"Receive Quote and Lead Time", text:"Get your quote and delivery date — confirm when you're ready."}
       ]
     },
     about: {
@@ -62,7 +62,7 @@ let settings = {
       values:[
         {icon:"icon-check", text:"Hand-finished detailing"},
         {icon:"icon-check", text:"One point of contact, quote to dispatch"},
-        {icon:"icon-check", text:"Sampling before bulk production"}
+        {icon:"icon-check", text:"Sampling before production runs"}
       ]
     },
     faq: {label:"FAQ", title:"Frequently Asked Questions"},
@@ -77,12 +77,12 @@ let settings = {
 
 let theme = {
   colors: {
-    "--colour-jhalar-red": "#C82039",
-    "--colour-jhalar-red-dark": "#A3182E",
-    "--colour-jhalar-red-light": "#E8485F",
-    "--colour-accent-gold": "#C9A84C",
-    "--colour-deep-navy": "#141942",
-    "--colour-warm-cream": "#FFFAF1",
+    "--brand-primary": "#C82039",
+    "--brand-primary-dark": "#A3182E",
+    "--brand-primary-light": "#E8485F",
+    "--brand-accent": "#C9A84C",
+    "--brand-navy": "#141942",
+    "--brand-cream": "#FFFAF1",
     "--brand-background": "#FFFFFF",
     "--brand-alt-background": "#F9F7F4",
     "--brand-text": "#4A4752",
@@ -94,7 +94,7 @@ let theme = {
     "--brand-footer-text": "#FFFFFF"
   },
   fonts: {
-    heading: "'Playfair Display', Georgia, 'Times New Roman', serif",
+    heading: "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     body: "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
   },
   layout: {
@@ -231,36 +231,18 @@ async function loadCustomCSS() {
 }
 
 // ===== APPLIERS =====
-const THEME_COLOR_ALIASES = {
-  '--colour-jhalar-red': ['--red'],
-  '--colour-jhalar-red-dark': ['--red-dark'],
-  '--colour-jhalar-red-light': ['--red-light'],
-  '--colour-accent-gold': ['--gold', '--gold-dark'],
-  '--colour-deep-navy': ['--navy'],
-  '--colour-warm-cream': ['--cream', '--cream-alt'],
-  '--brand-background': ['--white', '--card-bg'],
-  '--brand-alt-background': ['--off-white'],
-  '--brand-text': ['--gray-700', '--body-text'],
-  '--brand-muted': ['--gray-500', '--muted'],
-  '--brand-heading': ['--gray-900', '--heading'],
-  '--brand-border': ['--gray-100', '--gray-200'],
-  '--brand-header-background': ['--header-bg'],
-  '--brand-footer-background': ['--footer-bg'],
-  '--brand-footer-text': ['--footer-text']
-};
-
+// Colors are a single canonical --brand-* set: content/theme.json keys match
+// the tokens used in style.css 1:1, so applyTheme just copies values through.
 function applyTheme() {
   const root = document.documentElement;
   if (theme.colors) {
     Object.entries(theme.colors).forEach(([k,v]) => {
       if (!v) return;
       root.style.setProperty(k, v);
-      const aliases = THEME_COLOR_ALIASES[k] || [];
-      aliases.forEach(alias => root.style.setProperty(alias, v));
     });
   }
   if (theme.fonts) {
-    if (theme.fonts.heading) root.style.setProperty('--serif', theme.fonts.heading);
+    if (theme.fonts.heading) root.style.setProperty('--font-heading', theme.fonts.heading);
     if (theme.fonts.body) root.style.setProperty('--sans', theme.fonts.body);
   }
   if (theme.layout) {
@@ -327,7 +309,7 @@ function applyTheme() {
     root.style.setProperty('--grid-min', l.productColumns === '2' ? '380px' : (l.productColumns === '4' ? '260px' : '300px'));
   }
   const mt = document.querySelector('meta[name="theme-color"]');
-  if (mt && theme.colors && theme.colors['--colour-jhalar-red']) mt.content = theme.colors['--colour-jhalar-red'];
+  if (mt && theme.colors && theme.colors['--brand-primary']) mt.content = theme.colors['--brand-primary'];
   applyRevealMode();
 }
 
@@ -409,9 +391,9 @@ function applySEO() {
 
 function showFallbackProducts() {
   products = [
-    {id:1,title:"Pink Pom Pom Gota Hanging",category:"Pom Pom Hangings",description:"Pink pom poms, gota fans and a finish bell — a bestseller for haldi, mehndi and wedding decor.",image:"assets/images/products/pom-pom-pink-gota.jpg",b2bTag:"Bestseller"},
+    {id:1,title:"Pink Pom Pom Gota Hanging",category:"Pom Pom Hangings",description:"Pink pom poms, gota fans and a finish bell — a firm favourite for haldi, mehndi and wedding decor.",image:"assets/images/products/pom-pom-pink-gota.jpg",b2bTag:"Popular"},
     {id:7,title:"Marigold Floral Jhalar",category:"Floral Jhalars",description:"Full-petal orange marigold jhalar — the standard for Diwali, Durga Puja and weddings.",image:"assets/images/products/floral-marigold-orange.jpg",b2bTag:"Bulk-ready"},
-    {id:5,title:"Pink Blossom Bell Hanging",category:"Bell Hangings",description:"Pink blossoms around a golden temple bell — a signature entrance piece.",image:"assets/images/products/bell-pink-blossom.jpg",b2bTag:"Bestseller"},
+    {id:5,title:"Pink Blossom Bell Hanging",category:"Bell Hangings",description:"Pink blossoms around a golden temple bell — a signature entrance piece.",image:"assets/images/products/bell-pink-blossom.jpg",b2bTag:"Popular"},
     {id:9,title:"Mogra Pearl Door Toran",category:"Torans",description:"Mogra-pearl toran with a bell centrepiece for doorways and stage frames.",image:"assets/images/products/toran-mogra.jpg",b2bTag:"Premium"}
   ];
 }

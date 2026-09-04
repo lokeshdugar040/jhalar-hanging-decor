@@ -1,11 +1,11 @@
 {
   "colors": {
-    "--colour-jhalar-red": "#C82039",
-    "--colour-jhalar-red-dark": "#A3182E",
-    "--colour-jhalar-red-light": "#E8485F",
-    "--colour-accent-gold": "#C9A84C",
-    "--colour-deep-navy": "#141942",
-    "--colour-warm-cream": "#FFFAF1",
+    "--brand-primary": "#C82039",
+    "--brand-primary-dark": "#A3182E",
+    "--brand-primary-light": "#E8485F",
+    "--brand-accent": "#C9A84C",
+    "--brand-navy": "#141942",
+    "--brand-cream": "#FFFAF1",
     "--brand-background": "#FFFFFF",
     "--brand-alt-background": "#F9F7F4",
     "--brand-text": "#4A4752",
@@ -17,7 +17,7 @@
     "--brand-footer-text": "#FFFFFF"
   },
   "fonts": {
-    "heading": "'Playfair Display', Georgia, 'Times New Roman', serif",
+    "heading": "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     "body": "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
   },
   "layout": {

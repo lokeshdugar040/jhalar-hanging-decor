@@ -16,19 +16,19 @@ function defaultSectionCopy() {
   return {
     heroTag: {icon:'icon-mfr', text:'Howrah Manufacturer | B2B Supply'},
     heroPrimary: {label:'Explore Product Collection', href:'#collection'},
-    heroSecondary: {label:'WhatsApp for B2B Enquiry', href:'https://wa.me/918100656258'},
+    heroSecondary: {label:'Message on WhatsApp', href:'https://wa.me/918100656258'},
     why: {
       label:'Why JHALAR', title:'Factory-Direct, Made to Order, Built to Scale',
       intro:'Everything is made in our own workshop — priced factory-direct and built to order at scale.',
       features:[
-        {icon:'icon-mfr', title:'Factory-Direct Pricing', text:'You buy straight from the workshop — no middlemen, sharper prices, faster answers.'},
+        {icon:'icon-mfr', title:'Workshop-Direct Pricing', text:'You buy straight from the workshop — no middlemen, sharper prices, faster answers.'},
         {icon:'icon-palette', title:'Made-to-Order Design', text:'Colours, motifs and lengths built to your brief — from brand palettes to festive themes.'},
-        {icon:'icon-bulk', title:'Bulk & Wholesale Ready', text:'From a few dozen to several thousand pieces per design — with the same finish from first piece to last.'}
+        {icon:'icon-bulk', title:'Bulk and Wholesale Ready', text:'From a few dozen to several thousand pieces per design — with the same finish from first piece to last.'}
       ]
     },
     collection: {
-      label:'Our Collection', title:'Jhalars, Torans, Tassels & More',
-      intro:'Sixteen core designs across eight categories — every style produced in bulk quantities.',
+      label:'Our Collection', title:'Jhalars, Torans, Tassels and More',
+      intro:'Sixteen core designs across eight categories — all made in our workshop.',
       note:'Need something specific? '
     },
     customOrders: {
@@ -37,14 +37,14 @@ function defaultSectionCopy() {
       image:'assets/images/custom-orders.jpg',
       chips:[
         {icon:'icon-palette', text:'Colour matching'},
-        {icon:'icon-ruler', text:'Size & length options'},
+        {icon:'icon-ruler', text:'Size and length options'},
         {icon:'icon-chart', text:'Order quantity planning'}
       ],
       processLabel:'How it works',
       steps:[
         {title:'Share Your Brief', text:'Tell us the category, quantity, colours and where it will be used.'},
-        {title:'Confirm Design & Quantity', text:'We agree the colours, sizing and design references before production.'},
-        {title:'Receive Quote & Lead Time', text:'Get your quote and delivery date — confirm when you\'re ready.'}
+        {title:'Confirm Design and Quantity', text:'We agree the colours, sizing and design references before production.'},
+        {title:'Receive Quote and Lead Time', text:'Get your quote and delivery date — confirm when you\'re ready.'}
       ]
     },
     about: {
@@ -54,7 +54,7 @@ function defaultSectionCopy() {
       values:[
         {icon:'icon-check', text:'Hand-finished detailing'},
         {icon:'icon-check', text:'One point of contact, quote to dispatch'},
-        {icon:'icon-check', text:'Sampling before bulk production'}
+        {icon:'icon-check', text:'Sampling before production runs'}
       ]
     },
     faq: {label:'FAQ', title:'Frequently Asked Questions'},
@@ -79,14 +79,14 @@ function deepMerge(base, over) {
 function defaultThemeTemplate() {
   return {
     colors: {
-      '--colour-jhalar-red':'#C82039','--colour-jhalar-red-dark':'#A3182E','--colour-jhalar-red-light':'#E8485F',
-      '--colour-accent-gold':'#C9A84C','--colour-deep-navy':'#141942','--colour-warm-cream':'#FFFAF1',
+      '--brand-primary':'#C82039','--brand-primary-dark':'#A3182E','--brand-primary-light':'#E8485F',
+      '--brand-accent':'#C9A84C','--brand-navy':'#141942','--brand-cream':'#FFFAF1',
       '--brand-background':'#FFFFFF','--brand-alt-background':'#F9F7F4','--brand-text':'#4A4752',
       '--brand-muted':'#7A7780','--brand-heading':'#1F1D24','--brand-border':'#F0EFEB',
       '--brand-header-background':'#FFFFFF','--brand-footer-background':'#141942','--brand-footer-text':'#FFFFFF'
     },
     fonts: {
-      heading:"'Playfair Display', Georgia, 'Times New Roman', serif",
+      heading:"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
       body:"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
     },
     layout: {
@@ -206,7 +206,7 @@ async function loadPublishedData() {
     state.heroHighlights = state.settings.heroHighlights||[{text:'Colours matched to your brief',icon:'icon-check'},{text:'Event-ready finishing',icon:'icon-clock'},{text:'Fast quotes',icon:'icon-route'}];
     state.trustItems = state.settings.trustItems||[{label:'Own workshop — no middlemen',icon:'icon-mfr'},{label:'Sampling before you commit',icon:'icon-design'},{label:'Dispatched across India',icon:'icon-location'}];
     state.faqItems = state.settings.faqItems||[
-      {q:'Do you supply decorative hangings in bulk?',a:'Yes — we focus on bulk supply for event decorators, wholesalers, retailers and organisations.'},
+      {q:'Do you supply decorative hangings in large quantities?',a:'Yes — we supply event decorators, wholesalers, retailers and organisations.'},
       {q:'Can I discuss custom colours and designs?',a:'Yes, for suitable order quantities. Share a reference photo or your palette and we\'ll develop the design with you.'},
       {q:'How do I get prices for an order?',a:'Use the enquiry form or message us on WhatsApp for prices, samples and lead times.'},
       {q:'Do you work with wholesalers and distributors?',a:'Yes — we supply wholesalers and distributors. Share your business details and the quantities you need.'},
@@ -359,12 +359,12 @@ function populateAllForms() {
   if (state.theme) {
     if (state.theme.colors) {
       const c = state.theme.colors;
-      setVal('ed-color-red', c['--colour-jhalar-red']||'#C82039');
-      setVal('ed-color-red-dark', c['--colour-jhalar-red-dark']||'#A3182E');
-      setVal('ed-color-red-light', c['--colour-jhalar-red-light']||'#E8485F');
-      setVal('ed-color-gold', c['--colour-accent-gold']||'#C9A84C');
-      setVal('ed-color-navy', c['--colour-deep-navy']||'#141942');
-      setVal('ed-color-cream', c['--colour-warm-cream']||'#FFFAF1');
+      setVal('ed-color-red', c['--brand-primary']||'#C82039');
+      setVal('ed-color-red-dark', c['--brand-primary-dark']||'#A3182E');
+      setVal('ed-color-red-light', c['--brand-primary-light']||'#E8485F');
+      setVal('ed-color-gold', c['--brand-accent']||'#C9A84C');
+      setVal('ed-color-navy', c['--brand-navy']||'#141942');
+      setVal('ed-color-cream', c['--brand-cream']||'#FFFAF1');
       setVal('ed-color-bg', c['--brand-background']||'#FFFFFF');
       setVal('ed-color-alt', c['--brand-alt-background']||'#F9F7F4');
       setVal('ed-color-text', c['--brand-text']||'#4A4752');
@@ -376,7 +376,7 @@ function populateAllForms() {
       setVal('ed-color-footer-text', c['--brand-footer-text']||'#FFFFFF');
     }
     if (state.theme.fonts) {
-      setVal('ed-font-heading', state.theme.fonts.heading||"'Playfair Display', Georgia, 'Times New Roman', serif");
+      setVal('ed-font-heading', state.theme.fonts.heading||"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif");
       setVal('ed-font-body', state.theme.fonts.body||"'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif");
     }
     const l = state.theme.layout || {};
@@ -1043,12 +1043,12 @@ function collectAllData() {
   if (!state.theme.fonts) state.theme.fonts = {};
   if (!state.theme.layout) state.theme.layout = {};
   const c = state.theme.colors;
-  c['--colour-jhalar-red'] = getVal('ed-color-red');
-  c['--colour-jhalar-red-dark'] = getVal('ed-color-red-dark');
-  c['--colour-jhalar-red-light'] = getVal('ed-color-red-light');
-  c['--colour-accent-gold'] = getVal('ed-color-gold');
-  c['--colour-deep-navy'] = getVal('ed-color-navy');
-  c['--colour-warm-cream'] = getVal('ed-color-cream');
+  c['--brand-primary'] = getVal('ed-color-red');
+  c['--brand-primary-dark'] = getVal('ed-color-red-dark');
+  c['--brand-primary-light'] = getVal('ed-color-red-light');
+  c['--brand-accent'] = getVal('ed-color-gold');
+  c['--brand-navy'] = getVal('ed-color-navy');
+  c['--brand-cream'] = getVal('ed-color-cream');
   c['--brand-background'] = getVal('ed-color-bg');
   c['--brand-alt-background'] = getVal('ed-color-alt');
   c['--brand-text'] = getVal('ed-color-text');
