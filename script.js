@@ -447,6 +447,13 @@ function filterProducts(cat) {
 }
 
 // ===== UI SETUP =====
+function closeMobileNav() {
+  const toggle = document.querySelector('.mobile-toggle');
+  const nav = document.getElementById('mobile-nav');
+  if (nav) nav.classList.remove('open');
+  if (toggle) toggle.setAttribute('aria-expanded','false');
+}
+
 function setupMobileNav() {
   const toggle = document.querySelector('.mobile-toggle');
   const nav = document.getElementById('mobile-nav');
@@ -456,7 +463,12 @@ function setupMobileNav() {
     toggle.setAttribute('aria-expanded', String(!exp));
     nav.classList.toggle('open');
   });
-  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }));
+  // Delegated: applyNavigation() replaces the menu's innerHTML after this runs,
+  // so listeners bound directly to the anchors would be discarded.
+  nav.addEventListener('click', e => { if (e.target.closest('a')) closeMobileNav(); });
+  // Close on Escape, and when returning to the desktop breakpoint.
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) closeMobileNav(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 900 && nav.classList.contains('open')) closeMobileNav(); });
 }
 
 function setupAccordions() {
@@ -671,10 +683,16 @@ function setupEnquiryForm() {
 }
 
 function setupSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
-    const h = this.getAttribute('href');
-    if (h && h.length > 1) { const t = document.querySelector(h); if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); } }
-  }));
+  // Delegated on document so it keeps working after nav/footer links are re-rendered.
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const h = a.getAttribute('href');
+    if (!h || h.length <= 1) return;
+    let t = null;
+    try { t = document.querySelector(h); } catch(err) { return; }
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  });
 }
 
 // ===== JHALAR API =====
