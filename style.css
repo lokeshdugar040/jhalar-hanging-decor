@@ -172,7 +172,13 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 .filter-btn:hover{border-color:var(--brand-border);color:var(--brand-text)}
 .filter-btn.active{background:var(--brand-primary);border-color:var(--brand-primary);color:var(--brand-background);box-shadow:0 4px 12px rgba(200,32,57,.18)}
 .product-grid{display:grid;grid-template-columns:1fr;gap:var(--product-gap,var(--grid-gap,var(--space-5)))}
-@media(min-width:700px){.product-grid{grid-template-columns:repeat(auto-fit,minmax(min(var(--grid-min,300px),100%),1fr))}}
+/* auto-fit + 1fr stretched a filtered 2-card view to 526px per card. Keep the
+   1fr tracks (so All Products still fits 3 across) but cap the card itself,
+   so a 2-item category shows normal cards instead of two giant ones. */
+@media(min-width:700px){
+  .product-grid{grid-template-columns:repeat(auto-fit,minmax(min(var(--grid-min,300px),100%),1fr));justify-content:center}
+  .product-card{max-width:var(--card-max,420px);width:100%;justify-self:center}
+}
 .product-card{background:var(--brand-background);border:1px solid var(--brand-border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s var(--ease-out);display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(20,25,66,.06),0 1px 3px rgba(20,25,66,.04)}
 .product-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,25,66,.08);border-color:var(--brand-border)}
 .product-card .product-image{aspect-ratio:1/1;overflow:hidden;background:var(--brand-alt-background);position:relative}
