@@ -405,6 +405,16 @@ img{max-width:100%;height:auto;display:block}ul{list-style:none}button{font-fami
 /* Inline links in the contact list / footer were 22-29px tall on phones.
    Give them a comfortable touch height without changing desktop looks. */
 @media(max-width:767.98px){
+  /* Header read as cramped on phones: a 44px logo inside a 72px bar left only
+     ~14px of clearance. Give the bar more height and trim the mark.
+     NOTE: applyTheme() writes theme.json's headerHeight as an INLINE style on
+     :root, which outranks any --header-h we set here. So override the concrete
+     properties (and everything else keyed off the token) directly. */
+  .site-header{height:88px}
+  .brand-mark{height:36px}
+  .mobile-nav{top:88px;max-height:calc(100vh - 88px)}
+  .hero{padding-top:calc(88px + var(--space-7))}
+  html{scroll-padding-top:calc(88px + 24px)}
   .contact-list li{padding:var(--space-3) 0}
   .contact-list li a,.contact-link{display:inline-flex;align-items:center;min-height:44px}
   .footer-col li{margin-bottom:0}
